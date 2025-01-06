@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Place</title>
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/market-place.css" />
+  </head>
+  <body class="w-full h-screen">
+    <main class="w-full h-full flex cm">
+      <!-- Sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-4 pt-0.5 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-4">
+              <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div class="flex-grow border h-100 main">
+        <div class="flex flex-col w-full h-full">
+          <div class="px-9 lg:px-5 py-4">
+            <div class="flex items-center gap-4">
+              <span class="text-lg font-normal text-c-black"
+                >Feature Management</span
+              >
+            </div>
+          </div>
+
+          <!-- top taskbar -->
+          <div
+            class="taskbar bg-no-repeat bg-cover bg-center flex items-center justify-between px-5 md:px-5 lg:px-7 py-4"
+          >
+            <div class="flex items-center justify-between gap-4 w-full">
+              <div class="flex gap-1 sm:gap-2 items-center">
+                <span class="text-c-black font-medium">Market Place</span>
+              </div>
+               <div id="search-bar"
+                class="flex items-center rounded overflow-hidden bg-c-white h-8"
+              >
+                <input
+                  type="search"
+                  class="pl-4  border-none text-c-black outline-none"
+                  placeholder="Search"
+                />
+                <div class="pr-4 flex items-center justify-center">
+                 <i class="ri-search-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="w-full h-full px-5 md:px-5 lg:px-7">
+
+            <!-- Navigation -->
+            <div
+              class="h-14 flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
+            >
+              <label for="license" class="cursor-pointer radio-border">
+                <input
+                  type="radio"
+                  name="type"
+                  id="license"
+                  value="license"
+                  checked
+                />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >User License</span
+                >
+                <div></div>
+              </label>
+              <label for="storage" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="storage" value="storage" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Storage</span
+                >
+                <div></div>
+              </label>
+              <label for="apps" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="apps" value="apps"/>
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Apps</span
+                >
+                <div></div>
+              </label>
+              <label for="books" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="books" value="books" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Books</span
+                >
+                <div></div>
+              </label>
+            </div>
+
+
+            <!-- License Section -->
+            <div class="main-content license-content w-full flex-1 overflow-y-scroll scroll">
+               <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Personalize </span>Your License Options!</h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Take charge of your access with flexible licensing options. Customize permissions to suit your needs and ensure you have the rights that fit your preferences. Purchase and manage your licenses effortlessly, all in one place.</p>
+               </div>
+
+               <!-- Cards -->
+               <section class="flex flex-col sm:flex-row items-center justify-center gap-10">
+                    <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Starter User</span>
+                        <span class="price text-xl font-medium">&#8377; 300/month</span>
+                        <span class="text-xs font-light text-center">Begin with core features at an affordable price, simple and efficient.</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" id="quantity" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="starter">Buy now</button>
+                        </div>
+                    </div>
+                     <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Enhanced User</span>
+                        <span class="price text-xl font-medium">&#8377; 600/month</span>
+                        <span class="text-xs font-light text-center">Unlock additional tools and features for greater flexibility and control.</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="enhanced">Buy now</button>
+                        </div>
+                    </div>
+                    <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Premium User</span>
+                        <span class="price text-xl font-medium">&#8377; 900/month</span>
+                        <span class="text-xs font-light text-center">Get top-tier access to all features with personalized support and full control.</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="premium">Buy now</button>
+                        </div>
+                    </div>
+               </section>
+
+                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl">Secure and Easy <span class="font-medium">Payments </span></h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">We accept all major credit and debit cards for secure, hassle-free payments. Enjoy fast, efficient transactions with enhanced payment security. Shop confidently with our reliable and user-friendly payment process.</p>
+               </div>
+            </div>
+
+
+
+             <!-- Storage Section -->
+            <div class="main-content storage-content w-full flex-1 overflow-y-scroll scroll hidden"
+            >
+                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Custom </span>your storage!</h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Your files deserve a secure home. Upgrade to more storage for work, memories, or projects. Our flexible plans ensure you’ll always have enough space. Pick a plan today and enjoy stress-free storage!</p>
+               </div>
+
+               <!-- Cards -->
+               <section class="flex flex-col sm:flex-row items-center justify-center gap-10">
+                    <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Starter User</span>
+                        <span class="price text-xl font-medium">&#8377; 300/month</span>
+                        <span class="text-xs font-light text-center">Securely store important documents, photos, and small files seamlessly.</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 1GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" id="quantity" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="starter">Buy now</button>
+                        </div>
+                    </div>
+                     <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Enhanced User</span>
+                        <span class="price text-xl font-medium">&#8377; 600/month</span>
+                        <span class="text-xs font-light text-center">For larger files and frequent uploads, providing extra space and flexibility</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 10GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn " data-plan="enhanced">Buy now</button>
+                        </div>
+                    </div>
+                    <div class="cards w-44 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
+                        <span class="text-sm font-medium">Premium User</span>
+                        <span class="price text-xl font-medium">&#8377; 900/month</span>
+                        <span class="text-xs font-light text-center">Best for heavy users with ample capacity for large media files and projects.</span>
+                        <span class="selected-storage text-sm font-medium">Selected: 100GB</span>
+                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
+                            <button class="quantity-btn decrement">-</button>
+                            <input type="text" class="quantity-input" value="1">
+                            <button class="quantity-btn increment">+</button>
+                        </div>
+                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
+                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="premium" >Buy now</button>
+                        </div>
+                    </div>
+               </section>
+
+                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl">Secure and Easy <span class="font-medium">Payments </span></h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">We accept all major credit and debit cards for secure, hassle-free payments. Enjoy fast, efficient transactions with enhanced payment security. Shop confidently with our reliable and user-friendly payment process.</p>
+               </div>
+            </div>
+
+
+
+             <!-- apps Section -->
+            <div class="main-content apps-content w-full overflow-y-scroll scroll hidden">
+
+              <!-- Apps -->
+              <div id="apps-section" class="apps-section pb-20">
+                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Browse, </span>Buy, or Get Free Apps!</h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Discover a variety of apps to enhance your device. Choose from free downloads or premium options to suit your needs. Enjoy seamless access to your favorite apps, anytime, anywhere.</p>
+              </div>
+              <section class="flex justify-center pb-10">
+                <div id="dynamic-apps" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+              </div>
+              </section>
+              </div>
+
+              <!-- Buy Section -->
+              <div class="buy-section px-2 md:px-6 hidden">
+
+                  <div class="flex flex-col-reverse sm:flex-row items-center justify-center mt-10">
+                    <div class="w-full mt-4 sm:mt-0 sm:w-3/5 flex flex-col items-start space-y-1">
+                      <h1 class="text-xl md:text-3xl fontsemi-bold">Enterprise Resource Planning</h1>
+                      <span class="text-lg md:text-xl fontsemi-bold">ERP</span>
+                      <span class="text-xs md:text-sm font-normal">It’s a software system that includes all the tools and processes required to run a successful company, including HR, manufacturing, supply chain, finance, accounting, and more.</span>
+                      <section class="flex gap-1 md:gap-5 pt-4">
+                        <img class="w-10 h-10" src="/images/ERP-2.png" alt="ERP">
+                        <div class="flex flex-col justify-center items-center border-r border-gray-3 px-2 md:px-4">
+                          <span class="text-xs md:text-sm font-medium">4.6 &#11088;</span>
+                          <span class="text-xs md:text-sm font-normal">300 ratings</span>
+                        </div>
+                        <div class="flex flex-col  justify-center items-center border-r border-gray-3 px-2 md:pr-5">
+                          <span class="text-xs md:text-sm font-medium">100</span>
+                          <span class="text-xs md:text-sm font-normal">Downloads</span>
+                        </div>
+                        <div class="flex flex-col justify-center items-center text-sm">
+                          ₹ 50.00
+                        </div>
+                      </section>
+                      <section class="flex items-center gap-4 pt-5">
+                        <div class="buttons border border-c-yellow flex items-center justify-center">
+                          <button class="bg-c-yellow h-full w-3/4">Install</button>
+                          <i class="ri-arrow-drop-down-line ri-lg w-1/4 text-center"></i>
+                        </div>
+                        <div class="buttons">
+                          <button class="bg-c-black text-c-yellow h-full w-full rounded">Buy Now</button>
+                        </div>
+                       <div class="buttons relative">
+                          <button id="qtyButton" class="bg-c-gray-3 text-c-black h-full w-full rounded flex items-center justify-between px-8 py-2">
+                            <span>Qty:</span> 
+                            <span id="qtyValue" class="text-sm font-medium">1</span>
+                            <i class="ri-arrow-drop-down-line ri-lg"></i>
+                          </button>
+                        </div>
+
+                      </section>
+                    </div>
+                    <div class="flex items-center justify-center gap-3 w-full sm:w-2/5">
+                      <div class="w-48 h-60 rounded-3xl bg-c-black flex items-center justify-center">
+                        <img src="/images/screenshot-2.png" alt="screenshot" class="transform -rotate-45">
+                      </div>
+                       <div class="w-48 h-60 rounded-3xl bg-c-yellow flex items-center justify-center">
+                          <img src="/images/screenshot-2.png" alt="screenshot" class="transform rotate-45">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-end px-5 md:px-10 py-4 gap-3">
+                    <div id="go-back-button" class="cursor-pointer w-8 h-8 bg-c-black rounded-full flex items-center justify-center text-c-yellow">
+                      <i class="ri-arrow-left-wide-line"></i>
+                    </div>
+                      <div class="w-8 h-8 bg-c-black rounded-full flex items-center justify-center text-c-yellow">
+                      <i class="ri-arrow-right-wide-line"></i>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col sm:flex-row items-center justify-center pt-5 xl:pt-10 pb-20">
+                    <div class="w-full sm:w-1/2">
+                      <div class="flex items-center px-10 relative">
+                        <div class="xl:w-72 xl:h-60 w-48 h-48 rounded-2xl bg-c-yellow">
+
+                        </div>
+                        <div class="xl:w-72 xl:h-60 w-48 h-48 rounded-2xl bg-c-black absolute top-14 left-1/4">
+
+                        </div>
+                      </div>
+                    </div>  
+                    <div class="w-full mt-16 sm:mt-0 sm:w-1/2 flex flex-col items-start space-y-2">
+                      <span class="font-semibold text-base">
+                        About this App
+                      </span>
+                      <span class="font-normal text-sm">
+                        Lorem ipsum dolor sit amet. Qui nesciunt laboriosam et minus architecto aut inventore voluptatem quo veniam voluptatem id dolorem quod eos adipisci deserunt ab amet minima. Aut culpa minima et accusamus commodi non Quis nostrum et rerum illo sit minima consequuntur ut laboriosam maxime a rerum voluptatum. Qui neque adipisci qui excepturi magnam in rerum velit non rerum iusto.Lorem ipsum dolor sit amet. Qui nesciunt laboriosam et minus architecto aut inventore voluptatem quo veniam voluptatem id dolorem quod eos adipisci deserunt ab amet minima. Aut culpa minima et accusamus commodi non Quis nostrum et rerum illo sit minima consequuntur ut laboriosam maxime a rerum voluptatum. Qui neque adipisci qui excepturi magnam in rerum velit non rerum iusto.
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-col items-start pb-16">
+                    <span class="font-semibold text-2xl">Ratings and reviews</span>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="flex space-x-1">
+                          <span class="text-c-yellow text-4xl">&#9733;</span>
+                          <span class="text-c-yellow text-4xl">&#9733;</span>
+                          <span class="text-c-yellow text-4xl">&#9733;</span>
+                          <span class="text-c-yellow text-4xl">&#9733;</span>
+                          <span class="text-gray-300 text-4xl">&#9733;</span>
+                        </div>
+                        <span class="text-sm font-medium">4 out of 5</span>
+                      </div>
+
+                      <!-- Rating Breakdown -->
+                      <div class="space-y-2">
+                        <div class="flex items-center space-x-2 ">
+                          <span class="font-medium">5 star</span>
+                          <div class="w-64 bg-c-gray-3 rounded-full h-2.5">
+                            <div class="bg-c-yellow h-2.5 rounded-full" style="width: 80%;"></div>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <span class="font-medium">4 star</span>
+                          <div class="w-64 bg-c-gray-3 rounded-full h-2.5">
+                            <div class="bg-c-yellow h-2.5 rounded-full" style="width: 60%;"></div>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <span class="font-medium">3 star</span>
+                          <div class="w-64 bg-c-gray-3 rounded-full h-2.5">
+                            <div class="bg-c-yellow h-2.5 rounded-full" style="width: 40%;"></div>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <span class="font-medium">2 star</span>
+                          <div class="w-64 bg-c-gray-3 rounded-full h-2.5">
+                            <div class="bg-c-yellow h-2.5 rounded-full" style="width: 20%;"></div>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <span class="font-medium">1 star</span>
+                          <div class="w-64 bg-c-gray-3 rounded-full h-2.5">
+                            <div class="bg-c-yellow h-2.5 rounded-full" style="width: 10%;"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mt-4">
+                        <span class="text-sm text-c-gray-2">6 Reviews</span>
+                      </div>
+
+                      <!-- Review Section -->
+                      <div class="mt-6 pt-4">
+                        <div class="flex space-x-4 items-start">
+                          <img src="/images/review.png" alt="Reviewer" class="w-12 h-12 rounded-full">
+                          <div>
+                            <div class="flex flex-col items-start space-x-1">
+                              <span class="text-c-gray-2 font-medium">Manoj Adhyai Siri</span>
+                              <div class="flex items-center justify-center space-x-1">
+                                <span class="text-yellow-400">&#9733;</span>
+                                <span class="text-yellow-400">&#9733;</span>
+                                <span class="text-yellow-400">&#9733;</span>
+                                <span class="text-yellow-400">&#9733;</span>
+                                <span class="text-gray-300">&#9733;</span>
+                                <span class="text-sm text-c-gray-2 font-medium">August 11, 2024</span>
+                              </div>
+                            </div>
+                            <p class="mt-2 text-c-gray-2 text-sm leading-relaxed">
+                              Lorem ipsum dolor sit amet. Qui nesciunt laboriosam et minus architecto aut inventore voluptatem quo veniam voluptatem id 
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-4 text-c-sky text-sm cursor-pointer">
+                        See all reviews
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+
+
+             <!-- Book Section -->
+            <div class="main-content book-content w-full flex-1 overflow-y-scroll scroll hidden">
+
+              <!-- Book Section -->
+              <div id="books-section" class="books-section pb-20">
+                 <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Browse, </span>Buy, or Get Free Books!</h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Discover a variety of apps to enhance your device. Choose from free downloads or premium options to suit your needs. Enjoy seamless access to your favorite apps, anytime, anywhere.</p>
+              </div>
+              <section class="flex justify-center pb-10">
+                <div id="dynamic-books" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+              </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Thank you Popup -->
+      <div
+        role="dialog"
+        class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
+      >
+        <div
+          class="bg-c-black rounded-lg overflow-hidden shadow-lg max-w-lg h-[282px] w-full modal-content"
+        >
+        <div class="flex flex-col items-center justify-center space-y-3 sm:space-y-5 py-10">
+          <span class="text-c-yellow font-normal text-2xl sm:text-3xl">Thank you!</span>
+          <span class="text-lg font-normal text-c-yellow text-center">Your payment has been received successfully.</span>
+          <div class="w-72 sm:w-96 h-[76px] bg-yellow-gradient rounded px-3 py-5 text-center">
+            <p class="text-xs sm:text-sm font-normal leading-[16px]">
+              We appreciate your trust. A confirmation has been sent to your email. Thank you for choosing us!
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+       <!-- Quantity Popup -->
+      <div id="qtyPopup" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+        <div class="bg-c-lighten-gray shadow-md rounded-2xl w-80 overflow-hidden ">
+          <div class="py-4 px-5">
+            <div class="flex justify-between items-center px-2 border-b border-c-light-gray1 pb-3">
+              <h2 class="text-lg font-medium">Select Quantity</h2>
+              <i id="closePopup" class="ri-close-circle-fill ri-md cursor-pointer"></i>
+            </div>
+          </div>
+
+          <div class="py-2 px-8 grid grid-cols-5 gap-y-3 gap-x-1">
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-yellow text-lg" data-value="1">1</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="2">2</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="3">3</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="4">4</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="5">5</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="6">6</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="7">7</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="8">8</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="9">9</button>
+            <button class="qtyOption w-9 h-9 rounded-full border border-c-light-gray" data-value="10">10</button>
+          </div>  
+
+          <div id="doneButton" class="py-1 px-6 my-4 bg-c-black text-center text-c-yellow font-medium cursor-pointer">
+            Done
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Gateway Popup -->
+       <div id="payment-gateway" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+        <div class="bg-c-dark-white border border-gray-3 shadow-md rounded-2xl max-w-5xl w-full h-3/4 overflow-y-scroll scroll flex flex-col-reverse sm:flex-row sm:items-center sm:justify-center">
+
+           <!-- Payment Details Section -->
+          <div class="lg:w-1/2 w-full h-full flex flex-1 flex-col">
+            <div class="flex items-center border-r border-b border-gray-3 justify-center h-24 w-full">
+              <span class="font-medium text-lg text-black">Enter your payment details</span>
+            </div>
+            <div class="border-r border-gray-3 flex-1 py-6 px-10">
+              <span class="font-medium text-lg">Pay With</span>
+              <div class="flex items-center gap-4 pb-5 pt-2">
+                 <div>
+                    <label class="flex items-center gap-2">
+                      <input type="radio" name="custom-radio" value="option1" checked>
+                      <span class="custom-radio"></span>
+                      <span class="text-c-black text-sm">Card</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="flex items-center gap-2">
+                      <input type="radio" name="custom-radio" value="option2">
+                      <span class="custom-radio"></span>
+                      <span class="text-c-black text-sm">Bank Transfer</span>
+                    </label>
+                  </div>
+              </div>
+             <div class="space-y-4 card-details">
+                <!-- Card Number Input -->
+                <input type="text" id="card-number" required class="w-full bg-c-lighten-gray border border-gray-3 text-c-black font-light text-sm rounded-xl block py-2 px-4 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="5399 0000 0000 0000" />
+
+
+                <!-- Expiry Date and CVV -->
+                <div class="flex items-center gap-5">
+                  <!-- Expiration Date (Password-like) -->
+                <input type="tel" id="expiration-date" required class="w-3/5 bg-c-lighten-gray border border-gray-3 text-c-black font-light text-sm rounded-xl block py-2 px-4 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Expiration date" maxlength="5" />
+
+                  
+                  <!-- CVV (Password-like) -->
+                <input type="password" id="cvv" required class="w-2/5 bg-c-lighten-gray border border-gray-3 text-c-black font-light text-sm rounded-xl block py-2 px-4 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="CVV" maxlength="3" />
+
+                </div>
+
+                <!-- Name on Payment Method -->
+                <input type="text" required class="w-full bg-c-lighten-gray border border-gray-3 text-c-black font-light text-sm rounded-xl block py-2 px-4 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Name on payment method" />
+
+                <small id="error" class="text-red-500"></small>
+
+                <!-- Save Card Details -->
+                <div class="flex items-center gap-3">
+                  <input type="checkbox" class="c-checkbox">
+                  <span class="text-sm font-light">Save card details</span>
+                </div>
+
+              </div>
+
+              <div id="Otp-section" class="flex flex-col items-center justify-center hidden">
+                <span class="font-normal text-sm">Enter your 4- digit card pin to confirm this payment</span>
+                <div class="flex items-center gap-4 py-4">
+                   <input type="text" required class="w-10 bg-c-lighten-gray border border-gray-3 text-c-black font-medium text-sm rounded block py-2 text-center  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white otp-input" maxlength="1" placeholder="" />
+                   <input type="text" required class="w-10 bg-c-lighten-gray border border-gray-3 text-c-black font-medium text-sm rounded block py-2 text-center  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white otp-input" maxlength="1" placeholder="" />
+                   <input type="text" required class="w-10 bg-c-lighten-gray border border-gray-3 text-c-black font-medium text-sm rounded block py-2 text-center  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white otp-input" maxlength="1" placeholder="" />
+                   <input type="text" required class="w-10 bg-c-lighten-gray border border-gray-3 text-c-black font-medium text-sm rounded block py-2 text-center  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white otp-input" maxlength="1" placeholder="" />
+                </div>
+              </div>
+              <div class="space-y-4 pt-6">
+                <button id="pay" class="w-full h-10 bg-c-green rounded text-white font-normal">Pay Rupees 600</button>
+               <button id="cancel-pay" class="w-full h-10 bg-c-gray-9 rounded text-white font-normal hidden">Cancel Transfer</button>
+              </div>
+              <p id="info" class="text-xs font-light leading-4 pt-2 hidden">
+                Your payment is secure. We use encryption to protect your card details and ensure a safe transaction. Your privacy is our priority. Shop with confidence knowing your data is safe with us.
+              </p>
+            </div>
+          </div>  
+
+          <!-- Order Summary Section -->
+          <div class="w-full lg:w-1/2 h-full flex-1 flex flex-col">
+             <div class="flex items-center border-b border-gray-3 justify-center h-24 w-full">
+              <span class="font-medium text-lg text-black">Order Summary</span>
+            </div>
+            <div class="order-summary flex-1 py-7 px-10 space-y-9">
+              <div class="flex flex-col gap-1">
+                <span class="plan-name font-medium text-lg">Starter User Plan</span>
+                <span class="text-sm font-normal">Billing cycle</span>
+              </div>
+              <div class="w-full flex items-start">
+                <div class="flex flex-col gap-2 w-1/2">
+                  <span class="selected-gb text-sm font-normal">100 GB Storage</span>
+                  <span class="text-xs font-light">For larger files and frequent uploads, providing extra space and flexibility</span>
+                </div>
+                <div class="selected-package w-1/2 flex justify-end">
+                  <span>&#8377; </span>
+                </div>
+              </div>
+              <div class="border-b border-gray-3"></div>
+              <div class="w-full flex items-start">
+                <div class="flex flex-col gap-2 w-1/2">
+                  <span class="text-sm font-normal">Subtotal</span>
+                  <span class="text-xs font-light">See your total (including taxes) in Review</span>
+                </div>
+                <div class="total w-1/2 flex justify-end">
+                  <span>&#8377; 600/month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+       </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="script/sidebar.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        // Navbar Selection Code
+
+        $('input[name="type"]').on("change", function () {
+          var selectedValue = $(this).val();
+
+          // Hide all content divs
+          $(".main-content").addClass("hidden");
+
+          // Show the selected div
+          if (selectedValue === "license") {
+            $(".license-content").removeClass("hidden");
+          } else if (selectedValue === "storage") {
+            $(".storage-content").removeClass("hidden");
+          } else if (selectedValue === "apps") {
+            $(".apps-content").removeClass("hidden");
+          } else if (selectedValue === "books") {
+            $(".book-content").removeClass("hidden");
+          }
+        });
+
+
+      //  Selected Storage
+        $('.quantity-container').each(function () {
+          let container = $(this);
+          container.find('.increment').click(function () {
+            let input = container.find('.quantity-input');
+            let value = parseInt(input.val());
+            input.val(value + 1);
+            container.siblings('.selected-span').text('Selected: ' + (value + 1) +" "+ 'GB');
+          });
+          container.find('.decrement').click(function () {
+            let input = container.find('.quantity-input');
+            let value = parseInt(input.val());
+            if (value > 1) {
+              input.val(value - 1);
+              container.siblings('.selected-span').text('Selected: ' + (value - 1) +" " + 'GB');
+            }
+          });
+        })
+
+
+        // Apps show
+  const apps = [
+    { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/social.png', title: 'Social Next', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/chat.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/ERP-2.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/social.png', title: 'Social Next', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/chat.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/ERP-2.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 250.00' }
+  ];
+  $.each(apps, function (index, app) {
+    const buttonText = app.price === '₹ 0.00' ? 'Free' : 'Buy Now';
+
+    const div = `
+      <div class="highlight w-44 h-56 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 space-y-2">
+        <div class="w-16 h-16">
+          <img src="${app.img}" alt="${app.title}">
+        </div>
+        <span class="text-lg font-medium">${app.title}</span>
+        <div><span>${app.rating} &#11088;</span> <span>${app.price}</span></div>
+        <button class="w-36 py-1 bg-c-black text-c-yellow text-lg rounded box-shadow-1 app-button" data-title="${app.title}">${buttonText}</button>
+      </div>
+    `;
+    $('#dynamic-apps').append(div);
+  });
+
+$(document).on('click', '.app-button', function() {
+  const appTitle = $(this).data('title');
+  handleAppClick(appTitle);
+});
+
+
+function handleAppClick(appTitle) {
+
+  // Hide the apps section
+  $('#apps-section').hide();
+
+  // Show the buy section
+  $('.buy-section').show();
+
+  // Optionally, you can update the buy section with details about the selected app
+  // $('.buy-section').html(`
+  //   <h2 class="text-xl">You selected: ${appTitle}</h2>
+  //   <p>Details about ${appTitle} and how to proceed with the purchase or free download...</p>
+  //   <button id="go-back-button">Go Back</button>
+  // `);
+
+   $('#go-back-button').on('click', function() {
+    goBackToApps();
+  });
+}
+
+// Function to go back to the apps section
+function goBackToApps() {
+  // Show the apps section
+  $('#apps-section').show();
+
+  // Hide the buy section
+  $('.buy-section').hide();
+}
+
+
+//  Book Show
+ const books = [
+    { img: '/images/business-book.png', title: 'Business Strategy', rating: '4.6', price: '₹ 25.00' },
+    { img: '/images/god-book.png', title: 'My God', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/chat-book.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/erp-book.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/erp-book.png', title: 'Email', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/erp-book.png', title: 'Email', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/social-book.png', title: 'Social Next', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/social-book.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
+    { img: '/images/social-book.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
+    { img: '/images/erp-book.png', title: 'Email', rating: '4.6', price: '₹ 250.00' }
+  ];
+
+
+  $.each(books, function (index, book) {
+    const buttonText = book.price === '₹ 0.00' ? 'Free' : 'Buy Now';
+
+    const div = `
+      <div class="highlight w-44 h-56 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 space-y-2">
+        <div class="w-16 h-16 flex items-center justify-center">
+          <img src="${book.img}" alt="${book.title}">
+        </div>
+        <span class="text-lg font-medium">${book.title}</span>
+        <div><span>${book.rating} &#11088;</span> <span>${book.price}</span></div>
+        <button class="w-36 py-1 bg-c-black text-c-yellow text-lg rounded box-shadow-1">${buttonText}</button>
+      </div>
+    `;
+    $('#dynamic-books').append(div);
+  });
+
+
+  // Buy section Quantity popup up function
+  $('#qtyButton').on('click', function() {
+      $('#qtyPopup').removeClass('hidden');
+    });
+
+    $('.qtyOption').on('click', function() {
+      var selectedValue = $(this).data('value');
+      $('#qtyValue').text(selectedValue);
+      $('.qtyOption').removeClass('border-c-yellow').addClass('border-c-light-gray');
+      $(this).addClass('border-c-yellow').removeClass('border-c-light-gray');
+    });
+
+    $('#doneButton, #closePopup').on('click', function() {
+      $('#qtyPopup').addClass('hidden');
+    });
+
+
+    // Card Details
+$('#card-number').on('input', function() {
+
+  let cardValue = $(this).val().replace(/\D/g, '');
+  
+  if (cardValue.length > 16) {
+    cardValue = cardValue.substring(0, 16);
+  }
+
+  $(this).val(cardValue);
+});
+
+// Select the expiration date input field
+$('#expiration-date').on('input', function() {
+  let expirationValue = $(this).val().replace(/\D/g, '');
+
+  // Limit the input to 5 characters (MM/YY format)
+  if (expirationValue.length > 4) {
+    expirationValue = expirationValue.substring(0, 4);
+  }
+
+  // Format the value as MM/YY
+  if (expirationValue.length > 2) {
+    expirationValue = expirationValue.substring(0, 2) + '/' + expirationValue.substring(2);
+  }
+
+  $(this).val(expirationValue);
+});
+
+
+// Select the CVV input field
+$('#cvv').on('input', function() {
+  let cvvValue = $(this).val().replace(/\D/g, '');
+
+  // Limit the input to 3 digits (CVV format)
+  if (cvvValue.length > 3) {
+    cvvValue = cvvValue.substring(0, 3);
+  }
+
+  $(this).val(cvvValue);
+});
+
+// Restrict the input to only numbers
+$('.otp-input').on('input', function(e) {
+  // Allow only numeric input and ensure only one character is entered
+  var value = $(this).val().replace(/\D/g, '');
+  $(this).val(value); 
+
+  // Automatically move to the next input when a value is entered
+  if (value.length === 1) {
+    var nextInput = $(this).next('.otp-input');
+    if (nextInput.length) {
+      nextInput.focus();
+    }
+  }
+});
+
+// Prevent backspace from removing the previous input value
+$('.otp-input').on('keydown', function(e) {
+  if (e.key === 'Backspace' && $(this).val().length === 0) {
+    var prevInput = $(this).prev('.otp-input');
+    if (prevInput.length) {
+      prevInput.focus();
+    }
+  }
+});
+
+
+
+// When the "Pay" button is clicked
+$('#pay').click(function() {
+  // Check if the form fields are filled (basic validation)
+  const cardNumber = $('#card-number').val();
+  const expirationDate = $('#expiration-date').val();
+  const cvv = $('#cvv').val();
+  const name = $('input[placeholder="Name on payment method"]').val();
+
+  if (cardNumber && expirationDate && cvv && name) {
+    // Hide card details section
+    $('.card-details').hide();
+
+    // Show the hidden PIN input section
+    $('#Otp-section').removeClass('hidden');
+    $('#cancel-pay').removeClass('hidden');
+    $('#info').removeClass('hidden');
+  } else {
+    $('#error').text("Please fill out all payment details.")
+  }
+});
+
+
+    // When the "Buy now" button is clicked
+    $('.buy-btn').click(function() {
+        
+        var plan = $(this).data('plan');
+        var card = $(this).closest('.cards');
+        var selectedGB = card.find('.quantity-input').val();
+        var price = card.find('.price').text();
+        
+        // Show the payment gateway modal
+        $('#payment-gateway').removeClass('hidden');
+        
+        // Update the content in the payment gateway according to the selected plan
+          switch(plan) {
+        case 'starter':
+            updatePaymentGateway('Starter User Plan', selectedGB + ' GB', price , "300");
+            break;
+        case 'enhanced':
+            updatePaymentGateway('Enhanced User Plan', selectedGB + ' GB', price, "600");
+            break;
+        case 'premium':
+            updatePaymentGateway('Premium User Plan', selectedGB + ' GB', price, "900");
+            break;
+    }
+    });
+    
+   
+    function updatePaymentGateway(planName, storage, price,pay) {
+       
+        $('.order-summary .plan-name').text(planName);
+        $('.order-summary .selected-gb').text(storage);
+        $('.order-summary .selected-package').text(price);
+        $('.total').text(price);
+        $('#pay').text("Pay Rupees" + " " + pay);
+    }
+
+    // Hide the payment gateway when the user cancels
+    $('#cancel-pay').click(function() {
+        $('#payment-gateway').addClass('hidden');
+    });
+
+const Gateway = $('#payment-gateway');  // Corrected ID
+
+$(window).click(function(event) {
+    if (event.target == Gateway[0]) {  // Compare with DOM element using [0]
+        $(Gateway).addClass('hidden');
+    }
+});
+
+
+
+
+
+      });
+    </script>
+    
+  </body>
+</html>

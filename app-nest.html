@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Nest</title>
+    <link rel="stylesheet" href="styles/custom.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css">
+  </head>
+  <body class="h-screen w-full">
+       <!-- Taskbar -->
+        <div class="taskbar-slide h-16 flex items-center w-full absolute">
+        
+            <div class="flex justify-center ml-10 w-full relative h-full" id="toolbar">
+              <div class="bg absolute w-full  bottom-0">
+                <img id="shelf" class="w-full" src="images/shelf.png" alt="">
+              </div>
+            </div>
+            <div class="flex items-center gap-8 w-48 justify-end pr-5">
+                <i id="search-icon" class="ri-search-line "></i>
+                <i id="notification-icon" class="ri-notification-3-line "></i>
+                <i id="pinned" class="ri-pushpin-line"></i>
+                <i onclick="startGuide()" class="ri-question-line cursor-pointer"></i>
+            </div>
+          
+        </div>
+    <main class="flex w-full h-full cm lightapp">
+      <!-- Sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-6 -right-8 px-1"
+        >
+           <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+           <div class="sidebar-container">
+          <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+          </div>
+          <div class="sidebar-content">
+            <ul class="space-y-1">
+              <li class="all-tab">
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span id="All" class="text-base font-normal">All</span>
+                </a>
+              </li>
+              <li>
+                <a class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center" href="#">
+                  <span class="text-base font-normal"> Tool </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span class="text-base font-normal"> Game </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span class="text-base font-normal"> Movie </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span class="text-base font-normal"> Music </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span class="text-base font-normal"> Life </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                  href="#"
+                >
+                  <span class="text-base font-normal"> Others </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+       
+      </aside>
+
+      <!-- Main content -->
+      <div class="right-container flex-grow border h-100 main">
+        <div class="flex w-full h-full flex-col content">
+          <div class="px-9 py-4 lg:p-4">
+            <div class="flex items-center gap-4">
+              <img
+                class="w-12 h-12"
+                src="/images/appnest.png"
+                alt="Light Image"
+              />
+              <span class="text-xl font-normal mb-2 text-c-black">App Nest</span>
+            </div>
+          </div>
+
+          <!-- top taskbar -->
+          <div class="taskbar flex items-center justify-between px-3 sm:px-6 py-3">
+            <div class="flex items-center gap-4 w-full md:w-1/2">
+              <div class="flex gap-2 items-center">
+                <span class="font-medium text-c-black">All</span>
+              </div>
+            </div>
+
+            <div class="flex-grow md:w-1/2">
+              <div class="flex items-center justify-end ">
+                <div>
+                  <button
+                  id="create-btn"
+                    type="button"
+                    class="bg-c-black text-c-yellow px-5 py-1.5 sm:px-8 sm:py-2 rounded openCreateModalButton"
+                  >
+                    <span class="text-sm sm:text-base">Create appnest application</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- content -->
+          <div class="lightapp-content relative h-full overflow-y-auto">
+            <div class="flex flex-wrap flex-row justify-center sm:justify-start gap-7 md:gap-5 py-3 px-2 md:px-4 lg:px-6">
+              <div id="ppt-container" class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                    <img class="w-14 h-14" src="images/pptx.png" alt="pptx Image">
+                </div>
+                <h1 class="font-medium text-c-black text-lg">PPT</h1>
+                <div> 
+                    <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                        <div class="flex items-center justify-center w-full">
+                        Add
+                      </div>
+                      <div class="bg-white py-1 px-2">
+                        <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                    
+                    
+                    </button>
+
+                    <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                          </li>
+                          <li>
+                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                    <img class="w-14 h-14" src="images/ExcelFile.png" alt="pptx Image">
+                </div>
+                <h1 class="font-medium text-lg text-c-black">Excel</h1>
+                <div> 
+                    <button id="dropdownDefaultButton2" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                      <div class="flex items-center justify-center w-full">
+                        Add
+                      </div>
+                      <div class="bg-white py-1 px-2">
+                        <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                    </button>
+
+                    <div id="dropdown2" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                          </li>
+                          <li>
+                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                    <img class="w-14 h-14" src="images/ERP.png" alt="pptx Image">
+                </div>
+                <h1 class="font-medium text-lg text-c-black">ERP</h1>
+                <div> 
+                    <button id="dropdownDefaultButton3" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                      <div class="flex items-center justify-center w-full">
+                        Add
+                      </div>
+                      <div class="bg-white py-1 px-2">
+                        <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                    </button>
+
+                    <div id="dropdown3"class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                          </li>
+                          <li>
+                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                    <img class="w-14 h-14" src="images/mail.png" alt="pptx Image">
+                </div>
+                <h1 class="font-medium text-lg text-c-black">Mail</h1>
+                <div> 
+                    <button id="dropdownDefaultButton4" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                      <div class="flex items-center justify-center w-full">
+                        Add
+                      </div>
+                      <div class="bg-white py-1 px-2">
+                        <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                    </button>
+
+                    <div id="dropdown4" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                          </li>
+                          <li>
+                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                    <img class="w-14 h-14" src="images/Chatapp.png" alt="pptx Image">
+                </div>
+                <h1 class="font-medium text-lg text-c-black">Chat</h1>
+                <div> 
+                    <button id="dropdownDefaultButton5" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                      <div class="flex items-center justify-center w-full">
+                        Add
+                      </div>
+                      <div class="bg-white py-1 px-2">
+                        <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                    </button>
+
+                    <div id="dropdown5" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          <li>
+                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                          </li>
+                          <li>
+                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Create Button Modal -->
+    <div
+      id="Create-modal"
+      role="dialog"
+      tabindex="-1"
+      aria-hidden="true"
+      class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-y-scroll"
+    >
+      <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <div id="createapp-modal" class="relative bg-white rounded-xl shadow dark:bg-gray-700">
+          <div
+            class="flex items-start justify-between p-4 md:p-5 border-b rounded-t border-zinc-700"
+          >
+          <div class="flex items-center gap-4">
+             <div
+              class="img-container w-18 h-18 rounded-lg bg-white shadow-black flex items-center justify-center"
+            >
+              <img
+                class="w-16 h-16"
+                src="/images/lightimg.png"
+                alt="Light image"
+              />
+            </div>
+            <h3 class="modal-heading font-medium">Create a appnest application</h3>
+          </div>
+            <div>
+               <i
+                  class="ri-close-circle-fill ri-lg cursor-pointer"
+                   data-bs-dismiss="modal"
+                   aria-label="Close"
+                ></i>
+          </div>
+          </div>
+          <div class="p-4 md:p-5 space-y-4">
+            <!-- Form -->
+            <form class="space-y-4" action="#">
+              <div class="flex items-center">
+                <div class="w-1/3">
+                  <label
+                    for="create-name"
+                    class="block mb-2 text-sm font-bold text-c-black"
+                    >Name:<span class="text-red-500">*</span></label
+                  >
+                </div>
+                <div class="w-2/3">
+                  <input
+                    type="text"
+                    name="create-name"
+                    id="create-name"
+                    class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 "
+                    placeholder="Please enter an application name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="w-1/3">
+                  <label
+                    for="create-websitelink"
+                    class="block mb-2 text-sm font-bold text-c-black "
+                    >Website link:<span class="text-red-500">*</span></label
+                  >
+                </div>
+                <div class="w-2/3">
+                  <input
+                    type="text"
+                    name="create-websitelink"
+                    id="create-websitelink"
+                    class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 "
+                    placeholder="Please enter http / https link"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="w-1/3">
+                  <h3
+                    class="block mb-2 text-sm font-bold text-c-black "
+                    >Application grouping:<span class="text-red-500"
+                      >*</span
+                    ></h3
+                  >
+                </div>
+                <div class="w-2/3">
+                  <div class="w-full bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl flex items-center justify-between overflow-hidden pl-3" >
+                     Tool
+                           <div class="bg-c-lighten-gray py-2 px-4 border-l border-gray  ">
+                            <i class="ri-arrow-down-s-line text-black"></i>
+                      </div> 
+                 </div>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div class="w-1/3"></div>
+                <div class="w-2/3">
+                  <button type="button" class="createmore-button w-full md:w-52
+                   bg-c-lighten-gray overflow-hidden flex items-center pl-4 justify-between border border-gray text-c-black text-sm rounded-xl">More Settings 
+                                               <div class="bg-c-lighten-gray py-2 px-4 border-l border-gray">
+                                                <i class="ri-arrow-down-s-line text-black"></i>
+                                              </div> 
+                                            </button>
+                </div>
+              </div>
+              <div class="create-setting mt-4 flex flex-col gap-4 hidden">
+                <div class="flex items-center">
+                  <div class="w-1/3">
+                    <label
+                      for="create-appdescription"
+                      class="block mb-2 text-sm font-bold text-c-black "
+                      >Application description:<span class="text-red-500"
+                        >*</span
+                      ></label
+                    >
+                  </div>
+                  <div class="w-2/3">
+                    <input
+                      id="create-appdescription"
+                      name="create-appdescription"
+                      type="text"
+                      class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3"
+                      placeholder="Please enter an application description"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-1/3">
+                    <label
+                      for="create-pictureicon"
+                      class="block mb-2 text-sm font-bold text-c-black "
+                      >Picture icon:<span class="text-red-500">*</span></label
+                    >
+                  </div>
+                    <div class="w-2/3 bg-c-lighten-gray border border-gray rounded-xl flex items-center overflow-hidden">
+                      <input type="text" id="create-pictureicon" name="create-pictureicon" class="w-full bg-c-lighten-gray text-c-black text-sm py-2 px-3 focus:outline-none border-none" placeholder="Select the picture or paste the web picture link" required>
+                      <div class="px-4 py-1.5 border-l border-gray">
+                          <img class="w-6 h-5 sm:h-6" src="/images/Folder.png" alt="Folder Image">
+                      </div>                                                   
+                </div>
+                </div>
+                <div class="flex items-center">
+                  <div class="w-1/3">
+                    <label
+                      for="create-opentype"
+                      class="block mb-2 text-sm font-bold text-c-black "
+                      >Open type:<span class="text-red-500">*</span></label
+                    >
+                  </div>
+                  <div class="w-2/3">
+                    <button
+                      id="create-opentype"
+                      type="button"
+                      class="create-newbtn px-8 py-2 bg-c-gray-3 text-c-black rounded"
+                    >
+                      New window
+                    </button>
+                    <button
+                      type="button"
+                      class="create-Dialog px-14 mt-2 sm:mt-0 py-2 bg-c-gray-3 text-c-black rounded"
+                    >
+                      Dialog
+                    </button>
+                  </div>
+                </div>
+                <div class="create-content flex flex-col gap-3 hidden">
+                  <div class="flex items-center">
+                    <div class="w-1/3">
+                      <label
+                        for="create-dialogsize"
+                        class="block mb-2 text-sm font-bold text-c-black "
+                        >Dialog size:<span class="text-red-500">*</span></label
+                      >
+                    </div>
+                    <div class="w-2/3 flex items-center gap-3">
+                      <div
+                        class="flex items-center border-2 rounded-xl w-1/2 overflow-hidden bg-gray-200"
+                      >
+                        <input
+                          id="create-dialogsize"
+                          type="number"
+                          name="width"
+                          class="w-4/5 text-c-black text-sm outline-none border-none px-1 sm:px-3 py-1.5"
+                        />
+                        <h4 class="1/5 px-1 sm:px-2 text-c-black  text-xs sm:text-base">Width</h4>
+                      </div>
+                      <div
+                        class="flex items-center border-2 rounded-xl w-1/2 overflow-hidden bg-gray-200"
+                      >
+                        <input
+                          type="number"
+                          name="width"
+                          class="w-4/5 text-c-black text-sm outline-none border-none px-1 sm:px-3 py-1.5"
+                        />
+                        <h4 class="1/5 px-1 sm:px-2 text-c-black text-xs sm:text-base">Height</h4>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-1/3">
+                      <label
+                        for="create-moresetting"
+                        class="block mb-2 text-sm font-bold text-c-black "
+                        >More settings:<span class="text-red-500"
+                          >*</span
+                        ></label
+                      >
+                    </div>
+                  <div class="w-2/3 flex items-center md:gap-3 ">
+                                                    <div class="ms flex items-center px-1 gap-2">
+                                                      <div>
+                                                        <input id="create-moresetting" type="checkbox" name="option" value="option1" class="outline-none focus:outline-none">
+                                                      </div>
+                                                      <span>
+                                                         <h4 class="text-sm text-c-black">Allow width adjustment</h4>
+                                                      </span>
+                                                    </div>
+                                                    <div class="ms flex items-center px-1 gap-2">
+                                                      <div>
+                                                        <input type="checkbox" name="option" value="option2" class="outline-none focus:outline-none">
+                                                      </div>
+                                                      <span>
+                                                           <h4 class="text-sm text-c-black">Minimalist title bar</h4>
+                                                      </span>
+                                                    </div>
+                                                  </div>  
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-2 sm:gap-4 pb-2 sm:pb-0 sm:pt-16">
+                  <button
+                                            type="button"
+                                            class="text-c-sky bg-white border border-c-sky font-normal rounded-full text-sm px-7 sm:px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                          >
+                                            Preview
+                                          </button>
+                                          <button class="bg-c-black text-white px-9 sm:px-12 py-2 rounded-full">
+                                            Save
+                                          </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Button Modal -->
+    <div
+      id="Delete-modal"
+      tabindex="-1"
+      class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50"
+    >
+      <div class="delete-modal relative">
+        <div class="relative">
+          <div id="deleteapp-modal" class="p-4 md:p-5 text-center">
+            <div class="delete-header flex items-center gap-4 mb-1 py-1">
+              <i class="ri-delete-bin-6-line ri-xl text-c-yellow"></i>
+              <h1 class="text-lg font-medium">Delete File</h1>
+            </div>
+            <hr text-md>
+            <div class="mt-6 flex items-center justify-center">
+              <h1 class="text-md font-medium text-c-black">
+                Are you sure you want to delete the selection?
+              </h1>
+            </div>
+            <div class="flex items-center justify-center gap-3 mt-9">
+              <button
+              class="bg-c-black text-white rounded-full px-12 sm:px-14 py-2"
+                type="submit"
+              >
+                OK
+              </button>
+              <button
+                class="cancel-btn bg-white text-c-yellow px-9 sm:px-12 py-2 rounded-full border border-c-yellow"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Button Modal -->
+     <div id="Edit-modal" role="dialog" tabindex="-1" aria-hidden="true" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-y-scroll">
+                        <div class="relative p-4 w-full max-w-2xl max-h-full">
+                            <div id="editapp-modal" class="relative bg-white rounded-xl shadow dark:bg-gray-700">
+                                <div class="flex items-start justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                  <div class="flex items-center gap-4">
+                                      <div class="img-container shadow-black flex items-center justify-center">
+                                        <img class="w-10 h-10" src="images/pptx.png" alt="pptx Image">
+                                      </div>
+                                    <h3 class="modal-heading font-medium">
+                                        PPT
+                                    </h3>
+                                  </div>
+                                    <div>
+                                      <i
+                                        class="ri-close-circle-fill ri-lg cursor-pointer"
+                                        data-bs-dismiss="modal"
+                                        aria-label="Close"
+                                      ></i>
+                                    </div>
+                                </div>
+                                <div class="p-4 md:p-5 space-y-4">
+                                      <form class="space-y-4" action="#" autocomplete="on">
+                                          <div class="flex items-center">
+                                            <div class="w-1/3">
+                                              <label for="name" class="block mb-2 text-sm font-bold text-c-black ">Name:<span class="text-red-500">*</span></label>
+                                            </div>
+                                            <div class="w-2/3">
+                                                <input type="text" name="name" id="name" autocomplete="name" class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="Please enter an application name" required />
+                                            </div>
+                                          </div>
+                                          <div class="flex items-center">
+                                            <div class="w-1/3">
+                                              <label for="website-link" class="block mb-2 text-sm font-bold text-c-black ">Website link:<span class="text-red-500">*</span></label>
+                                            </div>
+                                            <div class="w-2/3">
+                                                <input type="text" name="website-link" id="website-link" class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 " placeholder="Please enter http / https link" required />
+                                            </div>
+                                          </div>
+                                        <div class="flex items-center">
+                                          <div class="w-1/3">
+                                            <h3 class="block mb-2 text-sm font-bold text-c-black ">Application grouping:<span class="text-red-500">*</span></h3>
+                                          </div>
+                                          <div class="w-2/3">
+                                            <div class="w-full bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl flex items-center justify-between overflow-hidden pl-3" >
+                                              Tool
+                                                <div class="bg-c-lighten-gray py-2 px-4 border-l border-gray ">
+                                                  <i class="ri-arrow-down-s-line text-black"></i>
+                                                </div> 
+                                            </div>
+                                            
+                                          </div>
+                                        </div>
+                                        <div class="flex items-center">
+                                          <div class="w-1/3">
+
+                                          </div>
+                                          <div class="w-2/3">
+                                            <button type="button" class="more-settings-button w-full sm:w-52 bg-c-lighten-gray overflow-hidden flex items-center pl-4  justify-between border border-gray text-c-black text-sm rounded-xl">More Settings 
+                                               <div class="bg-c-lighten-gray py-2 px-4 border-l border-gray">
+                                                <i class="ri-arrow-down-s-line text-black"></i>
+                                              </div> 
+                                            </button>
+                                          </div>
+                                            
+                                        </div>
+                                        <div class="more-setting mt-4 flex flex-col gap-4 hidden">
+                                                <div class="flex items-center">
+                                                  <div class="w-1/3">
+                                                    <label for="app-description"  class="block mb-2 text-sm font-bold text-c-black ">Application description:<span class="text-red-500">*</span></label>
+                                                  </div>
+                                                  <div class="w-2/3">
+                                                    <input type="text" id="app-description" name="app-description" class="bg-c-lighten-gray border border-gray text-c-black text-sm rounded-xl block w-full py-2 px-3" placeholder="Please enter an application description" required>
+                                                  </div>
+                                                </div>
+                                                <div class="flex items-center">
+                                                  <div class="w-1/3">
+                                                      <label for="pictureicon" class="block mb-2 text-sm font-bold text-c-black ">Picture icon:<span class="text-red-500">*</span></label>
+                                                  </div>
+                                                  <div class="w-2/3  bg-c-lighten-gray border border-gray rounded-xl flex items-center overflow-hidden">
+                                                      <input type="text" id="pictureicon" name="pictureicon" class="w-full bg-c-lighten-gray text-c-black text-sm py-2 px-3 focus:outline-none border-none" placeholder="Select the picture or paste the web picture link" required>
+                                                      <div class="px-4 py-1.5 border-l border-gray">
+                                                        <img class="w-6 h-5 sm:h-6" src="/images/Folder.png" alt="Folder Image">
+                                                        </div>
+                                                      
+                                                  </div>
+                                                </div>
+                                                <div class="flex items-center">
+                                                  <div class="w-1/3">
+                                                      <h3 class="block mb-2 text-sm font-bold text-c-black ">Open type:<span class="text-red-500">*</span></h3>
+                                                  </div>
+                                                  <div class="w-2/3">
+                                                    <button type="button" class="new-window-btn px-8 py-2 bg-c-gray-3 text-c-black rounded">New window</button>
+                                                      <button type="button" class="Dialog-btn px-14 mt-2 sm:mt-0 py-2 text-c-black bg-c-gray-3 rounded">Dialog</button>
+                                                  </div>
+                                                </div>
+                                                <div class="Dialog-content flex flex-col gap-3 hidden">
+                                                    <div class="flex items-center">
+                                                  <div class="w-1/3">
+                                                    <label for="dialogsize"  class="block mb-2 text-sm font-bold text-c-black ">Dialog size:<span class="text-red-500">*</span></label>
+                                                  </div>
+                                                  <div class="w-2/3 flex items-center gap-3">
+                                                    <div class="flex items-center border-2 rounded-xl w-1/2 overflow-hidden bg-gray-200">
+                                                      <input id="dialogsize" type="number" name="width" class="w-4/5 text-c-black text-sm outline-none px-1 sm:px-3 py-1.5 border-none ">
+                                                      <h4 class="1/5 px-1 sm:px-2 text-c-black  text-xs sm:text-base">Width</h4>
+                                                    </div>
+                                                    <div class="flex items-center border-2 rounded-xl w-1/2 overflow-hidden bg-gray-200">
+                                                      <input type="number" name="width" class="w-4/5 text-c-black text-sm outline-none border-none px-1 sm:px-3 py-1.5 ">
+                                                      <h4 class="1/5 px-1 sm:px-2 text-c-black  text-xs sm:text-base">Height</h4>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="flex items-center">
+                                                  <div class="w-1/3">
+                                                    <label for="more-settings" class="block mb-2 text-sm font-bold text-c-black ">More settings:<span class="text-red-500">*</span></label>
+                                                  </div>
+                                                  <div class="w-2/3 flex items-center md:gap-3 ">
+                                                    <div class="ms flex items-center px-1 gap-2">
+                                                      <div>
+                                                        <input id="more-settings" type="checkbox" name="option" value="option1" class="outline-none focus:outline-none">
+                                                      </div>
+                                                      <span>
+                                                         <h4 class="text-sm text-c-black">Allow width adjustment</h4>
+                                                      </span>
+                                                    </div>
+                                                    <div class="ms flex items-center px-1 gap-2">
+                                                      <div>
+                                                        <input type="checkbox" name="option" value="option2" class="outline-none focus:outline-none">
+                                                      </div>
+                                                      <span>
+                                                           <h4 class="text-sm text-c-black">Minimalist title bar</h4>
+                                                      </span>
+                                                    </div>
+                                                  </div>  
+                                                </div>
+                                                </div>
+                                              
+                                        </div>
+                                        <div class="flex items-center justify-end gap-2 sm:gap-4 pb-2 sm:pb-0 sm:pt-16">
+                                            <button
+                                            type="button"
+                                            class="text-c-sky bg-white border border-c-sky font-normal rounded-full text-sm px-7 sm:px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                          >
+                                            Preview
+                                          </button>
+                                          <button class="bg-c-black text-white px-9 sm:px-12 py-2 rounded-full">
+                                            Save
+                                          </button>
+                                        </div>
+                                      </form>
+                                </div>
+                            </div>
+                        </div>
+     </div>
+     </main> 
+
+    
+
+
+    <script src="script/taskbar.js"></script>
+    <script src="script/tour.js"></script>
+    <script src="script/lightapp-tour.js"></script>
+    <script>
+         // CraateModal Open Functionality
+      const openModalButton = document.querySelectorAll(
+        ".openCreateModalButton"
+      );
+      const modal = document.getElementById("Create-modal");
+
+      openModalButton.forEach((e) => {
+        e.addEventListener("click", () => {
+          modal.classList.remove("hidden");
+        });
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target == modal) {
+          modal.classList.add("hidden");
+        }
+      });
+
+
+      const createMore = document.querySelector(".createmore-button");
+      const createSetting = document.querySelector(".create-setting");
+      const createDialog = document.querySelector(".create-Dialog");
+      const createContent = document.querySelector(".create-content");
+      const createNewBtn = document.querySelector(".create-newbtn");
+
+      createMore.addEventListener("click", function () {
+        createSetting.classList.toggle("hidden");
+        createMore.style.backgroundColor = createSetting.classList.contains(
+          "hidden"
+        )
+          ? ""
+          : "#FDCF01";
+      });
+
+      createNewBtn.addEventListener("click", function () {
+        createContent.classList.add("hidden");
+        createNewBtn.style.backgroundColor =
+          createNewBtn.style.backgroundColor === "#FDCF01" ? "" : "#FDCF01";
+        createDialog.style.backgroundColor = "";
+      });
+
+      createDialog.addEventListener("click", function () {
+        createContent.classList.toggle("hidden");
+        createDialog.style.backgroundColor =
+          createDialog.style.backgroundColor === "#FDCF01" ? "" : "#FDCF01";
+        createNewBtn.style.backgroundColor = "";
+      });
+
+
+      const btn = document.querySelector(".more-settings-button");
+        const dialogbtn = document.querySelector(".Dialog-btn");
+        const newWindowBtn = document.querySelector(".new-window-btn");
+        const moreSetting = document.querySelector(".more-setting");
+        const dialogcontent = document.querySelector(".Dialog-content");
+
+        btn.addEventListener("click", function () {
+          moreSetting.classList.toggle("hidden");
+          btn.style.backgroundColor = moreSetting.classList.contains("hidden")
+            ? ""
+            : "#FDCF01";
+        });
+
+        newWindowBtn.addEventListener("click", function () {
+          dialogcontent.classList.add("hidden");
+          newWindowBtn.style.backgroundColor =
+            newWindowBtn.style.backgroundColor === "#FDCF01" ? "" : "#FDCF01";
+          dialogbtn.style.backgroundColor = "";
+        });
+
+        dialogbtn.addEventListener("click", function () {
+          dialogcontent.classList.toggle("hidden");
+          dialogbtn.style.backgroundColor =
+            dialogbtn.style.backgroundColor === "#FDCF01" ? "" : "#FDCF01";
+          newWindowBtn.style.backgroundColor = "";
+        });
+
+      const container = document.querySelector(".lightapp-content");
+
+
+   
+
+      // EditModal Open Functionality
+      const openEditModalButton = document.querySelectorAll(
+        ".openEditModalButton"
+      );
+      const editModal = document.getElementById("Edit-modal");
+
+      openEditModalButton.forEach((e) => {
+        e.addEventListener("click", () => {
+          editModal.classList.remove("hidden");
+        });
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target == editModal) {
+          editModal.classList.add("hidden");
+        }
+      });
+
+      // Script to toggle modal visibility
+      document
+        .querySelectorAll('[data-bs-toggle="modal"]')
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            document
+              .querySelector(button.getAttribute("data-bs-target"))
+              .classList.remove("hidden");
+          });
+        });
+
+      document
+        .querySelectorAll('[data-bs-dismiss="modal"]')
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            button.closest(".fixed").classList.add("hidden");
+          });
+        });
+      
+
+       // DeletetModal Open Functionality
+      const openDeleteModalButton = document.querySelectorAll(
+        ".openDeleteModalButton"
+      );
+      const deleteModal = document.getElementById("Delete-modal");
+
+      openDeleteModalButton.forEach((e) => {
+        e.addEventListener("click", () => {
+          deleteModal.classList.remove("hidden");
+        });
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target == deleteModal) {
+          deleteModal.classList.add("hidden");
+        }
+      });
+
+        //dropdown functionality
+
+     const dropdownButtons = document.querySelectorAll(".dropdown-button");
+     const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+     const dropdownItems = document.querySelectorAll(".dropdown-item");
+     const cancelBtn = document.querySelector(".cancel-btn");
+
+     cancelBtn.addEventListener("click",function(){
+      deleteModal.classList.add("hidden")
+     })
+
+   // Iterate over each button to add event listeners
+dropdownButtons.forEach((button, index) => {
+    const menu = dropdownMenus[index];
+        button.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        // Close any other open dropdown menus
+        dropdownMenus.forEach((otherMenu, otherIndex) => {
+            if (otherIndex !== index) {
+                otherMenu.classList.add("hidden");
+            }
+        });
+
+        // Toggle the current menu
+        menu.classList.toggle("hidden");
+    });
+
+});
+
+// Close the dropdown if clicked outside
+document.addEventListener("click", function () {
+    dropdownMenus.forEach(menu => {
+        if (!menu.classList.contains("hidden")) {
+            menu.classList.add("hidden");
+        }
+    });
+});
+    </script>
+  </body>
+</html>

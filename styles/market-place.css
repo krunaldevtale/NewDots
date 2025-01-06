@@ -1,0 +1,89 @@
+.cards {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.cards:hover{
+    background: var(--color-light-gray);
+    color: var(--color-dark-yellow);
+}
+
+ .quantity-container {
+     width: fit-content;
+ }
+
+ .quantity-btn {
+     background: none;
+     border: none;
+     color: var(--color-dark-yellow);
+     font-size: 1.5rem;
+     cursor: pointer;
+     padding: 0 7.6px;
+ }
+
+ .quantity-input {
+     background: none;
+     border: none;
+     text-align: center;
+     width: 50px;
+     font-size: 1.5rem;
+     color: var(--color-dark-yellow);
+     pointer-events: none;
+ }
+
+.buy-btn{
+    width: fit-content;
+}
+ .cards:hover .buy-btn{
+    color: var(--color-light-gray);
+ }
+
+ .cards:hover  .quantity-container{
+    background: var(--color-dark-yellow);
+ }
+
+  .cards:hover .quantity-btn{
+    color: var(--color-light-gray);
+  }
+  .cards:hover .quantity-input {
+      color: var(--color-light-gray);
+  }
+
+.highlight:hover {
+    border: 3px solid var(--color-dark-yellow);
+}
+
+.main-content{
+    height: calc(100% - 56px);
+
+}
+
+.buttons{
+    width: 130px;
+    height: 34px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+
+@media (max-width: 1080px) {
+    .buttons {
+        width: 100px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        width: 100px;
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .buttons {
+        width: 80px;
+        font-size: 12px;
+    }
+}
