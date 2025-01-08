@@ -1,45 +1,480 @@
-const addBtn = document.getElementById("add-btn");
-const graphContainer = document.querySelector(".graph-container");
+<!DOCTYPE html>
+<html lang="en">
 
-const graphDivInfo = [
-    {
-        filterName: "first-filter",
-        graphShowId: "failed-login-attempt-graph",
-        Title: " Failed Login Attempts Over Time",
-        canvaId: "failed-login-attempt-chart",
-        bottomInfo: "This graph shows the number of failed login attempts across different time periods."
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/root.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Activity Reports</title>
+</head>
 
-    },
-    {
-        filterName: "second-filter",
-        graphShowId: "attempt-graph",
-        Title: "hello Over Time",
-        canvaId: "failed-login-attemp",
-        bottomInfo: " shows the number of failed login attempts across different time periods."
+<body class="h-screen w-full">
+   <!-- Taskbar -->
+        <div class="taskbar-slide h-16 flex items-center w-full absolute">
+        
+            <div class="flex justify-center ml-10 w-full relative h-full" id="toolbar">
+              <div class="bg absolute w-full  bottom-0">
+                <img id="shelf" class="w-full" src="images/shelf.png" alt="">
+              </div>
+            </div>
+            <div class="flex items-center gap-8 w-48 justify-end pr-5">
+                <i id="search-icon" class="ri-search-line "></i>
+                <i id="notification-icon" class="ri-notification-3-line "></i>
+                <i id="pinned" class="ri-pushpin-line"></i>
+                <i onclick="startGuide()" class="ri-question-line"></i>
+            </div>
+          
+        </div>
+       
+    <main class="flex w-full h-full cm">
 
-    }, {
-        filterName: "third-filter",
-        graphShowId: "graph",
-        Title: "Hello",
-        canvaId: "failed-login",
-        bottomInfo: "failed login attempts across different time periods."
+    
+        <!-- sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-1 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+              </a>
+            </div>
+            <div class=" sidebar-content">
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="overview.html"
+                    id="overview"
+                  >
+                    <span class="font-normal"> Overview </span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                    ></i>
+                  </a>
+                </li>
+                 <li> 
+                 </li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Reports and Analytics </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="activity-reports.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span  class="font-normal">Activity Reports</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Department Reports</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Custom Graphs</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> System Settings </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="system-setting-basic-page.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span  class="font-normal">Basic</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Menu</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Notice</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Users &amp; Groups </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="admin&users-users&groups.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Users &amp; Groups </span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-role.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Role</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="admin&user-document-permission.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Document Permission</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Storage/file</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="storage-file.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Storage</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-backup.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Backup</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-share.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Share</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">webDAV Mount</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="settings-storage-media-preview.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Media file preview &amp; Video</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Client and App</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-plugin.html"
+                  >
+                    <span class="font-normal">Plugin Center</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Saftey Control</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Message Warning</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-login.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Login Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-operational.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Operation Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-server-scheduled-tasks.html"
+                  >
+                    <span class="font-normal">Scheduled Tasks</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </aside>
 
-    }
-]
+        <!-- main content -->
+        <div class="flex-grow border h-full main">
+            <div class="flex w-full h-full flex-col content">
+                <div class="px-2 lg:px-5 py-6">
+                    <div class="flex items-center gap-4">
+                        <i class="ri-settings-3-fill ri-xl"></i>
+                        <span class="text-lg text-color-nav-black">Reports and Analytics</span>
+                    </div>
+                </div>
 
-let currentGraphIndex = 0;
-const maxGraphs = 9; 
+                <!-- top taskbar -->
+                <div class="taskbar flex items-center justify-between px-6 py-4">
+                    <div class="flex items-center gap-2 sm:gap-4 w-full md:w-1/2">
+                        <div class="flex items-center gap-1 sm:gap-2">
+                          <span class="text-c-light-black text-sm sm:text-base"> Reports and Analytics </span>
+                          <i class="ri-arrow-right-line ri-sm sm:ri-lg" style="color: #4D4D4D;"></i>
+                          <span class="font-semibold text-c-black text-sm sm:text-base"> Activity Reports </span>
+                       </div>  
+                    </div>
+                    <div class="flex-grow md:w-1/2">
+                        <div class="flex items-center justify-end gap-2 md:gap-3">
+                           <button id="restart-btn"
+                              class="flex items-center justify-center gap-2 bg-c-black text-c-yellow px-3 sm:px-3 py-1 sm:py-1.5 rounded-md w-38" 
+                            >
+                              <i class="ri-restart-line"></i>
+                              <span class="text-xs sm:text-sm">Restart Graph</span>
+                            </button>
 
-addBtn.addEventListener("click", function () {
-    if (currentGraphIndex < graphDivInfo.length && currentGraphIndex < maxGraphs) {
-        const e = graphDivInfo[currentGraphIndex]; // Get the current graph info
+                            <button id="add-btn"
+                              class="flex items-center justify-center gap-2 bg-c-black text-c-yellow px-3 sm:px-4 py-1 sm:py-1.5 rounded-md w-22" 
+                            >
+                              <i class="ri-add-circle-fill"></i
+                              ><span class="text-xs sm:text-sm">Add Graph</span>
+                            </button>
+                            <div class="relative inline-block">
+                                <button id="export-btn"
+                                  class="flex items-center justify-center gap-2 bg-c-black text-c-yellow px-3 sm:px-5 py-1 sm:py-1.5 rounded-md"
+                                  onclick="toggleExportDropdown()">
+                                  <span class="text-xs sm:text-sm">Export</span>
+                                  <i class="ri-arrow-down-s-fill"></i>
+                                </button>
+                                
+                                <div id="export-dropdown"
+                                  class="hidden absolute right-0 mt-2 w-28 overflow-hidden bg-c-lighten-gray border border-c-medium-gray rounded-md shadow-lg z-10">
+                                  <span class="block px-4 py-1.5 cursor-pointer text-sm text-c-black flex items-center justify-center gap-4">
+                                  <img src="/images/pdf.svg" alt="PDF">
+                                    PDF
+                                  </span>
+                                  <span class="block px-4 py-1.5 cursor-pointer text-sm text-c-black flex items-center justify-center gap-4">
+                                    <img src="/images/csv.svg" alt="CSV">
+                                    CSV
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        // Create a new div element
-        const newDiv = document.createElement("div");
+                </div>
 
-        // Add the graph layout for this filter
-        newDiv.classList.add("graph-div", "p-4", "w-full");
-        newDiv.innerHTML += ` <div class="${e.filterName} flex items-center gap-2 flex-wrap">
+                <!--content -->
+                <div class="overflow-y-scroll scroll relative h-full">
+                   <div class="graph-modal graph-effect-1" id="modal">
+                         <div style="height: 400px;">
+                           <canvas id="successful-logout-chart"></canvas>
+                          </div> 
+                    </div>
+                  <div class="graph-container grid grid-cols-2">
+                    <div class="p-4 w-full">
+                      <div class="default-filter flex items-center gap-2 flex-wrap">
                           <div class="activity-dropdown inline-block relative">
                                 <button
                                   class="activity-btn rounded px-6 py-1 custom-outline custom-safety-btn"
@@ -123,14 +558,14 @@ addBtn.addEventListener("click", function () {
                                   </li>
                                 </ul>
                           </div>
-                           <div class="graph-dropdown inline-block relative">
+                          <div class="graph-dropdown inline-block relative">
                                 <button
                                   class="select-graph rounded px-6 py-1 custom-outline custom-safety-btn user"
                                 >
                                   <span>Select Graph</span>
                                   <i class="ri-arrow-down-s-fill"></i>
                                 </button>
-                                 <ul
+                                <ul
                                   class="user-activity-menu graph-dropdown-menu graph-custom-dropdown-menu absolute hidden text-c-black shadow bg-custom-pure-white text-xs"
                                 >
                                   <li id="user-login-over-time">
@@ -846,7 +1281,7 @@ addBtn.addEventListener("click", function () {
                                 </li>
                               </ul>
                           </div>
-                           <div class="bar-dropdown inline-block relative ">
+                          <div class="bar-dropdown inline-block relative ">
                                 <button 
                                   class="label-btn rounded px-6 py-1 custom-outline custom-safety-btn"
                                 >
@@ -874,321 +1309,171 @@ addBtn.addEventListener("click", function () {
                                 </ul>
                           </div>
                           <div class="select-period inline-block relative">
-                             <button class="period-btn rounded px-6 py-1 custom-outline custom-safety-btn" onclick="togglePeriodDropdown()">
-                                <span>Select Period</span>
+                             <button id="period-btn" class="period-btn rounded px-6 py-1 custom-outline custom-safety-btn" onclick="togglePeriodDropdown()">
+                                <span id="period-title">Select Period</span>
                                 <i class="ri-arrow-down-s-fill"></i>
                               </button>
                                 <ul  id="period-dropdown" class="period-custom-dropdown-menu w-full absolute hidden text-c-black shadow bg-c-lighten-gray rounded overflow-hidden text-xs z-10 scroll">
-                                   <li class="px-4 py-2 text-c-black cursor-pointer">Last 7 Days</li>
-                                   <li class="px-4 py-2 text-c-black cursor-pointer">Last 15 Days</li>
-                                   <li class="px-4 py-2 text-c-black cursor-pointer">Last 30 Days</li>
-                                   <li class="px-4 py-2 text-c-black cursor-pointer">Custom Date</li>
+                                   <li class="px-4 py-2 text-c-black cursor-pointer" onclick="selectPeriod('Last 7 Days')">Last 7 Days</li>
+                                   <li class="px-4 py-2 text-c-black cursor-pointer" onclick="selectPeriod('Last 15 Days')">Last 15 Days</li>
+                                   <li class="px-4 py-2 text-c-black cursor-pointer" onclick="selectPeriod('Last 30 Days')">Last 30 Days</li>
+                                   <li class="px-4 py-2 text-c-black cursor-pointer" onclick="selectPeriod('Custom Date')">Custom Date</li>
                                 </ul>
                           </div>
+                          <div class="customDateInputs hidden date-select custom-outline custom-safety-btn rounded px-1 mr-1 hover:border-yellow-300 " data-row="5">
+                              <input type="datetime-local" name="start-date" class="startdate outline-none bg-gray-100 w-44 py-1 pl-2" data-row="5" value="">
+                          </div>
                       </div>
-                       <div class="graph-area rounded mt-6">
-                         <div class="pr-3 pt-4 flex gap-3 justify-end">
+                      <div class="graph-area rounded mt-6 relative">
+                        <div class="graph-hidden-area">
+                           <div class="pr-3 pt-4 flex gap-3 justify-end">
                             <i class="ri-eye-off-fill ri-lg" id="md-trigger"></i>
                             <i class="ri-eye-fill ri-lg hidden" id="md-close"></i>
-                            <i class="ri-close-circle-fill ri-lg close-graph-div"></i>
+                            <i class="ri-close-circle-fill ri-lg close-graph"></i>
                           </div>
-                        <div class="graph-show hidden">
-                          <div id="${e.graphShowId}">
-                            <div class="text-c-black font-medium text-xl text-center py-3">
-                             ${e.Title}
+                          <div class="graph-show">
+                            <div id="user-login-over-time-graph" class="">
+                              <div class="text-c-black font-medium text-xl text-center py-3">
+                                User Login Over Time
+                              </div>
+                                <div class="pt-2">
+                                    <div style="height: 370px;">
+                                        <canvas class="user-login-chart"></canvas>
+                                    </div>
+                                </div>
+                                <div class="text-c-black font-normal text-lg text-center py-3">
+                                  This graph shows the number of failed login attempts across different time periods.
+                                </div>
                             </div>
-                              <div class="pt-2">
-                                  <div style="height: 370px;">
-                                      <canvas id="${e.canvaId}"></canvas>
-                                  </div>
-                              </div>
-                              <div class="text-c-black font-normal text-lg text-center py-3">
-                              ${e.bottomInfo}
-                              </div>
                           </div>
                         </div>
-                        <div class="flex justify-center items-center h-full suggestion">
+                        <div class="flex justify-center items-center h-full hidden suggestion">
                          <h1 class="text-4xl text-c-black">
                           Select Graph From Filter
                          </h1>
                         </div>
-                      </div>`;
+                       
+                      </div>
+                    </div>
+                </div>
+                <div class="md-overlay">
+                  <button class="nav-btn left" id="prev-slide"><i class="ri-arrow-left-wide-line"></i></button>
+                  <button class="nav-btn right" id="next-slide"><i class="ri-arrow-right-wide-line"></i></button>
+                  <div class="nav-track" id="nav-track">
+                    <span id="slide-indicator"></span>
+                  </div>
+                </div>
+                </div>
 
-        // Append the new div to the graph container
-        graphContainer.appendChild(newDiv);
+  
+    </main> 
 
-       
 
-        // Increment the current graph index to add the next graph on the next click
-        currentGraphIndex++;
-        if (currentGraphIndex === maxGraphs) {
-            alert("Maximum graph limit reached.");
-            addBtn.disabled = true; // Disable the Add button
-        }
-        const filterClass = `.${e.filterName}`;
-        initializeDropdowns(filterClass);
-    } else {
-        console.log("All graphs have been added.");
-    }
+    <script defer src="script/sidebar.js"></script>
+    <script defer src="script/tabs.js"></script>
+    <script defer src="script/graph-setup.js"></script>
+    <script defer src="script/reports-analytics.js"></script>
+    <script src="script/taskbar.js"></script>
+    <script defer>
+          document.getElementById("md-trigger").addEventListener("click", function(e) {
+    document.getElementById("modal").classList.toggle("graph-show");
+    document.getElementById('md-close').classList.remove('hidden')
+     document.getElementById('md-trigger').classList.add('hidden')
+    e.preventDefault();
 });
-  
+
+document.getElementById('md-close').addEventListener("click",function(e){
+   document.getElementById("modal").classList.toggle("graph-show");
+    document.getElementById('md-close').classList.add('hidden')
+     document.getElementById('md-trigger').classList.remove('hidden')
+    e.preventDefault();
+})
 
 
-function initializeDropdowns(filterClass) {
-  const activityBtn = document.querySelectorAll(`${filterClass} .activity-btn`);
-  const secondActivityBtn = document.querySelectorAll(`${filterClass} .second-activity-btn`);
-  const activityDropdownMenu = document.querySelectorAll(`${filterClass} .activity-dropdown-menu`);
-  const secondActivityDropdownMenu = document.querySelectorAll(`${filterClass} .second-activity-dropdown-menu`);
-  const selectGraphButton = document.querySelectorAll(`${filterClass} .select-graph`);
-  const secondSelectGraphButton = document.querySelectorAll(`${filterClass} .second-select-graph`);
-    const graphDropdownMenus = {
-        user: document.querySelector(`${filterClass} .user-activity-menu`),
-        group: document.querySelector(`${filterClass} .group-activity-menu`),
-        rbac: document.querySelector(`${filterClass} .rbac-activity-menu`),
-        filemanagement: document.querySelector(`${filterClass} .filemanagement-activity-menu`),
-        softwareusage: document.querySelector(`${filterClass} .softwareusage-activity-menu`),
-        locationbased: document.querySelector(`${filterClass} .locationbased-activity-menu`),
-        systemperformance: document.querySelector(`${filterClass} .systemperformance-activity-menu`),
-        security: document.querySelector(`${filterClass} .security-activity-menu`),
-        auditlogs: document.querySelector(`${filterClass} .auditlogs-activity-menu`),
-        
-  };
-  const secondGraphDropdownMenus = {
-    user: document.querySelector(`${filterClass} .user-activity-menu-duplicate`),
-    group: document.querySelector(`${filterClass} .group-activity-menu-duplicate`),
-    rbac: document.querySelector(`${filterClass} .rbac-activity-menu-duplicate`),
-    filemanagement: document.querySelector(`${filterClass} .filemanagement-activity-menu-duplicate`),
-    softwareusage: document.querySelector(`${filterClass} .softwareusage-activity-menu-duplicate`),
-    locationbased: document.querySelector(`${filterClass} .locationbased-activity-menu-duplicate`),
-    systemperformance: document.querySelector(`${filterClass} .systemperformance-activity-menu-duplicate`),
-    security: document.querySelector(`${filterClass} .security-activity-menu-duplicate`),
-    auditlogs: document.querySelector(`${filterClass} .auditlogs-activity-menu-duplicate`),
 
-  };
+let currentSlide = 1;
+const totalSlides = 10;
 
-
-  let selectedActivity = '';
-  let secondSelectedActivity = '';// To keep track of the selected activity
-
-    selectGraphButton.forEach(button => {
-        button.disabled = true;
-        button.classList.add('disabled-btn');
-    });
-  
-  secondSelectGraphButton.forEach(button => {
-    button.disabled = true;
-    button.classList.add('disabled-btn');
-  });
-
-    // Activity type dropdown toggle
-    activityBtn.forEach((button, index) => {
-        const menu = activityDropdownMenu[index];
-        button.addEventListener('click', function (event) {
-            event.stopPropagation();
-            // Close other dropdowns
-            activityDropdownMenu.forEach((otherMenu, otherIndex) => {
-                if (otherIndex !== index) {
-                    otherMenu.classList.add("hidden");
-                }
-            });
-            // Toggle the current menu
-            menu.classList.toggle("hidden");
-        });
-    });
-  
-  secondActivityBtn.forEach((button, index) => {
-    const menu = secondActivityDropdownMenu[index];
-    button.addEventListener('click', function (event) {
-      event.stopPropagation();
-      // Close other dropdowns
-      secondActivityDropdownMenu.forEach((otherMenu, otherIndex) => {
-        if (otherIndex !== index) {
-          otherMenu.classList.add("hidden");
-        }
-      });
-      // Toggle the current menu
-      menu.classList.toggle("hidden");
-    });
-  });
-
-
-    // Handle activity item selection
-    document.querySelectorAll(`${filterClass} .activity-item`).forEach(function (item) {
-        item.addEventListener('click', function (e) {
-            e.stopPropagation(); // Prevent event propagation
-            // Remove active class from all activity items
-            document.querySelectorAll(`${filterClass} .activity-item`).forEach(el => el.classList.remove('bg-c-yellow'));
-            // Add active class to the selected item
-            item.classList.add('bg-c-yellow');
-            // Get selected activity's ID
-            selectedActivity = item.id;
-            // Enable the Select Graph button
-            selectGraphButton.forEach(button => {
-                button.disabled = false;
-                button.classList.remove('disabled-btn');
-            });
-            // Hide the activity dropdown after selection
-            activityDropdownMenu.forEach(menu => menu.classList.add('hidden'));
-            // Hide all graph dropdown menus
-            Object.values(graphDropdownMenus).forEach(menu => {
-                menu.classList.add("hidden");
-            });
-        });
-    });
-  
-  document.querySelectorAll(`${filterClass} .activity-item-duplicate`).forEach(function (item) {
-    item.addEventListener('click', function (e) {
-      e.stopPropagation(); // Prevent event propagation
-      // Remove active class from all activity items
-      document.querySelectorAll(`${filterClass} .activity-item-duplicate`).forEach(el => el.classList.remove('bg-c-yellow'));
-      // Add active class to the selected item
-      item.classList.add('bg-c-yellow');
-      // Get selected activity's ID
-      secondSelectedActivity = item.id.replace('-duplicate', '');
-      console.log("Selected second activity: ", secondSelectedActivity);
-      // Enable the Select Graph button
-      secondSelectGraphButton.forEach(button => {
-        button.disabled = false;
-        button.classList.remove('disabled-btn');
-      });
-      // Hide the activity dropdown after selection
-      secondActivityDropdownMenu.forEach(menu => menu.classList.add('hidden'));
-      // Hide all graph dropdown menus
-      Object.values(secondGraphDropdownMenus).forEach(menu => {
-        menu.classList.add("hidden");
-      });
-    });
-  });
-
-
-    // Handle Select Graph button click
-    selectGraphButton.forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.stopPropagation();
-            if (!selectedActivity) return; // Do nothing if no activity is selected
-            // Toggle the current graph menu based on the selected activity
-            const currentGraphMenu = graphDropdownMenus[selectedActivity];
-            if (currentGraphMenu) {
-                const isVisible = !currentGraphMenu.classList.contains("hidden");
-                Object.values(graphDropdownMenus).forEach(menu => {
-                    menu.classList.add("hidden"); // Hide all graph menus
-                });
-                if (!isVisible) {
-                    currentGraphMenu.classList.remove("hidden"); // Show the current menu if it was hidden
-                }
-            }
-        });
-    });
-
-  secondSelectGraphButton.forEach(button => {
-    button.addEventListener("click", function (event) {
-      event.stopPropagation();
-      if (!secondSelectedActivity) return; // Do nothing if no activity is selected
-      // Toggle the current graph menu based on the selected activity
-      console.log("Selected second activity before showing menu: ", secondSelectedActivity);
-      const currentGraphMenu = secondGraphDropdownMenus[secondSelectedActivity];
-      if (currentGraphMenu) {
-        const isVisible = !currentGraphMenu.classList.contains("hidden");
-        Object.values(secondGraphDropdownMenus).forEach(menu => {
-          menu.classList.add("hidden"); // Hide all second set of graph menus
-        });
-        if (!isVisible) {
-          currentGraphMenu.classList.remove("hidden"); // Show the current menu if it was hidden
-        }
-        else {
-          console.log("Graph menu not found for selected activity: ", secondSelectedActivity);
-        }
-      }
-    });
-  });
-
-
-    // Close dropdowns when clicking outside
-    document.addEventListener("click", function () {
-        // Hide all activity dropdowns
-        activityDropdownMenu.forEach(menu => {
-            if (!menu.classList.contains("hidden")) {
-                menu.classList.add("hidden");
-            }
-        });
-      
-      secondActivityDropdownMenu.forEach(menu => {
-        if (!menu.classList.contains("hidden")) {
-          menu.classList.add("hidden");
-        }
-      });
-      
-        // Hide all graph dropdowns
-        Object.values(graphDropdownMenus).forEach(menu => {
-            if (!menu.classList.contains("hidden")) {
-                menu.classList.add("hidden");
-            }
-        });
-      
-      Object.values(secondGraphDropdownMenus).forEach(menu => {
-        if (!menu.classList.contains("hidden")) {
-          menu.classList.add("hidden");
-        }
-      });
-    });
-
-    document.querySelector('.close-graph').addEventListener('click', function (e) {
-            e.stopPropagation();
-
-      document.querySelector(".graph-hidden-area").classList.add('hidden')
-      document.querySelector(".suggestion").classList.remove("hidden")
-
-        });
-
-    document.querySelectorAll('.close-graph-div').forEach(function (closeBtn) {
-        
-        closeBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            
-            // Hide the parent graph container
-            closeBtn.closest(".graph-div").classList.add('hidden');
-
-        });
-    });
-  
-  document.querySelectorAll('.chart-type-btn').forEach((button, index) => {
-    button.addEventListener('click', function (e) {
-      e.stopPropagation();
-
-      const dropdown = document.querySelector(`#chartTypeDropdown${index + 1}`);
-      const allDropdowns = document.querySelectorAll('.chart-type-dropdown');
-
-      // Close all other dropdowns
-      allDropdowns.forEach(d => {
-        if (d !== dropdown) {
-          d.classList.add('hidden');
-        }
-      });
-
-      // Toggle the current dropdown
-      dropdown.classList.toggle('hidden');
-    });
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.chart-type-container')) {
-      document.querySelectorAll('.chart-type-dropdown').forEach(dropdown => {
-        dropdown.classList.add('hidden');
-      });
-    }
-  });
-
-  // Handle item selection
-  document.querySelectorAll('.chart-type-dropdown li').forEach(item => {
-    item.addEventListener('click', function () {
-      alert(`Selected chart type: ${item.textContent}`);
-    });
-  });
-
-
+// Function to update the slide indicator and navigation logic
+function updateSlideIndicator(slide) {
+    document.getElementById('slide-indicator').textContent = `${slide}/${totalSlides}`;
 }
 
-// Initialize dropdowns for each filter
-initializeDropdowns('.default-filter');
+updateSlideIndicator(currentSlide);
 
+document.getElementById('prev-slide').addEventListener('click', function(e) {
+   e.stopPropagation();
+    if (currentSlide > 1) {
+        currentSlide--;
+        updateSlideIndicator(currentSlide);
+    }
+});
+
+document.getElementById('next-slide').addEventListener('click', function(e) {
+   e.stopPropagation();
+    if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlideIndicator(currentSlide);
+    }
+});
+
+// Event listener to close modal when clicking outside
+document.querySelector('.md-overlay').addEventListener('click', function(e) {
+    document.getElementById('modal').classList.remove('graph-show');
+     document.getElementById('md-trigger').classList.remove('hidden')
+      document.getElementById('md-close').classList.add('hidden')
+});
+
+document.getElementById('modal').addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+
+
+ function toggleExportDropdown() {
+    const dropdown = document.getElementById('export-dropdown');
+    dropdown.classList.toggle('hidden');
+  }
+
+  // Close dropdown if clicking outside
+  window.addEventListener('click', function(e) {
+    if (!e.target.closest('#export-btn')) {
+      document.getElementById('export-dropdown').classList.add('hidden');
+    }
+  });
+
+    function togglePeriodDropdown() {
+    const dropdown = document.getElementById('period-dropdown');
+    dropdown.classList.toggle('hidden');
+  }
+
+  function selectPeriod(period) {
+    const title = document.getElementById('period-title');
+    const customDateInputs = document.querySelector('.customDateInputs');
+    
+    // Set button title to selected period
+    title.textContent = period;
+
+    // Show custom date input if "Custom Date" is selected
+    if (period === 'Custom Date') {
+      customDateInputs.classList.remove('hidden');
+    } else {
+      customDateInputs.classList.add('hidden');
+    }
+
+    // Close the dropdown after selection
+    document.getElementById('period-dropdown').classList.add('hidden');
+  }
+
+  // Close dropdown if clicking outside
+  window.addEventListener('click', function(e) {
+    if (!e.target.closest('.select-period')) {
+      document.getElementById('period-dropdown').classList.add('hidden');
+    }
+  });
+
+
+
+    </script>
+</body>
+
+</html>

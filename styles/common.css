@@ -1134,3 +1134,26 @@ background-color: #fdcf01;
   cursor: pointer;
   border-radius: 5px;
 }
+
+.cm #export-dropdown span:hover{
+  background: var(--color-dark-yellow);
+}
+
+.cm .period-custom-dropdown-menu {
+  border-radius: 5px;
+  border: 1px solid rgba(104, 134, 134, 0.53);
+  background: var(--color-lighten-gray);
+  margin-top: 1px;
+  width: 8.8rem;
+  height: 6.1rem;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+.cm .period-custom-dropdown-menu li:hover{
+  background-color: var(--color-dark-yellow);
+}
+
+.cm .period-custom-dropdown-menu::-webkit-scrollbar {
+  display: none;
+}
