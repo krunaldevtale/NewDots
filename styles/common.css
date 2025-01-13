@@ -1157,3 +1157,38 @@ background-color: #fdcf01;
 .cm .period-custom-dropdown-menu::-webkit-scrollbar {
   display: none;
 }
+
+/* Add a border and custom styles to the calendar popup */
+.cm .custom-daterangepicker {
+  border: 2px solid #4caf50;
+  /* Green border */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: red;
+}
+
+/* Change hover color for calendar cells */
+.cm .custom-daterangepicker td.available:hover {
+  background-color: #ffeb3b;
+  /* Yellow hover background */
+  color: #000;
+  /* Black text */
+  border-radius: 50%;
+}
+
+/* Highlight selected date range */
+.cm .custom-daterangepicker td.active,
+.cm .custom-daterangepicker td.in-range {
+  background-color: #4caf50;
+  /* Green background */
+  color: #fff;
+  /* White text */
+}
+
+/* Change hover styles for navigation buttons */
+.cm .custom-daterangepicker .drp-calendar .next:hover,
+.cm .custom-daterangepicker .drp-calendar .prev:hover {
+  background-color: #f1f1f1;
+  /* Light gray background */
+  border-radius: 50%;
+}

@@ -6,106 +6,31 @@
     <title>App Nest</title>
     <link rel="stylesheet" href="styles/custom.css" />
     <link rel="stylesheet" href="styles/root.css" />
-    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/common.css" />
   </head>
   <body class="h-screen w-full">
-       <!-- Taskbar -->
-        <div class="taskbar-slide h-16 flex items-center w-full absolute">
-        
-            <div class="flex justify-center ml-10 w-full relative h-full" id="toolbar">
-              <div class="bg absolute w-full  bottom-0">
-                <img id="shelf" class="w-full" src="images/shelf.png" alt="">
-              </div>
-            </div>
-            <div class="flex items-center gap-8 w-48 justify-end pr-5">
-                <i id="search-icon" class="ri-search-line "></i>
-                <i id="notification-icon" class="ri-notification-3-line "></i>
-                <i id="pinned" class="ri-pushpin-line"></i>
-                <i onclick="startGuide()" class="ri-question-line cursor-pointer"></i>
-            </div>
-          
-        </div>
-    <main class="flex w-full h-full cm lightapp">
+    <main class="w-full h-full flex cm lightapp">
       <!-- Sidebar -->
       <aside class="h-full relative">
         <input type="checkbox" class="hidden" id="sidebar-toggle" />
         <label
           for="sidebar-toggle"
-          class="absolute lg:hidden top-6 -right-8 px-1"
+          class="absolute lg:hidden top-4 pt-0.5 -right-8 px-1"
         >
-           <i class="ri-bar-chart-horizontal-line"></i>
+          <i class="ri-bar-chart-horizontal-line"></i>
         </label>
         <div class="h-full sidebar">
-           <div class="sidebar-container">
-          <div class="p-6">
-              <a href="index.html">
-                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
-          </div>
-          <div class="sidebar-content">
-            <ul class="space-y-1">
-              <li class="all-tab">
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span id="All" class="text-base font-normal">All</span>
-                </a>
-              </li>
-              <li>
-                <a class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center" href="#">
-                  <span class="text-base font-normal"> Tool </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span class="text-base font-normal"> Game </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span class="text-base font-normal"> Movie </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span class="text-base font-normal"> Music </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span class="text-base font-normal"> Life </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
-                  href="#"
-                >
-                  <span class="text-base font-normal"> Others </span>
-                </a>
-              </li>
-            </ul>
+          <div class="sidebar-container">
+            <div class="p-4">
+              <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+            </div>
           </div>
         </div>
-        </div>
-       
       </aside>
 
       <!-- Main content -->
-      <div class="right-container flex-grow border h-100 main">
-        <div class="flex w-full h-full flex-col content">
+      <div class="flex-grow border h-100 main">
+        <div class="flex flex-col w-full h-full">
           <div class="px-9 py-4 lg:p-4">
             <div class="flex items-center gap-4">
               <img
@@ -113,180 +38,407 @@
                 src="/images/appnest.png"
                 alt="Light Image"
               />
-              <span class="text-xl font-normal mb-2 text-c-black">App Nest</span>
+              <span class="text-xl font-normal mb-2 text-c-black"
+                >App Nest</span
+              >
             </div>
           </div>
 
-          <!-- top taskbar -->
-          <div class="taskbar flex items-center justify-between px-3 sm:px-6 py-3">
-            <div class="flex items-center gap-4 w-full md:w-1/2">
-              <div class="flex gap-2 items-center">
-                <span class="font-medium text-c-black">All</span>
+           <!-- top taskbar -->
+          <div
+            class="taskbar bg-no-repeat bg-cover bg-center flex items-center justify-between px-5 md:px-5 lg:px-7 py-4"
+          >
+            <div class="flex items-center justify-between gap-4 w-full">
+              <div class="flex gap-1 sm:gap-2 items-center">
+                 <span class="text-c-light-black text-base"> Appnest </span>
+                <i class="ri-arrow-right-line ri-lg" style="color: #4D4D4D;"></i>
+                <span id="navigate-title" class="font-semibold text-c-black text-base"> Tools </span>
               </div>
-            </div>
-
-            <div class="flex-grow md:w-1/2">
-              <div class="flex items-center justify-end ">
-                <div>
+              <div class="flex items-center gap-4">
+                <div id="search-bar"
+                class="flex items-center rounded overflow-hidden bg-c-white h-9"
+              >
+                <input
+                  type="search"
+                  class="pl-4  border-none text-c-black outline-none"
+                  placeholder="Search"
+                />
+                <div class="pr-4 flex items-center justify-center">
+                 <i class="ri-search-line"></i>
+                </div>
+              </div>
                   <button
                   id="create-btn"
                     type="button"
-                    class="bg-c-black text-c-yellow px-5 py-1.5 sm:px-8 sm:py-2 rounded openCreateModalButton"
+                    class="bg-c-black text-c-yellow px-3 h-9 rounded openCreateModalButton"
                   >
-                    <span class="text-sm sm:text-base">Create appnest application</span>
+                    <span class="text-sm sm:text-base"><i class="ri-add-circle-fill mr-2"></i>Create</span>
                   </button>
                 </div>
-              </div>
             </div>
           </div>
 
-          <!-- content -->
-          <div class="lightapp-content relative h-full overflow-y-auto">
-            <div class="flex flex-wrap flex-row justify-center sm:justify-start gap-7 md:gap-5 py-3 px-2 md:px-4 lg:px-6">
-              <div id="ppt-container" class= "small-container flex flex-col items-center justify-center gap-5 relative">
-                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
-                    <img class="w-14 h-14" src="images/pptx.png" alt="pptx Image">
-                </div>
-                <h1 class="font-medium text-c-black text-lg">PPT</h1>
-                <div> 
-                    <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                        <div class="flex items-center justify-center w-full">
-                        Add
-                      </div>
-                      <div class="bg-white py-1 px-2">
-                        <i class="ri-arrow-down-s-line text-black"></i>
-                      </div> 
-                    
-                    
-                    </button>
+           <!-- Content -->
+          <div class="relative w-full h-full px-5 md:px-5 lg:px-7">
+              <!-- Navigation -->
+            <div
+              class="h-14 flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
+            >
+              <label for="tools" class="cursor-pointer radio-border">
+                <input
+                  type="radio"
+                  name="type"
+                  id="tools"
+                  value="tools"
+                  checked
+                />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Tools</span
+                >
+                <div></div>
+              </label>
+              <label for="games" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="games" value="games"/>
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Games</span
+                >
+                <div></div>
+              </label>
+              <label for="videos" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="videos" value="videos"/>
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Videos</span
+                >
+                <div></div>
+              </label>
+              <label for="music" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="music" value="music" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Music</span
+                >
+                <div></div>
+              </label>
+              <label for="life" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="life" value="life" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Life</span
+                >
+                <div></div>
+              </label>
+              <label for="others" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="others" value="others" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Others</span
+                >
+                <div></div>
+              </label>
+            </div>
 
-                    <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
-                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
-                          </li>
-                        </ul>
+               <!-- Tools Section -->
+            <div class="main-content tools-content w-full flex-1">
+                <div class="h-full flex flex-wrap flex-row justify-center sm:justify-start gap-7 md:gap-5 py-3 px-2 md:px-4 lg:px-6">
+                    <div id="ppt-container" class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                        <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                            <img class="w-14 h-14" src="images/pptx.png" alt="pptx Image">
+                        </div>
+                        <h1 class="font-medium text-c-black text-lg">PPT</h1>
+                        <div> 
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center w-full">
+                                Add
+                            </div>
+                            <div class="bg-white py-1 px-2">
+                                <i class="ri-arrow-down-s-line text-black"></i>
+                            </div> 
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                        <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                            <img class="w-14 h-14" src="images/ExcelFile.png" alt="pptx Image">
+                        </div>
+                        <h1 class="font-medium text-lg text-c-black">Excel</h1>
+                        <div> 
+                            <button id="dropdownDefaultButton2" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <div class="flex items-center justify-center w-full">
+                                Add
+                            </div>
+                            <div class="bg-white py-1 px-2">
+                                <i class="ri-arrow-down-s-line text-black"></i>
+                            </div> 
+                            </button>
+
+                            <div id="dropdown2" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                        <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                            <img class="w-14 h-14" src="images/ERP.png" alt="pptx Image">
+                        </div>
+                        <h1 class="font-medium text-lg text-c-black">ERP</h1>
+                        <div> 
+                            <button id="dropdownDefaultButton3" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <div class="flex items-center justify-center w-full">
+                                Add
+                            </div>
+                            <div class="bg-white py-1 px-2">
+                                <i class="ri-arrow-down-s-line text-black"></i>
+                            </div> 
+                            </button>
+
+                            <div id="dropdown3"class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                        <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                            <img class="w-14 h-14" src="images/mail.png" alt="pptx Image">
+                        </div>
+                        <h1 class="font-medium text-lg text-c-black">Mail</h1>
+                        <div> 
+                            <button id="dropdownDefaultButton4" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <div class="flex items-center justify-center w-full">
+                                Add
+                            </div>
+                            <div class="bg-white py-1 px-2">
+                                <i class="ri-arrow-down-s-line text-black"></i>
+                            </div> 
+                            </button>
+
+                            <div id="dropdown4" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
+                        <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
+                            <img class="w-14 h-14" src="images/Chatapp.png" alt="pptx Image">
+                        </div>
+                        <h1 class="font-medium text-lg text-c-black">Chat</h1>
+                        <div> 
+                            <button id="dropdownDefaultButton5" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <div class="flex items-center justify-center w-full">
+                                Add
+                            </div>
+                            <div class="bg-white py-1 px-2">
+                                <i class="ri-arrow-down-s-line text-black"></i>
+                            </div> 
+                            </button>
+
+                            <div id="dropdown5" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
-                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
-                    <img class="w-14 h-14" src="images/ExcelFile.png" alt="pptx Image">
-                </div>
-                <h1 class="font-medium text-lg text-c-black">Excel</h1>
-                <div> 
-                    <button id="dropdownDefaultButton2" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                      <div class="flex items-center justify-center w-full">
-                        Add
-                      </div>
-                      <div class="bg-white py-1 px-2">
-                        <i class="ri-arrow-down-s-line text-black"></i>
-                      </div> 
-                    </button>
+            </div>
 
-                    <div id="dropdown2" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
-                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
-                          </li>
-                        </ul>
+             <!-- Games Section -->
+            <div class="main-content games-content w-full flex-1 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
+                <div class="w-full rounded-xl overflow-hidden" style="height: 22.5rem;">
+                 <img src="/images/games-bg.svg" alt="Games Background" class="h-full w-full object-cover object-center">
+                </div>
+                <section class="flex justify-center pb-10">
+                <div id="dynamic-games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-7 py-4 max-w-[1200px] mx-auto">
+                    <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
+                        <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
+                            <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                          <h1 class="font-medium text-c-black text-lg">FNI Racer</h1>
+                          <span class="font-medium text-sm">4.6 &#11088;</span>
+                        </div>
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openCreateModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
+                        <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
+                            <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                          <h1 class="font-medium text-c-black text-lg">FNI Racer</h1>
+                          <span class="font-medium text-sm">4.6 &#11088;</span>
+                        </div>
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                   <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
+                        <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
+                            <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                          <h1 class="font-medium text-c-black text-lg">FNI Racer</h1>
+                          <span class="font-medium text-sm">4.6 &#11088;</span>
+                        </div>
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
+                        <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
+                            <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                          <h1 class="font-medium text-c-black text-lg">FNI Racer</h1>
+                          <span class="font-medium text-sm">4.6 &#11088;</span>
+                        </div>
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
+                        <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
+                            <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                          <h1 class="font-medium text-c-black text-lg">FNI Racer</h1>
+                          <span class="font-medium text-sm">4.6 &#11088;</span>
+                        </div>
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
+                            </button>
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
+                                <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
+                                </li>
+                                <li>
+                                    <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
-                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
-                    <img class="w-14 h-14" src="images/ERP.png" alt="pptx Image">
-                </div>
-                <h1 class="font-medium text-lg text-c-black">ERP</h1>
-                <div> 
-                    <button id="dropdownDefaultButton3" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                      <div class="flex items-center justify-center w-full">
-                        Add
-                      </div>
-                      <div class="bg-white py-1 px-2">
-                        <i class="ri-arrow-down-s-line text-black"></i>
-                      </div> 
-                    </button>
-
-                    <div id="dropdown3"class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
-                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
-                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
-                    <img class="w-14 h-14" src="images/mail.png" alt="pptx Image">
-                </div>
-                <h1 class="font-medium text-lg text-c-black">Mail</h1>
-                <div> 
-                    <button id="dropdownDefaultButton4" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                      <div class="flex items-center justify-center w-full">
-                        Add
-                      </div>
-                      <div class="bg-white py-1 px-2">
-                        <i class="ri-arrow-down-s-line text-black"></i>
-                      </div> 
-                    </button>
-
-                    <div id="dropdown4" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
-                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-               <div class= "small-container flex flex-col items-center justify-center gap-5 relative">
-                  <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
-                    <img class="w-14 h-14" src="images/Chatapp.png" alt="pptx Image">
-                </div>
-                <h1 class="font-medium text-lg text-c-black">Chat</h1>
-                <div> 
-                    <button id="dropdownDefaultButton5" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                      <div class="flex items-center justify-center w-full">
-                        Add
-                      </div>
-                      <div class="bg-white py-1 px-2">
-                        <i class="ri-arrow-down-s-line text-black"></i>
-                      </div> 
-                    </button>
-
-                    <div id="dropdown5" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
-                        <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                          <li>
-                            <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
-                          </li>
-                          <li>
-                            <button class="openDeleteModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4"><i class="ri-delete-bin-6-line"></i>Delete</a>
-                          </li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
+                </section>
             </div>
           </div>
         </div>
       </div>
 
-
-      <!--Create Button Modal -->
+       <!--Create Button Modal -->
     <div
       id="Create-modal"
       role="dialog"
@@ -305,7 +457,7 @@
             >
               <img
                 class="w-16 h-16"
-                src="/images/lightimg.png"
+                src="/images/appnest.png"
                 alt="Light image"
               />
             </div>
@@ -542,7 +694,7 @@
           <div id="deleteapp-modal" class="p-4 md:p-5 text-center">
             <div class="delete-header flex items-center gap-4 mb-1 py-1">
               <i class="ri-delete-bin-6-line ri-xl text-c-yellow"></i>
-              <h1 class="text-lg font-medium">Delete File</h1>
+              <h1 class="text-lg font-medium">Remove File</h1>
             </div>
             <hr text-md>
             <div class="mt-6 flex items-center justify-center">
@@ -660,7 +812,7 @@
                                                       <h3 class="block mb-2 text-sm font-bold text-c-black ">Open type:<span class="text-red-500">*</span></h3>
                                                   </div>
                                                   <div class="w-2/3">
-                                                    <button type="button" class="new-window-btn px-8 py-2 bg-c-gray-3 text-c-black rounded">New window</button>
+                                                    <button type="button" class="new-window-btn hidden px-8 py-2 bg-c-gray-3 text-c-black rounded">New window</button>
                                                       <button type="button" class="Dialog-btn px-14 mt-2 sm:mt-0 py-2 text-c-black bg-c-gray-3 rounded">Dialog</button>
                                                   </div>
                                                 </div>
@@ -722,15 +874,47 @@
                             </div>
                         </div>
      </div>
-     </main> 
 
-    
-
-
-    <script src="script/taskbar.js"></script>
-    <script src="script/tour.js"></script>
-    <script src="script/lightapp-tour.js"></script>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="script/sidebar.js"></script>
     <script>
+         $(document).ready(function () {
+
+        // Navbar Selection Code
+
+        const navigateTitle = document.getElementById("navigate-title");
+
+        $('input[name="type"]').on("change", function () {
+          var selectedValue = $(this).val();
+
+          // Hide all content divs
+          $(".main-content").addClass("hidden");
+
+          // Show the selected div
+          if (selectedValue === "tools") {
+            $(".tools-content").removeClass("hidden");
+            navigateTitle.textContent = "Tools";
+          } else if (selectedValue === "games") {
+            $(".games-content").removeClass("hidden");
+            navigateTitle.textContent = "Games";
+          } else if (selectedValue === "videos") {
+            $(".videos-content").removeClass("hidden");
+             navigateTitle.textContent = "Videos";
+          } else if (selectedValue === "music") {
+            $(".music-content").removeClass("hidden");
+             navigateTitle.textContent = "Music";
+          } else if (selectedValue === "life") {
+            $(".life-content").removeClass("hidden");
+            navigateTitle.textContent = "Life";
+          } else if (selectedValue === "others") {
+            $(".others-content").removeClass("hidden");
+            navigateTitle.textContent = "Others";
+          }
+        });
+    })
+    </script>
+     <script>
          // CraateModal Open Functionality
       const openModalButton = document.querySelectorAll(
         ".openCreateModalButton"

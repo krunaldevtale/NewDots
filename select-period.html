@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Place</title>
+  <link rel="stylesheet" href="styles/root.css" />
+  <link rel="stylesheet" href="styles/common.css" />
+  <link rel="stylesheet" href="styles/market-place.css" />
+  <!-- Include Daterangepicker CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+<body class="w-full h-screen">
+  <main class="w-full h-full flex flex-col items-center justify-center space-y-9 cm">
+    <div class="graph-div flex items-center justify-center px-4 w-1/2 h-1/2 bg-red-500 p-4">
+         <div class="select-period inline-block relative">
+      <button id="period-btn" class="period-btn rounded px-3 py-1 custom-outline custom-safety-btn">
+        <span id="period-title">Select Period</span>
+        <i class="ri-arrow-down-s-fill"></i>
+      </button>
+      <ul id="period-dropdown" class="period-custom-dropdown-menu w-full absolute hidden text-c-black shadow bg-c-lighten-gray rounded overflow-hidden text-xs z-10 scroll">
+        <li class="px-2 py-2 text-c-black cursor-pointer" data-period="Last 7 Days">Last 7 Days</li>
+        <li class="px-2 py-2 text-c-black cursor-pointer" data-period="Last 15 Days">Last 15 Days</li>
+        <li class="px-2 py-2 text-c-black cursor-pointer" data-period="Last 30 Days">Last 30 Days</li>
+        <li class="px-2 py-2 text-c-black cursor-pointer" data-period="Custom Date">
+          <div class="flex items-center justify-between">
+            Custom Date
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+          <div class="flex items-center justify-start gap-1" style="font-size: 7px;">
+            <p id="startDate"></p>
+            <p id="endDate"></p>
+          </div>
+             <input id="custom-date-input" type="text" name="datetimes" class="hidden" />
+        </li>
+      </ul>
+    </div>
+
+    <select name="" id="">krunal
+      <option value="">1</option>
+    </select>
+    
+    </div>
+  </main>
+
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include Moment.js -->
+  <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <!-- Include Daterangepicker JS -->
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+  <script>
+  $(document).ready(function () {
+  function getDaySuffix(day) {
+    if (day > 3 && day < 21) return 'th';
+    switch (day % 10) {
+      case 1: return 'st';
+      case 2: return 'nd';
+      case 3: return 'rd';
+      default: return 'th';
+    }
+  }
+
+  // Initialize Daterangepicker
+  $("#custom-date-input").daterangepicker(
+    {
+      autoUpdateInput: false,
+      opens: "right",
+      parentEl: "body",
+      drop: "down",
+      autoApply: true,
+    },
+    function (start, end) {
+      const startDate = start.format("D") + getDaySuffix(start.date()) + " " + start.format("MMM YYYY");
+      const endDate = end.format("D") + getDaySuffix(end.date()) + " " + end.format("MMM YYYY");
+      
+
+      $("#period-title").text(`${startDate} to ${endDate}`);
+
+      $("#startDate").text(startDate);
+      $("#endDate").text(endDate);
+
+      // Close the dropdown
+      $("#period-dropdown").addClass("hidden");
+    }
+  );
+
+  // Toggle dropdown visibility
+  $("#period-btn").on("click", function (e) {
+    e.stopPropagation(); 
+    $("#period-dropdown").toggleClass("hidden");
+  });
+
+  // Handle Custom Date selection
+  $("#period-dropdown").on("click", 'li[data-period="Custom Date"]', function (e) {
+    e.stopPropagation();
+
+    const $this = $(this);
+    const offset = $this.offset();
+    const top = offset.top ;
+    const left = offset.left + $this.outerWidth();
+
+    const viewportWidth = $(window).width();
+    const datePicker = $("#custom-date-input").data("daterangepicker");
+    datePicker.container.addClass("custom-daterangepicker");
+    const datePickerContainer = datePicker.container;
+
+   const dropdownWidth = datePickerContainer.outerWidth();
+    if (left + dropdownWidth > viewportWidth) {
+      const newLeft = Math.max(viewportWidth - dropdownWidth - 10, 0);
+
+      datePickerContainer.css({
+        top: `${top + 5}px`,
+        left: `${newLeft}px`,
+        position: "absolute",
+        zIndex: 1000,
+        display: "block",
+      });
+    } else if (left < 0) {
+      datePickerContainer.css({
+        top: `${top + 5}px`,
+        left: `0px`,
+        position: "absolute",
+        zIndex: 1000,
+        display: "block",
+      });
+    } else {
+      datePickerContainer.css({
+        top: `${top + 5}px`,
+        left: `${left}px`,
+        position: "absolute",
+        zIndex: 1000,
+        display: "block",
+      });
+    }
+
+    $("#custom-date-input").trigger("click");
+  });
+
+  $("#period-dropdown").on("click", 'li:not([data-period="Custom Date"])', function () {
+    const period = $(this).data("period");
+
+    // Update the period title
+    $("#period-title").text(period);
+
+    // Clear custom date text
+    $("#startDate").text("");
+    $("#endDate").text("");
+
+    // Close the dropdown after selection
+    $("#period-dropdown").addClass("hidden");
+  });
+
+  // Close dropdown if clicking outside
+  $(window).on("click", function () {
+    $("#period-dropdown").addClass("hidden");
+  });
+});
+
+  </script>
+</body>
+</html>

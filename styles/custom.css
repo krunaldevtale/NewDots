@@ -693,6 +693,14 @@ input[type="search"]::-webkit-search-cancel-button {
   border-radius: 11px;
 }
 
+.lightapp .games-container{
+  width: 192px;
+  height: 227px;
+  border: 1px solid var(--border-light-gray);
+  background-color: var(--bg-light-gray);
+  border-radius: 11px;
+}
+
 .lightapp .small-container .img-container {
   width: 70px;
   height: 70px;
