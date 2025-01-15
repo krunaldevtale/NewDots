@@ -10,24 +10,7 @@
   </head>
   <body class="h-screen w-full">
     <main class="w-full h-full flex cm lightapp">
-      <!-- Sidebar -->
-      <aside class="h-full relative">
-        <input type="checkbox" class="hidden" id="sidebar-toggle" />
-        <label
-          for="sidebar-toggle"
-          class="absolute lg:hidden top-4 pt-0.5 -right-8 px-1"
-        >
-          <i class="ri-bar-chart-horizontal-line"></i>
-        </label>
-        <div class="h-full sidebar">
-          <div class="sidebar-container">
-            <div class="p-4">
-              <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
-            </div>
-          </div>
-        </div>
-      </aside>
-
+     
       <!-- Main content -->
       <div class="flex-grow border h-100 main">
         <div class="flex flex-col w-full h-full">
@@ -135,24 +118,28 @@
             </div>
 
                <!-- Tools Section -->
-            <div class="main-content tools-content w-full flex-1">
+            <div class="main-content tools-content w-full flex-1 px-4 pt-4 py-20 overflow-y-scroll scroll" style="height: calc(100% - 56px);">
+              <div class="w-full rounded-xl overflow-hidden" style="height: 22.5rem;">
+                 <img src="/images/games-bg.svg" alt="Games Background" class="h-full w-full object-cover object-center">
+                </div>
                 <div class="h-full flex flex-wrap flex-row justify-center sm:justify-start gap-7 md:gap-5 py-3 px-2 md:px-4 lg:px-6">
                     <div id="ppt-container" class= "small-container flex flex-col items-center justify-center gap-5 relative">
                         <div class="img-container rounded-xl bg-white shadow-black flex items-center justify-center">
                             <img class="w-14 h-14" src="images/pptx.png" alt="pptx Image">
                         </div>
                         <h1 class="font-medium text-c-black text-lg">PPT</h1>
-                        <div> 
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                                <div class="flex items-center justify-center w-full">
-                                Add
-                            </div>
-                            <div class="bg-white py-1 px-2">
-                                <i class="ri-arrow-down-s-line text-black"></i>
-                            </div> 
+                        <div>
+                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
                             </button>
                             <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
                                 <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
                                 <li>
                                     <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
                                 </li>
@@ -168,18 +155,18 @@
                             <img class="w-14 h-14" src="images/ExcelFile.png" alt="pptx Image">
                         </div>
                         <h1 class="font-medium text-lg text-c-black">Excel</h1>
-                        <div> 
-                            <button id="dropdownDefaultButton2" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                            <div class="flex items-center justify-center w-full">
-                                Add
-                            </div>
-                            <div class="bg-white py-1 px-2">
-                                <i class="ri-arrow-down-s-line text-black"></i>
-                            </div> 
+                         <div>
+                            <button id="dropdownDefaultButton2" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
                             </button>
-
-                            <div id="dropdown2" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
                                 <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
                                 <li>
                                     <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
                                 </li>
@@ -195,18 +182,18 @@
                             <img class="w-14 h-14" src="images/ERP.png" alt="pptx Image">
                         </div>
                         <h1 class="font-medium text-lg text-c-black">ERP</h1>
-                        <div> 
-                            <button id="dropdownDefaultButton3" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                            <div class="flex items-center justify-center w-full">
-                                Add
-                            </div>
-                            <div class="bg-white py-1 px-2">
-                                <i class="ri-arrow-down-s-line text-black"></i>
-                            </div> 
+                         <div>
+                            <button id="dropdownDefaultButton3" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
                             </button>
-
-                            <div id="dropdown3"class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
                                 <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
                                 <li>
                                     <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
                                 </li>
@@ -222,18 +209,18 @@
                             <img class="w-14 h-14" src="images/mail.png" alt="pptx Image">
                         </div>
                         <h1 class="font-medium text-lg text-c-black">Mail</h1>
-                        <div> 
-                            <button id="dropdownDefaultButton4" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                            <div class="flex items-center justify-center w-full">
-                                Add
-                            </div>
-                            <div class="bg-white py-1 px-2">
-                                <i class="ri-arrow-down-s-line text-black"></i>
-                            </div> 
+                        <div>
+                            <button id="dropdownDefaultButton4" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
                             </button>
-
-                            <div id="dropdown4" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
                                 <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
                                 <li>
                                     <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
                                 </li>
@@ -249,18 +236,18 @@
                             <img class="w-14 h-14" src="images/Chatapp.png" alt="pptx Image">
                         </div>
                         <h1 class="font-medium text-lg text-c-black">Chat</h1>
-                        <div> 
-                            <button id="dropdownDefaultButton5" class="dropdown-button add-btn flex items-center justify-between w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
-                            <div class="flex items-center justify-center w-full">
-                                Add
-                            </div>
-                            <div class="bg-white py-1 px-2">
-                                <i class="ri-arrow-down-s-line text-black"></i>
-                            </div> 
+                        <div>
+                            <button id="dropdownDefaultButton5" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                                <div class="flex items-center justify-center gap-4 w-full">
+                                    More
+                                    <i class="ri-arrow-down-s-fill ri-lg"></i>
+                                </div>
                             </button>
-
-                            <div id="dropdown5" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 text-c-black overflow-hidden">
+                            <div id="dropdown1" class="dropdown-menu z-10 absolute right-2 top-48 sm:right-2 lg:right-10 sm:top-52 hidden bg-c-lighten-gray rounded-md shadow w-40 dark:bg-gray-700 overflow-hidden ">
                                 <ul class="text-sm text-c-black dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                                    <li>
+                                    <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-add-circle-fill"></i>Add</button>
+                                </li>
                                 <li>
                                     <button type="button" class="openEditModalButton block w-full px-4 py-1.5 text-base hover:bg-yellow-400 hover:text-black flex items-center gap-4 "><i class="ri-edit-box-line"></i>Edit</button>
                                 </li>
@@ -279,8 +266,8 @@
                 <div class="w-full rounded-xl overflow-hidden" style="height: 22.5rem;">
                  <img src="/images/games-bg.svg" alt="Games Background" class="h-full w-full object-cover object-center">
                 </div>
-                <section class="flex justify-center pb-10">
-                <div id="dynamic-games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-7 py-4 max-w-[1200px] mx-auto">
+                <section class="flex justify-center sm:justify-start pb-10">
+                <div id="dynamic-games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-7 py-4 max-w-[1200px] ">
                     <div class= "games-container flex flex-col items-center justify-center gap-3 relative">
                         <div class="rounded-lg w-36 h-20 shadow-black flex items-center justify-center">
                             <img class="w-full h-full object-cover object-center rounded-lg" src="images/car-game.svg" alt="Game Image">
@@ -290,7 +277,7 @@
                           <span class="font-medium text-sm">4.6 &#11088;</span>
                         </div>
                         <div>
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <button id="dropdownGameButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
                                 <div class="flex items-center justify-center gap-4 w-full">
                                     More
                                     <i class="ri-arrow-down-s-fill ri-lg"></i>
@@ -320,7 +307,7 @@
                           <span class="font-medium text-sm">4.6 &#11088;</span>
                         </div>
                         <div>
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <button id="dropdownGameButton2" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
                                 <div class="flex items-center justify-center gap-4 w-full">
                                     More
                                     <i class="ri-arrow-down-s-fill ri-lg"></i>
@@ -350,7 +337,7 @@
                           <span class="font-medium text-sm">4.6 &#11088;</span>
                         </div>
                         <div>
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <button id="dropdownGameButton3" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
                                 <div class="flex items-center justify-center gap-4 w-full">
                                     More
                                     <i class="ri-arrow-down-s-fill ri-lg"></i>
@@ -380,7 +367,7 @@
                           <span class="font-medium text-sm">4.6 &#11088;</span>
                         </div>
                         <div>
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <button id="dropdownGameButton4" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
                                 <div class="flex items-center justify-center gap-4 w-full">
                                     More
                                     <i class="ri-arrow-down-s-fill ri-lg"></i>
@@ -410,7 +397,7 @@
                           <span class="font-medium text-sm">4.6 &#11088;</span>
                         </div>
                         <div>
-                            <button id="dropdownDefaultButton1" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
+                            <button id="dropdownGameButton5" class="dropdown-button add-btn flex items-center justify-center py-1 w-32 sm:w-36 border border-c-light-gray overflow-hidden text-lg" type="button">
                                 <div class="flex items-center justify-center gap-4 w-full">
                                     More
                                     <i class="ri-arrow-down-s-fill ri-lg"></i>
