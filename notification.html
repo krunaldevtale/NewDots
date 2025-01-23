@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/custom.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <title>Personalized notifications</title>
+  </head>
+
+  <body class="h-screen w-full">
+    <!-- Taskbar -->
+    <div class="taskbar-slide h-16 flex items-center w-full absolute">
+      <div
+        class="flex justify-center ml-10 w-full relative h-full"
+        id="toolbar"
+      >
+        <div class="bg absolute w-full bottom-0">
+          <img id="shelf" class="w-full" src="images/shelf.png" alt="" />
+        </div>
+      </div>
+      <div class="flex items-center gap-8 w-48 justify-end pr-5">
+        <i id="search-icon" class="ri-search-line"></i>
+        <i id="notification-icon" class="ri-notification-3-line"></i>
+        <i id="pinned" class="ri-pushpin-line"></i>
+        <i onclick="startGuide()" class="ri-question-line"></i>
+      </div>
+    </div>
+
+    <main class="flex w-full h-full cm">
+      <!-- sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-6 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+              </a>
+            </div>
+            <div class="sidebar-content">
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="overview.html"
+                    id="overview"
+                  >
+                    <span class="font-normal"> Overview </span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="notification.html"
+                    id="overview"
+                  >
+                    <span class="font-normal"> User profile </span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Reports and Analytics </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="activity-reports.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Activity Reports</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Department Reports</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Custom Graphs</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> System Settings </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="system-setting-basic-page.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Basic</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Menu</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Notice</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Users &amp; Groups </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="admin&users-users&groups.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Users &amp; Groups </span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-role.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Role</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="admin&user-document-permission.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Document Permission</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Storage/file</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="storage-file.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Storage</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-backup.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Backup</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-share.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Share</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">webDAV Mount</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="settings-storage-media-preview.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal"
+                            >Media file preview &amp; Video</span
+                          >
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Client and App</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-plugin.html"
+                  >
+                    <span class="font-normal">Plugin Center</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Saftey Control</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Message Warning</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-login.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Login Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-operational.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Operation Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-server-scheduled-tasks.html"
+                  >
+                    <span class="font-normal">Scheduled Tasks</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- main content -->
+      <div class="flex-grow border h-full main">
+        <div class="flex w-full h-full flex-col content">
+          <div class="px-8 lg:px-5 py-6">
+            <div class="flex items-center gap-4">
+              <i class="ri-settings-3-fill ri-xl"></i>
+              <span class="text-lg text-color-nav-black">System settings</span>
+            </div>
+          </div>
+
+          <!-- top taskbar -->
+          <div class="taskbar flex items-center justify-between px-6 py-4">
+            <div class="flex items-center gap-2 sm:gap-4 w-full md:w-1/2">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <span class="text-c-light-black text-sm sm:text-base"
+                  >User profile</span
+                >
+                <i
+                  class="ri-arrow-right-line ri-sm sm:ri-lg"
+                  style="color: #4d4d4d"
+                ></i>
+                <span class="font-semibold text-c-black text-sm sm:text-base"
+                  >Personalized notifications</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!--content -->
+          <div class="overflow-y-scroll scroll relative h-full px-6 py-4">
+              <div class="border-b stroke-color pb-1">
+                <h1 class="font-medium text-c-black text-sm md:text-lg">
+                  Types of notifications
+                </h1>
+              </div>
+              <div class="flex items-start border-b stroke-color pt-4 pb-6">
+                <div class="w-1/3">
+                  <h1 class="text-black font-bold text-sm md:text-base">
+                    in-app notifications:
+                  </h1>
+                </div>
+                <div class="w-2/3 flex flex-col gap-2 pl-3">
+                  <label
+                    for="toggle-1"
+                    class="toggle-switch flex items-center cursor-pointer"
+                  >
+                    <div class="relative">
+                      <input type="checkbox" id="toggle-1" class="sr-only" />
+                      <div
+                        class="block toggle-bg w-14 h-7 rounded-full border"
+                      ></div>
+                      <div
+                        class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"
+                      ></div>
+                    </div>
+                  </label>
+                  <p class="font-light text-xs md:text-sm">
+                    Click to toggle to receive in-app notification
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start border-b stroke-color pt-4 pb-6">
+                <div class="w-1/3">
+                  <h1 class="text-black font-bold text-sm md:text-base">
+                    System notifications:
+                  </h1>
+                </div>
+                <div class="w-2/3 flex flex-col gap-2 pl-3">
+                  <label
+                    for="toggle-2"
+                    class="toggle-switch flex items-center cursor-pointer"
+                  >
+                    <div class="relative">
+                      <input type="checkbox" id="toggle-2" class="sr-only" />
+                      <div
+                        class="block toggle-bg w-14 h-7 rounded-full border"
+                      ></div>
+                      <div
+                        class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"
+                      ></div>
+                    </div>
+                  </label>
+                  <p class="font-light text-xs md:text-sm">
+                    Click to receive system notification
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start border-b stroke-color pt-4 pb-6">
+                <div class="w-1/3">
+                  <h1 class="text-black font-bold text-sm md:text-base">
+                    Set notification sounds or vibrations:
+                  </h1>
+                </div>
+                <div class="w-2/3 flex flex-col gap-2 pl-3">
+                  <label
+                    for="toggle-3"
+                    class="toggle-switch flex items-center cursor-pointer"
+                  >
+                    <div class="relative">
+                      <input type="checkbox" id="toggle-3" class="sr-only" />
+                      <div
+                        class="block toggle-bg w-14 h-7 rounded-full border"
+                      ></div>
+                      <div
+                        class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"
+                      ></div>
+                    </div>
+                  </label>
+                  <p class="font-light text-xs md:text-sm">
+                    Click to set notification alerts
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start border-b stroke-color pt-4 pb-6">
+                <div class="w-1/3">
+                  <h1 class="text-black font-bold text-sm md:text-base">
+                    Mute for some hours:
+                  </h1>
+                </div>
+                <div class="w-2/3 pl-3">
+                  <div class="inline-block relative w-full md:w-3/5">
+                    <button
+                      id="timeDropdownButton"
+                      class="w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left"
+                    >
+                      <div class="flex items-center text-sm md:text-base" id="dropdownTitle">
+                        Select Time
+                      </div>
+                      <div
+                        class="absolute inset-y-0 right-0 flex items-center border border-gray-3 w-12 rounded-r-xl pl-3 pt-1"
+                      >
+                        <i class="ri-arrow-drop-down-line ri-xl"></i>
+                      </div>
+                    </button>
+                    <ul
+                      id="timeDropdownMenu"
+                      class="dropdown-menu custom-dropdown-menu absolute hidden text-gray-700 shadow bg-custom-pure-white text-sm"
+                      style="width: 100%"
+                    >
+                      <li>
+                        <span
+                          class="flex items-center font-normal rounded-t custom-bg-hover py-2 px-4 block whitespace-no-wrap px-4"
+                          >1 hour</span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          class="flex items-center font-normal custom-bg-hover py-2 px-4 block whitespace-no-wrap px-4"
+                          >24 hours</span
+                        >
+                      </li>
+                      <li>
+                        <span
+                          class="flex items-center font-normal rounded-b custom-bg-hover py-2 px-4 block whitespace-no-wrap px-4"
+                          >Always</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-3">
+                <button
+                  type="button"
+                  class="bg-c-black hover:bg-c-black text-white rounded-full w-32 py-2 text-sm"
+                >
+                  Save
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script defer src="script/sidebar.js"></script>
+    <script src="script/taskbar.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Toggle dropdown menu on button click
+        $("#timeDropdownButton").click(function (e) {
+          e.stopPropagation(); // Prevent event bubbling
+          $("#timeDropdownMenu").toggleClass("hidden");
+        });
+
+        // Update button title and hide dropdown on option click
+        $("#timeDropdownMenu li span").click(function (e) {
+          e.preventDefault(); // Prevent default link behavior
+          const selectedText = $(this).text().trim();
+          $("#dropdownTitle").text(selectedText);
+          $("#timeDropdownMenu").addClass("hidden");
+        });
+
+        // Close dropdown when clicking outside
+        $(document).click(function () {
+          $("#timeDropdownMenu").addClass("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
