@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widgets</title>
+    <link rel="stylesheet" href="styles/custom.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  </head>
+  <body class="h-screen w-full">
+    <main class="w-full h-full flex cm lightapp">
+     
+      <!-- Main content -->
+      <div class="flex-grow border main">
+        <div class="flex flex-col w-full h-full">
+          <div class="px-9 py-4 lg:p-4">
+            <div class="flex items-center gap-4">
+              <span class="text-xl font-normal mb-2 text-c-black"
+                >Widgets</span
+              >
+            </div>
+          </div>
+
+           <!-- top taskbar -->
+          <div
+            class="taskbar bg-no-repeat bg-cover bg-center flex items-center justify-between px-5 md:px-5 lg:px-7 py-4"
+          >
+            <div class="flex items-center justify-between gap-4 w-full">
+              <div class="flex gap-1 sm:gap-2 items-center">
+                 <span class="text-c-light-gray text-base">Widgets</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div id="search-bar"
+                class="flex items-center rounded overflow-hidden bg-c-white h-9"
+              >
+                <input
+                  type="search"
+                  class="pl-4  border-none text-c-black outline-none"
+                  placeholder="Search"
+                />
+                <div class="pr-4 flex items-center justify-center">
+                 <i class="ri-search-line"></i>
+                </div>
+              </div>
+                </div>
+            </div>
+          </div>
+
+           <!-- Content -->
+          <div class="relative w-full h-full px-5 md:px-5 lg:px-7">
+              <!-- Navigation -->
+            <div
+              class="h-14 flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
+            >
+              <label for="all" class="cursor-pointer radio-border">
+                <input
+                  type="radio"
+                  name="type"
+                  id="all"
+                  value="all"
+                  checked
+                />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >All</span
+                >
+                <div></div>
+              </label>
+              <label for="clock" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="clock" value="clock"/>
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >World Clock</span
+                >
+                <div></div>
+              </label>
+              <label for="calender" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="calender" value="calender"/>
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Calender</span
+                >
+                <div></div>
+              </label>
+              <label for="weather" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="weather" value="weather" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Weather</span
+                >
+                <div></div>
+              </label>
+              <label for="stopwatch" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="stopwatch" value="stopwatch" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Stopwatch</span
+                >
+                <div></div>
+              </label>
+              <label for="notes" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="notes" value="notes" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >Sticky Notes</span
+                >
+                <div></div>
+              </label>
+              <label for="system" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="system" value="system" />
+                <span class="text-c-black font-normal text-xs md:text-base"
+                  >System widget</span
+                >
+                <div></div>
+              </label>
+            </div>
+
+            <!-- All Section -->
+            <div class="main-content all-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="height: calc(100% - 56px);">
+                <div class="weather-widget p-4 flex flex-col items-center gap-3 cursor-move">
+                    <p class="text-2xl font-normal text-c-white">New Delhi, India</p>
+                    <hr class="w-full"/>
+                    <p class="font-normal text-c-white">Today, Jan 01</p>
+                    <div class="weather-temperature">
+                        <span class="text-5xl">19<sup>&deg;C</sup></span>
+                    </div>
+                    <p class="text-xl">Sunny</p>
+                    <p class="text-xl">H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
+                    <p class="text-xl">Air quality index- 328 (Very Poor)</p>
+                    <div class="weather-hour w-full p-3 flex gap-4">
+                        <div class="text-center">
+                            <p class="text-c-light-black">Now</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">19°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">1pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">18°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">2pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">22°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">3pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">26°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">4pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">5pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">6pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="stopwatch1" class="stopwatch-widget stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
+                    <h1 class="text-c-yellow text-2xl font-bold mb-4">Stopwatch</h1>
+                    <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
+                        <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
+                            <circle id="progress1" class="progress" cx="50" cy="50" r="40" 
+                                stroke="#FDCF01" stroke-width="8" fill="none"
+                                stroke-dasharray="251.2" stroke-dashoffset="251.2" 
+                                stroke-linecap="round" transform="rotate(-90 50 50)">
+                            </circle>
+                        </svg>                        
+                        <div class="text-c-yellow text-sm font-mono display" id="display1">00 : 00 : 00</div>
+                        <div class="text-c-yellow text-xs flex gap-4">
+                            <span>hour</span><span>min</span><span>sec</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-6">
+                        <button id="start1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
+                        <button id="reset1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Weather Section -->
+            <div class="main-content weather-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
+                <div class="weather-widget p-4 flex flex-col items-center gap-3 cursor-move">
+                    <p class="text-2xl font-normal text-c-white">New Delhi, India</p>
+                    <hr class="w-full"/>
+                    <p class="font-normal text-c-white">Today, Jan 01</p>
+                    <div class="weather-temperature">
+                        <span class="text-5xl">19<sup>&deg;C</sup></span>
+                    </div>
+                    <p class="text-xl">Sunny</p>
+                    <p class="text-xl">H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
+                    <p class="text-xl">Air quality index- 328 (Very Poor)</p>
+                    <div class="weather-hour w-full p-3 flex gap-4">
+                        <div class="text-center">
+                            <p class="text-c-light-black">Now</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">19°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">1pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">18°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">2pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">22°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">3pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">26°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">4pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">5pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-c-light-black">6pm</p>
+                            <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
+                            <p class="text-c-light-black">20°</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Stopwatch Section -->
+            <div class="main-content stopwatch-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
+                <div id="stopwatch2" class="stopwatch-widget stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
+                    <h1 class="text-c-yellow text-2xl font-bold mb-4">Stopwatch</h1>
+                    <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
+                        <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
+                            <circle id="progress2" class="progress" cx="50" cy="50" r="40" 
+                                stroke="#FDCF01" stroke-width="8" fill="none"
+                                stroke-dasharray="251.2" stroke-dashoffset="251.2" 
+                                stroke-linecap="round" transform="rotate(-90 50 50)">
+                            </circle>
+                        </svg>                        
+                        <div class="text-c-yellow text-sm font-mono display" id="display">00 : 00 : 00</div>
+                        <div class="text-c-yellow text-xs flex gap-4">
+                            <span>hour</span><span>min</span><span>sec</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-6">
+                        <button id="start2" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
+                        <button id="reset2" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script defer src="script/sidebar.js"></script>
+    <script>
+         $(document).ready(function () {
+        
+            // Navbar Selection Code
+            const navigateTitle = document.getElementById("navigate-title");
+            $('input[name="type"]').on("change", function () {
+            var selectedValue = $(this).val();
+
+            // Hide all content divs
+            $(".main-content").addClass("hidden");
+
+            // Show the selected div
+            if (selectedValue === "all") {
+                $(".all-content").removeClass("hidden");
+                navigateTitle.textContent = "All";
+            } else if (selectedValue === "clock") {
+                $(".clock-content").removeClass("hidden");
+                navigateTitle.textContent = "World Clock";
+            } else if (selectedValue === "calender") {
+                $(".calender-content").removeClass("hidden");
+                navigateTitle.textContent = "Calender";
+            } else if (selectedValue === "weather") {
+                $(".weather-content").removeClass("hidden");
+                navigateTitle.textContent = "Weather";
+            } else if (selectedValue === "stopwatch") {
+                $(".stopwatch-content").removeClass("hidden");
+                navigateTitle.textContent = "Stopwatch";
+            } else if (selectedValue === "notes") {
+                $(".notes-content").removeClass("hidden");
+                navigateTitle.textContent = "Sticky Notes";
+            }else if (selectedValue === "system") {
+                $(".system-content").removeClass("hidden");
+                navigateTitle.textContent = "System widget";
+            }
+            });
+
+            // Drag and resize widget
+            $(".weather-widget,.stopwatch-widget").draggable().resizable({
+                resize: function(event, ui) {
+                let scaleX = ui.size.width / ui.originalSize.width;
+                let scaleY = ui.size.height / ui.originalSize.height;
+                $(this).css("transform", `scale(${scaleX}, ${scaleY})`);
+                }
+            });
+            
+            // stopwatch widget
+            const stopwatches = document.querySelectorAll('.stopwatch');
+
+            stopwatches.forEach((stopwatch, index) => {
+                let timer;
+                let seconds = 0;
+                let isRunning = false;
+                const display = stopwatch.querySelector(".display");
+                const progress = stopwatch.querySelector(".progress");
+                const startButton = stopwatch.querySelector(`#start${index + 1}`);
+                const resetButton = stopwatch.querySelector(`#reset${index + 1}`);
+                
+                function formatTime(sec) {
+                let hrs = Math.floor(sec / 3600).toString().padStart(2, '0');
+                let mins = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+                let secs = (sec % 60).toString().padStart(2, '0');
+                return `${hrs} : ${mins} : ${secs}`;
+                }
+                
+                function updateProgress() {
+                let progressValue = (seconds / 3600) * 251.2;
+                progress.style.strokeDashoffset = 251.2 - progressValue;
+                }
+                
+                function startStopwatch() {
+                if (isRunning) {
+                    clearInterval(timer);
+                    startButton.textContent = "Start";
+                } else {
+                    timer = setInterval(() => {
+                    if (seconds < 3600) {
+                        seconds++;
+                        display.textContent = formatTime(seconds);
+                        updateProgress();
+                    } else {
+                        clearInterval(timer);
+                        isRunning = false;
+                        startButton.textContent = "Start";
+                    }
+                    }, 1000);
+                    startButton.textContent = "Pause";
+                }
+                isRunning = !isRunning;
+                }
+                
+                function resetStopwatch() {
+                clearInterval(timer);
+                seconds = 0;
+                isRunning = false;
+                display.textContent = "00 : 00 : 00";
+                progress.style.strokeDashoffset = 251.2;
+                startButton.textContent = "Start";
+                }
+                
+                startButton.addEventListener("click", startStopwatch);
+                resetButton.addEventListener("click", resetStopwatch);
+            });
+        })
+    </script>
+  </body>
+</html>
