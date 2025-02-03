@@ -113,7 +113,7 @@
 
             <!-- All Section -->
             <div class="main-content all-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="height: calc(100% - 56px);">
-                <div class="weather-widget p-4 flex flex-col items-center gap-3 cursor-move">
+                <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
                     <p class="text-2xl font-normal text-c-white">New Delhi, India</p>
                     <hr class="w-full"/>
                     <p class="font-normal text-c-white">Today, Jan 01</p>
@@ -160,8 +160,9 @@
                             <p class="text-c-light-black">20°</p>
                         </div>
                     </div>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                 </div>
-                <div id="stopwatch1" class="stopwatch-widget stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
+                <div id="stopwatch1" class="stopwatch-widget relative stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
                     <h1 class="text-c-yellow text-2xl font-bold mb-4">Stopwatch</h1>
                     <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
                         <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
@@ -181,6 +182,7 @@
                         <button id="start1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
                         <button id="reset1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
                     </div>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                 </div>
             </div>
             <!-- Weather Section -->
@@ -302,13 +304,50 @@
             });
 
             // Drag and resize widget
-            $(".weather-widget,.stopwatch-widget").draggable().resizable({
-                resize: function(event, ui) {
-                let scaleX = ui.size.width / ui.originalSize.width;
-                let scaleY = ui.size.height / ui.originalSize.height;
-                $(this).css("transform", `scale(${scaleX}, ${scaleY})`);
-                }
-            });
+            function initializeResizableWidgets(widgetConfig) {
+              Object.keys(widgetConfig).forEach(className => {
+                  $(`.${className}`).each(function () {
+                      let { minWidth, minHeight, maxWidth, maxHeight } = widgetConfig[className];
+          
+                      $(this).draggable().resizable({
+                          minWidth: minWidth,
+                          minHeight: minHeight,
+                          maxWidth: maxWidth,
+                          maxHeight: maxHeight,
+                          start: function (event, ui) {
+                              ui.element.data("originalWidth", ui.originalSize.width);
+                              ui.element.data("originalHeight", ui.originalSize.height);
+                          },
+                          resize: function (event, ui) {
+                              let originalWidth = ui.element.data("originalWidth");
+                              let originalHeight = ui.element.data("originalHeight");
+          
+                              let scaleX = ui.size.width / originalWidth;
+                              let scaleY = ui.size.height / originalHeight;
+                              let scale = Math.min(scaleX, scaleY);
+          
+                              // Apply transform scaling to the entire content
+                              $(this).css({
+                                  transform: `scale(${scale})`,
+                                  transformOrigin: "top left"
+                              });
+          
+                              // Ensure the container still resizes while scaling content
+                              ui.element.width(originalWidth).height(originalHeight);
+                          }
+                      });
+                  });
+              });
+            }
+          
+            // set size:
+            let widgetConfig = {
+                "weather-widget": { minWidth: 300, minHeight: 250, maxWidth: 350, maxHeight: 500 },
+                "stopwatch-widget": { minWidth: 200, minHeight: 150, maxWidth: 272, maxHeight: 400 },
+            };
+            
+            // Initialize widgets with dynamic sizes
+            initializeResizableWidgets(widgetConfig);                   
             
             // stopwatch widget
             const stopwatches = document.querySelectorAll('.stopwatch');
