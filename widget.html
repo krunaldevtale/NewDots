@@ -9,48 +9,79 @@
     <link rel="stylesheet" href="styles/common.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
   </head>
+
   <body class="h-screen w-full">
-    <main class="w-full h-screen flex cm lightapp">
-     
-      <!-- Main content -->
-      <div class="flex-grow border main">
-        <div class="flex flex-col w-full h-screen">
-          <div class="px-9 py-4 lg:p-4">
+    <main class="flex w-full h-full flex cm">
+      <!-- Sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-1 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+              </a>
+            </div>
+            <div class="sidebar-content">
+                <ul class="space-y-1">
+                    <li>
+                        <a
+                        class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                        href="widget.html"
+                        >
+                        <span class="font-normal">Widgets</span>
+                        <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                        ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <div class="flex-grow h-100 main">
+        <div class="flex w-full h-full flex-col content">
+          <div class="px-3 md:px-5 py-6">
             <div class="flex items-center gap-4">
-              <span class="text-xl font-normal mb-2 text-c-black"
+              <span class="text-lg text-c-black font-normal"
                 >Widgets</span
               >
             </div>
           </div>
-
-           <!-- top taskbar -->
+          <!-- topTaskbar in desktop -->
           <div
-            class="taskbar bg-no-repeat bg-cover bg-center flex items-center justify-between px-5 md:px-5 lg:px-7 py-4"
+            class="pl-4 md:pl-6 py-4 pr-4 md:pr-6 w-full flex flex-row justify-between items-center taskbar"
           >
-            <div class="flex items-center justify-between gap-4 w-full">
-              <div class="flex gap-1 sm:gap-2 items-center">
-                 <span class="text-c-light-gray text-base">Widgets</span>
+            <div class="w-full sm:w-4/12 xl:w-6/12">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <span class="text-c-light-black whitespace-nowrap font-normal">
+                    Widgets
+                </span>
               </div>
-              <div class="flex items-center gap-4">
-                <div id="search-bar"
-                class="flex items-center rounded overflow-hidden bg-c-white h-9"
-              >
-                <input
-                  type="search"
-                  class="pl-4  border-none text-c-black outline-none"
-                  placeholder="Search"
-                />
-                <div class="pr-4 flex items-center justify-center">
-                 <i class="ri-search-line"></i>
-                </div>
-              </div>
+            </div>
+            <div class="taskicon w-full sm:w-8/12 xl:w-6/12 flex flex-row items-center justify-end gap-2">
+                <div id="search-bar" class="flex items-center rounded overflow-hidden bg-c-white h-9">
+                    <input
+                    type="search"
+                    class="pl-4  border-none text-c-black outline-none"
+                    placeholder="Search"
+                    />
+                    <div class="pr-4 flex items-center justify-center">
+                    <i class="ri-search-line"></i>
+                    </div>
                 </div>
             </div>
           </div>
-
-           <!-- Content -->
-          <div class="relative w-full h-full px-5 md:px-5 lg:px-7">
-              <!-- Navigation -->
+          <!--Main content -->
+          <div class="relative h-full overflow-hidden">
+            <!-- Navigation -->
             <div
               class="h-14 flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
             >
@@ -112,20 +143,20 @@
             </div>
 
             <!-- All Section -->
-            <div class="main-content all-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex xl:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="height: calc(100% - 12.25rem);">
-              <div class="flex flex-col gap-6">   
-                <!-- Weather widget -->
-                <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
-                    <p class="text-2xl font-normal text-c-white">New Delhi, India</p>
+            <div class="main-content all-content w-full flex flex-col xl:flex-row gap-6 p-10 overflow-y-auto scroll">
+                <div class="flex flex-col gap-6">   
+                  <!-- Weather widget -->
+                  <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
+                    <p class="text-lg font-normal text-c-white">New Delhi, India</p>
                     <hr class="w-full"/>
-                    <p class="font-normal text-c-white">Today, Jan 01</p>
+                    <p class="font-normal text-c-white text-sm">Today, Jan 01</p>
                     <div class="weather-temperature">
-                        <span class="text-5xl">19<sup>&deg;C</sup></span>
+                        <span class="text-3xl p-4">19<sup>&deg;C</sup></span>
                     </div>
-                    <p class="text-xl">Sunny</p>
-                    <p class="text-xl">H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
-                    <p class="text-xl">Air quality index- 328 (Very Poor)</p>
-                    <div class="weather-hour w-full p-3 flex gap-4">
+                    <p>Sunny</p>
+                    <p>H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
+                    <p>Air quality index- 328 (Very Poor)</p>
+                    <div class="weather-hour w-full p-3 flex justify-between overflow-x-auto overflow-y-hidden scroll-x gap-4">
                         <div class="text-center">
                             <p class="text-c-light-black">Now</p>
                             <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
@@ -164,177 +195,171 @@
                     </div>
                     <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
                     <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
-                </div>
-                <!-- Calender widget -->
-                <div id="calendar1" class="calender-widget relative flex flex-col gap-3 cursor-move">
-                  <div class="flex justify-between items-center py-2 px-8 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
-                    <button class="prevMonth px-4 py-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
-                    <h2 class="monthYear text-xl"></h2>
-                    <button class="nextMonth px-4 py-2"><i class="ri-arrow-right-s-line ri-lg"></i></button>
                   </div>
-                  <div class="grid grid-cols-7 gap-1 text-center px-8">
-                      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                  <!-- Stopwatch widget -->
+                  <div id="stopwatch1" class="stopwatch-widget relative stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
+                    <h1 class="text-c-yellow text-xl font-bold mb-4">Stopwatch</h1>
+                    <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
+                        <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
+                            <circle id="progress1" class="progress" cx="50" cy="50" r="40" 
+                                stroke="#FDCF01" stroke-width="8" fill="none"
+                                stroke-dasharray="251.2" stroke-dashoffset="251.2" 
+                                stroke-linecap="round" transform="rotate(-90 50 50)">
+                            </circle>
+                        </svg>                        
+                        <div class="text-c-yellow text-sm font-mono display" id="display1">00 : 00 : 00</div>
+                        <div class="text-c-yellow text-xs flex gap-4">
+                            <span>hour</span><span>min</span><span>sec</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-6">
+                        <button id="start1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
+                        <button id="reset1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
+                    </div>
+                    <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                   </div>
-                  <div class="calendar grid grid-cols-7 gap-1 mt-2 text-center mx-8 mb-4"></div>
-                  <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
-                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                 </div>
-              </div>
-              <div class="flex flex-col gap-6">  
-                <div class="flex flex-col xl:flex-row gap-6">   
-                  <div class="flex flex-col gap-6">   
-                    <!-- Stopwatch widget -->
-                    <div id="stopwatch1" class="stopwatch-widget relative stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
-                        <h1 class="text-c-yellow text-2xl font-bold mb-4">Stopwatch</h1>
-                        <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
-                            <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
-                                <circle id="progress1" class="progress" cx="50" cy="50" r="40" 
-                                    stroke="#FDCF01" stroke-width="8" fill="none"
-                                    stroke-dasharray="251.2" stroke-dashoffset="251.2" 
-                                    stroke-linecap="round" transform="rotate(-90 50 50)">
-                                </circle>
-                            </svg>                        
-                            <div class="text-c-yellow text-sm font-mono display" id="display1">00 : 00 : 00</div>
-                            <div class="text-c-yellow text-xs flex gap-4">
-                                <span>hour</span><span>min</span><span>sec</span>
+                <div class="flex flex-col gap-6"> 
+                  <!-- Calender widget -->
+                  <div id="calendar1" class="calender-widget relative flex flex-col gap-3 cursor-move">
+                    <div class="flex justify-between items-center py-2 px-8 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
+                      <button class="prevMonth px-4 py-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
+                      <h2 class="monthYear"></h2>
+                      <button class="nextMonth px-4 py-2"><i class="ri-arrow-right-s-line ri-lg"></i></button>
+                    </div>
+                    <div class="grid grid-cols-7 gap-1 text-center text-sm px-8">
+                        <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                    </div>
+                    <div class="calendar grid grid-cols-7 gap-1 mt-2 text-center mx-8 mb-4 text-sm"></div>
+                    <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                  </div>
+                  <!-- Clock widget -->
+                  <div class="clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
+                    <div class="clock relative flex items-center justify-center rounded-full">
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-5.5rem);"></div> <!-- 12:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(30deg) translateY(-5.5rem);"></div> <!-- 1:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(60deg) translateY(-5.5rem);"></div> <!-- 2:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) translateY(-5.5rem);"></div> <!-- 3:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(120deg) translateY(-5.5rem);"></div> <!-- 4:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(150deg) translateY(-5.5rem);"></div> <!-- 5:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(180deg) translateY(-5.5rem);"></div> <!-- 6:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(210deg) translateY(-5.5rem);"></div> <!-- 7:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(240deg) translateY(-5.5rem);"></div> <!-- 8:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(270deg) translateY(-5.5rem);"></div> <!-- 9:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(300deg) translateY(-5.5rem);"></div> <!-- 10:00 -->
+                      <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(330deg) translateY(-5.5rem);"></div> <!-- 11:00 -->
+                      <!-- Clock Hands -->
+                      <div class="absolute w-1 -mb-0.5 h-16 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom hour-hand"></div>
+                      <div class="absolute w-1 -mb-0.5 h-20 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom minute-hand"></div>
+                      <div class="absolute w-1 -mb-0.5 h-20 rounded-full bg-c-yellow bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom second-hand"></div>
+                      <div class="absolute w-3 h-3 border-4 border-c-light-gray rounded-full"></div>
+                    </div>
+                    <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                  </div>  
+                </div>
+                <div class="flex flex-col gap-6">  
+                    <!-- Cube Sticky Notes widget -->
+                    <div class="cube-notes-widget relative p-3 mb-3 flex flex-col items-center gap-3 cursor-move">
+                        <div class="flex justify-between items-center w-full">
+                          <button class="my-2 text-c-yellow"><i class="ri-add-circle-fill ri-xl"></i></button>
+                          <p class="text-c-yellow text-xl">Sticky Notes</p>
+                          <button class="my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
+                        </div>
+                        <div class="w-full relative border border-c-light-yellow rounded">
+                          <input type="text" placeholder="Search" class="bg-transparent p-2 text-c-light-yellow search-placeholder"/>
+                          <button class="absolute right-0 mx-3 my-2 text-c-light-yellow"><i class="ri-search-line ri-xl"></i></button>
+                        </div>
+                        <div class="flex flex-col gap-2 overflow-y-auto max-h-7xl overflow-x-hidden scroll">
+                          <div class="flex flex-col md:flex-row gap-2">
+                            <div class="cube-notes bg-lilac p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
                             </div>
+                            <div class="cube-notes bg-turquoise p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
+                            </div>
+                          </div>
+                          <div class="flex flex-col md:flex-row gap-2">
+                            <div class="cube-notes bg-champagne p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
+                            </div>
+                            <div class="cube-notes bg-silver p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
+                            </div>
+                          </div><div class="flex flex-col md:flex-row gap-2">
+                            <div class="cube-notes bg-emerald p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
+                            </div>
+                            <div class="cube-notes bg-pink p-2 relative">
+                              <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                              <p class="absolute bottom-2 text-xs">12:37</p>
+                              <div class="absolute right-0 bottom-1 triangle"></div>
+                            </div>
+                          </div>
+                          <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                         </div>
-                        <div class="flex gap-4 mt-6">
-                            <button id="start1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
-                            <button id="reset1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
+                    </div> 
+                    <!-- Rectangle Sticky Notes widget -->
+                    <div class="rectangle-notes-widget relative flex flex-col gap-3 cursor-move border border-c-yellow">
+                        <div class="flex justify-between items-center py-2 px-6 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
+                          <p class="text-xl">Sticky Notes</p>
+                          <div class="w-1/2 relative rounded">
+                            <input type="text" placeholder="Search" class="p-2 w-full rounded"/>
+                            <button class="absolute right-0 mx-3 my-2"><i class="ri-search-line ri-xl"></i></button>
+                          </div>
+                          <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
                         </div>
-                        <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
+                        <div class="relative px-6 flex flex-col gap-3 overflow-y-auto scroll" style="max-height:21rem;">
+                          <div class="border border-c-light-yellow p-2 rounded-xl">
+                            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                            <p class="text-xs flex justify-end">Today at 12:37pm</p>
+                          </div>
+                          <div class="border border-c-light-yellow p-2 rounded-xl">
+                            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                            <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                          </div>
+                          <div class="border border-c-light-yellow p-2 rounded-xl">
+                            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                            <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                          </div>
+                          <div class="border border-c-light-yellow p-2 rounded-xl">
+                            <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                            <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                          </div>
+                          <div class="absolute left-10 top-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                          <div class="absolute right-10 top-1/2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                          <div class="absolute left-10 bottom-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                        </div>
                         <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                     </div>
-                    <!-- Clock widget -->
-                    <div class="clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
-                      <div class="clock relative flex items-center justify-center rounded-full">
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-5.5rem);"></div> <!-- 12:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(30deg) translateY(-5.5rem);"></div> <!-- 1:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(60deg) translateY(-5.5rem);"></div> <!-- 2:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) translateY(-5.5rem);"></div> <!-- 3:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(120deg) translateY(-5.5rem);"></div> <!-- 4:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(150deg) translateY(-5.5rem);"></div> <!-- 5:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(180deg) translateY(-5.5rem);"></div> <!-- 6:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(210deg) translateY(-5.5rem);"></div> <!-- 7:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(240deg) translateY(-5.5rem);"></div> <!-- 8:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(270deg) translateY(-5.5rem);"></div> <!-- 9:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(300deg) translateY(-5.5rem);"></div> <!-- 10:00 -->
-                        <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(330deg) translateY(-5.5rem);"></div> <!-- 11:00 -->
-                        <!-- Clock Hands -->
-                        <div class="absolute w-1 -mb-0.5 h-16 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom hour-hand"></div>
-                        <div class="absolute w-1 -mb-0.5 h-20 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom minute-hand"></div>
-                        <div class="absolute w-1 -mb-0.5 h-20 rounded-full bg-c-yellow bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom second-hand"></div>
-                        <div class="absolute w-3 h-3 border-4 border-c-light-gray rounded-full"></div>
-                      </div>
-                      <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
-                      <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
-                    </div>
-                  </div>
-                   <!-- Cube Sticky Notes widget -->
-                  <div class="cube-notes-widget relative p-3 flex flex-col items-center gap-3 cursor-move">
-                    <div class="flex justify-between items-center w-full">
-                      <button class="my-2 text-c-yellow"><i class="ri-add-circle-fill ri-xl"></i></button>
-                      <p class="text-c-yellow text-xl">Sticky Notes</p>
-                      <button class="my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
-                    </div>
-                    <div class="w-full relative border border-c-light-yellow rounded">
-                      <input type="text" placeholder="Search" class="bg-transparent p-2 text-c-light-yellow search-placeholder"/>
-                      <button class="absolute right-0 mx-3 my-2 text-c-light-yellow"><i class="ri-search-line ri-xl"></i></button>
-                    </div>
-                    <div class="flex flex-col gap-2 overflow-y-auto max-h-7xl overflow-x-hidden scroll">
-                      <div class="flex flex-col md:flex-row gap-2">
-                        <div class="cube-notes bg-lilac p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                        <div class="cube-notes bg-turquoise p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                      </div>
-                      <div class="flex flex-col md:flex-row gap-2">
-                        <div class="cube-notes bg-champagne p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                        <div class="cube-notes bg-silver p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                      </div><div class="flex flex-col md:flex-row gap-2">
-                        <div class="cube-notes bg-emerald p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                        <div class="cube-notes bg-pink p-2 relative">
-                          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
-                          <p class="absolute bottom-2 text-xs">12:37</p>
-                          <div class="absolute right-0 bottom-1 triangle"></div>
-                        </div>
-                      </div>
-                      <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
-                    </div>
-                  </div>
                 </div>
-                <div class="flex flex-col xl:flex-row gap-6">   
-                  <div class="blank-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
-                  </div>
-                  <!-- Rectangle Sticky Notes widget -->
-                  <div class="rectangle-notes-widget relative flex flex-col gap-3 cursor-move border border-c-yellow">
-                    <div class="flex justify-between items-center py-2 px-6 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
-                      <p class="text-xl">Sticky Notes</p>
-                      <div class="w-1/2 relative rounded">
-                        <input type="text" placeholder="Search" class="p-2 w-full rounded"/>
-                        <button class="absolute right-0 mx-3 my-2"><i class="ri-search-line ri-xl"></i></button>
-                      </div>
-                      <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
-                    </div>
-                    <div class="relative px-6 flex flex-col gap-3 overflow-y-auto scroll" style="max-height:21rem;">
-                      <div class="border border-c-light-yellow p-2 rounded-xl">
-                        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
-                        <p class="text-xs flex justify-end">Today at 12:37pm</p>
-                      </div>
-                      <div class="border border-c-light-yellow p-2 rounded-xl">
-                        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
-                        <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
-                      </div>
-                      <div class="border border-c-light-yellow p-2 rounded-xl">
-                        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
-                        <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
-                      </div>
-                      <div class="border border-c-light-yellow p-2 rounded-xl">
-                        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
-                        <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
-                      </div>
-                      <div class="absolute left-10 top-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
-                      <div class="absolute right-10 top-1/2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
-                      <div class="absolute left-10 bottom-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
-                    </div>
-                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- Weather Section -->
-            <div class="main-content weather-content w-full flex flex-col gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
-                <div class="weather-widget p-4 flex flex-col items-center gap-3 cursor-move">
-                    <p class="text-2xl font-normal text-c-white">New Delhi, India</p>
+            <div class="main-content weather-content w-full flex flex-col gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
+                <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
+                    <p class="text-lg font-normal text-c-white">New Delhi, India</p>
                     <hr class="w-full"/>
-                    <p class="font-normal text-c-white">Today, Jan 01</p>
+                    <p class="font-normal text-c-white text-sm">Today, Jan 01</p>
                     <div class="weather-temperature">
-                        <span class="text-5xl">19<sup>&deg;C</sup></span>
+                        <span class="text-3xl p-4">19<sup>&deg;C</sup></span>
                     </div>
-                    <p class="text-xl">Sunny</p>
-                    <p class="text-xl">H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
-                    <p class="text-xl">Air quality index- 328 (Very Poor)</p>
-                    <div class="weather-hour w-full p-3 flex gap-4">
+                    <p>Sunny</p>
+                    <p>H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
+                    <p>Air quality index- 328 (Very Poor)</p>
+                    <div class="weather-hour w-full p-3 flex justify-between overflow-x-auto overflow-y-hidden scroll-x gap-4">
                         <div class="text-center">
                             <p class="text-c-light-black">Now</p>
                             <div class="text-c-yellow text-2xl"><i class="ri-sun-fill ri-lg"></i></div>
@@ -371,14 +396,14 @@
                             <p class="text-c-light-black">20°</p>
                         </div>
                     </div>
-                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                     <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+                    <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                 </div>
             </div>
             <!-- Stopwatch Section -->
-            <div class="main-content stopwatch-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
+            <div class="main-content stopwatch-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
                 <div id="stopwatch2" class="stopwatch-widget stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
-                    <h1 class="text-c-yellow text-2xl font-bold mb-4">Stopwatch</h1>
+                    <h1 class="text-c-yellow text-xl font-bold mb-4">Stopwatch</h1>
                     <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
                         <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
@@ -402,7 +427,7 @@
                 </div>
             </div>
             <!-- Calender Section -->
-            <div class="main-content calender-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 56px);">
+            <div class="main-content calender-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
               <div id="calendar2" class="calender-widget relative flex flex-col gap-3 cursor-move">
                 <div class="flex justify-between items-center py-2 px-8 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
                   <button class="prevMonth px-4 py-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
@@ -418,7 +443,7 @@
               </div>
             </div>
             <!-- Clock Section -->
-            <div class="main-content clock-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden" style="height: calc(100% - 12.25rem);">
+            <div class="main-content clock-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
               <div class="clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
                 <div class="clock relative flex items-center justify-center rounded-full">
                   <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-5.5rem);"></div> <!-- 12:00 -->
@@ -444,7 +469,7 @@
               </div>
             </div>
             <!-- Sticky notes Section -->
-            <div class="main-content notes-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="height: calc(100% - 12.25rem);display:none">
+            <div class="main-content notes-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="display:none">
               <div class="cube-notes-widget relative p-3 flex flex-col items-center gap-3 cursor-move">
                 <div class="flex justify-between items-center w-full">
                   <button class="my-2 text-c-yellow"><i class="ri-add-circle-fill ri-xl"></i></button>
@@ -610,6 +635,7 @@
         </div>
       </div>
     </main>
+    <script src="script/sidebar.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script defer src="script/sidebar.js"></script>
