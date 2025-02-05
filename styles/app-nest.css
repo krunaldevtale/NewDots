@@ -1,0 +1,238 @@
+/* Variables Colors */
+.text-c-black {
+    color: var(--color-light-gray);
+}
+
+.text-c-light-black {
+    color: var(--color-light-black);
+}
+
+.text-c-sky {
+    color: var(--color-light-sky);
+}
+
+.text-c-yellow {
+    color: var(--color-dark-yellow);
+}
+
+.bg-c-white {
+    background: var(--color-white);
+}
+
+.bg-c-black {
+    background: var(--color-light-gray);
+}
+
+.bg-c-lighten-gray {
+    background: var(--color-lighten-gray);
+}
+
+.bg-c-gray-3 {
+    background: var(--bg-light-gray);
+}
+
+.border-gray {
+    border-color: var(--border-light-gray);
+}
+
+.border-c-sky {
+    border-color: var(--color-light-sky);
+}
+
+.border-c-yellow {
+    border-color: var(--color-dark-yellow);
+}
+
+/* Body Css */
+
+body .app-nest {
+    color: var(--color-light-gray);
+    overflow-x: hidden;
+}
+
+.app-nest .main {
+    background: url("/images/main-bg.png");
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto;
+}
+
+.app-nest .taskbar {
+    background: radial-gradient(circle,
+            rgba(255, 228, 63, 1) 0%,
+            rgba(253, 224, 50, 1) 35%,
+            rgba(246, 190, 49, 1) 80%);
+}
+
+@media (width > 768px) {
+    .app-nest .main {
+        /* max-height: calc(100vh - 60px); */
+        max-height: calc(100vh);
+    }
+}
+
+@media (width < 767.98px) {
+    .app-nest .main {
+        /* max-height: calc(100vh - 45px); */
+        max-height: calc(100vh);
+    }
+}
+
+/* Tools Container Css */
+
+.app-nest .small-container {
+    width: 187px;
+    height: 227px;
+    border: 1px solid var(--border-light-gray);
+    background-color: var(--bg-light-gray);
+    border-radius: 11px;
+}
+
+.app-nest .games-container {
+    width: 192px;
+    height: 227px;
+    border: 1px solid var(--border-light-gray);
+    background-color: var(--bg-light-gray);
+    border-radius: 11px;
+}
+
+.app-nest .small-container .img-container {
+    width: 70px;
+    height: 70px;
+    box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-nest .small-container #dropdown {
+    z-index: 99999;
+}
+
+.app-nest .dropdown-button {
+    border-radius: 5px;
+    background: var(--color-light-gray);
+}
+
+.app-nest .dropdown-menu {
+    border: 1px solid #686868;
+}
+
+.app-nest .add-btn {
+    color: var(--color-dark-yellow);
+}
+
+@media (max-width: 480px) {
+    .app-nest .small-container {
+        width: 150px;
+        height: 200px;
+    }
+
+    .app-nest input[type="checkbox"]:checked::after {
+        content: "\2713";
+        font-size: 11px;
+        height: 12px;
+        top: -2px;
+        left: 2px;
+    }
+}
+
+@media (max-width: 835px) {
+    .app-nest .small-container {
+        width: 168px;
+        height: 210px;
+    }
+}
+
+.app-nest input[type="checkbox"] {
+    accent-color: var(--color-dark-yellow);
+}
+
+.app-nest input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 0.1rem;
+    width: 16px;
+    cursor: pointer;
+    position: relative;
+    height: 16px;
+    border: none;
+    border: 2px solid var(--color-dark-yellow);
+    border-radius: 2px;
+}
+
+.app-nest input[type="checkbox"]:checked {
+    background-color: var(--color-white);
+}
+
+.app-nest input[type="checkbox"]:checked::after {
+    content: "✔";
+    font-size: 12px;
+    position: absolute;
+    height: 12px;
+    top: -2px;
+    left: 2px;
+}
+
+.app-nest input[type="radio"] {
+    display: none;
+}
+
+.app-nest .radio-border input {
+    display: none;
+    white-space: nowrap;
+}
+
+.app-nest .radio-border input:checked~span {
+    font-weight: 500;
+}
+
+.app-nest .radio-border input:checked~div {
+    border: 3px solid #fdcf01;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.app-nest div[role="dialog"] {
+    padding: 20px 10px;
+}
+
+.app-nest .modal-heading {
+    font-size: 16px;
+    color: var(--color-pure-black);
+}
+
+/* Delete Modal css */
+
+.app-nest .delete-modal {
+    width: 90%;
+    max-width: 390px;
+    min-height: 210px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light-gray);
+    background: var(--color-dark-white);
+}
+
+.app-nest input::placeholder {
+    color: var(--color-gray-2);
+    font-weight: 300;
+}
+
+/* Edit Modal Css */
+
+.app-nest #Edit-modal .img-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: var(--color-white);
+    box-shadow: var(--box-shadow);
+}
+
+.app-nest .add-btn {
+    color: var(--color-dark-yellow);
+}
+
+.app-nest #All {
+    color: var(--color-dark-yellow);
+}
