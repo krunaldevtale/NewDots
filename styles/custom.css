@@ -1491,6 +1491,7 @@ input[type="button"]:focus {
     transform: translate(100%) rotate(-20deg) scale(0, 2);
   }
 }
+/* weather widget */
 .weather-widget {
   background-image: url("/images/weather.png");
   background-size: cover;
@@ -1513,24 +1514,128 @@ input[type="button"]:focus {
   justify-content: center;
   align-items: center;
 }
-
 .weather-hour{
   box-shadow: 0px 4px 4px 0px #00000040;
   background-color: var(--color-dark-white);
   border-radius: 10px;
 }
+/* stopwatch widget */
 .stopwatch-widget{
   background: linear-gradient(165.49deg, #282828 89.71%, #FDCF01 149.88%),linear-gradient(344.22deg, rgba(40, 40, 40, 0.2) 89.33%, rgba(253, 207, 1, 0.2) 105.12%);
   width: 19rem;
   height: 20rem;
   transform-origin: top left;
   cursor: move;
+  border-radius: 30px !important;
 }
+/* Calender widget */
+.calender-widget{
+  width: 24rem;
+  height: 22rem;
+  border-radius: 30px;
+  background-color: var(--color-white);
+}
+.calendar{
+  background-image: url("/images/bg-yellow-blur.png");
+  background-size: 120%;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+/* Clock widget */
+.clock-widget{
+  width: 20rem;
+  height: 15rem;
+  border-radius: 30px;
+  background-color: var(--color-light-purple);
+}
+.clock{
+  background-image: url("/images/bg-yellow-blur.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  box-shadow: 0px 4px 4px 0px #00000040 inset;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  background-color: var(--color-white);
+  height: 12.5rem;
+  width: 12.5rem;
+}
+/* Cube sticky notes widget */
+.cube-notes-widget{
+  width: 24rem;
+  height: 36rem;
+  border-radius: 30px;
+  background-color: var(--color-light-gray);
+}
+.search-placeholder::placeholder {
+  color: var(--color-light-yellow); /* Replace with your c-light-yellow color */
+}
+.cube-notes{
+  width: 10.75rem;
+  height: 9rem;
+  border-radius: 5px;
+}
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--color-light-gray);
+  transform: rotate(320deg);
+}
+.yellow-triangle {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--color-dark-yellow);
+  transform: rotate(320deg);
+}
+.blank-widget{
+  width: 16rem;
+  height: 14rem;
+  border-radius: 30px;
+  background-color: var(--color-light-purple);
+}
+/* Rectangle sticky notes widget */
+.rectangle-notes-widget{
+  width: 28rem;
+  height: 26rem;
+  border-radius: 30px;
+  background-color: var(--color-white);
+}
+.edit-notes-widget{
+  width: 24rem;
+  height: 24rem;
+  border-radius: 30px;
+  background-color: var(--color-dark-yellow);
+}
+
 @media (max-width: 768px) {
   .weather-widget{
     width: 100%;
   }
   .stopwatch-widget{
+    width: 100% !important;
+  }
+  .calender-widget{
+    width: 100% !important;
+  }
+  .clock-widget{
+    width: 100% !important;
+  }
+  .cube-notes-widget{
+    width: 100% !important;
+  }
+  .cube-notes{
+    width: 100% !important;
+  }
+  .rectangle-notes-widget{
+    width: 100% !important;
+  }
+  .blank-widget{
+    width: 100% !important;
+  }
+  .edit-notes-widget{
     width: 100% !important;
   }
 }

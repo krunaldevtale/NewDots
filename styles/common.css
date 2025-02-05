@@ -110,6 +110,30 @@
   background: var(--color-gray-9);
 }
 
+.bg-lilac {
+  background-color: var(--color-lilac);
+}
+
+.bg-turquoise {
+  background-color: var(--color-turquoise);
+}
+
+.bg-champagne {
+  background-color: var(--color-champagne);
+}
+
+.bg-silver {
+  background-color: var(--color-silver);
+}
+
+.bg-emerald {
+  background-color: var(--color-emerald);
+}
+
+.bg-pink {
+  background-color: var(--color-pink);
+}
+
 .box-shadow-1{
   box-shadow: var(--box-shadow);
 }
@@ -133,6 +157,10 @@
 .text-c-yellow {
   color: var(--color-dark-yellow);
 }
+.text-c-light-yellow {
+  color: var(--color-light-yellow);
+}
+
 
 .text-link-blue {
   color: var(--color-link-blue);
@@ -199,6 +227,9 @@
 
 .border-c-yellow {
   border-color: var(--color-dark-yellow);
+}
+.border-c-light-yellow {
+  border-color: var(--color-light-yellow);
 }
 
 .border-c-sky {
