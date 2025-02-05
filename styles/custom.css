@@ -1491,14 +1491,30 @@ input[type="button"]:focus {
     transform: translate(100%) rotate(-20deg) scale(0, 2);
   }
 }
+/********* Widget page css **********/
+.main-content{
+  max-height: calc(100vh - 11rem);
+}
+.scroll-x::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scroll-x::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-x::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.54);
+  border-radius: 10px;
+}
 /* weather widget */
 .weather-widget {
   background-image: url("/images/weather.png");
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat; 
-  height: 29rem;
-  width: 24rem;
+  height: 25rem;
+  width: 20rem;
   border-radius: 30px;
   transform-origin: top left;
 }
@@ -1508,8 +1524,6 @@ input[type="button"]:focus {
   background-position: center;
   background-repeat: no-repeat; 
   border-radius: 100%;
-  width: 7rem;
-  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1530,7 +1544,7 @@ input[type="button"]:focus {
 }
 /* Calender widget */
 .calender-widget{
-  width: 24rem;
+  width: 20rem;
   height: 22rem;
   border-radius: 30px;
   background-color: var(--color-white);
@@ -1598,19 +1612,19 @@ input[type="button"]:focus {
 }
 /* Rectangle sticky notes widget */
 .rectangle-notes-widget{
-  width: 28rem;
+  width: 26rem;
   height: 26rem;
   border-radius: 30px;
   background-color: var(--color-white);
 }
 .edit-notes-widget{
   width: 24rem;
-  height: 24rem;
+  height: 22rem;
   border-radius: 30px;
   background-color: var(--color-dark-yellow);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   .weather-widget{
     width: 100%;
   }
