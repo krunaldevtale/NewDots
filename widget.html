@@ -143,7 +143,7 @@
             </div>
 
             <!-- All Section -->
-            <div class="main-content all-content w-full flex flex-col xl:flex-row gap-6 p-10 overflow-y-auto scroll">
+            <div class="main-content all-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-6 p-10 overflow-y-auto scroll">
                 <div class="flex flex-col gap-6">   
                   <!-- Weather widget -->
                   <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
@@ -348,7 +348,7 @@
                 </div>
             </div>
             <!-- Weather Section -->
-            <div class="main-content weather-content w-full flex flex-col gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
+            <div class="main-content weather-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-6 p-10 overflow-y-auto scroll" style="display:none">
                 <div class="weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
                     <p class="text-lg font-normal text-c-white">New Delhi, India</p>
                     <hr class="w-full"/>
@@ -401,7 +401,7 @@
                 </div>
             </div>
             <!-- Stopwatch Section -->
-            <div class="main-content stopwatch-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
+            <div class="main-content stopwatch-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-6 p-10 overflow-y-auto scroll" style="display:none">
                 <div id="stopwatch2" class="stopwatch-widget stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative">
                     <h1 class="text-c-yellow text-xl font-bold mb-4">Stopwatch</h1>
                     <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
@@ -427,7 +427,7 @@
                 </div>
             </div>
             <!-- Calender Section -->
-            <div class="main-content calender-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
+            <div class="main-content calender-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-6 p-10 overflow-y-auto scroll" style="display:none">
               <div id="calendar2" class="calender-widget relative flex flex-col gap-3 cursor-move">
                 <div class="flex justify-between items-center py-2 px-8 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
                   <button class="prevMonth px-4 py-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
@@ -443,7 +443,7 @@
               </div>
             </div>
             <!-- Clock Section -->
-            <div class="main-content clock-content w-full flex flex-col sm:flex-row gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll hidden">
+            <div class="main-content clock-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-6 p-10 overflow-y-auto scroll" style="display:none">
               <div class="clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move">
                 <div class="clock relative flex items-center justify-center rounded-full">
                   <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-5.5rem);"></div> <!-- 12:00 -->
@@ -469,7 +469,7 @@
               </div>
             </div>
             <!-- Sticky notes Section -->
-            <div class="main-content notes-content w-full grid grid-cols-1 md:grid-cols-2 xl:flex gap-4 px-4 pt-4 py-20 overflow-y-scroll scroll" style="display:none">
+            <div class="main-content notes-content w-full grid grid-cols-1 md:grid-cols-2 2xl:flex gap-6 p-10 overflow-y-auto scroll" style="display:none">
               <div class="cube-notes-widget relative p-3 flex flex-col items-center gap-3 cursor-move">
                 <div class="flex justify-between items-center w-full">
                   <button class="my-2 text-c-yellow"><i class="ri-add-circle-fill ri-xl"></i></button>
@@ -601,7 +601,7 @@
                   </div>
                   <button class="absolute bottom-2 right-1 my-2 text-c-yellow" onclick="showEditNotes()"><i class="ri-add-circle-fill ri-xl"></i></button>                
                 </div>
-                <div class="edit-notes-widget absolute top-24 left-1/2 flex flex-col gap-3 py-4 px-6 hidden">
+                <div class="edit-notes-widget absolute top-1/4 flex flex-col gap-3 py-4 px-6 hidden">
                   <div class="flex justify-end items-center w-full">
                     <p class="text-xl w-full text-center">Untitled</p>
                     <button class="my-2" onclick="hideEditNotes()"><i class="ri-close-circle-fill ri-xl"></i></button>
