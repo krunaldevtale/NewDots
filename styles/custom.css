@@ -1493,7 +1493,7 @@ input[type="button"]:focus {
 }
 /********* Widget page css **********/
 .main-content{
-  max-height: calc(100vh - 11rem);
+  max-height: calc(100vh - 12.7rem);
 }
 .scroll-x::-webkit-scrollbar {
   height: 4px;
@@ -1612,7 +1612,7 @@ input[type="button"]:focus {
 }
 /* Rectangle sticky notes widget */
 .rectangle-notes-widget{
-  width: 26rem;
+  width: 24rem;
   height: 26rem;
   border-radius: 30px;
   background-color: var(--color-white);
