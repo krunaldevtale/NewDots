@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles/root.css">
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/tour.min.css">
+    <link rel="stylesheet" href="styles/desktop-widget.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    
 </head>
 
 <body class="w-full h-screen">
@@ -891,6 +894,259 @@
           </div>
         </div>
       </div>
+
+      <!-- widget Section -->
+      <div class="desktop-main-content absolute top-10 right-0 2xl:right-16 w-full grid grid-cols-1 sm:grid-cols-2 lg:flex justify-end gap-6 p-10 overflow-y-auto scroll">
+        <div class="flex flex-col gap-6">   
+          <!-- Weather widget -->
+          <div class="desktop-weather-widget relative p-4 flex flex-col items-center gap-3 cursor-move group text-xs">
+            <p class="text-sm text-c-white">New Delhi, India</p>
+            <hr class="w-full"/>
+            <p class="font-normal text-c-white">Today, Jan 01</p>
+            <div class="desktop-weather-temperature">
+                <span class="text-3xl p-4">19<sup>&deg;C</sup></span>
+            </div>
+            <p>Sunny</p>
+            <p>H: 20<sup>&deg;</sup> L:9<sup>&deg;</sup></p>
+            <p>Air quality index- 328 (Very Poor)</p>
+            <div class="desktop-weather-hour w-full p-3 flex justify-between overflow-x-auto overflow-y-hidden scroll-x gap-4">
+                <div class="text-center">
+                    <p class="text-c-light-black">Now</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">19°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">1pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">18°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">2pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">22°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">3pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">26°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">4pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">20°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">5pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">20°</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-c-light-black">6pm</p>
+                    <div class="text-c-yellow"><i class="ri-sun-fill ri-lg"></i></div>
+                    <p class="text-c-light-black">20°</p>
+                </div>
+            </div>
+            <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+          </div>
+          <!-- Stopwatch widget -->
+          <div id="stopwatch1" class="desktop-stopwatch-widget relative desktop-stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative group text-xs">
+            <h1 class="text-c-yellow text-sm mb-4">Stopwatch</h1>
+            <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
+                <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="transparent" stroke-width="8" fill="none"></circle>
+                    <circle id="progress1" class="desktop-progress" cx="50" cy="50" r="40" 
+                        stroke="#FDCF01" stroke-width="8" fill="none"
+                        stroke-dasharray="251.2" stroke-dashoffset="251.2" 
+                        stroke-linecap="round" transform="rotate(-90 50 50)">
+                    </circle>
+                </svg>                        
+                <div class="text-c-yellow text-sm font-mono desktop-display" id="display1">00 : 00 : 00</div>
+                <div class="text-c-yellow text-xs flex gap-4">
+                    <span>hour</span><span>min</span><span>sec</span>
+                </div>
+            </div>
+            <div class="flex gap-4 mt-6">
+                <button id="start1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Start</button>
+                <button id="reset1" class="text-c-yellow border border-c-yellow px-6 py-1.5 rounded-full hover:bg-yellow-400 hover:text-black focus:bg-yellow-400 focus:text-black">Reset</button>
+            </div>
+            <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6"> 
+          <!-- Calender widget -->
+          <div id="calendar1" class="desktop-calender-widget relative flex flex-col gap-3 cursor-move group text-xs">
+            <div class="flex justify-between items-center py-2 px-8 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
+              <button class="prevMonth px-2 py-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
+              <h2 class="monthYear text-sm whitespace-nowrap"></h2>
+              <button class="nextMonth px-2 py-2"><i class="ri-arrow-right-s-line ri-lg"></i></button>
+            </div>
+            <div class="grid grid-cols-7 gap-1 text-center px-4">
+                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div class="desktop-calendar grid grid-cols-7 gap-1 mt-2 text-center mx-4 mb-4 -mt-4"></div>
+            <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+          </div>
+          <!-- Clock widget -->
+          <div class="desktop-clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move group">
+            <div class="desktop-clock relative flex items-center justify-center rounded-full">
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-3.5rem);"></div> <!-- 12:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(30deg) translateY(-3.5rem);"></div> <!-- 1:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(60deg) translateY(-3.5rem);"></div> <!-- 2:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) translateY(-3.5rem);"></div> <!-- 3:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(120deg) translateY(-3.5rem);"></div> <!-- 4:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(150deg) translateY(-3.5rem);"></div> <!-- 5:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(180deg) translateY(-3.5rem);"></div> <!-- 6:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(210deg) translateY(-3.5rem);"></div> <!-- 7:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(240deg) translateY(-3.5rem);"></div> <!-- 8:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(270deg) translateY(-3.5rem);"></div> <!-- 9:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(300deg) translateY(-3.5rem);"></div> <!-- 10:00 -->
+              <div class="absolute w-1 h-3 bg-c-light-gray" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(330deg) translateY(-3.5rem);"></div> <!-- 11:00 -->
+              <!-- Clock Hands -->
+              <div class="absolute w-1 -mb-0.5 h-7 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom hour-hand"></div>
+              <div class="absolute w-1 -mb-0.5 h-12 rounded-full bg-c-light-gray bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom minute-hand"></div>
+              <div class="absolute w-1 -mb-0.5 h-12 rounded-full bg-c-yellow bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom second-hand"></div>
+              <div class="absolute w-3 h-3 border-4 border-c-light-gray rounded-full"></div>
+            </div>
+            <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+          </div> 
+          <div class="desktop-clock-widget relative p-4 flex flex-col items-center gap-3 cursor-move group">
+            <div class="desktop-clock relative flex items-center justify-center rounded-full" style="background-color:var(--color-light-gray)">
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg) translateY(-3.5rem);"></div> <!-- 12:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(30deg) translateY(-3.5rem);"></div> <!-- 1:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(60deg) translateY(-3.5rem);"></div> <!-- 2:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(90deg) translateY(-3.5rem);"></div> <!-- 3:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(120deg) translateY(-3.5rem);"></div> <!-- 4:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(150deg) translateY(-3.5rem);"></div> <!-- 5:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(180deg) translateY(-3.5rem);"></div> <!-- 6:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(210deg) translateY(-3.5rem);"></div> <!-- 7:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(240deg) translateY(-3.5rem);"></div> <!-- 8:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(270deg) translateY(-3.5rem);"></div> <!-- 9:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(300deg) translateY(-3.5rem);"></div> <!-- 10:00 -->
+              <div class="absolute w-1 h-3 bg-c-white" style="top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(330deg) translateY(-3.5rem);"></div> <!-- 11:00 -->
+              <!-- Clock Hands -->
+              <div class="absolute w-1 -mb-0.5 h-7 rounded-full bg-c-white bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom hour-hand"></div>
+              <div class="absolute w-1 -mb-0.5 h-12 rounded-full bg-c-white bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom minute-hand"></div>
+              <div class="absolute w-1 -mb-0.5 h-12 rounded-full bg-c-yellow bottom-1/2 left-1/2 transform -translate-x-1/2 origin-bottom second-hand"></div>
+              <div class="absolute w-3 h-3 border-4 border-c-light-gray rounded-full"></div>
+            </div>
+            <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+          </div>   
+        </div>
+        <div class="flex flex-col gap-4">  
+            <!-- Cube Sticky Notes widget -->
+            <div class="desktop-cube-notes-widget relative p-3 mb-3 flex flex-col items-center gap-3 cursor-move group text-xs">
+                <div class="flex justify-between items-center w-full">
+                  <button class="my-2 text-c-yellow"><i class="ri-add-circle-fill ri-xl"></i></button>
+                  <p class="text-c-yellow text-sm">Sticky Notes</p>
+                  <button class="my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
+                </div>
+                <div class="w-full relative border border-c-light-yellow rounded">
+                  <input type="text" placeholder="Search" class="bg-transparent p-2 text-c-light-yellow search-placeholder w-11/12 focus:outline-none"/>
+                  <button class="absolute right-0 mx-3 mt-0.5 text-c-light-yellow"><i class="ri-search-line text-xl"></i></button>
+                </div>
+                <div class="flex flex-col gap-2 overflow-y-auto max-h-7xl overflow-x-hidden scroll">
+                  <div class="flex flex-col md:flex-row gap-2">
+                    <div class="desktop-cube-notes bg-lilac p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                    <div class="desktop-cube-notes bg-turquoise p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                  </div>
+                  <div class="flex flex-col md:flex-row gap-2">
+                    <div class="desktop-cube-notes bg-champagne p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                    <div class="desktop-cube-notes bg-silver p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                  </div><div class="flex flex-col md:flex-row gap-2">
+                    <div class="desktop-cube-notes bg-emerald p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                    <div class="desktop-cube-notes bg-pink p-2 relative">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.</p>
+                      <p class="absolute bottom-2 text-xs">12:37</p>
+                      <div class="absolute right-0 bottom-1 triangle"></div>
+                    </div>
+                  </div>
+                </div>
+            </div> 
+            <!-- Rectangle Sticky Notes widget -->
+            <div class="relative text-xs">
+              <div class="desktop-rectangle-notes-widget relative flex flex-col gap-3 cursor-move border border-c-yellow">
+                <div class="flex justify-between items-center py-2 px-6 bg-c-yellow" style="border-top-left-radius: 30px;border-top-right-radius: 30px;">
+                  <p class="text-sm">Sticky Notes</p>
+                  <div class="w-1/2 relative rounded bg-c-white">
+                    <input type="text" placeholder="Search" class="py-1 px-2 rounded w-10/12 focus:outline-none"/>
+                    <button class="absolute right-0 mx-3 mt-1"><i class="ri-search-line"></i></button>
+                  </div>
+                  <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
+                </div>
+                <div class="relative px-6 flex flex-col gap-3 overflow-y-auto scroll" style="max-height:21rem;">
+                  <div class="border border-c-light-yellow p-2 rounded-xl">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                    <p class="text-xs flex justify-end">Today at 12:37pm</p>
+                  </div>
+                  <div class="border border-c-light-yellow p-2 rounded-xl">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                    <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                  </div>
+                  <div class="border border-c-light-yellow p-2 rounded-xl">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                    <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                  </div>
+                  <div class="border border-c-light-yellow p-2 rounded-xl">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua. </p>
+                    <p class="text-xs flex justify-end">Yesterday at 12:37pm</p>
+                  </div>
+                  <div class="absolute left-10 top-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                  <div class="absolute right-10 top-1/2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                  <div class="absolute left-10 bottom-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                </div>
+                <button class="absolute bottom-2 right-1 my-2 text-c-yellow" onclick="showEditNotes()"><i class="ri-add-circle-fill ri-xl"></i></button>                
+              </div>
+              <div class="desktop-edit-notes-widget absolute bottom-5 right-5 flex flex-col gap-3 py-4 px-6 hidden">
+                <div class="flex justify-end items-center w-full">
+                  <p class="text-sm w-full text-center">Untitled</p>
+                  <button class="my-2" onclick="hideEditNotes()"><i class="ri-close-circle-fill ri-xl"></i></button>
+                </div>
+                <div class="bg-c-white h-5/6 w-full relative">
+                  <div class="rounded-lg h-5/6 p-4 focus:outline-none overflow-y-auto scroll" contenteditable="true" id="editor">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedlabore et dolore magna aliqua.                     
+                  </div>
+                  <div class="mt-2 flex justify-between border-t border-c-light-gray p-1">
+                      <button id="bold"><i class="ri-bold ri-xl"></i></button>
+                      <button id="italic"><i class="ri-italic ri-xl"></i></button>
+                      <button id="underline"><i class="ri-underline ri-xl"></i></button>
+                      <button id="strike"><i class="ri-strikethrough ri-xl"></i></button>
+                      <button id="left-align"><i class="ri-align-left ri-xl"></i></button>
+                      <button id="unordered-list"><i class="ri-list-unordered ri-xl"></i></button>
+                      <button>
+                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.39883 11.0431L4.6859 10.6719C4.73867 10.6066 4.79522 10.562 4.84883 10.5342C4.90254 10.5064 4.95453 10.4947 5.00307 10.4947C5.0516 10.4947 5.1036 10.5064 5.15731 10.5342C5.21167 10.5624 5.26906 10.6078 5.32246 10.6746C5.37597 10.7415 5.4227 10.8265 5.45591 10.9267C5.48909 11.0269 5.50695 11.1369 5.50695 11.2498C5.50695 11.3627 5.48909 11.4727 5.45591 11.5728C5.4227 11.6731 5.37597 11.7581 5.32246 11.825L3.32669 14.3201C3.27387 14.3824 3.21791 14.4243 3.1653 14.4498L3.15327 14.4556L3.14158 14.4621C3.09248 14.4892 3.04587 14.5 3.00348 14.5C2.96109 14.5 2.91448 14.4892 2.86538 14.4621L2.85368 14.4556L2.84166 14.4498C2.78905 14.4243 2.73308 14.3824 2.68026 14.3201L0.684494 11.825C0.574623 11.6876 0.5 11.4817 0.5 11.2498C0.5 11.0178 0.574623 10.812 0.684494 10.6746C0.792048 10.5401 0.910876 10.4947 1.00389 10.4947C1.09625 10.4947 1.21408 10.5395 1.32104 10.6718L1.60813 11.0431L2.50368 12.2014V10.7373V4.26242V2.79832L1.60813 3.95658L1.32105 4.32787C1.21408 4.46019 1.09625 4.50502 1.00389 4.50502C0.910877 4.50502 0.792049 4.45957 0.684494 4.3251C0.574623 4.18773 0.5 3.98187 0.5 3.74993C0.5 3.51798 0.574623 3.31212 0.684494 3.17476L2.68027 0.679579C2.73309 0.617271 2.78905 0.575425 2.84166 0.549922L2.84171 0.550042L2.85199 0.544763C2.95202 0.49339 3.05494 0.49339 3.15496 0.544763L3.1549 0.544882L3.1653 0.549922C3.21791 0.575425 3.27387 0.617271 3.32669 0.679579L5.32246 3.17476L5.32246 3.17476L5.32371 3.17632C5.37723 3.24268 5.42408 3.32727 5.45741 3.42729C5.49072 3.52723 5.50866 3.63713 5.50866 3.74993C5.50866 3.86272 5.49072 3.97263 5.45741 4.07257C5.42408 4.17259 5.37723 4.25717 5.32371 4.32354L5.3237 4.32353L5.32122 4.32666C5.26802 4.39372 5.21077 4.43935 5.15659 4.46757C5.10307 4.49544 5.05131 4.50715 5.00307 4.50715C4.95483 4.50715 4.90307 4.49544 4.84955 4.46757C4.79593 4.43964 4.73931 4.39467 4.68658 4.32875L4.39883 3.95658L3.50327 2.79832V4.26242V10.7373V12.2014L4.39883 11.0431ZM19.0002 1.99995H9.00225C8.91033 1.99995 8.79254 1.95504 8.68575 1.82153C8.57665 1.68512 8.50245 1.48056 8.50245 1.24998C8.50245 1.01939 8.57665 0.814827 8.68575 0.678422C8.79254 0.544912 8.91033 0.5 9.00225 0.5H19.0002C19.0921 0.5 19.2099 0.544914 19.3167 0.678422C19.4258 0.814826 19.5 1.01938 19.5 1.24998C19.5 1.48057 19.4258 1.68513 19.3167 1.82153C19.2099 1.95504 19.0921 1.99995 19.0002 1.99995ZM9.00225 6.74988H19.0002C19.0921 6.74988 19.2099 6.79479 19.3167 6.9283C19.4258 7.0647 19.5 7.26926 19.5 7.49985C19.5 7.73045 19.4258 7.935 19.3167 8.07141C19.2099 8.20492 19.0921 8.24983 19.0002 8.24983H9.00225C8.91033 8.24983 8.79254 8.20492 8.68575 8.07141C8.57665 7.935 8.50245 7.73044 8.50245 7.49985C8.50245 7.26927 8.57665 7.06471 8.68575 6.9283C8.79254 6.79479 8.91033 6.74988 9.00225 6.74988ZM9.00225 12.9998H19.0002C19.0921 12.9998 19.2099 13.0447 19.3167 13.1782C19.4258 13.3146 19.5 13.5191 19.5 13.7497C19.5 13.9803 19.4258 14.1849 19.3167 14.3213C19.2099 14.4548 19.0921 14.4997 19.0002 14.4997H9.00225C8.91033 14.4997 8.79254 14.4548 8.68575 14.3213C8.57665 14.1849 8.50245 13.9803 8.50245 13.7497C8.50245 13.5191 8.57665 13.3146 8.68575 13.1782C8.79254 13.0447 8.91033 12.9998 9.00225 12.9998Z" fill="#282828" stroke="#282828"/>
+                        </svg>
+                      </button>
+                      <button id="insert-image"><i class="ri-image-2-line ri-xl"></i></button>
+                  </div>
+                  <div class="absolute left-10 top-2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                  <div class="absolute right-10 top-1/2 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                  <div class="absolute left-10 bottom-10 bg-c-yellow h-10 w-10 filter blur-2xl"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     
     <script src="script/animation.js"></script>
     <script src="script/tour.js"></script>
@@ -1622,6 +1878,222 @@ document.addEventListener("click", function (event) {
 
    
 
+    </script>
+    <!-- widget js-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+         $(document).ready(function () {
+        
+            // Drag and resize widget
+            function initializeResizableWidgets(widgetConfig) {
+              Object.keys(widgetConfig).forEach(className => {
+                  $(`.${className}`).each(function () {
+                      let { minWidth, minHeight, maxWidth, maxHeight } = widgetConfig[className];
+                      $(this).draggable({
+                          containment: $(this).closest(".desktop-main-content"),
+                          start: function () {
+                            const mainContent = $(this).closest(".desktop-main-content");
+                            mainContent.find("*").not(this).css("z-index", "");
+                            $(this).css("z-index", 9999);
+                          },
+                      }).resizable({
+                          minWidth: minWidth,
+                          minHeight: minHeight,
+                          maxWidth: maxWidth,
+                          maxHeight: maxHeight,
+                          start: function (event, ui) {
+                              ui.element.data("originalWidth", ui.originalSize.width);
+                              ui.element.data("originalHeight", ui.originalSize.height);
+                          },
+                          resize: function (event, ui) {
+                              let originalWidth = ui.element.data("originalWidth");
+                              let originalHeight = ui.element.data("originalHeight");
+
+                              let scaleX = ui.size.width / originalWidth;
+                              let scaleY = ui.size.height / originalHeight;
+                              let scale = Math.min(scaleX, scaleY);
+
+                              // Apply transform scaling to the entire content
+                              $(this).css({
+                                  transform: `scale(${scale})`,
+                                  transformOrigin: "top left"
+                              });
+
+                              // Ensure the container still resizes while scaling content
+                              ui.element.width(originalWidth).height(originalHeight);
+                          }
+                      });
+                  });
+              });
+            }
+
+            // Set size:
+            let widgetConfig = {
+              "desktop-weather-widget": { minWidth: 250, minHeight: 200, maxWidth: 224},
+              "desktop-stopwatch-widget": { minWidth: 200, minHeight: 150, maxWidth: 210, maxHeight: 300 },
+              "desktop-calender-widget": { minWidth: 200, minHeight: 150, maxWidth: 256, maxHeight: 300 },
+              "desktop-clock-widget": { minWidth: 150, minHeight: 150, maxWidth: 224, maxHeight: 300 },
+              "desktop-cube-notes-widget": {  minWidth: 400, minHeight: 250, maxWidth: 325, maxHeight: 325 },
+              "desktop-rectangle-notes-widget": {  minWidth: 250, minHeight: 300, maxWidth: 318, maxHeight: 410 },
+            };
+
+            // Initialize widgets with dynamic sizes
+            initializeResizableWidgets(widgetConfig);
+                            
+            // stopwatch widget
+            const stopwatches = document.querySelectorAll('.desktop-stopwatch');
+
+            stopwatches.forEach((stopwatch, index) => {
+                let timer;
+                let seconds = 0;
+                let isRunning = false;
+                const display = stopwatch.querySelector(".desktop-display");
+                const progress = stopwatch.querySelector(".desktop-progress");
+                const startButton = stopwatch.querySelector(`#start${index + 1}`);
+                const resetButton = stopwatch.querySelector(`#reset${index + 1}`);
+                
+                function formatTime(sec) {
+                let hrs = Math.floor(sec / 3600).toString().padStart(2, '0');
+                let mins = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+                let secs = (sec % 60).toString().padStart(2, '0');
+                return `${hrs} : ${mins} : ${secs}`;
+                }
+                
+                function updateProgress() {
+                let progressValue = (seconds / 3600) * 251.2;
+                progress.style.strokeDashoffset = 251.2 - progressValue;
+                }
+                
+                function startStopwatch() {
+                if (isRunning) {
+                    clearInterval(timer);
+                    startButton.textContent = "Start";
+                } else {
+                    timer = setInterval(() => {
+                    if (seconds < 3600) {
+                        seconds++;
+                        display.textContent = formatTime(seconds);
+                        updateProgress();
+                    } else {
+                        clearInterval(timer);
+                        isRunning = false;
+                        startButton.textContent = "Start";
+                    }
+                    }, 1000);
+                    startButton.textContent = "Pause";
+                }
+                isRunning = !isRunning;
+                }
+                
+                function resetStopwatch() {
+                clearInterval(timer);
+                seconds = 0;
+                isRunning = false;
+                display.textContent = "00 : 00 : 00";
+                progress.style.strokeDashoffset = 251.2;
+                startButton.textContent = "Start";
+                }
+                
+                startButton.addEventListener("click", startStopwatch);
+                resetButton.addEventListener("click", resetStopwatch);
+            });
+
+            // calender widget
+            function createCalendar(containerId) {
+              let today = new Date();
+              let currentMonth = today.getMonth();
+              let currentYear = today.getFullYear();
+      
+              let currentDay = today.getDate();
+
+              function updateCalendar(month, year) {
+                  let firstDay = new Date(year, month, 1).getDay();
+                  let daysInMonth = new Date(year, month + 1, 0).getDate();
+                  let calendar = $(`#${containerId} .desktop-calendar`);
+                  calendar.empty();
+
+                  $(`#${containerId} .monthYear`).text(
+                      new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric' }).format(new Date(year, month))
+                  );
+
+                  for (let i = 0; i < firstDay; i++) {
+                      calendar.append('<div></div>');
+                  }
+
+                  for (let day = 1; day <= daysInMonth; day++) {
+                      let isToday = (day === currentDay && month === today.getMonth() && year === today.getFullYear()) ? 'bg-c-yellow' : '';
+                      calendar.append(`<div class='p-2 rounded-full cursor-pointer hover-bg-c-yellow ${isToday}'>${day}</div>`);
+                  }
+              }      
+              updateCalendar(currentMonth, currentYear);
+      
+              $(`#${containerId} .prevMonth`).click(function () {
+                  if (currentMonth === 0) {
+                      currentMonth = 11;
+                      currentYear--;
+                  } else {
+                      currentMonth--;
+                  }
+                  updateCalendar(currentMonth, currentYear);
+              });
+      
+              $(`#${containerId} .nextMonth`).click(function () {
+                  if (currentMonth === 11) {
+                      currentMonth = 0;
+                      currentYear++;
+                  } else {
+                      currentMonth++;
+                  }
+                  updateCalendar(currentMonth, currentYear);
+              });
+          }
+      
+          createCalendar('calendar1');
+          createCalendar('calendar2');   
+          
+          // clock widget
+          function updateClock(clock) {
+            let now = new Date();
+            let hours = now.getHours() % 12;
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+        
+            let hourDeg = (hours * 30) + (minutes * 0.5);
+            let minuteDeg = (minutes * 6);
+            let secondDeg = (seconds * 6);
+        
+            // Apply transformations to the clock passed in
+            $(clock).find(".hour-hand").css("transform", `translateX(-50%) rotate(${hourDeg}deg)`);
+            $(clock).find(".minute-hand").css("transform", `translateX(-50%) rotate(${minuteDeg}deg)`);
+            $(clock).find(".second-hand").css("transform", `translateX(-50%) rotate(${secondDeg}deg)`);
+          }
+          
+          // Update all clocks every second
+          setInterval(() => {
+              $(".desktop-clock").each(function() {
+                  updateClock(this);
+              });
+          }, 1000);
+          
+          // Initial clock update
+          $(".desktop-clock").each(function() {
+              updateClock(this);
+          });  
+          // Sticky notes editor widget 
+          $('#bold').click(() => document.execCommand('bold'));
+            $('#italic').click(() => document.execCommand('italic'));
+            $('#underline').click(() => document.execCommand('underline'));
+            $('#strike').click(() => document.execCommand('strikeThrough'));
+            $('#left-align').click(() => document.execCommand('justifyLeft'));
+            $('#unordered-list').click(() => document.execCommand('insertUnorderedList'));
+            window.showEditNotes = function(){
+              $('.desktop-edit-notes-widget').show();
+            }  
+            window.hideEditNotes = function(){
+              $('.desktop-edit-notes-widget').hide();
+            }    
+        })
     </script>
    
 </body>
