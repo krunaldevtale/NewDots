@@ -124,7 +124,7 @@
     background-color: var(--color-dark-yellow);
   }
   
-  @media (max-width: 1400px) {
+  @media (max-width: 1024px) {
     .desktop-weather-widget{
       width: 100%;
     }
