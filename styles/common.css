@@ -134,6 +134,10 @@
   background-color: var(--color-pink);
 }
 
+.bg-slate-shadow {
+  background-color: var(--color-slate-shadow);
+}
+
 .box-shadow-1{
   box-shadow: var(--box-shadow);
 }

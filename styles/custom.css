@@ -1653,3 +1653,8 @@ input[type="button"]:focus {
     width: 100% !important;
   }
 }
+.top-comment-widget{
+  border: 1px solid;
+  border-image-source: linear-gradient(10.96deg, #A2870C 27.79%, #C6A615 96.93%);
+  background: linear-gradient(180.61deg, #FFFCEE -2.62%, rgba(255, 242, 189, 0.93) 58.75%, rgba(254, 212, 22, 0.76) 161.29%);
+}
