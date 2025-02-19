@@ -1653,8 +1653,12 @@ input[type="button"]:focus {
     width: 100% !important;
   }
 }
-.top-comment-widget{
-  border: 1px solid;
-  border-image-source: linear-gradient(10.96deg, #A2870C 27.79%, #C6A615 96.93%);
+.top-comment-widget {
+  border: 1px solid #A2870C;
   background: linear-gradient(180.61deg, #FFFCEE -2.62%, rgba(255, 242, 189, 0.93) 58.75%, rgba(254, 212, 22, 0.76) 161.29%);
+}
+
+.top-shared-widget{
+  background: linear-gradient(205.84deg, #F7F7F7 12.05%, #D8D8D8 58.5%, #848484 104.67%);
+  border: 1px solid #0000008C;
 }
