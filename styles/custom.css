@@ -1662,63 +1662,6 @@ input[type="button"]:focus {
   background-color: var(--color-dark-yellow);
 }
 
-/* File Analytics Table widget */
-.file-analytics-table {
-  background-color: var(--color-light-gray);
-  width: 45rem;
-  height: 28rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-.user-activity-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 28rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-.sharing-insight-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 22rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-.pending-privilege-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 28rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-
-.analytics-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #333;
-  color: white;
-  width: max-content;
-  min-width: 150px;
-  z-index: 50;
-  border-radius: 6px;
-  font-size: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.analytics-dropdown-menu li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.analytics-dropdown-menu li:hover {
-  background-color: #444;
-}
-
 @media (max-width: 1400px) {
   .weather-widget {
     width: 100%;
@@ -1753,22 +1696,6 @@ input[type="button"]:focus {
   }
 
   .edit-notes-widget {
-    width: 100% !important;
-  }
-
-  .file-analytics-table {
-    width: 100% !important;
-  }
-
-  .user-activity-table {
-    width: 100% !important;
-  }
-
-  .sharing-insight-table {
-    width: 100% !important;
-  }
-
-  .pending-privilege-table {
     width: 100% !important;
   }
 }
