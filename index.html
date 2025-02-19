@@ -949,7 +949,7 @@
             <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2"><i class="ri-close-circle-fill ri-xl"></i></button>
           </div>
           <!-- Stopwatch widget -->
-          <div id="stopwatch1" class="desktop-stopwatch-widget relative desktop-stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center relative group text-xs">
+          <div id="stopwatch1" class="desktop-stopwatch-widget relative desktop-stopwatch p-6 rounded-2xl shadow-lg w-80 flex flex-col items-center group text-xs">
             <h1 class="text-c-yellow text-sm mb-4">Stopwatch</h1>
             <div class="relative flex flex-col items-center justify-center border-2 border-c-yellow rounded-3xl p-6 h-44 w-full">
                 <svg class="absolute top-0 h-full w-full" width="100" height="100" viewBox="0 0 100 100">
@@ -1145,6 +1145,325 @@
                 </div>
               </div>
             </div>
+        </div>
+        <div class="flex flex-col gap-4">
+           <!-- File Analytics Table widget -->
+          <div class="file-analytics-table relative px-6 py-3 shadow-lg group text-xs">
+              <h1 class="text-c-yellow text-base mb-4 text-center">File Analytics</h1>
+              <div class="flex justify-end gap-4 mt-8">
+                <div class="relative">
+                    <button id="fileTypeBtn" class="analytics-filter-dropdown-btn bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1 whitespace-nowrap">File Type <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="fileTypeMenu" class="analytics-dropdown-menu hidden">
+                        <li>PDF</li>
+                        <li>Video</li>
+                        <li>ZIP</li>
+                        <li>Excel</li>
+                        <li>PPT</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="dateRangeBtn" class="analytics-filter-dropdown-btn bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1 whitespace-nowrap">Date Range <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="dateRangeMenu" class="analytics-dropdown-menu hidden">
+                        <li>Last 7 Days</li>
+                        <li>Last 30 Days</li>
+                        <li>Last 6 Months</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="userGroupBtn" class="analytics-filter-dropdown-btn bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1 whitespace-nowrap">User Groups/Roles <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="userGroupMenu" class="analytics-dropdown-menu hidden">
+                        <li>Admin</li>
+                        <li>Editor</li>
+                        <li>Designer</li>
+                        <li>Finance Team</li>
+                        <li>Sales Team</li>
+                    </ul>
+                </div>
+                <button class="text-c-yellow">
+                  <i class="ri-filter-line ri-2x"></i>
+                </button>
+              </div>
+                <!-- Table -->
+              <div class="overflow-x-auto overflow-y-scroll scroll max-h-80 mt-4">
+                <table class="w-full text-left">
+                      <thead>
+                          <tr class="bg-c-yellow text-c-white">
+                              <th class="p-2 font-medium rounded-tl-md whitespace-nowrap">File Name</th>
+                              <th class="p-2 font-medium">Size</th>
+                              <th class="p-2 font-medium whitespace-nowrap">File Type</th>
+                              <th class="p-2 font-medium">User</th>
+                              <th class="p-2 font-medium">Folder</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Date Range</th>
+                              <th class="p-2 font-medium whitespace-nowrap rounded-tr-md">User Groups/Roles</th>
+                          </tr>
+                      </thead>
+                      <tbody class="text-c-black bg-c-white">
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Project_Report.pdf</td>
+                              <td class="px-2 py-5 font-normal">950MB</td>
+                              <td class="px-2 py-5 font-normal">PDF</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Alice Johnson</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">/Documents/Reports</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-02-05</td>
+                              <td class="px-2 py-5 font-normal">Admin</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Marketing_Video</td>
+                              <td class="px-2 py-5 font-normal">850MB</td>
+                              <td class="px-2 py-5 font-normal">Video</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">John Doe</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">/Marketing/Videos</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-02-02</td>
+                              <td class="px-2 py-5 font-normal">Editor</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Design_Mockups</td>
+                              <td class="px-2 py-5 font-normal">780MB</td>
+                              <td class="px-2 py-5 font-normal">ZIP</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Jane Smith</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">/Designs/UI</td>
+                              <td class="px-2 py-5 font-normal">2025-01-29</td>
+                              <td class="px-2 py-5 font-normal">Designer</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Company_Financials</td>
+                              <td class="px-2 py-5 font-normal">720MB</td>
+                              <td class="px-2 py-5 font-normal">Excel</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Robert Brown</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">/Finance/Budget</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-20</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Finance Team</td>
+                          </tr>
+                          <tr>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap rounded-bl-md">Client_Presentation</td>
+                              <td class="px-2 py-5 font-normal">680MB</td>
+                              <td class="px-2 py-5 font-normal">PPT</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Emily Davis</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">/Sales/Clients</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-15</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap rounded-br-md">Sales Team</td>
+                          </tr>
+                      </tbody>
+                </table>
+              </div>
+          </div>
+          <!-- User Activity Logs Table widget -->
+           <div class="user-activity-table relative px-6 py-3 shadow-lg group text-xs">
+             <div class="flex justify-center items-center w-full">
+                  <p class="text-c-yellow text-sm">Recent Logins</p>
+                  <button class="my-2 text-c-yellow absolute top-2 right-4"><i class="ri-close-circle-fill ri-xl"></i></button>
+              </div>
+              <div class="flex justify-end gap-4 mt-8 overflow-x-scroll mini-scroll">
+                <div class="relative">
+                    <button id="fileTypeBtn" class="bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">User<i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="fileTypeMenu" class="hidden">
+                        <li>PDF</li>
+                        <li>Video</li>
+                        <li>ZIP</li>
+                        <li>Excel</li>
+                        <li>PPT</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="dateRangeBtn" class="bg-c-yellow whitespace-nowrap text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">Date Range <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="dateRangeMenu" class="hidden">
+                        <li>Last 7 Days</li>
+                        <li>Last 30 Days</li>
+                        <li>Last 6 Months</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="userGroupBtn" class="bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">All <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="userGroupMenu" class="hidden">
+                        <li>Admin</li>
+                        <li>Editor</li>
+                        <li>Designer</li>
+                        <li>Finance Team</li>
+                        <li>Sales Team</li>
+                    </ul>
+                </div>
+                <button class="text-c-yellow">
+                  <i class="ri-filter-line ri-2x"></i>
+                </button>
+              </div>
+                <!-- Table -->
+              <div class="overflow-x-auto overflow-y-scroll scroll max-h-80 mt-4">
+                <table class="w-full text-left">
+                      <thead>
+                          <tr class="bg-c-yellow text-c-white">
+                              <th class="p-2 font-medium rounded-tl-md">User</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Date Range</th>
+                              <th class="p-2 font-medium">All</th>
+                              <th class="p-2 font-medium rounded-tr-md whitespace-nowrap">IP Address</th>
+                          </tr>
+                      </thead>
+                      <tbody class="text-c-black bg-c-white">
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">John Doe</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-29</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Success</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">192.168.1.1</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Jane Smith</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-29</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Failed</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">203.0.113.4</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Admin</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-30</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Success</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">172.16.254.1</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Guest</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-30</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Failed</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">203.0.113.4</td>
+                          </tr>
+                          <tr>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap rounded-bl-md">Employee</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">2025-01-30</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap">Success</td>
+                              <td class="px-2 py-5 font-normal whitespace-nowrap rounded-br-md">172.16.254.1</td>
+                          </tr>
+                      </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+           <!-- Sharing Insights Table widget -->
+           <div class="sharing-insight-table relative px-6 py-3 shadow-lg group text-xs">
+             <div class="flex justify-center items-center w-full">
+                  <p class="text-c-yellow text-sm">Top Shared Files</p>
+                  <button class="my-2 text-c-yellow absolute top-2 right-4"><i class="ri-close-circle-fill ri-xl"></i></button>
+              </div>
+                <!-- Table -->
+              <div class="overflow-x-auto overflow-y-scroll scroll max-h-72 mt-4">
+                <table class="w-full text-left">
+                      <thead>
+                          <tr class="bg-c-yellow text-c-white">
+                              <th class="p-2 font-medium whitespace-nowrap rounded-tl-md">File Name</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Shared By</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Shares Count</th>
+                              <th class="p-2 font-medium whitespace-nowrap rounded-tr-md">User Group/Role</th>
+                          </tr>
+                      </thead>
+                      <tbody class="text-c-black bg-c-white">
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Project_Plan.docx</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">John Doe</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">25</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Manager</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Budget_2024.xlsx</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Jane Smith</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">18</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Accountant</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Design_Mockup.png</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Alex Lee</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">15</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Designer</td>
+                          </tr>
+                          <tr>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap rounded-bl-md">Report_Q4.pdf</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Sarah Johnson</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">10</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap rounded-br-md">Analyst</td>
+                          </tr>
+                      </tbody>
+                </table>
+              </div>
+          </div>
+          <!-- Pending Privilege Table widget -->
+           <div class="pending-privilege-table relative px-6 py-3 shadow-lg group text-xs">
+             <div class="flex justify-center items-center w-full">
+                  <p class="text-c-yellow text-sm">Pending Privilege Requests</p>
+                  <button class="my-2 text-c-yellow absolute top-2 right-4"><i class="ri-close-circle-fill ri-xl"></i></button>
+              </div>
+               <div class="flex justify-end gap-4 mt-8 overflow-x-scroll mini-scroll">
+                <div class="relative">
+                    <button id="fileTypeBtn" class="bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">Date<i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="fileTypeMenu" class="hidden">
+                        <li>PDF</li>
+                        <li>Video</li>
+                        <li>ZIP</li>
+                        <li>Excel</li>
+                        <li>PPT</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="dateRangeBtn" class="bg-c-yellow text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">Status <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="dateRangeMenu" class="hidden">
+                        <li>Last 7 Days</li>
+                        <li>Last 30 Days</li>
+                        <li>Last 6 Months</li>
+                    </ul>
+                </div>
+                <div class="relative">
+                    <button id="userGroupBtn" class="bg-c-yellow whitespace-nowrap text-c-white px-5 py-1 font-normal rounded-sm flex items-center justify-center gap-1">User Role <i class="ri-arrow-down-s-fill ri-lg"></i></button>
+                    <ul id="userGroupMenu" class="hidden">
+                        <li>Admin</li>
+                        <li>Editor</li>
+                        <li>Designer</li>
+                        <li>Finance Team</li>
+                        <li>Sales Team</li>
+                    </ul>
+                </div>
+                <button class="text-c-yellow">
+                  <i class="ri-filter-line ri-2x"></i>
+                </button>
+              </div>
+                <!-- Table -->
+              <div class="overflow-x-auto overflow-y-scroll scroll max-h-72 mt-4">
+                <table class="w-full text-left">
+                      <thead>
+                          <tr class="bg-c-yellow text-c-white">
+                              <th class="p-2 font-medium whitespace-nowrap rounded-tl-md">User Name</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Privilege Type</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Request Date</th>
+                              <th class="p-2 font-medium whitespace-nowrap">Status</th>
+                              <th class="p-2 font-medium whitespace-nowrap rounded-tr-md">User Role</th>
+                          </tr>
+                      </thead>
+                      <tbody class="text-c-black bg-c-white">
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">John Doe</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Admin Access</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">2025-02-10</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Pending</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Manager</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Jane Smith</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">File Edit Access</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">2025-02-11</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Pending</td>
+                               <td class="px-2 py-6 font-normal whitespace-nowrap">Editor</td>
+                          </tr>
+                          <tr class="border-b border-c-gray">
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Alex Lee</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Database Read</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">2025-02-12</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Pending</td>
+                               <td class="px-2 py-6 font-normal whitespace-nowrap">Analyst</td>
+                          </tr>
+                          <tr>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap rounded-bl-md">Sarah Johnson</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">API Access</td>
+                               <td class="px-2 py-6 font-normal whitespace-nowrap">2025-02-13</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap">Pending</td>
+                              <td class="px-2 py-6 font-normal whitespace-nowrap rounded-br-md">Developer</td>
+                          </tr>
+                      </tbody>
+                </table>
+              </div>
+          </div>
         </div>
       </div>
     
@@ -1936,6 +2255,10 @@ document.addEventListener("click", function (event) {
               "desktop-clock-widget": { minWidth: 150, minHeight: 150, maxWidth: 224, maxHeight: 300 },
               "desktop-cube-notes-widget": {  minWidth: 400, minHeight: 250, maxWidth: 325, maxHeight: 325 },
               "desktop-rectangle-notes-widget": {  minWidth: 250, minHeight: 300, maxWidth: 318, maxHeight: 410 },
+              "file-analytics-table":{  minWidth: 250, minHeight: 300, maxWidth: 800, maxHeight: 410 },
+              "user-activity-table":{  minWidth: 250, minHeight: 300, maxWidth: 600, maxHeight: 410 },
+              "sharing-insight-table":{  minWidth: 250, minHeight: 300, maxWidth: 430, maxHeight: 410 },
+              "pending-privilege-table":{  minWidth: 250, minHeight: 300, maxWidth: 430, maxHeight: 410 },
             };
 
             // Initialize widgets with dynamic sizes
@@ -2093,6 +2416,23 @@ document.addEventListener("click", function (event) {
             window.hideEditNotes = function(){
               $('.desktop-edit-notes-widget').hide();
             }    
+
+          
+    $('.analytics-filter-dropdown-btn').on('click', function (event) {
+        event.stopPropagation(); // Prevent click from propagating to document
+
+        // Close all dropdowns except the one being clicked
+        $('.analytics-dropdown-menu').not($(this).next('.analytics-dropdown-menu')).addClass('hidden');
+
+        // Toggle the clicked dropdown
+        $(this).next('.analytics-dropdown-menu').toggleClass('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    $(document).on('click', function () {
+        $('.analytics-dropdown-menu').addClass('hidden');
+    });
+
         })
     </script>
    
