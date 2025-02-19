@@ -703,10 +703,71 @@
                   <button class="bg-slate-shadow text-c-white px-10 py-1 rounded-full">View all</button>
                   <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                 </div>
+                <div class="file-analytics-table relative bg-c-black rounded-3xl p-3 flex flex-col items-center gap-3 cursor-move group">
+                  <div class="text-c-yellow w-full flex justify-between items-center">
+                    <span class="text-center w-full">File Analytics</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>
+                  <div class="w-full relative border border-c-light-yellow rounded">
+                    <input type="text" placeholder="Search" class="bg-transparent p-2 text-c-light-yellow search-placeholder"/>
+                    <button class="absolute right-0 mx-3 mt-1.5 text-c-light-yellow"><i class="ri-search-line text-xl"></i></button>
+                  </div>
+                  <div class="flex flex-col gap-2 overflow-y-auto max-h-7xl overflow-x-hidden scroll">
+                    <div class="bg-c-white overflow-x-auto max-w-xs scroll-x rounded-md mt-5">
+                      <table class="table-auto w-full">
+                        <thead class="h-14">
+                          <tr class="bg-c-yellow">
+                            <th class="text-left pl-3 whitespace-nowrap rounded-tl-md">File Name</th>
+                            <th class="text-left pl-3 whitespace-nowrap">Size</th>
+                            <th class="text-left pl-3 whitespace-nowrap">User</th>
+                            <th class="rounded-tr-md text-left px-3 whitespace-nowrap">Date Created</th>
+                          </tr>
+                        </thead>
+                        <tbody class="font-size-14">
+                          <tr class="h-16 border-b">
+                            <td class="text-left pl-3 whitespace-nowrap">Project_Report.pdf</td>
+                            <td class="text-left pl-3 whitespace-nowrap">950MB</td>
+                            <td class="text-left pl-3 whitespace-nowrap">John Doe</td>
+                            <td class="text-left pl-3 whitespace-nowrap">01-Feb-2025</td>
+                          </tr>
+                          <tr class="h-16">
+                            <td class="text-left pl-3 whitespace-nowrap">Project_Report.pdf</td>
+                            <td class="text-left pl-3 whitespace-nowrap">950MB</td>
+                            <td class="text-left pl-3 whitespace-nowrap">John Doe</td>
+                            <td class="text-left pl-3 whitespace-nowrap">01-Feb-2025</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                </div>
+                <div class="top-comment-widget relative group flex flex-col justify-center items-center gap-3 p-4 px-6 rounded-3xl cursor-move">
+                  <div class="w-full flex justify-between items-center">
+                    <span class="text-center w-full font-semibold">Top Comments</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>
+                  <div class="flex gap-4 justify-between items-center">
+                    <img class="rounded-full h-14 w-14" src="images/profile.png"/>
+                    <div class="flex flex-col font-semibold">
+                      <p>User Name:</p>
+                      <p>Mentions Count:</p>
+                      <p>Role:</p>
+                      <p>Date:</p>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-1.5 jutify-center text-xs">
+                      <p>John Doe</p>
+                      <p>35</p>
+                      <p>Manager</p>
+                      <p>2025-02-10</p>
+                    </div>
+                  </div>
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                </div>
               </div>
               <div class="flex flex-col gap-6"> 
-                <div class="file-analytics-widget relative group bg-c-black flex flex-col justify-center items-center gap-3 p-4 px-6 rounded-3xl cursor-move">
-                  <div class="flex gap-6 items-center justify-center mt-7">                
+                <div class="file-analytics-widget relative group bg-c-black flex flex-col justify-center items-center gap-3 p-4 rounded-3xl cursor-move">
+                  <div class="flex gap-6 items-center mt-7 w-full">                
                     <svg width="80" height="80" viewBox="0 0 123 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M92.6307 7.96436L114.017 30.2581V115.036H34.125V115.313H114.29V30.5387L92.6307 7.96436Z" fill="#909090"/>
                       <path d="M92.3728 7.6875H33.8594V115.036H114.025V30.2618L92.3728 7.6875Z" fill="#F4F4F4"/>
@@ -736,33 +797,129 @@
                   <button class="bg-slate-shadow text-c-white px-10 py-1 rounded-full">View all</button>
                   <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
                   <button class="absolute flex gap-2 top-2 right-0 mx-3 my-2 text-c-yellow"><i class="ri-close-circle-fill ri-xl"></i></button>
-                </div>   
-              </div>
-              <div class="flex flex-col gap-6">  
-                <div class="top-comment-widget relative group flex flex-col justify-center items-center gap-3 p-4 px-6 rounded-3xl cursor-move">
-                  <div class="w-full flex justify-between items-center">
-                    <span class="text-center w-full font-semibold">Top Comments</span>
+                </div> 
+                <div class="file-analytics-chart relative bg-c-black rounded-3xl p-3 flex flex-col cursor-move group">
+                  <div class="text-c-yellow w-full flex justify-between items-center">
+                    <span class="text-center w-full">File Analytics</span>
                     <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
                   </div>
-                  <div class="flex gap-4 justify-between items-center">
-                    <img class="rounded-full h-14 w-14" src="images/profile.png"/>
-                    <div class="flex flex-col font-semibold">
-                      <p>User Name:</p>
-                      <p>Mentions Count:</p>
-                      <p>Role:</p>
-                      <p>Date:</p>
+                  <div class="bg-c-white p-4 rounded-lg text-sm">
+                    <h3 class="text-gray-700 font-semibold">File usage ratio 
+                        <span class="text-gray-500">[All]</span>
+                    </h3>
+                    <div class="flex items-center space-x-3 mt-2">
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 bg-yellow-500 rounded-full mr-1"></span> User</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 bg-pink-500 rounded-full mr-1"></span> Group</span>
+                        <span class="flex items-center"><span class="w-2.5 h-2.5 bg-gray-500 rounded-full mr-1"></span> Others</span>
                     </div>
-                    <div class="flex flex-col gap-2 mt-1.5 jutify-center text-xs">
-                      <p>John Doe</p>
-                      <p>35</p>
-                      <p>Manager</p>
-                      <p>2025-02-10</p>
+                    <canvas id="fileUsageChart" width="300" height="142" class="mt-4 flex items-center justify-center"></canvas>
+                    <div class="mt-3 text-center text-gray-700">
+                        <p><strong>Total:</strong> 1.4 MB &nbsp;&nbsp; <strong>Files:</strong> 222</p>
+                    </div>
+                  </div>
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>                    
+                </div> 
+                <div class="recent-login-widget relative group bg-c-black flex flex-col justify-center items-center gap-3 p-4 px-6 rounded-3xl cursor-move">
+                  <div class="w-full text-c-yellow flex justify-between items-center">
+                    <span class="text-center w-full font-semibold">Recent Logins</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>
+                  <div class="flex gap-4 justify-between items-start">
+                    <img class="rounded-full h-14 w-14" src="images/profile.png"/>
+                    <div class="flex flex-col text-c-white font-semibold">
+                      <p>User:</p>
+                      <p>Date:</p>
+                      <p>Attempt:</p>
+                      <p>IP Address:</p>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-1.5 jutify-center text-xs text-c-white">
+                      <p>Admin</p>
+                      <p>2025-01-30</p>
+                      <p class="text-c-green">Success</p>
+                      <p>172.16.254.1</p>
                     </div>
                   </div>
                   <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                </div>  
+              </div>
+              <div class="flex flex-col gap-6">  
+                <div class="top-shared-widget relative group flex flex-col justify-center items-center gap-3 p-4 rounded-3xl cursor-move">
+                  <div class="w-full flex justify-between items-center">
+                    <span class="text-center w-full font-semibold">Top Shared Files</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>
+                  <div class="flex gap-4">
+                    <img src="images/excel.svg"/>
+                    <div class="flex flex-col font-semibold">
+                      <p>File Name:</p>
+                      <p>Shared By:</p>
+                      <p>Shares Count:</p>
+                      <p>Role:</p>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-1.5 jutify-center text-xs">
+                      <p>Budget_2024.xlsx</p>
+                      <p>Jane Smith</p>
+                      <p>18</p>
+                      <p>Accountant</p>
+                    </div>
+                  </div>
+                  <button class="bg-slate-shadow text-c-white px-10 py-1 rounded-full">View all</button>
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>
+                </div>
+                <div class="file-analytics-usage relative bg-c-black rounded-3xl p-3 flex flex-col cursor-move group">
+                  <div class="text-c-yellow w-full flex justify-between items-center">
+                    <span class="text-center w-full">File Analytics</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>
+                  <div class="rounded-xl bg-c-white flex flex-col gap-1 p-2">
+                    <p class="pb-1 border-b border-light-gray flex gap-2 text-lg"><i class="ri-file-line"></i>File<p>
+                    <p class="text-center">Space usage</p>
+                    <p class="text-4xl text-center text-c-yellow">1.4 Mb</p>
+                    <p>Actual: 1.4 MB</p>
+                    <p class="border-b border-light-gray pb-1">Saved: 0B</p>
+                    <div class="flex gap-4">
+                      <p>Count: 192</p>
+                      <p>Today: 0B</p>
+                    </div>
+                  </div> 
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>                   
+                </div> 
+                <div class="privilege-requests-widget relative bg-c-black rounded-3xl p-3 flex justify-center items-center flex-col gap-2 cursor-move group">
+                  <div class="text-c-yellow w-full flex justify-between items-center pb-1 border-b border-dark-gray">
+                    <span class="w-full justify-center flex gap-2"><i class="ri-rfid-line"></i>Privilege Requests</span>
+                    <button class="my-2"><i class="ri-close-circle-fill ri-xl"></i>
+                  </div>   
+                  <div class="flex gap-4 text-c-white">
+                    <div class="flex flex-col gap-2">
+                      <p class="flex gap-2 items-center"><i class="ri-checkbox-circle-fill text-c-green ri-lg"></i>Complete:</p>
+                      <p class="flex gap-2 items-center">
+                        <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.86094 8.74992C9.50204 7.3422 10.676 6.24676 12.1247 5.70449C13.5733 5.16222 15.178 5.21753 16.5859 5.85825C17.9936 6.49935 19.0891 7.67332 19.6314 9.12198C20.1736 10.5706 20.1183 12.1754 19.4776 13.5833C19.0156 14.6033 18.2689 15.4683 17.3273 16.0744C16.3856 16.6804 15.2891 17.0018 14.1693 16.9999C11.9193 16.9999 9.86094 15.6999 8.89427 13.6666H0.835938V11.9999C0.885937 11.0499 1.53594 10.2749 2.78594 9.64992C4.03594 9.02492 5.6026 8.69992 7.5026 8.66658C7.9776 8.66658 8.4276 8.70825 8.86094 8.74992ZM7.5026 0.333252C8.43594 0.358252 9.21927 0.683252 9.84427 1.30825C10.4693 1.93325 10.7776 2.71659 10.7776 3.66659C10.7776 4.61659 10.4693 5.39992 9.84427 6.02492C9.21927 6.64992 8.43594 6.95825 7.5026 6.95825C6.56927 6.95825 5.78594 6.64992 5.16094 6.02492C4.53594 5.39992 4.2276 4.61659 4.2276 3.66659C4.2276 2.71659 4.53594 1.93325 5.16094 1.30825C5.78594 0.683252 6.56927 0.358252 7.5026 0.333252ZM14.1693 15.3333C15.2743 15.3333 16.3341 14.8943 17.1155 14.1129C17.8969 13.3315 18.3359 12.2717 18.3359 11.1666C18.3359 10.0615 17.8969 9.00171 17.1155 8.22031C16.3341 7.43891 15.2743 6.99992 14.1693 6.99992C13.0642 6.99992 12.0044 7.43891 11.223 8.22031C10.4416 9.00171 10.0026 10.0615 10.0026 11.1666C10.0026 12.2717 10.4416 13.3315 11.223 14.1129C12.0044 14.8943 13.0642 15.3333 14.1693 15.3333ZM13.3359 8.66658H14.5859V11.0166L16.6193 12.1916L15.9943 13.2749L13.3359 11.7416V8.66658Z" fill="#FDCF01"/>
+                        </svg>
+                        Pending:
+                      </p>
+                      <p class="flex gap-2 items-center"><i class="ri-close-circle-fill text-c-dark-red ri-lg"></i>Cancel:</p>
+                    </div>
+                    <div class="flex flex-col gap-2 jutify-center">
+                      <p>07</p>
+                      <p>04</p>
+                      <p>0</p>
+                    </div>
+                  </div> 
+                  <div class="flex gap-4 text-c-white pt-2 border-t border-dark-gray w-full justify-center items-center">
+                    <div class="flex flex-col gap-2">
+                      <p class="flex gap-2 items-center">Pending Request:</p>
+                      <p class="flex gap-2 items-center">Users:</p>
+                    </div>
+                    <div class="flex flex-col gap-2 jutify-center">
+                      <p>04</p>
+                      <p>04</p>
+                    </div>
+                  </div>
+                  <button class="absolute flex gap-2 bottom-0 right-0 px-3 py-2 rounded-md bg-c-black text-c-yellow opacity-0 focus:opacity-100 group-hover:opacity-100 z-10"><i class="ri-send-plane-2-line"></i>Send to Desktop</button>      
                 </div>
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1021,8 +1178,8 @@
                     }]
                 },
                 options: {
-                    responsive: true,
-                    cutout: "50%",
+                  responsive: false,
+                  cutout: "30%",
                     plugins: {
                         legend: { display: false },
                     }
