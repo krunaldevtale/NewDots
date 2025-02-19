@@ -1698,22 +1698,6 @@ input[type="button"]:focus {
   .edit-notes-widget {
     width: 100% !important;
   }
-
-  .file-analytics-table {
-    width: 100% !important;
-  }
-
-  .user-activity-table {
-    width: 100% !important;
-  }
-
-  .sharing-insight-table {
-    width: 100% !important;
-  }
-
-  .pending-privilege-table {
-    width: 100% !important;
-  }
 }
 .top-comment-widget {
   border: 1px solid #A2870C;
