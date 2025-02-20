@@ -1326,60 +1326,76 @@
             });
 
             // Drag and resize widget
-            function initializeResizableWidgets() {
-              $(".widget").each(function () {
-                  let $this = $(this);
-          
-                  // Get initial width and height dynamically
-                  let initialWidth = $this.outerWidth();
-                  let initialHeight = $this.outerHeight();
-          
-                  // Set min/max values based on the initial size
-                  let minWidth = initialWidth * 0.8;  // 80% of the original size
-                  let minHeight = initialHeight * 0.8;
-                  let maxWidth = initialWidth;  // 150% of the original size
-                  let maxHeight = initialHeight;
-          
-                  // Apply draggable and resizable functionality
-                  $this.draggable({
-                      containment: $this.closest(".main-content"),
-                      start: function () {
-                          const mainContent = $this.closest(".main-content");
-                          mainContent.find("*").not(this).css("z-index", "");
-                          $this.css("z-index", 9999);
-                      },
-                  }).resizable({
-                      minWidth: minWidth,
-                      minHeight: minHeight,
-                      maxWidth: maxWidth,
-                      maxHeight: maxHeight,
-                      start: function (event, ui) {
-                          ui.element.data("originalWidth", ui.originalSize.width);
-                          ui.element.data("originalHeight", ui.originalSize.height);
-                      },
-                      resize: function (event, ui) {
-                          let originalWidth = ui.element.data("originalWidth");
-                          let originalHeight = ui.element.data("originalHeight");
-          
-                          let scaleX = ui.size.width / originalWidth;
-                          let scaleY = ui.size.height / originalHeight;
-                          let scale = Math.min(scaleX, scaleY);
-          
-                          // Apply transform scaling to the entire content
-                          $this.css({
-                              transform: `scale(${scale})`,
-                              transformOrigin: "top left"
-                          });
-          
-                          // Ensure the container still resizes while scaling content
-                          ui.element.width(originalWidth).height(originalHeight);
-                      }
-                  });
-              });
-          }
-          
-          // Run the function on all widgets
-              initializeResizableWidgets();
+           function initializeResizableWidgets(widgetConfig) {
+              const isMobile = window.innerWidth <= 768; // Define mobile breakpoint
+
+    Object.keys(widgetConfig).forEach(className => {
+        $(`.${className}`).each(function () {
+            let { minWidth, minHeight, maxWidth, maxHeight } = widgetConfig[className];
+
+            // Adjust max width for mobile screens
+            if (isMobile) {
+                maxWidth = Math.min(maxWidth, 280); 
+            }
+
+            $(this).draggable({
+                containment: $(this).closest(".system-content"),
+                start: function () {
+                    const mainContent = $(this).closest(".system-content");
+                    mainContent.find("*").not(this).css("z-index", "");
+                    $(this).css("z-index", 9999);
+                },
+            }).resizable({
+                minWidth: minWidth,
+                minHeight: minHeight,
+                maxWidth: maxWidth,
+                maxHeight: maxHeight,
+                start: function (event, ui) {
+                    ui.element.data("originalWidth", ui.originalSize.width);
+                    ui.element.data("originalHeight", ui.originalSize.height);
+                },
+                resize: function (event, ui) {
+                    let originalWidth = ui.element.data("originalWidth");
+                    let originalHeight = ui.element.data("originalHeight");
+
+                    let scaleX = ui.size.width / originalWidth;
+                    let scaleY = ui.size.height / originalHeight;
+                    let scale = Math.min(scaleX, scaleY);
+
+                    // Apply transform scaling to the entire content
+                    $(this).css({
+                        transform: `scale(${scale})`,
+                        transformOrigin: "top left"
+                    });
+
+                    // Ensure the container still resizes while scaling content
+                    ui.element.width(originalWidth).height(originalHeight);
+                }
+            });
+        });
+    });
+}
+
+// Set size:
+let widgetConfig = {
+    "access-sharing-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "file-analytics-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "top-comment-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "file-analytics-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "file-analytics-chart": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "recent-login-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "top-shared-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "file-analytics-usage": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "privilege-requests-widget": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+};
+
+// Initialize widgets with dynamic sizes
+initializeResizableWidgets(widgetConfig);
+
+// Reinitialize on window resize (optional)
+window.addEventListener("resize", function () {
+    initializeResizableWidgets(widgetConfig);
+});
                                  
             // stopwatch widget
             const stopwatches = document.querySelectorAll('.stopwatch');

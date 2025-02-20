@@ -2309,66 +2309,80 @@ document.addEventListener("click", function (event) {
          $(document).ready(function () {
         
             // Drag and resize widget
-            function initializeResizableWidgets(widgetConfig) {
-              Object.keys(widgetConfig).forEach(className => {
-                  $(`.${className}`).each(function () {
-                      let { minWidth, minHeight, maxWidth, maxHeight } = widgetConfig[className];
-                      $(this).draggable({
-                          containment: $(this).closest(".desktop-main-content"),
-                          start: function () {
-                            const mainContent = $(this).closest(".desktop-main-content");
-                            mainContent.find("*").not(this).css("z-index", "");
-                            $(this).css("z-index", 9999);
-                          },
-                      }).resizable({
-                          minWidth: minWidth,
-                          minHeight: minHeight,
-                          maxWidth: maxWidth,
-                          maxHeight: maxHeight,
-                          start: function (event, ui) {
-                              ui.element.data("originalWidth", ui.originalSize.width);
-                              ui.element.data("originalHeight", ui.originalSize.height);
-                          },
-                          resize: function (event, ui) {
-                              let originalWidth = ui.element.data("originalWidth");
-                              let originalHeight = ui.element.data("originalHeight");
+           function initializeResizableWidgets(widgetConfig) {
+              const isMobile = window.innerWidth <= 768; // Define mobile breakpoint
 
-                              let scaleX = ui.size.width / originalWidth;
-                              let scaleY = ui.size.height / originalHeight;
-                              let scale = Math.min(scaleX, scaleY);
+    Object.keys(widgetConfig).forEach(className => {
+        $(`.${className}`).each(function () {
+            let { minWidth, minHeight, maxWidth, maxHeight } = widgetConfig[className];
 
-                              // Apply transform scaling to the entire content
-                              $(this).css({
-                                  transform: `scale(${scale})`,
-                                  transformOrigin: "top left"
-                              });
-
-                              // Ensure the container still resizes while scaling content
-                              ui.element.width(originalWidth).height(originalHeight);
-                          }
-                      });
-                  });
-              });
+            // Adjust max width for mobile screens
+            if (isMobile) {
+                maxWidth = Math.min(maxWidth, 260); 
             }
 
-            // Set size:
-            let widgetConfig = {
-              "desktop-weather-widget": { minWidth: 250, minHeight: 200, maxWidth: 224},
-              "desktop-stopwatch-widget": { minWidth: 200, minHeight: 150, maxWidth: 210, maxHeight: 300 },
-              "desktop-calender-widget": { minWidth: 200, minHeight: 150, maxWidth: 256, maxHeight: 300 },
-              "desktop-clock-widget": { minWidth: 150, minHeight: 150, maxWidth: 224, maxHeight: 300 },
-              "desktop-cube-notes-widget": {  minWidth: 400, minHeight: 250, maxWidth: 325, maxHeight: 325 },
-              "desktop-rectangle-notes-widget": {  minWidth: 250, minHeight: 300, maxWidth: 318, maxHeight: 410 },
-              "file-analytics-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-              "user-activity-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-              "sharing-insight-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-              "pending-privilege-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-              "recent-comments-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-              "comments-table":{  minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
-            };
+            $(this).draggable({
+                containment: $(this).closest(".desktop-main-content"),
+                start: function () {
+                    const mainContent = $(this).closest(".desktop-main-content");
+                    mainContent.find("*").not(this).css("z-index", "");
+                    $(this).css("z-index", 9999);
+                },
+            }).resizable({
+                minWidth: minWidth,
+                minHeight: minHeight,
+                maxWidth: maxWidth,
+                maxHeight: maxHeight,
+                start: function (event, ui) {
+                    ui.element.data("originalWidth", ui.originalSize.width);
+                    ui.element.data("originalHeight", ui.originalSize.height);
+                },
+                resize: function (event, ui) {
+                    let originalWidth = ui.element.data("originalWidth");
+                    let originalHeight = ui.element.data("originalHeight");
 
-            // Initialize widgets with dynamic sizes
-            initializeResizableWidgets(widgetConfig);
+                    let scaleX = ui.size.width / originalWidth;
+                    let scaleY = ui.size.height / originalHeight;
+                    let scale = Math.min(scaleX, scaleY);
+
+                    // Apply transform scaling to the entire content
+                    $(this).css({
+                        transform: `scale(${scale})`,
+                        transformOrigin: "top left"
+                    });
+
+                    // Ensure the container still resizes while scaling content
+                    ui.element.width(originalWidth).height(originalHeight);
+                }
+            });
+        });
+    });
+}
+
+// Set size:
+let widgetConfig = {
+    "desktop-weather-widget": { minWidth: 250, minHeight: 200, maxWidth: 224 },
+    "desktop-stopwatch-widget": { minWidth: 200, minHeight: 150, maxWidth: 210, maxHeight: 300 },
+    "desktop-calender-widget": { minWidth: 200, minHeight: 150, maxWidth: 256, maxHeight: 300 },
+    "desktop-clock-widget": { minWidth: 150, minHeight: 150, maxWidth: 224, maxHeight: 300 },
+    "desktop-cube-notes-widget": { minWidth: 400, minHeight: 250, maxWidth: 325, maxHeight: 325 },
+    "desktop-rectangle-notes-widget": { minWidth: 250, minHeight: 300, maxWidth: 318, maxHeight: 410 },
+    "file-analytics-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "user-activity-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "sharing-insight-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "pending-privilege-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "recent-comments-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+    "comments-table": { minWidth: 200, minHeight: 300, maxWidth: 320, maxHeight: 410 },
+};
+
+// Initialize widgets with dynamic sizes
+initializeResizableWidgets(widgetConfig);
+
+// Reinitialize on window resize (optional)
+window.addEventListener("resize", function () {
+    initializeResizableWidgets(widgetConfig);
+});
+
                             
             // stopwatch widget
             const stopwatches = document.querySelectorAll('.desktop-stopwatch');
