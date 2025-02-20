@@ -144,7 +144,7 @@
 /* File Analytics Table widget */
 .file-analytics-table {
   background-color: var(--color-light-gray);
-  width: 50rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
@@ -178,7 +178,7 @@
 
 .user-activity-table {
   background-color: var(--color-light-gray);
-  width: 30rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
@@ -212,7 +212,7 @@
 
 .sharing-insight-table {
   background-color: var(--color-light-gray);
-  width: 30rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
@@ -222,7 +222,7 @@
 
 .pending-privilege-table {
   background-color: var(--color-light-gray);
-  width: 30rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
@@ -256,7 +256,7 @@
 
 .recent-comments-table {
   background-color: var(--color-light-gray);
-  width: 39rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
@@ -266,7 +266,7 @@
 
 .comments-table {
   background-color: var(--color-light-gray);
-  width: 30rem;
+  width: 23rem;
   height: auto;
   cursor: move;
   border-radius: 20px !important;
