@@ -1,6 +1,7 @@
 /********* Widget page css **********/
 .desktop-main-content {
   max-height: calc(100vh - 2.5rem);
+  overflow-x: auto;
 }
 
 .scroll-x::-webkit-scrollbar {
@@ -143,42 +144,18 @@
 /* File Analytics Table widget */
 .file-analytics-table {
   background-color: var(--color-light-gray);
-  width: 45rem;
-  height: 28rem;
+  width: 50rem;
+  height: auto;
   cursor: move;
-  border-radius: 30px !important;
+  border-radius: 20px !important;
 }
-
-.user-activity-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 28rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-.sharing-insight-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 22rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
-.pending-privilege-table {
-  background-color: var(--color-light-gray);
-  width: 30rem;
-  height: 28rem;
-  cursor: move;
-  border-radius: 30px !important;
-}
-
 
 .analytics-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
   background-color: #333;
+  overflow: hidden;
   color: white;
   width: max-content;
   min-width: 150px;
@@ -195,6 +172,104 @@
 
 .analytics-dropdown-menu li:hover {
   background-color: #444;
+}
+
+/* User Activity Table widget */
+
+.user-activity-table {
+  background-color: var(--color-light-gray);
+  width: 30rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
+}
+
+.user-activity-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  color: white;
+  width: max-content;
+  min-width: 100px;
+  overflow: hidden;
+  z-index: 50;
+  border-radius: 6px;
+  font-size: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.user-activity-dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-activity-dropdown-menu li:hover {
+  background-color: #444;
+}
+
+/* Sharing Insight Table widget */
+
+.sharing-insight-table {
+  background-color: var(--color-light-gray);
+  width: 30rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
+}
+
+/* Pending Privilege Table widget */
+
+.pending-privilege-table {
+  background-color: var(--color-light-gray);
+  width: 30rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
+}
+
+.pending-privilege-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  color: white;
+  width: max-content;
+  min-width: 100px;
+  overflow: hidden;
+  z-index: 50;
+  border-radius: 6px;
+  font-size: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pending-privilege-dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.pending-privilege-dropdown-menu li:hover {
+  background-color: #444;
+}
+
+/* Recent Comments Table widget */
+
+.recent-comments-table {
+  background-color: var(--color-light-gray);
+  width: 39rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
+}
+
+/* Comments Table widget */
+
+.comments-table {
+  background-color: var(--color-light-gray);
+  width: 30rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
 }
 
 @media (max-width: 1024px) {
@@ -243,6 +318,14 @@
   }
 
   .pending-privilege-table {
+    width: 100% !important;
+  }
+
+  .recent-comments-table {
+    width: 100% !important;
+  }
+
+  .comments-table {
     width: 100% !important;
   }
 }
