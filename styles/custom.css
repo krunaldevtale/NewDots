@@ -1536,7 +1536,7 @@ input[type="button"]:focus {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 25rem;
+  height: 19rem;
   width: 20rem;
   border-radius: 30px;
   transform-origin: top left;
@@ -1713,4 +1713,38 @@ input[type="button"]:focus {
   border: 1px solid;
   border-image-source: linear-gradient(10.96deg, #A2870C 27.79%, #C6A615 96.93%);
   background: linear-gradient(180.61deg, #FFFCEE -2.62%, rgba(255, 242, 189, 0.93) 58.75%, rgba(254, 212, 22, 0.76) 161.29%);
+}
+.flip {
+  animation: flipAnimation 0.5s ease-in-out forwards;
+}
+@keyframes flipAnimation {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(-180deg); }
+}
+.clock-bg{
+  background-image: url("/images/clock-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.calender-bg{
+  background-image: url("/images/calender-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+}
+.calender-bg1{
+  background-image: url("/images/calender-bg1.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.weather-widget1{
+  background: linear-gradient(239.72deg, #FFFFFF 37.46%, rgba(253, 207, 1, 0.98) 214.48%);
+  height: 8rem;
+  border-radius: 30px;
 }
