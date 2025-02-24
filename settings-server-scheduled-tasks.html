@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/root.css">
+    <link rel="stylesheet" href="styles/nx.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="styles/tour.min.css">
+    <title>Server Settings - Scheduled Tasks</title>
+</head>
+
+<body class="h-screen w-full">
+     <!-- Taskbar -->
+        <div class="taskbar-slide h-16 flex items-center w-full absolute">
+        
+            <div class="flex justify-center ml-10 w-full relative h-full" id="toolbar">
+              <div class="bg absolute w-full  bottom-0">
+                <img id="shelf" class="w-full" src="images/shelf.png" alt="">
+              </div>
+            </div>
+            <div class="flex items-center gap-8 w-48 justify-end pr-5">
+                <i id="search-icon" class="ri-search-line "></i>
+                <i id="notification-icon" class="ri-notification-3-line "></i>
+                 <i id="pinned" class="ri-pushpin-line"></i>
+                <i onclick="startGuide()" class="ri-question-line"></i>
+            </div>
+          
+        </div>
+    <main class="flex w-full h-full flex nx cm">
+
+        <!-- sidebar -->
+         <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-1 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+              </a>
+            </div>
+            <div class="sidebar-content">
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="overview.html"
+                  >
+                    <span class="font-normal"> Overview </span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> System Settings </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="system-setting-basic-page.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span  class="font-normal">Basic</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Menu</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Notice</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Users &amp; Groups </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="admin&users-users&groups.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Users &amp; Groups </span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-role.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Role</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="admin&user-document-permission.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Document Permission</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Storage/file</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="storage-file.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Storage</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-backup.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Backup</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-share.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Share</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">webDAV Mount</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="settings-storage-media-preview.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Media file preview &amp; Video</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Client and App</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-plugin.html"
+                  >
+                    <span class="font-normal">Plugin Center</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Saftey Control</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Message Warning</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-login.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Login Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-operational.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Operation Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-server-scheduled-tasks.html"
+                    id="scheduled"
+                  >
+                    <span class="font-normal">Scheduled Tasks</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+        <!-- main content -->
+        <div class="flex-grow border h-100 main">
+            <div class="flex w-full h-full flex-col content">
+                <div class=" px-2 lg:px-5 py-6">
+                    <div class="flex items-center gap-4">
+                        <i class="ri-settings-3-fill text-2xl"></i> <span class="text-lg">System settings</span>
+                    </div>
+                </div>
+
+                <!-- top taskbar -->
+                <div class="taskbar flex items-center justify-between px-4 py-4">
+                    <div class="flex items-center gap-4 w-full md:w-1/2">
+                        <div class="flex gap-2 items-center">
+                            <span class="font-normal text-c-black">Scheduled Tasks</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow md:w-1/2">
+                        <div class="flex items-center justify-end gap-2 md:gap-6">
+                            <div class="relative aspect-square w-6 h-6">
+                                <button id="restart-btn" type="button" class="has-tooltip rounded-md" onclick="showSuccessMessage('The scheduled task has restarted')">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0 12C0 6.3432 0 3.5148 1.7568 1.7568C3.516 0 6.3432 0 12 0C17.6568 0 20.4852 0 22.242 1.7568C24 3.516 24 6.3432 24 12C24 17.6568 24 20.4852 22.242 22.242C20.4864 24 17.6568 24 12 24C6.3432 24 3.5148 24 1.7568 22.242C0 20.4864 0 17.6568 0 12ZM16.722 4.3104C16.8876 4.37786 17.0293 4.49309 17.1291 4.64142C17.2289 4.78974 17.2823 4.96442 17.2824 5.1432V8.4012C17.2824 8.6399 17.1876 8.86881 17.0188 9.0376C16.85 9.20638 16.6211 9.3012 16.3824 9.3012H13.2C13.0229 9.3013 12.8496 9.24912 12.702 9.15121C12.5544 9.0533 12.439 8.914 12.3702 8.75077C12.3014 8.58754 12.2823 8.40764 12.3152 8.2336C12.3482 8.05957 12.4318 7.89913 12.5556 7.7724L13.47 6.8364C12.5868 6.56505 11.6458 6.54351 10.7511 6.77416C9.85643 7.00482 9.04309 7.47867 8.4012 8.1432C6.3996 10.1916 6.3996 13.5228 8.4012 15.5712C8.86779 16.0544 9.4269 16.4387 10.0452 16.7011C10.6635 16.9636 11.3283 17.0989 12 17.0989C12.6717 17.0989 13.3365 16.9636 13.9548 16.7011C14.5731 16.4387 15.1322 16.0544 15.5988 15.5712C16.3871 14.7631 16.8952 13.7233 17.0484 12.6048C17.118 12.1032 17.5164 11.6808 18.0228 11.6808C18.51 11.6808 18.9132 12.0708 18.8664 12.5556C18.7139 14.1647 18.0152 15.6731 16.8864 16.83C16.2522 17.4848 15.4928 18.0055 14.6533 18.361C13.8139 18.7166 12.9116 18.8998 12 18.8998C11.0884 18.8998 10.1861 18.7166 9.34665 18.361C8.50724 18.0055 7.74785 17.4848 7.1136 16.83C4.4292 14.082 4.4292 9.6336 7.1136 6.8856C8.09265 5.87405 9.36154 5.19133 10.7451 4.93168C12.1287 4.67202 13.5588 4.84824 14.838 5.436L15.738 4.5144C15.8631 4.38639 16.0236 4.29861 16.1989 4.26227C16.3742 4.22593 16.5563 4.24269 16.722 4.3104Z"
+                                            fill="#282828" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="absolute w-40 text-xs tooltip -bottom-8 -left-8 px-2 py-1 text-center z-10 min-w-full bg-white border rounded-md">
+                                    Restart scheduled tasks
+                                </div>
+                            </div>
+
+                            <div class="relative aspect-square w-6 h-6">
+                                <button id="taskmanager-btn" type="button" class="has-tooltip rounded-md" onclick="openTaskManagerModal()">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.54333 0C3.33836 0 2.18275 0.485951 1.33071 1.35095C0.478671 2.21595 0 3.38914 0 4.61243V16.9122C0 18.1355 0.478671 19.3087 1.33071 20.1737C2.18275 21.0387 3.33836 21.5247 4.54333 21.5247H9.99683C9.19687 19.9332 8.91397 18.1255 9.18873 16.3607C9.46349 14.596 10.2818 12.9649 11.5262 11.7015C12.7707 10.4382 14.3773 9.60742 16.1156 9.32848C17.8539 9.04954 19.6346 9.33674 21.2022 10.1489V4.61243C21.2022 3.38914 20.7235 2.21595 19.8715 1.35095C19.0194 0.485951 17.8638 0 16.6589 0H4.54333ZM9.62277 5.22127C9.69329 5.29268 9.74923 5.37751 9.78741 5.4709C9.82558 5.5643 9.84523 5.66442 9.84523 5.76553C9.84523 5.86665 9.82558 5.96677 9.78741 6.06017C9.74923 6.15356 9.69329 6.23839 9.62277 6.3098L6.97249 9.00038C6.83454 9.14027 6.64875 9.22074 6.45381 9.22504C6.25887 9.22933 6.06982 9.15712 5.92601 9.02345L4.79018 7.97028C4.713 7.9033 4.64987 7.82125 4.60456 7.72901C4.55924 7.63677 4.53266 7.53622 4.52639 7.43333C4.52013 7.33045 4.53431 7.22734 4.5681 7.13014C4.60188 7.03293 4.65457 6.94361 4.72304 6.8675C4.79151 6.79139 4.87436 6.73003 4.96666 6.68708C5.05896 6.64413 5.15883 6.62047 5.26032 6.61749C5.36182 6.61452 5.46286 6.6323 5.55745 6.66977C5.65204 6.70724 5.73823 6.76364 5.81092 6.83562L6.41215 7.39218L8.55054 5.22127C8.62088 5.14968 8.70444 5.09288 8.79644 5.05412C8.88843 5.01537 8.98705 4.99542 9.08666 4.99542C9.18626 4.99542 9.28488 5.01537 9.37687 5.05412C9.46887 5.09288 9.55243 5.14968 9.62277 5.22127ZM8.55054 12.9086C8.69273 12.7643 8.88557 12.6832 9.08666 12.6832C9.28774 12.6832 9.48058 12.7643 9.62277 12.9086C9.76495 13.053 9.84483 13.2488 9.84483 13.4529C9.84483 13.6571 9.76495 13.8528 9.62277 13.9972L6.97249 16.6878C6.83454 16.8277 6.64875 16.9081 6.45381 16.9124C6.25887 16.9167 6.06982 16.8445 5.92601 16.7108L4.79018 15.6577C4.64951 15.5183 4.56769 15.329 4.56202 15.1295C4.55635 14.9301 4.62727 14.7363 4.75979 14.589C4.89232 14.4416 5.07607 14.3524 5.27221 14.3401C5.46836 14.3278 5.66153 14.3934 5.81092 14.523L6.41215 15.0811L8.55054 12.9086ZM12.1155 7.68738C11.9147 7.68738 11.7221 7.60639 11.5801 7.46222C11.4381 7.31806 11.3583 7.12252 11.3583 6.91864C11.3583 6.71476 11.4381 6.51923 11.5801 6.37506C11.7221 6.2309 11.9147 6.1499 12.1155 6.1499H15.9016C16.1025 6.1499 16.2951 6.2309 16.4371 6.37506C16.5791 6.51923 16.6589 6.71476 16.6589 6.91864C16.6589 7.12252 16.5791 7.31806 16.4371 7.46222C16.2951 7.60639 16.1025 7.68738 15.9016 7.68738H12.1155ZM11.5613 16.7892C11.9523 16.6877 12.3195 16.5078 12.6411 16.2601C12.9627 16.0125 13.2323 15.7021 13.4341 15.3471C13.6358 14.9922 13.7657 14.5999 13.816 14.1933C13.8663 13.7867 13.836 13.3739 13.7269 12.9794L13.4907 12.123C13.8773 11.8196 14.2923 11.5634 14.7355 11.3543L15.2459 11.9047C15.529 12.2095 15.8706 12.4523 16.2495 12.6183C16.6284 12.7843 17.0367 12.8699 17.4494 12.8699C17.8621 12.8699 18.2704 12.7843 18.6493 12.6183C19.0283 12.4523 19.3698 12.2095 19.6529 11.9047L20.1406 11.3773C20.5929 11.5926 21.0144 11.858 21.4051 12.1737L21.2143 12.8225C21.0962 13.2239 21.06 13.6455 21.1081 14.0615C21.1562 14.4775 21.2876 14.8792 21.494 15.2418C21.7005 15.6045 21.9778 15.9205 22.3089 16.1704C22.6399 16.4204 23.0178 16.5991 23.4193 16.6955L23.9494 16.8215C24.0114 17.3406 24.0164 17.865 23.9645 18.3851L23.2679 18.5666C22.8765 18.6678 22.5091 18.8474 22.1871 19.0949C21.8652 19.3424 21.5952 19.6528 21.3932 20.0078C21.1911 20.3628 21.061 20.7552 21.0105 21.162C20.96 21.5687 20.9902 21.9817 21.0992 22.3764L21.3355 23.2313C20.9488 23.5347 20.5338 23.7909 20.0906 24L19.5802 23.4496C19.2971 23.145 18.9557 22.9024 18.5769 22.7366C18.1981 22.5707 17.79 22.4852 17.3775 22.4852C16.965 22.4852 16.5568 22.5707 16.178 22.7366C15.7993 22.9024 15.4578 23.145 15.1747 23.4496L14.6901 23.9846C14.2401 23.768 13.8154 23.5009 13.424 23.1882L13.6148 22.5379C13.7332 22.1364 13.7695 21.7147 13.7216 21.2985C13.6736 20.8823 13.5423 20.4804 13.3358 20.1176C13.1293 19.7548 12.852 19.4386 12.5208 19.1886C12.1896 18.9385 11.8115 18.7598 11.4098 18.6634L10.8813 18.5373C10.8194 18.0188 10.8143 17.4949 10.8661 16.9753L11.5613 16.7892ZM18.929 17.681C18.929 17.2732 18.7695 16.8821 18.4854 16.5938C18.2014 16.3055 17.8162 16.1435 17.4146 16.1435C17.0129 16.1435 16.6277 16.3055 16.3437 16.5938C16.0597 16.8821 15.9001 17.2732 15.9001 17.681C15.9001 18.0887 16.0597 18.4798 16.3437 18.7681C16.6277 19.0565 17.0129 19.2184 17.4146 19.2184C17.8162 19.2184 18.2014 19.0565 18.4854 18.7681C18.7695 18.4798 18.929 18.0887 18.929 17.681Z"
+                                            fill="#282828" />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="absolute w-24 text-xs text-center tooltip -bottom-8 px-2 py-1 -left-8 z-10 min-w-full bg-white border rounded-md">
+                                    Task Manager
+                                </div>
+                            </div>
+                            <div>
+                                <button id="add-btn" type="button"
+                                    class="bg-c-black text-c-yellow px-3 py-1 rounded-md" onclick="openModal('Add')">
+                                    <i class="ri-add-circle-fill"></i>&nbsp;<span>Add</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                 <div class="mt-3 flex items-center justify-end px-4 gap-2">
+            <div
+                class="flex items-center rounded overflow-hidden bg-c-white h-8"
+              >
+                <input
+                  type="text"
+                  class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none text-c-black outline-none"
+                  placeholder="Search users, groups..."
+                />
+                <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                 <i class="ri-search-line"></i>
+                </div>
+              </div>
+              <button
+                  class="text-c-light-black bg-c-gray-4 rounded px-6 py-1 mr-1 delete-btn"
+                >
+                  Delete
+                </button>
+          </div>
+
+                <!-- info table -->
+                <div class="p-4 relative h-full flex flex-col scroll overflow-y-scroll">
+                    <div class="bg-white nx-table-container rounded-md">
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr class="bg-c-dark-gray">
+                                   <th class="text-c-white font-medium text-left pl-3 text-base rounded-tl-md"></th>
+                                    <th class="py-2 text-white text-left pl-3">Name</th>
+                                    <th class="py-2 text-white text-left pl-3 whitespace-nowrap">Exceution Cycle</th>
+                                    <th class="py-2 text-white text-left pl-3">Content</th>
+                                    <th class="py-2 text-white text-left pl-3 whitespace-nowrap">Mission Details</th>
+                                    <th class="py-2 text-white text-left pl-3 whitespace-nowrap">Last Execution</th>
+                                    <th class="py-2 text-white text-left pl-3">Status</th>
+                                    <th class="py-2 rounded-tr-md text-left text-white pl-3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="border">
+                                <tr class="text-sm border-t">
+                                    <td class="py-2 pl-3"> <input type="checkbox" class="c-checkbox"></td>
+                                    <td class="py-2 pl-3">Data Pack</td>
+                                    <td class="py-2 pl-3">Every day 02:00</td>
+                                    <td class="py-2 pl-3">admin.backup</td>
+                                    <td class="py-2 pl-3">Start backing up system data at 02:00 every day.</td>
+                                    <td class="py-2 pl-3">07:45 AM</td>
+                                    <td class="py-2 pl-3">
+                                        <label for="toggle" class="toggle-switch flex items-center cursor-pointer">
+                                            <div class="relative">
+                                                <input type="checkbox" id="toggle" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div
+                                                    class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg">
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </td>
+                                    <td class="py-2 pl-3 pr-2">
+                                        <div class="flex relative text-sm gap-3">
+                                            <div class="relative">
+                                                <button type="button" class="dropdown-btn">Action&nbsp;<i class="ri-arrow-down-s-line"></i></button>
+                                                <div
+                                                    class="absolute text-xs dropdown-option w-20 z-10 min-w-full space-y-1 border rounded-md overflow-hidden">
+                                                    <button
+                                                        class="block hover-bg-c-yellow w-full px-2 py-1" onclick="showRunTaskModal()">Run</button>
+                                                    <button
+                                                        class="block hover-bg-c-yellow w-full px-2 py-1">Log</button>
+                                                </div>
+                                            </div>
+                                            <button class="text-link-blue" onclick="openModal('Edit')">Edit</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="text-sm border-t">
+                                    <td class="py-2 pl-3"> <input type="checkbox" class="c-checkbox"></td>
+                                    <td class="py-2 pl-3 rounded-bl-lg">Data Pack</td>
+                                    <td class="py-2 pl-3">Every day 02:00</td>
+                                    <td class="py-2 pl-3">admin.backup</td>
+                                    <td class="py-2 pl-3">Start backing up system data at 02:00 every day.</td>
+                                    <td class="py-2 pl-3">07:45 AM</td>
+                                    <td class="py-2 pl-3">
+                                        <label for="toggle-2" class="toggle-switch flex items-center cursor-pointer">
+                                            <div class="relative">
+                                                <input type="checkbox" id="toggle-2" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div
+                                                    class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg">
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </td>
+                                    <td class="py-2 pl-3 pr-2">
+                                        <div class="flex relative text-sm gap-3">
+                                            <div class="relative">
+                                                <button type="button" class="dropdown-btn">Action&nbsp;<i class="ri-arrow-down-s-line"></i></button>
+                                                <div
+                                                    class="absolute text-xs dropdown-option w-20 z-10 min-w-full space-y-1 border rounded-md overflow-hidden">
+                                                    <button
+                                                        class="block hover-bg-c-yellow w-full px-2 py-1" onclick="showRunTaskModal()">Run</button>
+                                                    <button
+                                                        class="block hover-bg-c-yellow w-full px-2 py-1">Log</button>
+                                                </div>
+                                            </div>
+                                            <button class="text-link-blue" onclick="openModal('Edit')">Edit</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-auto flex justify-end">
+                        Total 1 page &nbsp; <span class="text-c-yellow">(2 records)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- edit/add modal -->
+    <div id="modal" role="dialog" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div id="add-modal" class="bg-white rounded-xl overflow-hidden shadow-lg max-w-xl w-full modal-content">
+            <div class="flex py-3 px-5 border-b border-gray-400 justify-between items-center">
+                <h2 class="text-lg font-medium" id="edit-modal-title">Edit</h2>
+                <button type="button" id="closeModalButton" class="hover-text-c-yellow" onclick="closeModal()">
+                    <i class="ri-close-circle-fill text-xl"></i>
+                </button>
+            </div>
+            <div class="p-5">
+                <form class="space-y-4 text-sm">
+                    <div class="flex flex-col sm:flex-row flex-wrap w-full gap-y-4 items-center">
+                        <label for="name" class="w-full sm:w-1/3 font-semibold">Name: <span class="text-red-500">*</span></label>
+                        <input type="text" required name="name" id="name"
+                            class="bg-gray-50 ml-auto w-full sm:w-2/3 border border-gray-300 text-gray-900 text-sm rounded-xl block p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="Please enter a username" />
+
+                        <div class="w-full sm:w-1/3 font-semibold">Type: </div>
+                        <div class="flex gap-2 sm:ml-auto w-full sm:w-2/3">
+                            <label for="url" class="cursor-pointer radio-button">
+                                <input type="radio" name="type" id="url" value="url" checked>
+                                <span class="block py-1 rounded-md text-center bg-gray-200">URL</span>
+                            </label>
+                            <label for="method" class="cursor-pointer radio-button">
+                                <input type="radio" name="type" id="method" value="method">
+                                <span class="block py-1 rounded-md text-center bg-gray-200">Method</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="url-div" class="flex flex-col sm:flex-row flex-wrap w-full gap-y-4 items-center">
+                        <label for="url_str" class="w-full sm:w-1/3 font-semibold">URL: <span class="text-red-500">*</span></label>
+                        <div class="w-full sm:w-2/3">
+                            <input type="url" name="url" id="url_str"
+                                class="bg-gray-50 w-full sm:ml-auto border border-gray-300 text-gray-900 text-sm rounded-xl block p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="Please enter an URL" />
+                            <div class="text-xs text-gray-400 mt-1">
+                                User-defined URL address, scheduled tasks to execute requests regularly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="method-div" style="display: none;" class="flex flex-col sm:flex-row flex-wrap w-full gap-y-4 items-center">
+                        <label for="method_str" class="w-full sm:w-1/3 font-semibold">Method name: <span class="text-red-500">*</span></label>
+                        <div class="w-full sm:w-2/3">
+                            <input type="text" name="url" id="method_str"
+                                class="bg-gray-50 w-full ml-auto border border-gray-300 text-gray-900 text-sm rounded-xl block p-2 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="Please enter a method name" />
+                            <div class="text-xs text-gray-400 mt-1">
+                                It consists of system module-controller-method name, fill in carefully.
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr text-sm />
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-y-4 items-center">
+
+                        <div class="w-full sm:w-1/3 font-semibold">Execution cycle: <span class="text-red-500">*</span></div>
+                        <div class="flex gap-2 sm:ml-auto w-full sm:w-2/3">
+
+                            <select name="cycle_frequncy" class="border text-sm rounded-md px-1 py-1"
+                                id="cycle_frequncy">
+                                <option selected value="everyday">Everyday</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+
+                            <input type="datetime-local" name="cycle_time" class="border text-sm rounded-md px-1 py-1 w-40"
+                                id="cycle_time" />
+
+                        </div>
+
+
+                        <label class="w-full sm:w-1/3 font-semibold" for="missing_details">Missing details: </label>
+                        <textarea name="missing_details" id="missing_details" rows="4"
+                            class="border rounded-md p-2 w-full sm:w-2/3"></textarea>
+                    </div>
+                    <hr text-sm />
+                    <div class="flex flex-col sm:flex-row flex-wrap gap-y-4 items-center">
+                        <div class="w-full sm:w-1/3 font-semibold">Debug mode: </div>
+                        <div class="w-full sm:w-2/3">
+                            <label for="toggle-debug" class="toggle-switch flex items-center cursor-pointer ml-auto">
+                                <div class="relative">
+                                    <input type="checkbox" id="toggle-debug" class="sr-only">
+                                    <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                    <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg">
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="flex justify-end mt-3">
+                        <button
+                            class="bg-c-black hover-bg-c-black text-white rounded-full w-32 py-2 text-sm">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- run task modal -->
+    <div id="run-task-modal" role="dialog"
+        class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg max-w-md w-full modal-content">
+            <div class="flex py-3 px-5 border-b border-gray-400 justify-between items-center">
+                <h2 class="text-lg font-medium">Run Task</h2>
+            </div>
+            <div class="p-5 text-center">
+                <p>Are you sure you want to run this task?</p>
+            </div>
+            <div class="grid grid-cols-2 gap-4 my-3 px-5">
+                <button type="button" id="runTaskButton"
+                    class="bg-c-black text-white rounded-full px-4 py-2 text-sm">Yes</button>
+                <button type="button" id="closeRunTaskModalButton" onclick="hideRunTaskModal()"
+                    class="hover-bg-c-yellow hover:text-white text-c-yellow border border-c-yellow rounded-full px-4 py-2 text-sm">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- task manager modal -->
+    <div id="task-manager-modal" role="dialog"
+        class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div id="task-manager" class="bg-white rounded-xl overflow-hidden shadow-lg max-w-md w-full modal-content">
+            <div class="flex py-3 px-5 border-b border-gray-400 justify-between items-center">
+                <h2 class="text-lg font-medium">Task Manager</h2>
+                <button type="button" id="closeTaskManagerModalButton" onclick="closeTaskManagerModal()" class="hover-text-c-yellow">
+                    <i class="ri-close-circle-fill text-xl"></i>
+                </button>
+            </div>
+            <div class="p-5 text-center">
+                <div class="flex flex-col py-4 my-4 w-full items-center justify-center">
+                    <img src="/images/no-data-found.png" alt="No data found">
+                    <p class="text-lg">No data found</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- run task scheduled message -->
+    <div id="run-success" class="fixed z-10 w-full transition-all" style="top: -120px;">
+        <div class="max-w-sm mx-auto">
+            <div class="flex items-center border rounded-md bg-white">
+                <div class="bg-c-yellow py-2 px-3">
+                    <i class="ri-check-line text-xl"></i>
+                </div>
+                <p id="run-success-message" class="px-3 text-center w-full text-gray-700 text-sm">The scheduled task has
+                    restarted</p>
+            </div>
+        </div>
+    </div>
+    </main>
+
+
+
+
+
+    <script defer src="script/sidebar.js"></script>
+    <script src="script/taskbar.js"></script>
+    <script src="script/tour.js"></script>
+    <script src="script/scheduled-tour.js"></script>
+
+    <script defer>
+        // for handling edit/add modal
+        const modal = document.getElementById('modal');
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+        function openModal(modalTitle) {
+            document.getElementById('edit-modal-title').innerHTML = modalTitle;
+            modal.classList.remove('hidden');
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+
+        // for handling type URL / Method input in edit/add modal
+        const methodDiv = document.getElementById('method-div');
+        const urlDiv = document.getElementById('url-div');
+        const methodRadio = document.querySelector('input#method');
+        const urlRadio = document.querySelector('input#url');
+
+        methodRadio.addEventListener('click', () => {
+            methodDiv.style.display = 'flex';
+            urlDiv.style.display = 'none';
+        });
+        urlRadio.addEventListener('click', () => {
+            methodDiv.style.display = 'none';
+            urlDiv.style.display = 'flex';
+        });
+
+
+        // for handling run task modal
+        const runTaskModal = document.getElementById('run-task-modal');
+
+        function showRunTaskModal(){
+            runTaskModal.classList.remove('hidden');
+        }
+        function hideRunTaskModal(){
+            runTaskModal.classList.add('hidden');
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target == runTaskModal) {
+                runTaskModal.classList.add('hidden');
+            }
+        });
+
+        // for handling 'yes' on run task modal
+        const runTaskButton = document.getElementById('runTaskButton');
+        const runSuccessModal = document.getElementById('run-success');
+        const runSuccessMessage = document.getElementById('run-success-message');
+        runTaskButton.addEventListener('click', () => {
+            closeRunTaskModalButton.click();
+            showSuccessMessage('The scheduled task has restarted');
+        });
+
+        function showSuccessMessage(message) {
+            runSuccessMessage.innerText = message;
+            runSuccessModal.style.top = '20px';
+            setTimeout(() => {
+                runSuccessModal.style.top = '-120px';
+            }, 3000);
+        }
+
+        // for handling task manager modal
+        const closeTaskManagerModalButton = document.getElementById('closeTaskManagerModalButton');
+        const taskManagerModal = document.getElementById('task-manager-modal');
+
+        function openTaskManagerModal() {
+            taskManagerModal.classList.remove('hidden');
+        }
+
+        function closeTaskManagerModal() {
+            taskManagerModal.classList.add('hidden');
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target == taskManagerModal) {
+                taskManagerModal.classList.add('hidden');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
