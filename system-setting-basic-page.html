@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Root Css -->
+    <link rel="stylesheet" href="styles/root.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <title>System Settings - Basic</title>
+    <style>
+        
+    </style>
+</head>
+
+<body class="h-screen w-full">
+       <!-- Taskbar -->
+        <div class="taskbar-slide h-16 flex items-center w-full absolute">
+        
+            <div class="flex justify-center ml-10 w-full relative h-full" id="toolbar">
+              <div class="bg absolute w-full  bottom-0">
+                <img id="shelf" class="w-full" src="images/shelf.png" alt="">
+              </div>
+            </div>
+            <div class="flex items-center gap-8 w-48 justify-end pr-5">
+                <i id="search-icon" class="ri-search-line "></i>
+                <i id="notification-icon" class="ri-notification-3-line "></i>
+            </div>
+          
+        </div>
+    <main class="flex w-full h-full flex nx overflow-hidden cm">
+
+        <!-- sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute lg:hidden top-1 -right-8 px-1"
+        >
+          <i class="ri-bar-chart-horizontal-line"></i>
+        </label>
+        <div class="h-full sidebar">
+          <div class="sidebar-container">
+            <div class="p-6">
+              <a href="index.html">
+                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+              </a>
+            </div>
+            <div class="sidebar-content">
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="overview.html"
+                  >
+                    <span class="font-normal"> Overview </span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> System Settings </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="system-setting-basic-page.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span  class="font-normal">Basic</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Menu</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-notice.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Notice</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Users &amp; Groups </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="admin&users-users&groups.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Users &amp; Groups </span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="system-setting-role.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Role</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="admin&user-document-permission.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Document Permission</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Intranet Access</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Storage/file</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="storage-file.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Storage</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-backup.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Backup</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="storage-file-share.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Share</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">webDAV Mount</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="settings-storage-media-preview.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Media file preview &amp; Video</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Client and App</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-plugin.html"
+                  >
+                    <span class="font-normal">Plugin Center</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+                <li>
+                  <div
+                    role="button"
+                    onclick="toggleDropMenu(this)"
+                    class="drop-menu cursor-pointer rounded-r-lg"
+                  >
+                    <div
+                      class="w-full px-6 py-3 flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal">Saftey Control</span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                      ></i>
+                    </div>
+                    <ul class="drop-list text-sm space-y-1">
+                      <li>
+                        <a
+                          href="#"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Message Warning</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-login.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Login Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="safety-control-operational.html"
+                          class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                        >
+                          <span class="font-normal">Operation Log</span>
+                          <i
+                            class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                          ></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <a
+                    class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                    href="settings-server-scheduled-tasks.html"
+                  >
+                    <span class="font-normal">Scheduled Tasks</span>
+                    <i
+                      class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                    ></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+        <!-- main content -->
+        <div class="flex-grow border h-100 main">
+            <div class="flex w-full h-full flex-col content">
+
+                <!-- Nav bar -->
+                <div class="px-2 lg:px-5 py-6">
+                    <div class="flex items-center gap-4">
+                        <i class="ri-settings-3-fill ri-xl"></i>
+                        <span class="text-lg text-color-nav-black">System settings</span>
+                    </div>
+                </div>
+
+                <!-- top taskbar -->
+                <div class="taskbar flex items-center justify-between p-4">
+                    <div class="flex items-center gap-4 w-full md:w-1/2">
+                        <div class="flex gap-2 items-center">
+                            <span class="text-c-light-black">Saftey Control</span> <i class="ri-arrow-right-line text-xl"></i><span
+                                class="font-semibold text-color-black">Basic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- tabs and more -->
+                 <div class="px-6 py-2">
+
+                     <div class="flex  gap-4 overflow-x-auto">
+                         <button type="button" onclick="showTab(this)" class="tab-control styled text-base px-1 pb-0.5 active"
+                             data-tab="ss-basics" data-control="basic">Basic</button>
+                         <button type="button" onclick="showTab(this)" class="tab-control styled text-base px-1 pb-0.5"
+                             data-tab="ss-basics" data-control="security">Security</button>
+                         <button type="button" onclick="showTab(this)" class="tab-control styled text-base px-1 pb-0.5 "
+                             data-tab="ss-basics" data-control="registration">Registration</button>
+                         <button type="button" onclick="showTab(this)" class="tab-control styled text-base px-1 pb-0.5"
+                             data-tab="ss-basics" data-control="upload-download">Upload Download</button>
+                         <button type="button" onclick="showTab(this)" class="tab-control styled text-base px-1 pb-0.5"
+                             data-tab="ss-basics" data-control="email">Email</button>
+                     </div>
+                 </div>
+                <div class="px-6 py-2 scroll overflow-y-scroll">
+
+                        <!-- Basic tab -->
+                            <div class="tab-content ss-basics active " id="basic">
+                                <h3 class="font-medium text-lg">Basic information</h3>
+                                <hr>
+                                <form action="#" class="space-y-5 pt-4">
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="company-name" class="font-medium text-sm text-color-black-d">Company Name:</label>
+                                        </div>
+                                        <div class="w-full flex flex-col md:flex-row md:items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex border flex-grow rounded-lg overflow-hidden bg-white items-center max-w-sm w-full">
+                                                <input type="text" name="company-name" required class="flex-grow text-sm px-2 py-1 w-full" id="company-name">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 md:mt-0 md:ml-2 w-full md:w-auto">
+                                                For product logo title
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="company-name" class="font-medium text-sm text-color-black-d">Product Subtitle:</label>
+                                        </div>
+                                        <div class="w-full flex flex-col md:flex-row md:items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex border flex-grow rounded-lg overflow-hidden bg-white items-center max-w-sm w-full">
+                                                <input type="text" name="company-name" required class="flex-grow text-sm px-2 py-1 w-full" id="company-name">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 md:mt-0 md:ml-2 w-full md:w-auto">
+                                                Product subtitle
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="company-name" class="font-medium text-sm text-color-black-d" >Directory exclusion:</label>
+                                        </div>
+                                        <div class="w-full flex flex-col md:flex-row md:items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex border flex-grow rounded-lg overflow-hidden bg-white items-center max-w-sm w-full">
+                                                <input type="text" name="company-name" required class="flex-grow text-sm px-2 py-1 w-full" id="company-name">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 md:mt-0 md:ml-2 w-full md:w-auto">
+                                                Hidden files, separated by commas
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="company-name" class="font-medium text-sm text-color-black-d">Default directories:</label>
+                                        </div>
+                                        <div class="w-full flex flex-col md:flex-row md:items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex border flex-grow rounded-lg overflow-hidden bg-white items-center max-w-sm w-full">
+                                                <input type="text" name="company-name" required class="flex-grow text-sm px-2 py-1 w-full" id="company-name">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 md:mt-0 md:ml-2 w-full md:w-auto">
+                                                Separated by commas
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="company-name" class="font-medium text-sm text-color-black-d">Default apps:</label>
+                                        </div>
+                                        <div class="w-full flex flex-col md:flex-row md:items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex border flex-grow rounded-lg overflow-hidden bg-white items-center max-w-sm w-full">
+                                                <input type="text" name="company-name" required class="flex-grow text-sm px-2 py-1 w-full" id="company-name">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 md:mt-0 md:ml-2 w-full md:w-auto">
+                                                Application centers applications, multiple separated by commas
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1 items-center">
+                                        <!-- Label & Toggle in the Same Line on Mobile -->
+                                        <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                            <label class="font-medium text-sm text-color-black-d">Automatic login:</label>
+                                            <!-- Toggle on Mobile (Right Aligned) -->
+                                            <label for="front-end-compression-download" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                                <div class="relative">
+                                                    <input type="checkbox" id="front-end-compression-download" class="sr-only">
+                                                    <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                    <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    
+                                        <!-- Toggle & Description -->
+                                        <div class="w-full md:w-2/3 xl:w-5/6">
+                                            <div class="flex flex-wrap gap-2 items-center">
+                                                <!-- Toggle on Larger Screens -->
+                                                <label for="front-end-compression-download-two" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                                    <div class="relative">
+                                                        <input type="checkbox" id="front-end-compression-download-two" class="sr-only">
+                                                        <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                        <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                                    </div>
+                                                </label>
+                                                <!-- Description (Always Below) -->
+                                                <div class="font-light text-sm text-c-gray-2">
+                                                    The default login user is the guest/guest user; make sure this user exists after opening.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="flex flex-wrap gap-y-1 cs">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label class="font-medium text-sm text-color-black-d">Login to default:</label>
+                                        </div>
+                                        <div class="w-full flex gap-2 items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex items-center gap-4">
+                                                <label for="login-to-desktop" class="flex items-center gap-2">
+                                                    <input type="checkbox" class="d-checkbox" checked>
+                                                    <span class="">Desktop</span>
+                                                </label>
+
+                                                <label for="login-to-default-file" class="flex items-center gap-2">
+                                                    <input type="checkbox" class="d-checkbox">
+                                                    <span class="">File</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="flex mb-14 py-8 xl:mb-0 xl:py-0 md:mb-0 md:py-0">
+                                    <button type="submit"
+                                        class="bg-c-black ml-auto text-white rounded-full px-8 py-2">Save</button>
+                                </div>
+                            </div>
+
+                        <!-- Security tab -->
+                        <div class="tab-content ss-basics" id="security">
+                            <h3 class="font-medium text-lg">Account and login security</h3>
+                            <hr>
+                            <form action="#" class="pt-4 space-y-5">
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Password error lock:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="password-error-lock-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="password-error-lock-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="password-error-lock" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="password-error-lock" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            If the password is entered incorrectly 5 times in a row, the account locks for 1 minute.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Login 2 step verification:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="login-step-verification-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="login-step-verification-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-4/5 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="login-step-verification" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="login-step-verification" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After opening, you need to verify the message verification code, which is suitable for account and password login.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="flex flex-wrap gap-y-1 cs">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">Second verification sending method:</label>
+                                    </div>
+                                    <div class="w-full flex gap-2 items-center md:w-2/3 xl:w-5/6">
+                                        <div class="flex items-center gap-4">
+                                            <label for="login-to-default-email" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox" checked>
+                                                <span class="text-base font-normal">Email</span>
+                                            </label>
+
+                                            <label for="login-to-default-phone" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox" checked>
+                                                <span class="text-base font-normal">Phone</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">Password strong:</label>
+                                    </div>
+                                    <div class="w-full flex gap-2 items-center md:w-2/3 xl:w-5/6">
+                                        <div class="flex gap-2">
+                                            <label for="not-limited" class="cursor-pointer radio-button">
+                                                <input type="radio" name="encryption" id="not-limited" value="not-limited" checked>
+                                                <span
+                                                    class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200 text-c-gray-2">Not limited</span>
+                                            </label>
+                                            <label for="medium-intensity" class="cursor-pointer radio-button">
+                                                <input type="radio" name="encryption" id="medium-intensity" value="medium-intensity" >
+                                                <span
+                                                    class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200 text-c-gray-2">Medium intensity</span>
+                                            </label>
+                                            <label for="high-strength" class="cursor-pointer radio-button">
+                                                <input type="radio" name="encryption" id="high-strength" value="high-strength" >
+                                                <span
+                                                    class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200 text-c-gray-2">High strength</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="xl:w-1/6"></div>
+                                    <div class="xl:w-5/6 font-light text-sm text-c-gray-2 mt-1">
+                                        The weak password can be effectively eliminated
+                                    </div>
+
+                                    <div class="xl:w-1/6"></div>
+                                    <div class="w-full xl:w-5/6">
+                                        <div class="hidden" id="medium-intensity-div">
+                                                <div class=" font-light text-sm bg-c-pink border rounded-lg py-2 px-4 mt-1">
+                                                <span class="">The length is greater than 6; must contain numbers; English letters</span>
+                                            </div>
+                                       </div>
+                                       <div class="hidden" id="high-strength-div">
+                                               <div class=" font-light text-sm bg-c-pink border rounded-lg py-2 px-4 mt-1">
+                                               <span class="">Length greater than 6; must contain numbers; uppercase English; lowercase English</span>
+                                           </div>
+                                      </div>
+                                    </div>
+
+                                </div>
+                                
+                            </form>
+
+                            <h3 class="font-medium text-lg mt-8">File access security</h3>
+                            <hr>
+
+                            <form action="#" class="pt-4 space-y-5">
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">File external link display:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-file-external-link-display-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-file-external-link-display-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-file-external-link-display" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-file-external-link-display" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After closing, the file properties no longer show external links
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">File md5 display:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-file-md5-display-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-file-md5-display-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-file-md5-display" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-file-md5-display" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            If the password is entered incorrectly 5 times in a row, the account locks for 1 minute.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Enable link sharing:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-enable-link-sharing-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-enable-link-sharing-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-enable-link-sharing" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-enable-link-sharing" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After closing, it will no longer support external chain sharing and the shared content will not be affected.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Allows empty password:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-allows-empty-password-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-allows-empty-password-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg">
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-allows-empty-password" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-allows-empty-password" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After closing, a password must be set for external link sharing; the shared content will not be affected
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Sharing allows unlogged visitors:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-sharing-allows-unlogged-visitors-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-sharing-allows-unlogged-visitors-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-sharing-allows-unlogged-visitors" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-sharing-allows-unlogged-visitors" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After closing, you must log in when accessing external link sharing; the shared content will not be affected
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Sharing allows package download:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-sharing-allows-package-download-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-sharing-allows-package-download-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-sharing-allows-package-download" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-sharing-allows-package-download" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After opening, the external chain sharing folder supports packaging and compression downloading. 
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                                
+
+                                
+                            </form>
+                            
+
+                            
+                            
+                            <h3 class="font-medium text-lg mt-8">Data security/transmission security</h3>
+                            <hr>
+                            <form action="#" class="pt-4 space-y-5">
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Enable csrf protection:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-security-to-enable-csrf-protection-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-enable-csrf-protection-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-security-to-enable-csrf-protection" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-security-to-enable-csrf-protection" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            After closing, the file properties no longer show external links
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">Root access:</label>
+                                    </div>
+                                    <div class="w-full  md:w-2/3 xl:w-3/4">
+                                        <div class="flex flex-wrap gap-2 items-center">
+                                            <div class="font-light text-sm text-c-gray-2 mt-1">
+                                                Only the system administrator can access all directories.If you want to enable or disable administrator access to other directories, you can modify the PHP cross-site open_basedir parameter, 
+                                                <span class="text-blue-400">how to set</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">File encryption:</label>
+                                    </div>
+                                    <div class="w-full flex gap-2 items-center md:w-2/3 xl:w-5/6">
+                                        <div class="flex gap-2">
+                                            <label for="encrypt-all" class="cursor-pointer radio-button">
+                                                <input type="radio" name="file-encryption" id="encrypt-all" value="encrypt-all" checked>
+                                                <span class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">Encrypt all</span>
+                                            </label>
+                                            <label for="keep-extension" class="cursor-pointer radio-button">
+                                                <input type="radio" name="file-encryption" id="keep-extension" value="keep-extension">
+                                                <span class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">Keep the extension</span>
+                                            </label>
+                                            <label for="no-encryption" class="cursor-pointer radio-button">
+                                                <input type="radio" name="file-encryption" id="no-encryption" value="no-encryption">
+                                                <span class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">No encryption</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-y-1 text-color-black-d">
+                                    <div class="md:w-1/3 xl:w-1/6"></div>
+                                    <div class="container w-full md:w-2/3 xl:w-3/4">
+                                        <div id="encrypt-all-div" class="active bg-c-div-gray px-2 py-2 mb-4 border rounded-lg">
+                                            <h2 class="font-normal text-md mb-2 underline">Full encryption:</h2>
+                                            <p class="font-light text-sm mb-4">[default recommendation]; even if you have server permissions, you can’t know the true content of the file; it can effectively protect against ransomware and other damages; eg: data/202004/15/Qd5ya5NeIR5XA</p>
+                                        </div>
+                                        <div id="keep-extension-div" class="hidden bg-c-div-gray px-2 py-2 mb-4 border rounded-lg">
+                                            <h2 class="font-normal text-md mb-2 underline">Full encryption:</h2>
+                                            <p class="font-light text-sm mb-4">File name encryption, retain extension <br> eg: data/202004/15/sx5ya34eIRfed.doc</p>
+                                        </div>
+                                        <div id="no-encryption-div" class="hidden bg-c-div-gray px-2 py-2 mb-4 border rounded-lg">
+                                            <h2 class="font-normal text-md mb-2 underline">Full encryption:</h2>
+                                            <p class="font-light text-sm mb-4">The file name is not encrypted, and the original file name is retained; (to ensure security, the upload folder is named encrypted structure); eg: data/202004/15_si39douk/study iso.doc</p>
+                                        </div>
+                                        <div class="bg-div-light px-2 py-2 border rounded-lg">
+                                            <h3 class="font-normal text-md mb-2 underline">Other instructions:</h3>
+                                        <ul class="list-disc pl-4 mb-4 font-light text-sm ">
+                                            <li>Only the files after the setting change are affected, the files that have existed before are not affected</li>
+                                            <li>To avoid errors, please do not delete or rename files in data / files;</li>
+                                            <li>To support large-scale concurrency, second transmission, clustering, distribution, automatic expansion and other functions; the folder hierarchy is recorded in the database; the folder structure can be imported and restored by copying and pasting</li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="flex mb-14 py-8 md:mb-0 md:mt-1 ">
+                                <button type="submit"
+                                    class="bg-c-black ml-auto text-white rounded-full px-8 py-2">Save</button>
+                            </div>
+                        </div>
+
+                        <!-- registration tab -->
+                        <div class="tab-content ss-basics " id="registration">
+                            <h3 class="font-medium text-lg">Registration</h3>
+                            <hr>
+                            <form action="#" class="space-y-5 pt-4">
+                                <div class="flex flex-wrap gap-y-1 cs">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">Third party login:</label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-5/6">
+                                        <div class="flex flex-nowrap gap-4 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 pb-2">
+                                            <label for="tpl-qq" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox" checked>
+                                                <span class="text-c-gray-2">QQ</span>
+                                            </label>
+                                            <label for="tpl-wechat" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox" checked>
+                                                <span class="text-c-gray-2">WeChat</span>
+                                            </label>
+                                            <label for="tpl-github" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox">
+                                                <span class="text-c-gray-2">GitHub</span>
+                                            </label>
+                                            <label for="tpl-google" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox">
+                                                <span class="text-c-gray-2">Google</span>
+                                            </label>
+                                            <label for="tpl-facebook" class="flex items-center gap-2">
+                                                <input type="checkbox" class="d-checkbox">
+                                                <span class="text-c-gray-2">Facebook</span>
+                                            </label>
+                                        </div>
+                                        <div class="font-light text-sm text-c-gray-2 mt-1">
+                                            Allow registration, binding and login through third-party accounts
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Enable registration:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="enable-registration-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox"onchange="toggleTab(this)" data-target="enable-registration-true" id="enable-registration-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="enable-registration" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" onchange="toggleTab(this)" data-target="enable-registration-true" id="enable-registration" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            To avoid conflicts, third-party sync and registration cannot be enabled at the same time
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label class="font-medium text-sm text-color-black-d">Enable registration:</label>
+                                    </div>
+                                    <div class="w-full  md:w-2/3 xl:w-5/6">
+                                        <div class="flex flex-wrap gap-2 items-center">
+                                            <label for="enable-registration"
+                                                class="toggle-switch flex items-center cursor-pointer">
+                                                <div class="relative">
+                                                    <input type="checkbox" name="enable-registration" onchange="toggleTab(this)" data-target="enable-registration-true" id="enable-registration"
+                                                        class="sr-only">
+                                                    <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                    <div
+                                                        class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg">
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1">
+                                                To avoid conflicts, third-party sync and registration cannot be enabled at the same time
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <div id="enable-registration-true" class="space-y-5 tab-content">
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6 flex items-center justify-between md:block">
+                                            <label class="font-medium text-sm text-color-black-d">Registration review:</label>
+                                            <!-- Toggle (Only Moves on Mobile) -->
+                                            <label for="registration-review-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                                <div class="relative">
+                                                    <input type="checkbox" id="registration-review-Mobile" class="sr-only">
+                                                    <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                    <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    
+                                        <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                            <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                            <label for="registration-review" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                                <div class="relative">
+                                                    <input type="checkbox" id="registration-review" class="sr-only">
+                                                    <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                    <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                                </div>
+                                            </label>
+                                            <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                                The administrator needs to review and enable it in (Users & groups) for registered users to use normally
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="space-size" class="font-medium text-sm text-color-black-d">Space
+                                                Size:</label>
+                                        </div>
+                                        <div class="w-full flex flex-wrap items-center gap-2 md:w-2/3 xl:w-5/6">
+                                            <div
+                                                class="flex w-full border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                                <input type="number" name="space-size" required
+                                                    class="flex-grow text-sm px-2" id="space-size">
+                                                <span class="block text-xs px-3 py-1.5 border-l ">GB</span>
+                                            </div>
+                                            <div class="text-xs text-c-gray-2 ">
+                                                (GB) 0 is unlimited
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="role" class="font-medium text-sm text-color-black-d">Role:</label>
+                                        </div>
+                                        <div class="w-full flex items-center gap-2 md:w-2/3 xl:w-5/6">
+                                            <div class="w-full border rounded-lg bg-white max-w-sm ss-dropdown">
+                                                <button type="button" class="w-full flex items-center toggler" onclick="toggleDropdown()">
+                                                    <span class="mx-2 flex-grow text-left selection text-sm" id="selected-role">Selected</span>
+                                                    <span class="block text-xs px-3 py-1.5 border-l "><i class="ri-arrow-down-s-line"></i></span>
+                                                </button>
+                                                <div class="ss-dropdown-options hidden overflow-hidden border border-gray-3 text-xs flex flex-col rounded-md bg-white">
+                                                    <label class="px-2 py-1 hover-bg-c-yellow cursor-pointer text-sm"><input type="radio" onchange="singleSelectPut(this)" data-put="selected-role" class="hidden" name="role" value="ordinary">Ordinary</label>
+                                                    <label class="px-2 py-1 hover-bg-c-yellow cursor-pointer text-sm"><input type="radio" onchange="singleSelectPut(this)" data-put="selected-role" class="hidden" name="role" value="admin">Admin</label>
+                                                    <label class="px-2 py-1 hover-bg-c-yellow cursor-pointer text-sm"><input type="radio" onchange="singleSelectPut(this)" data-put="selected-role" class="hidden" name="role" value="department">Department</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+
+                            <div class="flex flex mb-14 mt-16 xl:mb-0 xl:py-0 md:mb-0 md:py-0">
+                                <button type="submit" class="bg-c-black ml-auto text-white rounded-full px-8 py-2 mt-8">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- upload download tab -->
+                        <div class="tab-content ss-basics" id="upload-download">
+                            <hr>
+                            <form action="#" class="space-y-5 pt-4">
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5">
+                                        <label for="upload-shared-size" class="font-medium text-sm text-color-black-d">Upload Shared
+                                            Size:
+                                            <span class="text-red-500">*</span></label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4">
+                                        <div
+                                            class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input type="number" name="upload-shared-size" required
+                                                class="flex-grow text-sm px-2" id="upload-shared-size">
+                                            <span class="block text-xs px-3 py-1.5 border-l ">MB</span>
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            When uploading a large file, it is cut into pieces for concurrent upload, so
+                                            as
+                                            to achieve acceleration and resume.
+                                            5M is recommended; this value must be less than the following configuration;
+                                            otherwise it will cause upload exception (upload failure, rollback)php.ini:
+                                            post_max_size, upload_max_filesize ==> 5M nginx: client_max_body_size ==>
+                                            5M;
+                                            <a href="#" class="text-link-blue">Learn more</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5">
+                                        <label for="upload-concurrent-threads" class="font-medium text-sm text-color-black-d">Upload
+                                            concurent threads: <span class="text-red-500">*</span></label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4">
+                                        <div
+                                            class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input type="number" name="upload-concurrent-threads" required
+                                                class="flex-grow text-sm px-2 py-1" id="upload-concurrent-threads">
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            Recommended = 10; simultaneous uploads of files or shards
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5">
+                                        <label for="retry-on-error" class="font-medium text-sm text-color-black-d">Retry on error: <span
+                                                class="text-red-500">*</span></label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4">
+                                        <div
+                                            class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input type="number" name="retry-on-error"
+                                                class="flex-grow text-sm px-2 py-1" required id="retry-on-error">
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            Recommendation = 5; number of retransmissions will be automatically
+                                            performed if
+                                            the upload fails, 0 means no automatic
+                                            retransmission
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5">
+                                        <label for="upload-ignore-file" class="font-medium text-sm text-color-black-d">Upload ignore
+                                            file:</label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4">
+                                        <div
+                                            class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input name="upload-ignore-file" class="flex-grow text-sm px-2 py-1"
+                                                id="upload-ignore-file">
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            Upload filenames that are automatically ignored.Temporary files can be
+                                            excluded,
+                                            multiple separated by commas,
+                                            for example:.DS_store, thumb.db
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Front end compression download:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="front-end-to-front-end-compression-download-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="front-end-to-front-end-compression-download-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="front-end-to-front-end-compression-download" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="front-end-to-front-end-compression-download" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            Need to be able to link to the external network, or the site is https
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5">
+                                        <label for="compressed-download-size-limit"
+                                            class="font-medium text-sm text-color-black-d">Compressed
+                                            download size limit:</label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4">
+                                        <div
+                                            class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input name="compressed-download-size-limit"
+                                                class="flex-grow text-sm px-2"
+                                                id="compressed-download-size-limit">
+                                            <span class="block text-xs px-3 py-1.5 border-l ">GB</span>
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            0 means no limit; in order to avoid excessive server performance
+                                            consumption,
+                                            the package download is restricted when the
+                                            folder is too large, and it is prompted that the file can be downloaded
+                                            directly
+                                            through the PC client
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Drag and drop to desktop to
+                                            download:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="drag-and-drop-to-desktop-to-download-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-desktop-to-download-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="drag-and-drop-to-desktop-to-download" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="drag-and-drop-to-desktop-to-download" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            Only supported by the PC-side Chrome kernel browser (chrome edge 360
+                                                fast,etc.)
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Multi-select drag and drop compress
+                                            download:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="multi-select-drag-and-drop-compress-download-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="multi-select-drag-and-drop-compress-download-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="multi-select-drag-and-drop-compress-download" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="multi-select-drag-and-drop-compress-download" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            Multi-selection or folder drag and drop download support, must be
+                                                packaged and compressed on the server
+                                                before downloading
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                                
+
+                                <div class="flex flex-wrap gap-y-2">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label for="drag-and-drop-content-size-limit" class="font-medium text-sm text-color-black-d">
+                                            Drag and drop content size limit:
+                                        </label>
+                                    </div>
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:px-8">
+                                        <div class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                            <input type="number" name="drag-and-drop-content-size-limit"
+                                                class="flex-grow text-sm px-2"
+                                                id="drag-and-drop-content-size-limit">
+                                            <span class="block text-xs px-3 py-1.5 border-l ">MB</span>
+                                        </div>
+                                        <div class="text-xs text-c-gray-2 mt-1">
+                                            0 means no limit; the size of the dragged content will be subject to this
+                                            limit. Since there is no progress bar for Chrome
+                                            dragging and downloading at present, it cannot be canceled. It is
+                                            recommended to limit the size to 20M.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <hr>
+
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/5 flex items-center justify-between md:block">
+                                        <label class="font-medium text-sm text-color-black-d">Download limit:</label>
+                                        <!-- Toggle (Only Moves on Mobile) -->
+                                        <label for="download-limit-apply-Mobile" class="toggle-switch flex items-center cursor-pointer md:hidden">
+                                            <div class="relative">
+                                                <input type="checkbox" id="download-limit-apply-Mobile" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                
+                                    <div class="w-full md:w-2/3 xl:w-3/4 md:flex md:gap-2 items-center">
+                                        <!-- Toggle (Visible Only on Tablet & Desktop) -->
+                                        <label for="download-limit-apply" class="toggle-switch flex items-center cursor-pointer hidden md:flex">
+                                            <div class="relative">
+                                                <input type="checkbox" id="download-limit-apply" class="sr-only">
+                                                <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                                <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                            </div>
+                                        </label>
+                                        <div class="font-light text-sm text-c-gray-2 mt-2 md:mt-0">
+                                            Limit download speeds and uniformly limit the speed of large concurrent
+                                            websites
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <hr>
+
+                            </form>
+                            <div class="flex mb-16 mt-2 xl:mb-0 xl:py-0 md:mb-0 md:py-0">
+                                <button type="submit"
+                                    class="bg-c-black ml-auto text-white rounded-full px-8 py-2">Save</button>
+                            </div>
+                        </div>
+
+                        <!-- Email tab -->
+                        <div class="tab-content ss-basics" id="email">
+                            <h3 class="font-medium text-lg text-color-black-d">Email</h3>
+                            <hr>
+                            <div class="br-c-amber border rounded-lg text-sm py-2 px-4 mt-4">
+                                Mail server for user registration, password recovery
+                            </div>
+                            
+                            <form action="#" class="mt-4 space-y-5">
+                                <div class="flex flex-wrap gap-y-1">
+                                    <div class="w-full md:w-1/3 xl:w-1/6">
+                                        <label for="send-email" class="font-medium text-sm text-color-black-d">Send email:</label>
+                                    </div>
+                                    <div class="w-full flex flex-wrap gap-2 items-center md:w-2/3 xl:w-5/6">
+                                        <div class="flex gap-2">
+                                            <label for="system-default" class="cursor-pointer radio-button">
+                                                <input type="radio" name="send-email" id="system-default" onchange="toggleEmailConfig(this)" checked
+                                                    value="system-default">
+                                                <span
+                                                    class="block py-2 px-4 text-xs rounded-md text-center whitespace-nowrap bg-gray-200">System
+                                                    default</span>
+                                            </label>
+                                            <label for="customize" class="cursor-pointer radio-button">
+                                                <input type="radio" name="send-email" id="customize" value="customize" onchange="toggleEmailConfig(this)">
+                                                <span
+                                                    class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">Customize</span>
+                                            </label>
+                                        </div>
+                                        <div class="font-light text-sm text-c-gray-2 mt-1">
+                                            System default; call to send cloud mail server to send; custom: configure
+                                            mail server by yourself
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 space-y-5 hidden" id="custom-email-only">
+
+                                    <hr>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="mailbox-server" class="font-medium text-sm text-color-black-d">Mailbox
+                                                server:</label>
+                                        </div>
+                                        <div class="w-full md:w-2/3 xl:w-5/6">
+                                            <div
+                                                class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                                <input name="mailbox-server"
+                                                    placeholder="Please enter the mail server address"
+                                                    class="flex-grow text-sm px-2 py-1" required id="mailbox-server">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1">
+                                                Mailbox server, such as: smtp.163.com, the port can be customized (the
+                                                default is 465)
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="outbox" class="font-medium text-sm text-color-black-d">Outbox:</label>
+                                        </div>
+                                        <div class="w-full md:w-2/3 xl:w-5/6">
+                                            <div
+                                                class="flex border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                                <input name="outbox" placeholder="Please enter the email address"
+                                                    class="flex-grow text-sm px-2 py-1" required id="outbox">
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1">
+                                                System email address, POP3/SMTP service needs to be enabled
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label class="font-medium text-sm text-color-black-d">Encryption:</label>
+                                        </div>
+                                        <div class="w-full flex gap-2 items-center md:w-2/3 xl:w-5/6">
+                                            <div class="flex gap-2">
+                                                <label for="no" class="cursor-pointer radio-button">
+                                                    <input type="radio" name="encryption" id="no" value="no" checked>
+                                                    <span
+                                                        class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">No</span>
+                                                </label>
+                                                <label for="ssl" class="cursor-pointer radio-button">
+                                                    <input type="radio" name="encryption" id="ssl" value="ssl">
+                                                    <span
+                                                        class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">SSL</span>
+                                                </label>
+                                                <label for="tls" class="cursor-pointer radio-button">
+                                                    <input type="radio" name="encryption" id="tls" value="tls">
+                                                    <span
+                                                        class="block py-2 px-4 text-xs rounded-md text-center bg-gray-200">TLS</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-y-1">
+                                        <div class="w-full md:w-1/3 xl:w-1/6">
+                                            <label for="authorization-password" class="font-medium text-sm text-color-black-d">
+                                                Authorization password:
+                                            </label>
+                                        </div>
+                                        <div class="w-full md:w-2/3 xl:w-5/6">
+                                            <div class="flex flex-col sm:flex-row gap-2">
+                                                <div class="flex w-full border rounded-lg overflow-hidden bg-white items-center max-w-sm">
+                                                    <input name="authorization-password" placeholder="Please fill in the email authorization"
+                                                        class="flex-grow text-sm px-2 py-1" required id="authorization-password">
+                                                </div>
+                                                <div class="w-full sm:w-auto text-left sm:text-right">
+                                                    <button class="text-xs text-c-yellow mt-1 w-full sm:w-auto">
+                                                        Send detection
+                                                    </button>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="font-light text-sm text-c-gray-2 mt-1 mb-4">
+                                                Please make sure the mail can be sent normally
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                            <div class="flex mb-16 mt-2">
+                                <button type="submit"
+                                    class="bg-c-black ml-auto text-white rounded-full px-8 py-2">Save</button>
+                            </div>
+
+                        </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <script src="script/taskbar.js"></script>
+    <script defer src="script/sidebar.js"></script>
+    <script defer>
+
+        // To handle the security toggle
+        document.addEventListener('DOMContentLoaded', function () {
+        const notLimitedRadio = document.getElementById('not-limited');
+        const mediumIntensityRadio = document.getElementById('medium-intensity');
+        const highStrengthRadio = document.getElementById('high-strength');
+
+        const mediumIntensityDiv = document.getElementById('medium-intensity-div');
+        const highStrengthDiv = document.getElementById('high-strength-div');
+
+        function toggleDivs() {
+            mediumIntensityDiv.classList.add('hidden');
+            highStrengthDiv.classList.add('hidden');
+
+            if (mediumIntensityRadio.checked) {
+                mediumIntensityDiv.classList.remove('hidden');
+            } else if (highStrengthRadio.checked) {
+                highStrengthDiv.classList.remove('hidden');
+            }
+        }
+        notLimitedRadio.addEventListener('change', toggleDivs);
+        mediumIntensityRadio.addEventListener('change', toggleDivs);
+        highStrengthRadio.addEventListener('change', toggleDivs);
+        toggleDivs();
+        });
+
+        // To handle Security toggle of file encrption
+        document.addEventListener('DOMContentLoaded', function () {
+        const encryptAllRadio = document.getElementById('encrypt-all');
+        const keepExtensionRadio = document.getElementById('keep-extension');
+        const noEncryptionRadio = document.getElementById('no-encryption');
+
+        const encryptAllDiv = document.getElementById('encrypt-all-div');
+        const keepExtensionDiv = document.getElementById('keep-extension-div');
+        const noEncryptionDiv = document.getElementById('no-encryption-div');
+
+        function toggleDivs() {
+            encryptAllDiv.classList.add('hidden');
+            keepExtensionDiv.classList.add('hidden');
+            noEncryptionDiv.classList.add('hidden');
+
+            if (encryptAllRadio.checked) {
+                encryptAllDiv.classList.remove('hidden');
+            } else if (keepExtensionRadio.checked) {
+                keepExtensionDiv.classList.remove('hidden');
+            } else if (noEncryptionRadio.checked) {
+                noEncryptionDiv.classList.remove('hidden');
+            }
+        }
+
+        encryptAllRadio.addEventListener('change', toggleDivs);
+        keepExtensionRadio.addEventListener('change', toggleDivs);
+        noEncryptionRadio.addEventListener('change', toggleDivs);
+
+        // Initial call to set the correct state
+        toggleDivs();
+        });
+
+        // to handle email config logic for system default and customize
+        function toggleEmailConfig(target) {
+            if(target.value === "system-default") {
+                document.getElementById('custom-email-only').style.display = 'none';
+            } else {
+                document.getElementById('custom-email-only').style.display = 'block';
+            }
+        }
+
+        function toggleDropdown() {
+            const dropdownOptions = document.querySelector('.ss-dropdown-options');
+            dropdownOptions.classList.toggle('hidden');
+        }      
+                             
+        function singleSelectPut(eventTarget) {
+            console.log("asdas");
+            const target = eventTarget.getAttribute('data-put');
+            document.getElementById(target).innerHTML = eventTarget.value;
+            toggleDropdown(); // Close dropdown after selection
+        }
+
+        // To handle the tab section
+        function showTab(eventTarget) {
+            const tabClass = eventTarget.getAttribute('data-tab');
+            const tabToShow = eventTarget.getAttribute('data-control');
+
+            // select all the buttons with same data-tab attribute
+            const tabButtons = document.querySelectorAll(`button.tab-control[data-tab="${tabClass}"]`);
+
+            // select all div with `tabClass` class
+            const tabDivs = document.querySelectorAll(`div.${tabClass}.tab-content`);
+
+            // hide all divs
+            tabDivs.forEach(div => {
+            div.classList.remove('active');
+        });
+
+        // show selected div
+        document.getElementById(tabToShow).classList.add('active');
+
+        // remove active class from all buttons
+        tabButtons.forEach(button => {
+        button.classList.remove('active');
+        });
+
+        // add active class to selected button
+        eventTarget.classList.add('active');
+        }
+
+        function toggleTab(eventTarget) {
+        const tabTarget = eventTarget.getAttribute('data-target');
+
+            if(eventTarget.checked){
+                document.getElementById(tabTarget).classList.add('active');
+            } else {
+                document.getElementById(tabTarget).classList.remove('active');
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+
