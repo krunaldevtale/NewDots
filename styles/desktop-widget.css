@@ -389,4 +389,8 @@
   .recent-file-widget{
     width: 100% !important;
   }
+
+  .recent-file-table{
+    width: 100% !important;
+  }
 }
