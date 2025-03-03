@@ -174,6 +174,39 @@
   background-color: #444;
 }
 
+/* Recent File Table widget */
+.recent-file-table {
+  background-color: var(--color-light-gray);
+  width: 23rem;
+  height: auto;
+  cursor: move;
+  border-radius: 20px !important;
+}
+
+.recent-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  overflow: hidden;
+  color: white;
+  width: max-content;
+  min-width: 150px;
+  z-index: 50;
+  border-radius: 6px;
+  font-size: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recent-dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.recent-dropdown-menu li:hover {
+  background-color: #444;
+}
+
 /* User Activity Table widget */
 
 .user-activity-table {
@@ -326,6 +359,34 @@
   }
 
   .comments-table {
+    width: 100% !important;
+  }
+
+  .recent-login-widget{
+    width: 100% !important;
+  }
+
+  .access-sharing-widget{
+    width: 100% !important;
+  }
+
+  .file-analytics-chart{
+    width: 100% !important;
+  }
+
+  .file-analytics-usage{
+    width: 100% !important;
+  }
+
+  .privilege-requests-widget{
+    width: 100% !important;
+  }
+
+  .top-comments-widget{
+    width: 100% !important;
+  }
+
+  .recent-file-widget{
     width: 100% !important;
   }
 }
