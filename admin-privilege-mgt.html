@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/custom.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+  </head>
+    <body class="h-screen w-full">
+      <main class="flex w-full h-full cm lightapp">
+        <!-- Slider section -->
+        <aside class="h-full relative">
+          <input type="checkbox" class="hidden" id="sidebar-toggle" />
+          <label
+            for="sidebar-toggle"
+            class="absolute lg:hidden top-1 -right-8 px-1"
+          >
+            <i class="ri-bar-chart-horizontal-line"></i>
+          </label>
+          <div class="h-full sidebar">
+            <div class="sidebar-container">
+              <div class="p-6">
+                <a href="index.html">
+                  <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
+                </a>
+              </div>
+              <div class="sidebar-content">
+                <ul class="space-y-1">
+                  <li>
+                    <a
+                      class="w-full px-6 py-3 rounded-r-lg block flex justify-between items-center"
+                      href="#"
+                    >
+                      <span class="font-normal"> Overview </span>
+                      <i
+                        class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl big-right-arrow"
+                      ></i>
+                    </a>
+                  </li>
+                  <li>
+                    <div
+                      role="button"
+                      onclick="toggleDropMenu(this)"
+                      class="drop-menu cursor-pointer rounded-r-lg"
+                    >
+                      <div
+                        class="w-full px-6 py-3 flex justify-between items-center"
+                        href="#"
+                      >
+                        <span class="font-normal"> Reports and Analytics </span>
+                        <i
+                          class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                        ></i>
+                      </div>
+                      <ul class="drop-list text-sm space-y-1">
+                        <li>
+                          <a
+                            href="system-setting-basic-page.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Activity Reports</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Custom Graph</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div
+                      role="button"
+                      onclick="toggleDropMenu(this)"
+                      class="drop-menu cursor-pointer rounded-r-lg"
+                    >
+                      <div
+                        class="w-full px-6 py-3 flex justify-between items-center"
+                        href="#"
+                      >
+                        <span class="font-normal"> System Settings </span>
+                        <i
+                          class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                        ></i>
+                      </div>
+                      <ul class="drop-list text-sm space-y-1">
+                        <li>
+                          <a
+                            href="system-setting-basic-page.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Basic</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Menu</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="system-setting-notice.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Notice</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Intranet Access</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div
+                      role="button"
+                      onclick="toggleDropMenu(this)"
+                      class="drop-menu cursor-pointer rounded-r-lg"
+                    >
+                      <div
+                        class="w-full px-6 py-3 flex justify-between items-center"
+                        href="#"
+                      >
+                        <span class="font-normal"> User Management </span>
+                        <i
+                          class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"
+                        ></i>
+                      </div>
+                      <ul class="drop-list text-sm space-y-1">
+                        <li>
+                          <a
+                            href="admin&users-users&groups.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Users &amp; Groups </span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="system-setting-role.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Role</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="admin&user-document-permission.html"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Document Permission</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#"
+                            class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                          >
+                            <span class="font-normal">Intranet Access</span>
+                            <i
+                              class="ri-arrow-right-s-line text-c-yellow right-arrow text-2xl"
+                            ></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div role="button" onclick="toggleDropMenu(this)" class="drop-menu cursor-pointer rounded-r-lg">
+                      <div class="w-full px-6 py-3 flex justify-between items-center" href="#">
+                        <span class="font-normal">Client Management</span>
+                        <i class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"></i>
+                      </div>
+                      <ul class="drop-list text-sm space-y-1">
+                        <li>
+                          <a
+                            id="Client"
+                            class="block py-1 px-8 rounded-r-md w-full flex justify-between items-center subdrop"
+                            onclick="event.stopPropagation();toggleSubDropMenus('subdrop-menu2', this)"
+                          >
+                            <span>Client</span>
+                            <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-arrows"></i>
+                          </a>
+                          <ul class="drop-list text-sm space-y-1 hidden" id="subdrop-menu2">
+                            <li>
+                              <a href="#" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center">
+                                <span>Client List</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>Group</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>Role</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>User</span>
+                                
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a
+                            id="Company"
+                            class="block py-1 px-8 rounded-r-md w-full flex justify-between items-center subdrop"
+                            onclick="event.stopPropagation();toggleSubDropMenu('subdrop-menu', this)"
+                          >
+                            <span>Company</span>
+                            <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-arrow"></i>
+                          </a>
+                          <ul class="drop-list text-sm space-y-1 hidden" id="subdrop-menu">
+                            <li>
+                              <a href="#" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center">
+                                <span>Company List</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>Group</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>Role</span>
+                                
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                              >
+                                <span>User</span>
+                                
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div role="button" onclick="toggleDropMenu(this)" class="drop-menu cursor-pointer rounded-r-lg">
+                      <div class="w-full px-6 py-3 flex justify-between items-center" href="#">
+                        <span class="font-normal">Privilege Management</span>
+                        <i class="ri-arrow-right-s-line text-c-yellow transition-all text-2xl big-right-arrow"></i>
+                      </div>
+                      <ul class="drop-list text-sm space-y-1">
+                        <li>
+                          <a
+                          id="user-privilege"
+                          class="block py-1 px-8 rounded-r-md w-full flex justify-between items-center subdrop"
+                          onclick="event.stopPropagation();toggleSubDropuser('subdrop-user')"
+                          href="user-privilege-mgt.html"
+                          >
+                            <span>User Privilege</span>
+                            <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-user"></i>
+                          </a>
+                          <!-- <ul class="drop-list text-sm space-y-1 hidden md:hidden" id="subdrop-user">
+                            <li>
+                                <a href="#" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center">
+                                    <span>Permissions Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center"
+                                   onclick="event.stopPropagation(); toggleSubDropchild('subdrop-child', this)">
+                                    <span>Request Status</span>
+                                    <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-child"></i>
+                                </a>
+                        
+                                Child Submenu
+                                <ul class="drop-list text-sm space-y-1 hidden" id="subdrop-child">
+                                    <li><a href="#" class="block py-2 px-8 rounded-r-md w-full" onclick="showDiv(1)">All Requests</a></li>
+                                    <li><a href="#" class="block py-2 px-8 rounded-r-md w-full" onclick="showDiv(2)">Pending Requests</a></li>
+                                    <li><a href="#" class="block py-2 px-8 rounded-r-md w-full" onclick="showDiv(3)">Rejected Requests</a></li>
+                                    <li><a href="#" class="block py-2 px-8 rounded-r-md w-full" onclick="showDiv(4)">Approved Requests</a></li>
+                                    <li><a href="#" class="block py-2 px-8 rounded-r-md w-full" onclick="showDiv(5)">Cancelled Requests</a></li>
+                                </ul>
+                            </li>
+                        </ul> -->
+                        
+                        </li>
+                        <li>
+                          <a id="admin-privilege" class="block py-1 px-8 rounded-r-md w-full flex justify-between items-center subdrop"
+                            onclick="event.stopPropagation(); toggleSubDropadmin('subdrop-admin', this)"
+                            href="admin-privilege-mgt.html">
+                            <span class="py-2">Admin Privilege</span>
+                            <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-admin"></i>
+                          </a>
+                          <ul class="drop-list text-sm space-y-1 block md:hidden hidden" id="subdrop-admin">
+                            <li>
+                              <a href="#" onclick="event.stopPropagation();showTab('user-request')" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center">
+                                <span>User Requests</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#" onclick="event.stopPropagation();showTab('manage-permision')" class="block py-2 px-8 rounded-r-md w-full flex justify-between items-center">
+                                <span>Manage Permissions</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Topbar -->
+        <div class="right-container flex-grow border h-100 main">
+          <div class="flex w-full h-full flex-col content">
+            <!-- Navbar -->
+            <div class="px-2 lg:px-5 py-6">
+                <div class="flex items-center gap-4">
+                    <i class="ri-settings-3-fill ri-xl"></i>
+                    <span class="text-lg text-color-nav-black">Admin Privilege Management</span>
+                </div>
+            </div>
+
+            <!-- topTaskbar in desktop -->
+            <div class="pl-4 md:pl-6 py-4 pr-4 md:pr-6 w-full flex justify-between taskbar" >
+                <div class="w-full sm:w-4/12 xl:w-6/12">
+                    <div class="flex items-center gap-1 sm:gap-2">
+                        <span class="text-c-light-black whitespace-nowrap font-normal">
+                            Admin Privilege
+                        </span>
+                        <i class="ri-arrow-right-line ri-lg text-c-light-black"></i>
+                        <span id="navbar-title" class="font-semibold text-c-black w-48">
+                            User Request
+                        </span>
+                    </div>
+                </div>
+                <div class="taskicon w-full sm:w-8/12 xl:w-3/12 flex flex-row items-center justify-end gap-2">
+                    <div id="searchbutton" class="flex items-center rounded overflow-hidden flex-shrink-0 flex-grow bg-c-white h-7 w-1/12 md:w-2/12 hidden md:flex">
+                        <input
+                            type="text"
+                            class="search pl-4 flex-shrink flex-grow border-none outline-none font-size-14 w-3/12"
+                            placeholder="Search...."
+                        />
+                        <div class="searchicon pr-4 flex items-center justify-center">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+            <!-- searchbar in mobile-->
+            <div class="pl-4 pt-3 mt-3 pb-3 pr-4 w-full flex flex-row justify-between items-center bg-c-light-white-smoke md:hidden text-xs" id="mobiletaskbar" >
+                <div class="w-full flex flex-row items-center justify-end gap-2">
+                    <div id="mobilesearchbutton" class="flex items-center rounded overflow-hidden flex-shrink-0 flex-grow bg-c-white h-8 w-1/12" >
+                        <input type="text" class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none w-3/12" placeholder="Please enter the string"/>
+                        <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container -->
+            <div class="relative inline-block text-left flex justify-center py-2 hidden sm:flex">
+              <!-- Buttons -->
+              <div class="flex flex-wrap gap-6 md:gap-10 justify-center md:justify-center">
+                <button type="button" onclick="showTab('user-request')" class="uspr-tab-control active" data-tab="user-request">
+                  User Requests
+                </button>
+                <button type="button" onclick="showTab('manage-permision')" class="uspr-tab-control" data-tab="manage-permision">
+                  Manage Permissions
+                </button>
+              </div>
+            </div>
+            <hr>
+            <!-- Main content -->
+            <div class="py-2 px-4 overflow-y-auto">
+              <!-- Hidden Divs -->
+              <div class="px-2">
+                <div class="tab-content media-preview-main active" id="user-request">
+                    <div class="py-4">
+                        <table class="w-full cs-table-container ur-table-container"> 
+                            <thead class="h-14">
+                            <tr class="bg-c-dark-gray">
+                                <th class="text-c-white font-medium text-left pl-4 ">Username </th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Permission </th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Permission Group</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Requested Date</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Date of Action</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Action by</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Status</th>
+                                <th class="text-c-white font-medium text-left pl-3 pr-3 md:pr-0">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-left pl-4 pr-3 md:pr-0 py-3">John Doe</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">View Reports</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">User Management</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">12-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3"></td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3"></td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3 text-c-yellow">Pending</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">
+                                  <div class="flex items-center justify-center gap-2 w-full">
+                                      <button class="bg-c-green text-white rounded-xl text-sm px-3 py-1 w-20 h-7 flex items-center justify-center">
+                                          <i class="ri-check-line mr-1"></i> Approve
+                                      </button>
+                                      <button class="bg-red-500 text-white rounded-xl text-sm px-3 py-1 w-20 h-7 flex items-center justify-center">
+                                          <i class="ri-close-large-line mr-1"></i> Reject
+                                      </button>
+                                  </div>
+                              </td>
+                              
+                              
+                            </tr>
+                            <tr>
+                                <td colspan="8"><hr class="border-t border-gray-300"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left pl-4 pr-3 md:pr-0 py-3">Jane Smith</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Edit Profile</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Role Management</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">08-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">08-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Admin-2</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3 text-c-green">Approved</td>
+                                
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-content media-preview-main " id="manage-permision">
+                    <div class=" py-4">
+                        <table class="w-full cs-table-container ur-table-container"> 
+                            <thead class="h-14">
+                            <tr class="bg-c-dark-gray">
+                                <th class="text-c-white font-medium text-left pl-4 ">Username </th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Permission </th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Permission Group</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Requested Date</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Date of Action</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Action by</th>
+                                <th class="text-c-white font-medium text-left pl-3 whitespace-nowrap pr-3 md:pr-0">Status</th>
+                                <th class="text-c-white font-medium text-left pl-3 pr-3 md:pr-0">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-left pl-4 pr-3 md:pr-0 py-3">John Doe</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">View Reports</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">User Management</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">12-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">12-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Admin-1</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3 text-red-500">Inactive</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">
+                                  <div class="flex items-center justify-center gap-2 w-full">
+                                      <span>Revoke</span>
+                                      <label for="revoke-one" class="toggle-switch flex items-center cursor-pointer">
+                                          <div class="relative">
+                                              <input type="checkbox" id="revoke-one" class="sr-only" onchange="handleToggle(this)">
+                                              <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                              <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                          </div>
+                                      </label>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8"><hr class="border-t border-gray-300"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left pl-4 pr-3 md:pr-0 py-3">Jane Smith</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Edit Profile</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Role Management</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">08-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">08-Jan-2025</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">Admin-2</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3 text-c-green">Active</td>
+                                <td class="text-left pl-3 pr-3 md:pr-0 py-3">
+                                  <div class="flex items-center justify-center gap-2 w-full">
+                                      <span>Revoke</span>
+                                      <label for="revoke-two" class="toggle-switch flex items-center cursor-pointer">
+                                          <div class="relative">
+                                              <input type="checkbox" id="revoke-two" class="sr-only" onchange="handleToggle(this)">
+                                              <div class="block toggle-bg w-14 h-7 rounded-full border"></div>
+                                              <div class="dot absolute left-0.5 top-0.5 bg-white w-6 h-6 rounded-full transition shadow-lg"></div>
+                                          </div>
+                                      </label>
+                                  </div>
+                                </td>
+                              
+                                
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Revoke Popup -->
+        <div id="revoke-popup" tabindex="-1" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="delete-modal relative">
+                <div class="relative">
+                    <div class="p-4 md:p-5 text-center">
+                        <div class="delete-header flex items-center gap-4 mb-1 py-1">
+                            <i class="ri-arrow-go-back-line text-c-yellow text-2xl"></i>
+                        <h1 class="text-lg font-medium">Remoke File</h1>
+                        </div>
+                        <hr text-md />
+                        <div class="mt-6 flex items-center justify-center">
+                        <h1 class="text-md font-medium text-c-black">
+                            Are you sure you want to revoke the selection?
+                        </h1>
+                        </div>
+                        <div class="flex items-center justify-center gap-3 mt-9">
+                        <button
+                            class="bg-c-black text-white rounded-full px-12 sm:px-14 py-2"
+                            type="submit"
+                            onclick="confirmRevoke()"
+                        >
+                            Ok
+                        </button>
+                        <button
+                            class="bg-white text-c-yellow px-9 sm:px-12 py-2 rounded-full border border-c-yellow"
+                            onclick="closeRevokePopup()"
+                        >
+                            Cancel
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+      </main>
+      <script src="script/sidebar.js"></script>
+      <script src="script/admin-privilege.js"></script>
+      <script>
+        //sub dropdown toggle
+        function toggleSubDropuser() {
+          const subDrop = document.getElementById("subdrop-user");
+          const arrow = document.querySelector("#starred-link .subdrop-right-user");
+          subDrop.classList.toggle("hidden");
+          arrow.classList.toggle("rotate");
+        } 
+  
+        //sub dropdown toggle
+        function toggleSubDropadmin() {
+          const subDrop = document.getElementById("subdrop-admin");
+          const arrow = document.querySelector("#starred-link .subdrop-right-admin");
+          subDrop.classList.toggle("hidden");
+          arrow.classList.toggle("rotate");
+        }
+        //sub dropdown toggle
+        function toggleSubDropchild() {
+          const subDrop = document.getElementById("subdrop-child");
+          const arrow = document.querySelector("#starred-link .subdrop-right-child");
+          subDrop.classList.toggle("hidden");
+          arrow.classList.toggle("rotate");
+        }
+        function removeHrefOnMobile() {
+        const link = document.getElementById("admin-privilege");
+
+        if (window.innerWidth < 768) { // Mobile screens (md breakpoint)
+          link.removeAttribute("href");
+        } else {
+          link.setAttribute("href", "admin-privilege-mgt.html"); // Ensure it has href on larger screens
+        }
+      }
+
+        // Run on page load
+        removeHrefOnMobile();
+
+        // Run on window resize to handle viewport changes
+        window.addEventListener("resize", removeHrefOnMobile);
+
+        
+      </script>
+    </body>
+</html>
