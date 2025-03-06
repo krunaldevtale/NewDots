@@ -405,7 +405,7 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <div
-                    class="flex flex-col xl:flex-row items-start xl:items-center flex-grow gap-1 xl:gap-4"
+                    class="flex flex-col xl:flex-row items-start xl:items-center flex-grow gap-1 xl:gap-4 space-y-2 xl:space-y-0 mt-2 xl:mt-0"
                   >
                     <span class="text-c-black font-normal text-sm"
                       >Database:</span
@@ -520,7 +520,7 @@
                         value="system-restore"
                       />
                       <span
-                        class="flex items-center justify-center gap-1 md:w-24 xl:w-28 py-2 rounded text-xs md:text-sm text-c-black bg-c-gray-3"
+                        class="flex items-center justify-center gap-1 md:w-24 xl:w-28 py-2 rounded text-xs px-1 md:text-sm text-c-black bg-c-gray-3 whitespace-nowrap"
                         onclick="showModal()"
                         >System restore</span
                       >
@@ -548,14 +548,24 @@
                   <thead>
                     <tr class="bg-c-dark-gray h-14">
                       <th class="py-2 rounded-tl-md text-left pl-3"></th>
-                      <th class="py-2 text-white text-left pl-3 whitespace-nowrap">
+                      <th
+                        class="py-2 text-white text-left pl-3 whitespace-nowrap"
+                      >
                         Storage Name
                       </th>
                       <th class="py-2 text-white text-left pl-3">Node</th>
                       <th class="py-2 text-white text-left pl-3">Database</th>
                       <th class="py-2 text-white text-left pl-3">File</th>
-                      <th class="py-2 text-white text-left pl-3 whitespace-nowrap">Start time</th>
-                      <th class="py-2 text-white text-left pl-3 whitespace-nowrap">End time</th>
+                      <th
+                        class="py-2 text-white text-left pl-3 whitespace-nowrap"
+                      >
+                        Start time
+                      </th>
+                      <th
+                        class="py-2 text-white text-left pl-3 whitespace-nowrap"
+                      >
+                        End time
+                      </th>
                       <th class="py-2 text-white text-left pl-3">Duration</th>
                       <th class="py-2 text-white text-left pl-3">Result</th>
                       <th class="py-2 rounded-tr-md text-left text-white pl-3">
@@ -898,7 +908,7 @@
             class="p-5 overflow-y-auto modal-info"
             style="max-height: calc(100vh - 8rem)"
           >
-            <form class="space-y-4 text-sm">
+            <form class="space-y-7 text-sm">
               <div class="flex flex-wrap gap-y-4 items-start">
                 <label
                   for="backup-time"
@@ -955,9 +965,95 @@
                     >If you need to back up files, please create a new storage
                     dedicated for backup
                     <span
-                      class="text-c-yellow text-sm font-normal cursor-pointer"
+                      class="text-c-yellow text-xs font-normal cursor-pointer"
                       ><a href="#">Add</a></span
                     >.</span
+                  >
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-y-4 items-start">
+                <label
+                  for="backup-schedule"
+                  class="w-full sm:w-1/4 font-bold text-c-black text-sm sm:text-base label"
+                  >Backup schedule:<sup class="text-red-500">*</sup></label
+                >
+                <div class="w-full sm:w-3/4 ml-auto flex flex-col gap-1">
+                  <div class="relative">
+                    <!-- Dropdown Toggle Button -->
+                    <button
+                      id="scheduleDropdownBtn"
+                      class="w-32 border border-gray text-c-black text-sm rounded-xl flex items-center justify-between overflow-hidden"
+                    >
+                      <span id="scheduleSelectedOption" class="py-2 pl-4 bg-c-lighten-gray">Daily</span>
+                      <div
+                      class="bg-c-lighten-gray py-2 px-2 border-l border-gray"
+                    >
+                      <i class="ri-arrow-down-s-line text-black"></i>
+                    </div>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div
+                      id="scheduleDropdownMenu"
+                      class="absolute left-0 mt-2 w-28 bg-c-dark-white border border-gray rounded-xl shadow-lg hidden z-50"
+                    >
+                      <ul class="py-1">
+                        <li
+                          class="option px-4 py-2 flex items-center gap-2 hover:bg-yellow-300 cursor-pointer rounded-t-md"
+                        >
+                          <i class="ri-history-fill"></i>
+                          Daily
+                        </li>
+                        <li
+                          class="option px-4 py-2 flex items-center gap-2 hover:bg-yellow-300 cursor-pointer"
+                        >
+                          <i class="ri-history-fill"></i>
+                          Weekly
+                        </li>
+                        <li
+                          class="option px-4 py-2 flex items-center gap-2 hover:bg-yellow-300 cursor-pointer"
+                        >
+                          <i class="ri-history-fill"></i>
+                          Monthly
+                        </li>
+                        <li
+                          class="option px-4 py-2 flex items-center gap-2 hover:bg-yellow-300 cursor-pointer rounded-b-md"
+                        >
+                          <i class="ri-history-fill"></i>
+                          Yearly
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <span class="text-c-black font-light text-xs">
+                  The backup takes a long time, please try to choose it during working hours</span>
+                </div>
+              </div>
+               <div class="flex flex-wrap gap-y-4 items-start">
+                <label
+                  class="w-full sm:w-1/4 font-bold text-c-black text-sm sm:text-base label"
+                  for="backup-type"
+                  >Backup type:<sup class="text-red-500">*</sup>
+                </label>
+                <div class="w-full sm:w-3/4 ml-auto">
+                  <div class="flex items-center gap-3 md:gap-8">
+                    <label class="flex items-center gap-2 radio-circle">
+                      <input type="radio" name="custom-type" value="option1" checked />
+                      <span class="custom-radio"></span>
+                      <span class="text-c-light-black text-sm sm:text-sm text"
+                        >Full Backup</span
+                      >
+                    </label>
+                    <label class="flex items-center gap-2 radio-circle">
+                      <input type="radio" name="custom-type" value="option2" />
+                      <span class="custom-radio"></span>
+                      <span class="text-c-light-black text-sm sm:text-sm text"
+                        >Incremnetal Backup</span
+                      >
+                    </label>
+                  </div>
+                  <span class="text-c-black font-light text-xs"
+                    >The licensed version supports full and incremental backups for databases and files.</span
                   >
                 </div>
               </div>
@@ -970,14 +1066,14 @@
                 <div class="w-full sm:w-3/4 ml-auto">
                   <div class="flex items-center gap-3">
                     <label class="flex items-center gap-2 radio-circle">
-                      <input type="radio" name="custom-radio" value="option1" />
+                      <input type="radio" name="custom-content" value="option1" checked />
                       <span class="custom-radio"></span>
                       <span class="text-c-light-black text-sm sm:text-sm text"
                         >Database & file</span
                       >
                     </label>
                     <label class="flex items-center gap-2 radio-circle">
-                      <input type="radio" name="custom-radio" value="option2" />
+                      <input type="radio" name="custom-content" value="option2" />
                       <span class="custom-radio"></span>
                       <span class="text-c-light-black text-sm sm:text-sm text"
                         >Database</span
@@ -1034,9 +1130,8 @@
               <hr class="stroke-color" />
               <div class="flex flex-wrap gap-y-4 pb-2 items-start">
                 <span
-                  for="recovery"
                   class="w-1/4 font-bold text-c-black text-sm sm:text-base label"
-                  >Turn on recovery:</span
+                  >Turn on backup:</span
                 >
                 <div class="w-3/4 ml-auto flex items-center gap-3">
                   <label
@@ -1088,7 +1183,6 @@
               type="button"
               id="closeTaskManagerModalButton"
               onclick="closeTaskManagerModal()"
-              class="hover-text-c-yellow"
             >
               <i class="ri-close-circle-fill text-xl"></i>
             </button>
@@ -1107,8 +1201,8 @@
 
     <script defer src="script/sidebar.js"></script>
     <script src="script/taskbar.js"></script>
-    <script src="script/tour.js"></script>
-    <script src="script/filebackup-tour.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script>
       // DeletetModal Open Functionality
       const deleteModal = document.getElementById("delete-modal");
@@ -1170,6 +1264,31 @@
           } else {
             databaseDiv.classList.add("hidden");
           }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            // Toggle dropdown
+            $("#scheduleDropdownBtn").click(function(event){
+               event.preventDefault();
+                $("#scheduleDropdownMenu").toggle();
+            });
+
+            // Handle option selection
+            $(".option").click(function(){
+                let selectedText = $(this).text().trim();
+                $("#scheduleSelectedOption").text(selectedText);
+                $(".option").removeClass("bg-yellow-300");
+                $(this).addClass("bg-yellow-300");
+                $("#scheduleDropdownMenu").hide();
+            });
+
+            // Close dropdown when clicking outside
+            $(document).click(function(event) {
+                if (!$(event.target).closest("#scheduleDropdownBtn, #scheduleDropdownMenu").length) {
+                    $("#scheduleDropdownMenu").hide();
+                }
+            });
         });
     </script>
   </body>
