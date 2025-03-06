@@ -51,12 +51,16 @@
 .highlight:hover {
     border: 3px solid var(--color-dark-yellow);
 }
-
-.main-content{
-    height: calc(100% - 56px);
-
+@media (max-width: 1024px) {
+    .main-content{
+        height: calc(100% - 0rem);
+    }    
 }
-
+@media (min-width: 1024px) {
+    .main-content{
+        height: calc(100% - 3.5rem);
+    }    
+}
 .buttons{
     width: 130px;
     height: 34px;
