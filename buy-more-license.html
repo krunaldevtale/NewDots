@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Management</title>
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+  </head>
+  <body class="w-full h-screen">
+    <main class="w-full h-full flex cm">
+
+      <!-- main content -->
+      <div class="flex-grow border h-100 main">
+        <div class="flex flex-col w-full h-full content">
+          <div class=" px-2 lg:px-5 py-6">
+            <div class="flex items-center gap-4">
+                <span class="text-lg text-c-black">Feature Management</span>
+              </div>
+          </div>
+
+          <!-- top taskbar -->
+          <div class="taskbar flex items-center justify-between px-3 sm:px-6 py-3">
+            <div class="w-full md:w-1/2">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <span class="text-c-light-black text-base"> Market place </span>
+              </div>
+            </div>
+            <div class="taskicon w-full sm:w-8/12 xl:w-6/12 flex-row items-center justify-end gap-4 hidden md:flex">
+              <div id="search-bar" class="flex items-center rounded overflow-hidden bg-c-white h-9">
+                  <input
+                  type="search"
+                  class="pl-4  border-none text-c-black outline-none"
+                  placeholder="Search"
+                  />
+                  <div class="pr-4 flex items-center justify-center">
+                  <i class="ri-search-line"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- searchbar in mobile-->
+          <div
+            class="pl-4 pt-3 mt-3 pb-3 pr-4 w-full flex flex-row justify-between items-center bg-c-light-white-smoke md:hidden text-xs"
+            id="mobiletaskbar"
+          >
+            <div class="w-full flex flex-row items-center justify-end gap-2">
+              <div
+                id="mobilesearchbutton"
+                class="flex items-center rounded overflow-hidden flex-shrink-0 flex-grow bg-c-white h-8 w-1/12"
+              >
+                <input
+                  type="text"
+                  class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none w-3/12"
+                  placeholder="Search"
+                />
+                <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                  <i class="ri-search-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- info table -->
+         <div class="p-4 relative h-full flex flex-col scroll overflow-y-scroll">
+              <div class="bg-white cm-table-container border border-c-gray rounded-md">
+                <table class="table-auto w-full">
+                  <thead class="h-14">
+                    <tr class="bg-c-dark-gray">
+                      <th class="text-c-white font-medium text-left pl-3 text-base rounded-tl-md">App Name</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Total Licenses</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Used License</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Remaining Licenses</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3 rounded-tr-md">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="h-16">
+                      <td class="py-2 pl-3">Email</td>
+                      <td class="pl-3 px-2">30</td>
+                      <td class="pl-3 px-2">25</td>
+                      <td class="pl-3 px-2">5</td>
+                      <td class="pl-3 px-2"><button class="bg-c-green text-c-white px-3 py-1 rounded-full">Buy More</button></td>
+                    </tr>
+                    <tr class="h-16">
+                        <td class="py-2 pl-3">ERP Next</td>
+                        <td class="pl-3 px-2">20</td>
+                        <td class="pl-3 px-2">18</td>
+                        <td class="pl-3 px-2">2</td>
+                        <td class="pl-3 px-2"><button class="bg-c-green text-c-white px-3 py-1 rounded-full">Buy More</button></td>
+                    </tr>
+                    <tr class="h-16">
+                        <td class="py-2 pl-3">Chat</td>
+                        <td class="pl-3 px-2">40</td>
+                        <td class="pl-3 px-2">20</td>
+                        <td class="pl-3 px-2">20</td>
+                        <td class="pl-3 px-2"><button class="bg-c-green text-c-white px-3 py-1 rounded-full">Buy More</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            <div class="mt-auto flex justify-end">
+              Total 1 page &nbsp; <span class="text-c-yellow">(3 records)</span>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </main>
+  </body>
+</html>
