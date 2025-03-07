@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>payment management</title>
+    <link rel="stylesheet" href="styles/common.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+  </head>
+  <body class="w-full h-screen">
+    <main class="w-full h-full flex cm">
+
+      <!-- main content -->
+      <div class="flex-grow border h-100 main">
+        <div class="flex flex-col w-full h-full content">
+          <div class=" px-2 lg:px-5 py-6">
+            <div class="flex items-center gap-4">
+                <span class="text-lg text-c-black">Payment Management</span>
+              </div>
+          </div>
+
+          <!-- top taskbar -->
+          <div class="taskbar flex items-center justify-between px-3 sm:px-6 py-3">
+            <div class="w-full md:w-1/2">
+              <div class="flex items-center gap-1 sm:gap-2">
+                <span class="text-c-light-black text-base"> Payment Management </span>
+              </div>
+            </div>
+            <div class="taskicon w-full sm:w-8/12 xl:w-6/12 flex-row items-center justify-end gap-4 hidden md:flex">
+              <div id="search-bar" class="flex items-center rounded overflow-hidden bg-c-white h-9">
+                  <input
+                  type="search"
+                  class="pl-4  border-none text-c-black outline-none"
+                  placeholder="Search"
+                  />
+                  <div class="pr-4 flex items-center justify-center">
+                  <i class="ri-search-line"></i>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- searchbar in mobile-->
+          <div
+            class="pl-4 pt-3 mt-3 pb-3 pr-4 w-full flex flex-row justify-between items-center bg-c-light-white-smoke md:hidden text-xs"
+            id="mobiletaskbar"
+          >
+            <div class="w-full flex flex-row items-center justify-end gap-2">
+              <div
+                id="mobilesearchbutton"
+                class="flex items-center rounded overflow-hidden flex-shrink-0 flex-grow bg-c-white h-8 w-1/12"
+              >
+                <input
+                  type="text"
+                  class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none w-3/12"
+                  placeholder="Search"
+                />
+                <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                  <i class="ri-search-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- info table -->
+         <div class="p-4 relative h-full flex flex-col scroll overflow-y-scroll">
+              <div class="bg-white cm-table-container border border-c-gray rounded-md">
+                <table class="table-auto w-full">
+                  <thead class="h-14">
+                    <tr class="bg-c-dark-gray">
+                      <th class="text-c-white font-medium text-left pl-3 text-base rounded-tl-md">Transaction ID</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Amount (₹)</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Paid On</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Billed By</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3">Status</th>
+                      <th class="text-c-white font-medium text-left text-base pl-3 rounded-tr-md">Mode</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="h-16">
+                      <td class="py-2 pl-3">TXN001</td>
+                      <td class="pl-3 px-2">₹5,000</td>
+                      <td class="pl-3 px-2">12-Jan-2025</td>
+                      <td class="pl-3 px-2">John Doe</td>
+                      <td class="pl-3 px-2"><span class="text-c-green">Paid</span></td>
+                      <td class="pl-3 px-2">UPI</td>
+                    </tr>
+                    <tr class="h-16">
+                      <td class="py-2 pl-3">TXN002</td>
+                      <td class="pl-3 px-2">₹7,000</td>
+                      <td class="pl-3 px-2">8-Jan-2025</td>
+                      <td class="pl-3 px-2">Jane Smith</td>
+                      <td class="pl-3 px-2"><span class="text-c-yellow">Pending</span></td>
+                      <td class="pl-3 px-2">Credit Card</td>
+                    </tr>
+                    <tr class="h-16">
+                      <td class="py-2 pl-3">TXN003</td>
+                      <td class="pl-3 px-2">₹3,000</td>
+                      <td class="pl-3 px-2">8-Jan-2025</td>
+                      <td class="pl-3 px-2">Mark Lee</td>
+                      <td class="pl-3 px-2"><span class="text-c-dark-red">Failed</span></td>
+                      <td class="pl-3 px-2">Bank Transfer</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            <div class="mt-auto flex justify-end">
+              Total 1 page &nbsp; <span class="text-c-yellow">(3 records)</span>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </main>
+  </body>
+</html>
