@@ -19,7 +19,7 @@
           class="absolute lg:hidden top-6 -right-8 px-1"
         >
         <i class="ri-menu-line ri-lg"></i>
-      </label>
+        </label>
         <div class="h-full sidebar">
           <div class="sidebar-container">
             <div class="p-6">
@@ -44,20 +44,8 @@
                         </a>
                       </li>
                       <li>
-                        <a id="local_storage" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.local-storage-content','Local Storage (Dots Storage)')">
-                          <span>Local Storage</span>
-                          <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="app_storage" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.app-storage-content','App Storage')">
-                          <span>App Storage</span>
-                          <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="cloud_storage" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.cloud-storage-content','Cloud Storage')">
-                          <span>Cloud Storage</span>
+                        <a id="storage" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.storage-content','Storage')">
+                          <span>Storage</span>
                           <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
                         </a>
                       </li>
@@ -74,6 +62,7 @@
           </div>
         </div>
       </aside>
+      <!-- Main content -->
       <div class="flex-grow h-100 main">
         <div class="flex w-full h-full flex-col content">
           <div class="pl-14 lg:px-5 py-6">
@@ -84,9 +73,8 @@
             </div>
           </div>
           <!-- topTaskbar in desktop -->
-          <div
-            class="pl-4 md:pl-6 py-4 pr-4 md:pr-6 w-full flex flex-row justify-between items-center taskbar"
-          >
+          <div class="pl-4 md:pl-6 py-4 pr-4 md:pr-6 w-full flex flex-row justify-between items-center taskbar">
+            <button class="md:hidden pr-2"><i class="ri-arrow-left-s-line ri-lg"></i></button>
             <div class="w-full sm:w-4/12 xl:w-6/12 text-sm md:text-base">
                 <div class="flex items-center gap-1 sm:gap-2">
                     <span class="text-c-black whitespace-nowrap font-normal">
@@ -94,6 +82,8 @@
                     </span>
                     <i class="ri-arrow-right-line ri-lg text-c-light-black"></i>
                     <span class="font-semibold text-c-black tab-name whitespace-nowrap tab-name">User Licence</span>
+                    <i class="ri-arrow-right-line ri-lg text-c-light-black sub-tab-arrow hidden md:block"></i>
+                    <span class="font-semibold text-c-black sub-tab-name whitespace-nowrap sub-tab-name hidden md:block">All Apps</span>
                 </div>
             </div>
             <div class="taskicon w-full sm:w-8/12 xl:w-6/12 flex-row items-center justify-end gap-4 hidden md:flex">
@@ -107,6 +97,18 @@
                     <i class="ri-search-line"></i>
                     </div>
                 </div>
+            </div>
+            <button class="edit-cloud-storage md:hidden"><i class="ri-add-line ri-lg"></i></button>
+            <div class="relative flex items-center filter md:hidden">
+              <button class="dropdown-btn mt-1">
+                <i class="ri-filter-line ri-lg"></i>
+              </button>
+              <div id="upload-dropdown" class="dropdown-option absolute right-0 mt-2 z-10 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden w-32 text-xs top-full">
+                <a class="hover-bg-c-yellow rounded-t-lg p-2 pl-4 dropdown-item flex" onclick="tabView('.all-apps-content','All Apps')">All Apps</a>
+                <a class="hover-bg-c-yellow p-2 pl-4 dropdown-item flex" onclick="tabView('.free-apps-content','Free Apps')">Free Apps</a>
+                <a class="hover-bg-c-yellow p-2 pl-4 dropdown-item flex" onclick="tabView('.in-apps-content','In-App Purchases')">In-App Purchases</a>
+                <a class="hover-bg-c-yellow rounded-b-lg p-2 pl-4 dropdown-item flex" onclick="tabView('.essential-apps-content','Essential Apps')">Essential Apps</a>
+              </div>
             </div>
           </div>
           <!-- searchbar in mobile-->
@@ -149,24 +151,10 @@
                 >
                 <div></div>
               </label>
-              <label for="local-storage" class="cursor-pointer radio-border">
-                <input type="radio" name="type" id="local-storage" value="local-storage" />
+              <label for="user-storage" class="cursor-pointer radio-border">
+                <input type="radio" name="type" id="user-storage" value="storage" />
                 <span class="text-c-black font-normal text-xs md:text-base"
-                  >Local Storage (Dots Storage)</span
-                >
-                <div></div>
-              </label>
-              <label for="app-storage" class="cursor-pointer radio-border">
-                <input type="radio" name="type" id="app-storage" value="app-storage"/>
-                <span class="text-c-black font-normal text-xs md:text-base"
-                  >App storage</span
-                >
-                <div></div>
-              </label>
-              <label for="cloud-storage" class="cursor-pointer radio-border">
-                <input type="radio" name="type" id="cloud-storage" value="cloud-storage" />
-                <span class="text-c-black font-normal text-xs md:text-base"
-                  >Cloud storage</span
+                  >Storage</span
                 >
                 <div></div>
               </label>
@@ -185,235 +173,103 @@
                     <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Personalize </span>Your License Options!</h1>
                     <p class="font-light text-sm lg:text-lg leading-6 mt-3">Take charge of your access with flexible licensing options. Customize permissions to suit your needs and ensure you have the rights that fit your preferences. Purchase and manage your licenses effortlessly, all in one place.</p>
                </div>
-               <!-- Cards -->
-               <section class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-10">
-                    <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Starter User</span>
-                        <span class="price text-xl font-medium">&#8377; 300/month</span>
-                        <span class="text-xs font-light text-center">Begin with core features at an affordable price, simple and efficient.</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="starter">Buy now</button>
-                        </div>
-                    </div>
-                     <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Enhanced User</span>
-                        <span class="price text-xl font-medium">&#8377; 600/month</span>
-                        <span class="text-xs font-light text-center">Unlock additional tools and features for greater flexibility and control.</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="enhanced">Buy now</button>
-                        </div>
-                    </div>
-                    <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Premium User</span>
-                        <span class="price text-xl font-medium">&#8377; 900/month</span>
-                        <span class="text-xs font-light text-center">Get top-tier access to all features with personalized support and full control.</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 1 GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="premium">Buy now</button>
-                        </div>
-                    </div>
-               </section>
-                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
-                    <h1 class="font-light text-2xl lg:text-3xl">Secure and Easy <span class="font-medium">Payments </span></h1>
-                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">We accept all major credit and debit cards for secure, hassle-free payments. Enjoy fast, efficient transactions with enhanced payment security. Shop confidently with our reliable and user-friendly payment process.</p>
-               </div>
-            </div>
-            <!-- Local storage Section -->
-            <div class="main-content local-storage-content w-full flex-1 overflow-y-auto scroll">
-               <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
-                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Custom </span>your storage!</h1>
-                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Your files deserve a secure home. Upgrade to more storage for work, memories, or projects. Our flexible plans ensure you’ll always have enough space. Pick a plan today and enjoy stress-free storage!</p>
-               </div>
-
-               <!-- Cards -->
-               <section class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-10">
-                    <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Starter User</span>
-                        <span class="price text-xl font-medium">&#8377; 300/month</span>
-                        <span class="text-xs font-light text-center">Securely store important documents, photos, and small files seamlessly.</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 1GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="starter">Buy now</button>
-                        </div>
-                    </div>
-                     <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Enhanced User</span>
-                        <span class="price text-xl font-medium">&#8377; 600/month</span>
-                        <span class="text-xs font-light text-center">For larger files and frequent uploads, providing extra space and flexibility</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 10GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn " data-plan="enhanced">Buy now</button>
-                        </div>
-                    </div>
-                    <div class="cards w-52 h-72 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 space-y-2">
-                        <span class="text-sm font-medium">Premium User</span>
-                        <span class="price text-xl font-medium">&#8377; 900/month</span>
-                        <span class="text-xs font-light text-center">Best for heavy users with ample capacity for large media files and projects.</span>
-                        <span class="selected-storage text-sm font-medium">Selected: 100GB</span>
-                        <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container">
-                            <button class="quantity-btn decrement">-</button>
-                            <input type="text" class="quantity-input" value="1">
-                            <button class="quantity-btn increment">+</button>
-                        </div>
-                        <div class="buy-btn flex items-center justify-center bg-c-yellow rounded px-5 py-1">
-                            <button class="px-5 py-1 text-base font-normal buy-btn" data-plan="premium" >Buy now</button>
-                        </div>
-                    </div>
-               </section>
-
-                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
-                    <h1 class="font-light text-2xl lg:text-3xl">Secure and Easy <span class="font-medium">Payments </span></h1>
-                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">We accept all major credit and debit cards for secure, hassle-free payments. Enjoy fast, efficient transactions with enhanced payment security. Shop confidently with our reliable and user-friendly payment process.</p>
-               </div>
-            </div>
-            <!-- App storage Section -->
-            <div class="main-content app-storage-content w-full flex justify-center items-center overflow-y-auto scroll">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg max-w-2xl w-full bg-c-lighten-gray modal-content newUserModal mt-20 md:mt-0">
-                    <!-- Sticky header -->
-                    <div class="sticky top-0 flex py-2 px-5 justify-between items-center border-b border-gray-3 bg-white z-10 text-c-black">
-                      <div class="text-lg font-normal">User Info</div>
-                      <button type="button" class="py-1.5 rounded-md">
-                        <i class="ri-close-circle-fill text-black ri-lg"></i>
-                      </button>
-                    </div>
-                    <!-- Scrollable content -->
-                    <div class="p-5 overflow-y-auto scroll" style="max-height: calc(100vh - 8rem)">
-                      <form class="space-y-4 text-sm">
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                          <div class="md:col-span-2 flex items-center">
-                            <label for="name" class="block font-bold text-c-black">
-                              Name:<span class="text-red-500">*</span>
-                            </label>
-                          </div>
-                          <div class="md:col-span-8">
-                            <input class="w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-5" type="text" placeholder="Please enter an username" autocomplete="name">
-                          </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                          <div class="md:col-span-2 flex items-center">
-                            <label for="nickname" class="block font-bold text-c-black">
-                              Nickname:
-                            </label>
-                          </div>
-                          <div class="md:col-span-8">
-                            <input id="nickname" class="w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-5" type="text" placeholder="Please enter nickname">
-                          </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4">
-                          <div class="md:col-span-2 flex items-center">
-                            <label for="password" class="block font-bold text-c-black">
-                              Password:<span class="text-red-500">*</span>
-                            </label>
-                          </div>
-                          <div class="md:col-span-8 flex items-center gap-2">
-                            <div class="relative w-full">
-                              <input id="password" class="w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4" type="password" placeholder="Please enter password">
-                              <div class="absolute inset-y-0 right-0 flex items-center border border-gray-3 w-12 rounded-r-xl pl-3 pt-1">
-                                <i class="ri-eye-close-line ri-xl"></i>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4">
-                          <div class="md:col-span-2 flex items-center">
-                            <label for="space-size" class="block font-bold text-c-black">
-                              Space size:<span class="text-red-500">*</span>
-                            </label>
-                          </div>
-                          <div class="md:col-span-8 flex items-center gap-2">
-                            <div class="relative w-full">
-                              <input class="w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4" type="text" placeholder="Please enter space size">
-                              <div class="absolute inset-y-0 right-0 flex items-center bg-c-gray-4 border border-gray-3 w-12 rounded-r-xl pl-3">
-                                <p class="font-normal">GB</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="md:col-span-2 flex items-center ml-0 md:-ml-2">
-                            <p class="text-xs text-c-black font-light w-full">
-                              (GB) 0 is unlimited
-                            </p>
-                          </div>
-                        </div>
-                        <div class="flex justify-end mt-3">
-                          <button type="button" class="bg-c-black hover:bg-c-black text-white rounded-full w-32 py-2 text-sm">
-                            Save
-                          </button>
-                        </div>
-                      </form>
-                    </div>
+               <!-- Carousel Wrapper (Hidden on md and larger screens) -->
+               <section class="relative w-full p-5 md:p-0">
+                <!-- Carousel Track -->
+                <div id="carousel" class="flex md:justify-center md:items-center overflow-x-scroll snap-x snap-mandatory scrollbar-hide gap-10 px-5 py-5">
+                  <!-- Starter User Card -->
+                  <div class="cards flex-none w-52 h-80 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 gap-2">
+                      <div class="text-sm font-medium flex gap-4">Starter User<img src="images/success.svg" class="success h-5 w-5 hidden"></div>
+                      <span class="price text-xl font-medium">₹ 300/month</span>
+                      <span class="text-sm font-light text-center">Begin with core features at an affordable price, simple and efficient.</span>
+                      <div class="text-sm font-medium flex flex-col gap-2">
+                          <div class="selected-storage">License: 1 GB per user</div>
+                          <div class="selected-storage">Total License: 10 </div>
+                      </div>
+                      <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 quantity-container mt-1">
+                          <button class="quantity-btn decrement">-</button>
+                          <input type="text" class="quantity-input" value="1">
+                          <button class="quantity-btn increment">+</button>
+                      </div>
+                      <div class="starter flex items-center justify-center bg-c-yellow rounded px-5 py-1 mt-1">
+                          <button class="px-5 py-1 text-base font-normal purchase" data-plan="starter" data-purchasetitle="Confirm Your Purchase" data-purchasedesc="Are you sure you want to purchase the Starter User Plan for ₹300/month?">Buy now</button>
+                      </div>
                   </div>
+                  <!-- Enhanced User Card -->
+                  <div class="cards flex-none w-52 h-80 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 gap-2">
+                      <div class="text-sm font-medium flex gap-4">Enhanced User<img src="images/success.svg" class="success h-5 w-5 hidden"></div>
+                      <span class="price text-xl font-medium">₹ 600/month</span>
+                      <span class="text-sm font-light text-center">Unlock additional tools and features for greater flexibility and control.</span>
+                      <div class="text-sm font-medium flex flex-col gap-2">
+                          <div class="selected-storage">License: 10 GB per user</div>
+                          <div class="selected-storage">Total License: 30 </div>
+                      </div>
+                      <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 mt-1 quantity-container">
+                          <button class="quantity-btn decrement">-</button>
+                          <input type="text" class="quantity-input" value="1">
+                          <button class="quantity-btn increment">+</button>
+                      </div>
+                      <div class="enhanced flex items-center justify-center bg-c-yellow rounded px-5 py-1 mt-1">
+                          <button class="px-5 py-1 text-base font-normal purchase" data-plan="enhanced" data-purchasetitle="Confirm Your Purchase" data-purchasedesc="Are you sure you want to purchase the Enhanced User Plan for ₹600/month?">Buy now</button>
+                      </div>
+                  </div>
+                  <!-- Premium User Card -->
+                  <div class="cards flex-none w-52 h-80 bg-c-gray-3 rounded-lg flex flex-col items-center py-4 px-2 border border-gray-3 gap-2">
+                      <div class="text-sm font-medium flex gap-4">Premium User<img src="images/success.svg" class="success h-5 w-5 hidden"></div>
+                      <span class="price text-xl font-medium">₹ 900/month</span>
+                      <span class="text-sm font-light text-center">Get top-tier access to all features with personalized support and full control.</span>
+                      <div class="text-sm font-medium flex flex-col gap-2">
+                          <div class="selected-storage">License: 100 GB per user</div>
+                          <div class="selected-storage">Total License: 50 </div>
+                      </div>
+                      <div class="flex items-center justify-center bg-c-black rounded px-5 py-1 mt-1 quantity-container">
+                          <button class="quantity-btn decrement">-</button>
+                          <input type="text" class="quantity-input" value="1">
+                          <button class="quantity-btn increment">+</button>
+                      </div>
+                      <div class="premium flex items-center justify-center bg-c-yellow rounded px-5 py-1 mt-1">
+                          <button class="px-5 py-1 text-base font-normal purchase" data-plan="premium" data-purchasetitle="Confirm Your Purchase" data-purchasedesc="Are you sure you want to purchase the Premium User Plan for ₹900/month?">Buy now</button>
+                      </div>
+                  </div>
+              </div>
+              
+
+                <!-- Navigation Dots -->
+                <div id="carousel-dots" class="flex justify-center space-x-2 mt-3 md:hidden"></div>
+              </section>
+               <div class="flex justify-center items-center mt-6 mx-5 md:mx-0">
+                <span class="px-6 sm:px-16 md:px-20 py-2 bg-light-pink border border-light-grayish rounded-xl plan-note">Choose the perfect plan to unlock premium features and enhance your experience.</span>
+               </div>
+                <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
+                    <h1 class="font-light text-2xl lg:text-3xl">Secure and Easy <span class="font-medium">Payments </span></h1>
+                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">We accept all major credit and debit cards for secure, hassle-free payments. Enjoy fast, efficient transactions with enhanced payment security. Shop confidently with our reliable and user-friendly payment process.</p>
+               </div>
             </div>
-            <!-- Cloud storage Section -->
-            <div class="main-content cloud-storage-content w-full flex-1 overflow-y-auto scroll">
-                <div class="hidden md:flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
-                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Custom </span>your cloud storage!</h1>
-                    <p class="font-light text-sm lg:text-lg leading-6 mt-3">Your files deserve a secure home. Upgrade to more storage for work, memories, or projects. Our flexible plans ensure you’ll always have enough space. Pick a plan today and enjoy stress-free storage!</p>
-                </div>
-                <section class="hidden md:flex justify-center items-center flex-col">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-5 gap-4 py-4 pt-6 max-w-[1200px] mx-auto cloud-grid">               
-                        <div class="highlight cloud-card w-56 h-72 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 gap-4">
-                            <div class="w-24 h-20">
-                                <img src="images/cloud.png" alt="cloud-storage">
-                            </div>
-                            <span class="text-lg font-medium">Cloud Storage</span>
-                            <div class="relative flex items-center">
-                                <button class="rounded border border-c-light-gray dropdown-btn inline-flex items-center">
-                                    <span class="bg-c-black text-c-yellow text-lg px-2 py-1 w-32">Update</span>
-                                    <i class="ri-arrow-down-s-line px-2 py-1"></i>
-                                </button>                                             
-                                <div class="dropdown-option absolute top-full mt-2 z-10 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden md:w-44 xl:w-68">
-                                    <div class="hover-bg-c-yellow rounded-t-lg">
-                                        <a href="#" class="flex items-center gap-1 block p-2 pl-3 dropdown-item">
-                                            <i class="ri-edit-box-line ri-lg w-2/12"></i>
-                                            <span>Default</span> 
-                                        </a>
-                                    </div>
-                                    <div class="hover-bg-c-yellow">
-                                        <a href="#" class="flex items-center gap-1 block p-2 pl-3 dropdown-item edit-cloud-storage">
-                                            <i class="ri-settings-5-line ri-lg w-2/12"></i>
-                                            <span>Edit</span> 
-                                        </a>
-                                    </div>
-                                    <div class="hover-bg-c-yellow rounded-b-lg">
-                                        <a href="#" class="flex items-center block p-2 pl-3 dropdown-item delete-btn" data-title="Cancel Storage" data-desc="This operation will cancel other default storage methods. Are you sure?">
-                                            <i class="ri-delete-bin-line ri-lg w-1/4"></i>
-                                            <span class="whitespace-nowrap">Unmount Storage</span> 
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-c-light-black1 h-2 rounded-lg overflow-hidden w-11/12">
-                                <div class="bg-c-yellow h-full rounded-r-full w-1/4"></div>
-                            </div>
-                            <span class="whitespace-nowrap">1.6MB/1.8TB</span>
+            <!-- Storage Section -->
+            <div class="main-content storage-content w-full flex-1 overflow-y-auto scroll relative">
+                <section class="hidden md:flex flex-col ml-12 mt-7">
+                  <button class='px-3 py-1.5 w-20 text-base font-normal bg-c-black text-c-yellow flex items-center gap-2 rounded add-btn edit-cloud-storage'><i class='ri-add-circle-line'></i>Add</button>
+                    <div class="flex flex-wrap gap-10 py-4 pt-6">               
+                      <div class="highlight cloud-card w-48 h-56 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 gap-4">
+                          <div class="w-24 h-20">
+                              <img src="images/cloud.png" alt="cloud-storage">
+                          </div>
+                          <span class="text-lg font-medium">Cloud Storage</span>
+                          <div class="bg-c-light-black1 h-2 rounded-lg overflow-hidden w-11/12">
+                              <div class="bg-c-yellow h-full rounded-r-full w-1/4"></div>
+                          </div>
+                          <span class="whitespace-nowrap">1.6MB/1.8TB</span>
+                      </div>
+                      <div class="highlight cloud-card w-48 h-56 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 gap-4">
+                        <div class="w-24 h-20">
+                            <img src="images/cloud.png" alt="cloud-storage">
                         </div>
+                        <span class="text-lg font-medium">D Storage</span>
+                        <div class="bg-c-light-black1 h-2 rounded-lg overflow-hidden w-11/12">
+                            <div class="bg-c-yellow h-full rounded-r-full w-1/4"></div>
+                        </div>
+                        <span class="whitespace-nowrap">1.6MB/1.8TB</span>
+                      </div>
                     </div>        
                 </section>
                 <!-- Mobile view -->
@@ -431,45 +287,114 @@
                     </div>
                     <div class="relative flex items-center">
                       <button class="rounded dropdown-btn inline-flex items-center">
-                          <span class="bg-c-black text-c-yellow text-sm px-2 py-1 flex gap-2 rounded-md">More <i class="ri-arrow-down-s-fill"></i></span>
+                        <i class="ri-more-fill ri-lg"></i>
                       </button>                                             
-                      <div class="dropdown-option absolute right-0 top-full -mt-3 z-10 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden text-sm w-40">
+                      <div class="dropdown-option absolute right-0 top-full -mt-3 z-10 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden text-sm w-28">
                           <div class="hover-bg-c-yellow rounded-t-lg">
                               <a href="#" class="flex items-center gap-1 block p-2 pl-3 dropdown-item edit-cloud-storage">
-                                  <i class="ri-add-circle-line ri-lg w-2/12"></i>
+                                  <i class="ri-add-circle-line ri-lg w-3/12"></i>
                                   <span>Add</span> 
                               </a>
                           </div>
-                          <div class="hover-bg-c-yellow">
-                              <a href="#" class="flex items-center gap-1 block p-2 pl-3 dropdown-item edit-cloud-storage">
-                                  <i class="ri-edit-box-line ri-lg w-2/12"></i>
-                                  <span>Edit</span> 
-                              </a>
-                          </div>
                           <div class="hover-bg-c-yellow rounded-b-lg">
-                              <a href="#" class="flex items-center block p-2 pl-3 dropdown-item delete-btn gap-2" data-title="Cancel Storage" data-desc="This operation will cancel other default storage methods. Are you sure?">
-                                  <i class="ri-delete-bin-line ri-lg"></i>
-                                  <span class="whitespace-nowrap">Unmount Storage</span> 
+                              <a href="#" class="flex items-center gap-1 block p-2 pl-3 dropdown-item edit-cloud-storage">
+                                  <i class="ri-edit-box-line ri-lg w-3/12"></i>
+                                  <span>Edit</span> 
                               </a>
                           </div>
                       </div>
                   </div>
                     
                   </li>
-                </ul>       
+                </ul>   
+                <div class="absolute bottom-4 flex justify-center w-full">
+                  <button class="px-5 py-1 bg-c-yellow rounded-md buy-btn">Buy More Storage</button>
+                </div>                    
             </div>
             <!-- apps Section -->
-            <div class="main-content apps-content w-full flex-1 overflow-y-auto scroll">
+            <div class="main-content apps-content w-full overflow-y-auto scroll">
                 <!-- Apps -->
                 <div id="apps-section" class="apps-section">
-                    <div class="flex items-center justify-center flex-col text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6">
-                        <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Browse, </span>Buy, or Get Free Apps!</h1>
-                        <p class="font-light text-sm lg:text-lg leading-6 mt-3">Discover a variety of apps to enhance your device. Choose from free downloads or premium options to suit your needs. Enjoy seamless access to your favorite apps, anytime, anywhere.</p>
-                </div>
-                <section class="flex justify-center pb-10">
-                    <div id="dynamic-apps" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
-                </div>
-                </section>
+                  <div class="flex items-center justify-center flex-col gap-3 text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6 pb-3">
+                    <h1 class="font-light text-2xl lg:text-3xl"><span class="font-medium">Browse, </span>Buy, or Get Free Apps!</h1>
+                    <div class="px-6 py-2 bg-light-pink border border-light-grayish rounded-xl essential-note hidden"><span class="text-c-yellow">⚠</span> Important Notice: Selected apps are being configured and will be ready in 24-48 hours. Continue browsing or managing settings.</div>
+                  </div>
+                  <!-- Navigation -->
+                  <div class="h-14 hidden lg:flex items-center justify-center gap-4 sm:gap-6">
+                    <label for="all-apps" class="cursor-pointer radio-border">
+                      <input
+                        type="radio"
+                        name="nav"
+                        id="all-apps"
+                        value="all-apps"
+                        checked
+                      />
+                      <span class="text-c-black font-normal text-xs md:text-base"
+                        >All Apps</span
+                      >
+                      <div></div>
+                    </label>
+                    <label for="free-apps" class="cursor-pointer radio-border">
+                      <input
+                        type="radio"
+                        name="nav"
+                        id="free-apps"
+                        value="free-apps"
+                      />
+                      <span class="text-c-black font-normal text-xs md:text-base"
+                        >Free Apps</span
+                      >
+                      <div></div>
+                    </label>
+                    <label for="in-apps" class="cursor-pointer radio-border">
+                      <input
+                        type="radio"
+                        name="nav"
+                        id="in-apps"
+                        value="in-apps"
+                      />
+                      <span class="text-c-black font-normal text-xs md:text-base"
+                        >In-App Purchases</span
+                      >
+                      <div></div>
+                    </label>
+                    <label for="essential-apps" class="cursor-pointer radio-border">
+                      <input
+                        type="radio"
+                        name="nav"
+                        id="essential-apps"
+                        value="essential-apps"
+                      />
+                      <span class="text-c-black font-normal text-xs md:text-base"
+                        >Essential Apps</span
+                      >
+                      <div></div>
+                    </label>
+                  </div>
+                  <div class="nav-content all-apps-content w-full overflow-y-auto scroll">
+                    <section class="flex justify-center pb-10">
+                      <div id="dynamic-all-apps" class="grid-col grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+                      </div>
+                    </section>
+                  </div>
+                  <div class="nav-content free-apps-content w-full overflow-y-auto scroll">
+                    <section class="flex justify-center pb-10">
+                      <div id="dynamic-free-apps" class="grid-col grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+                      </div>
+                    </section>
+                  </div>
+                  <div class="nav-content in-apps-content w-full overflow-y-auto scroll">
+                    <section class="flex justify-center pb-10">
+                      <div id="dynamic-in-apps" class="grid-col grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+                      </div>
+                    </section>
+                  </div>
+                  <div class="nav-content essential-apps-content w-full overflow-y-auto scroll">
+                    <section class="flex justify-center pb-10">
+                      <div id="dynamic-essential-apps" class="grid-col grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 py-4 px-4 max-w-[1200px] mx-auto">
+                      </div>
+                    </section>
+                  </div>
                 </div>
 
                 <!-- Buy Section -->
@@ -480,8 +405,7 @@
                         <h1 class="text-xl md:text-3xl fontsemi-bold">Enterprise Resource Planning</h1>
                         <span class="text-lg md:text-xl fontsemi-bold">ERP</span>
                         <span class="text-xs md:text-sm font-normal">It’s a software system that includes all the tools and processes required to run a successful company, including HR, manufacturing, supply chain, finance, accounting, and more.</span>
-                        <section class="flex gap-1 md:gap-5 pt-4">
-                            <img class="w-10 h-10" src="/images/ERP-2.png" alt="ERP">
+                        <section class="flex items-center gap-1 md:gap-5 pt-4">
                             <div class="flex flex-col justify-center items-center border-r border-gray-3 px-2 md:px-4">
                             <span class="text-xs md:text-sm font-medium">4.6 &#11088;</span>
                             <span class="text-xs md:text-sm font-normal">300 ratings</span>
@@ -493,31 +417,24 @@
                             <div class="flex flex-col justify-center items-center text-sm">
                             ₹ 50.00
                             </div>
+                            <button class="bg-c-yellow px-4 text-sm ml-5 py-1 h-full rounded delete-btn md:hidden" style="width: inherit" data-title="Install Email" data-desc="You're about to install Email. Do you want to continue?">Install</button>
                         </section>
                         <section class="flex items-center gap-4 pt-5">
-                            <div class="buttons border border-c-yellow flex items-center justify-center">
-                            <button class="bg-c-yellow h-full w-3/4">Install</button>
-                            <i class="ri-arrow-drop-down-line ri-lg w-1/4 text-center"></i>
-                            </div>
-                            <div class="buttons">
-                            <button class="bg-c-black text-c-yellow h-full rounded buy-btn" style="width: inherit">Buy Now</button>
-                            </div>
-                        <div class="buttons relative">
-                            <button id="qtyButton" class="bg-c-gray-3 text-c-black h-full w-full rounded flex items-center justify-between px-8 py-2">
-                                <span>Qty:</span> 
-                                <span id="qtyValue" class="text-sm font-medium">1</span>
-                                <i class="ri-arrow-drop-down-line ri-lg"></i>
-                            </button>
-                            </div>
-
+                          <button class="bg-c-yellow px-6 py-1 h-full rounded delete-btn hidden md:block" style="width: inherit" data-title="Install Email" data-desc="You're about to install Email. Do you want to continue?">Install</button>
+                          <button class="bg-c-black px-4 py-1 text-c-yellow h-full rounded buy-btn whitespace-nowrap" style="width: inherit">Buy more Licenses</button>
+                          <div class="flex items-center justify-center bg-c-yellow rounded px-2 sm:px-5 py-1 mt-1 quantity-container">
+                            <button class="quantity-btn decrement qty-btn">-</button>
+                            <input type="text" class="quantity-input qty-btn" value="1">
+                            <button class="quantity-btn increment qty-btn">+</button>
+                          </div>
                         </section>
                         </div>
                         <div class="flex items-center justify-center gap-3 w-full sm:w-2/5">
-                        <div class="w-48 h-60 rounded-3xl bg-c-black flex items-center justify-center">
-                            <img src="/images/screenshot-2.png" alt="screenshot" class="transform -rotate-45">
+                        <div class="w-40 h-40 sm:w-48 sm:h-60 rounded-3xl bg-c-black flex items-center justify-center">
+                            <img src="/images/screenshot-2.png" alt="screenshot" class="transform -rotate-45 w-28 h-28 sm:w-32 sm:h-32">
                         </div>
-                        <div class="w-48 h-60 rounded-3xl bg-c-yellow flex items-center justify-center">
-                            <img src="/images/screenshot-2.png" alt="screenshot" class="transform rotate-45">
+                        <div class="w-40 h-40 sm:w-48 sm:h-60 rounded-3xl bg-c-yellow flex items-center justify-center">
+                            <img src="/images/screenshot-2.png" alt="screenshot" class="transform rotate-45 w-28 h-28 sm:w-32 sm:h-32">
                         </div>
                         </div>
                     </div>
@@ -630,18 +547,17 @@
                         </div>
                     </div>
                 </div>
-             </div>
             </div>
         </div>
       </div>
       <!-- Payment Gateway Popup -->
-      <div id="payment-gateway" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-        <div class="bg-c-dark-white border border-gray-3 shadow-md rounded-2xl max-w-5xl w-full h-3/4 overflow-y-scroll scroll flex flex-col-reverse sm:flex-row sm:items-center sm:justify-center">
+      <div id="payment-gateway" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10 p-4 lg:p-0">
+        <div class="bg-c-dark-white border border-gray-3 shadow-md rounded-2xl max-w-5xl w-full h-3/4 overflow-y-scroll scroll flex flex-col sm:flex-row sm:items-center sm:justify-center">
 
            <!-- Payment Details Section -->
           <div class="lg:w-1/2 w-full h-full flex flex-1 flex-col">
-            <div class="flex items-center border-r border-b border-gray-3 justify-center h-24 w-full">
-              <span class="font-medium text-lg text-black">Enter your payment details</span>
+            <div class="flex items-center border-r border-b border-gray-3 justify-center w-full">
+              <span class="font-medium text-lg text-black py-8">Enter your payment details</span>
             </div>
             <div class="border-r border-gray-3 flex-1 py-6 px-10">
               <span class="font-medium text-lg">Pay With</span>
@@ -713,8 +629,8 @@
 
           <!-- Order Summary Section -->
           <div class="w-full lg:w-1/2 h-full flex-1 flex flex-col">
-             <div class="flex items-center border-b border-gray-3 justify-center h-24 w-full">
-              <span class="font-medium text-lg text-black">Order Summary</span>
+             <div class="flex items-center border-b border-gray-3 justify-center w-full">
+              <span class="font-medium text-lg text-black py-8">Order Summary</span>
             </div>
             <div class="order-summary flex-1 py-7 px-10 space-y-9">
               <div class="flex flex-col gap-1">
@@ -766,7 +682,7 @@
         <div class="bg-white rounded-2xl overflow-hidden shadow-lg max-w-2xl w-full bg-c-lighten-gray modal-content newUserModal">
           <!-- Sticky header -->
           <div class="sticky top-0 flex py-2 px-5 justify-between items-center border-b border-gray-3 bg-white z-10 text-c-black">
-            <div class="text-lg font-normal">Cloud Storage</div>
+            <div class="text-lg font-normal">Storage</div>
             <button type="button" id="closeModalButton" class="py-1.5 rounded-md">
               <i class="ri-close-circle-fill text-black ri-lg"></i>
             </button>
@@ -784,22 +700,61 @@
                   <div class="dropdown relative w-full">
                     <button class="dropdownBtn w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left">
                       <div class="selected-value flex items-center gap-2">
-                        Cloud Storage
+                        Local
                       </div>
                       <div class="absolute inset-y-0 right-0 flex items-center border border-gray-3 w-12 rounded-r-xl pl-3 pt-1">
                         <i class="ri-arrow-drop-down-line ri-xl"></i>
                       </div>
                     </button>
-                    <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10" style="display:none;">
-                      <a class="rounded-t-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="alibaba">
-                        <img src="images/alibaba.png" class="w-5 h-5"/> Alibaba OSS
-                      </a>
-                      <a class="custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="onedrive">
-                        <img src="images/onedrive.png" class="w-5"/> OneDrive
-                      </a>
-                      <a class="rounded-b-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="amazon">
-                        <img src="images/amazon.png" class="w-5 h-5"/> Amazon S3
-                      </a>
+                    <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10 hidden">
+                      <div class="md:flex border-b border-gray-3 p-2 hidden">
+                        <a class="p-2 flex flex-col items-center gap-2 cursor-pointer whitespace-nowrap" data-value="local">
+                        <img src="images/cloud.png" class="w-11 h-9"/>Starter Storage
+                        </a>
+                        <a class="p-2 flex flex-col items-center gap-2 cursor-pointer whitespace-nowrap" data-value="local">
+                          <img src="images/cloud.png" class="w-11 h-9"/>Enhanced Storage
+                        </a>
+                        <a class="p-2 flex flex-col items-center gap-2 cursor-pointer whitespace-nowrap" data-value="local">
+                          <img src="images/cloud.png" class="w-11 h-9"/>Premium Storage
+                        </a>
+                        <span>Local</span>
+                      </div>
+                      <div class="md:flex gap-11 p-2 relative hidden">
+                        <a class="p-2 flex flex-col items-center justify-center gap-2 cursor-pointer whitespace-nowrap" data-value="alibaba">
+                        <img src="images/alibaba.png" class="w-14 h-7"/>Alibaba OSS
+                        </a>
+                        <a class="p-2 flex flex-col items-center justify-center gap-2 cursor-pointer whitespace-nowrap" data-value="onedrive">
+                          <img src="images/onedrive.png" class="w-11 h-7"/>OneDrive
+                        </a>
+                        <a class="p-2 flex flex-col items-center justify-center gap-2 cursor-pointer whitespace-nowrap" data-value="amazon">
+                          <img src="images/amazon.png" class="w-11 h-7"/>Amazon S3
+                        </a>
+                        <span class="absolute right-0 pr-2">Cloud</span>
+                      </div>
+                      <div class="md:hidden relative">
+                        <div class="dropdown">
+                          <div class="custom-bg-hover dropdownBtn border-b border-gray-3 rounded-t-xl flex justify-between p-2">Local<i class="ri-arrow-right-s-line"></i></div>
+                          <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10 hidden">
+                            <a class="rounded-t-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="local">Starter Storage</a>
+                            <a class="custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="local">Enhanced Storage</a>
+                            <a class="rounded-b-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="local">Premium Storage</a>                         
+                          </div>
+                        </div>
+                        <div class="dropdown">
+                          <div class="custom-bg-hover dropdownBtn rounded-b-xl flex justify-between p-2">Cloud Storage<i class="ri-arrow-right-s-line"></i></div>
+                          <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10 hidden">
+                            <a class="rounded-t-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="alibaba">
+                              <img src="images/alibaba.png" class="w-5 h-5"/> Alibaba OSS
+                            </a>
+                            <a class="custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="onedrive">
+                              <img src="images/onedrive.png" class="w-5"/> OneDrive
+                            </a>
+                            <a class="rounded-b-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="amazon">
+                              <img src="images/amazon.png" class="w-5 h-5"/> Amazon S3
+                            </a>                         
+                          </div>
+                        </div>                        
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1051,7 +1006,7 @@
           </div>
         </div>
       </div>
-      <!-- Delete Button Modal -->
+      <!-- Delete Apps Button Modal -->
       <div id="Delete-modal" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div class="delete-modal relative">
           <div class="relative">
@@ -1067,13 +1022,44 @@
               </div>
               <div class="flex items-center justify-center gap-3 mt-9">
                 <button
-                class="bg-c-black text-white rounded-full px-12 sm:px-14 py-2 ok-btn"
+                class="bg-c-yellow rounded-full px-12 sm:px-14 py-2 ok-btn"
                   type="submit"
                 >
                   OK
                 </button>
                 <button
-                  class="cancel-btn bg-white text-c-yellow px-9 sm:px-12 py-2 rounded-full border border-c-yellow"
+                  class="cancel-btn bg-c-black text-c-yellow px-9 sm:px-12 py-2 rounded-full"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- purchase Modal -->
+      <div id="purchase-modal" class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div class="delete-modal relative">
+          <div class="relative">
+            <div id="purchase-license-modal" class="p-4 md:p-5 text-center">
+              <div class="delete-header flex items-center gap-4 mb-1 py-1">
+                <h1 class="text-lg font-medium purchase-title">Remove File</h1>
+              </div>
+              <hr text-md>
+              <div class="mt-6 flex items-center justify-center">
+                <h1 class="text-md font-medium text-c-black purchase-desc">
+                  Are you sure you want to delete the selection?
+                </h1>
+              </div>
+              <div class="flex items-center justify-center gap-3 mt-9">
+                <button
+                class="bg-c-yellow rounded-full px-12 sm:px-14 py-2 purchase-btn buy-btn"
+                  type="submit"
+                >
+                  OK
+                </button>
+                <button
+                  class="purchase-cancel-btn bg-c-black text-c-yellow px-9 sm:px-12 py-2 rounded-full"
                 >
                   Cancel
                 </button>
@@ -1088,356 +1074,6 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="script/sidebar.js"></script>
-    <script>
-        $(document).ready(function () {
-        
-            // Navbar Selection Code
-            $('input[name="type"]').on("change", function () {
-                var selectedValue = $(this).val();
-    
-                // Hide all content divs
-                $(".main-content").addClass("hidden");
-    
-                // Show the selected div
-                if (selectedValue === "license") {
-                    $(".license-content").removeClass("hidden");
-                    $(".tab-name").text("User Licence");
-                    $(".add-btn").hide();
-                } else if (selectedValue === "local-storage") {
-                    $(".local-storage-content").removeClass("hidden");
-                    $(".tab-name").text("Local Storage (Dots Storage)");
-                    $(".add-btn").hide();
-                } else if (selectedValue === "app-storage") {
-                    $(".app-storage-content").removeClass("hidden");
-                    $(".tab-name").text("App storage");
-                    $(".add-btn").hide();
-                } else if (selectedValue === "cloud-storage") {
-                    $(".cloud-storage-content").removeClass("hidden");
-                    $(".tab-name").text("Cloud storage");
-                    let $button = $("<button class='px-3 py-1.5 text-base font-normal bg-c-black text-c-yellow flex items-center gap-2 rounded add-btn edit-cloud-storage'><i class='ri-add-circle-line'></i>Add</button>");
-                    $("#search-bar").after($button);
-                } else if (selectedValue === "apps") {
-                    $(".apps-content").removeClass("hidden");
-                    $(".tab-name").text("Apps");
-                    $(".add-btn").hide();
-                }
-            });
-
-            ///////// User License js //////////
-            $('.quantity-container').each(function () {
-                let container = $(this);
-                container.find('.increment').click(function () {
-                let input = container.find('.quantity-input');
-                let value = parseInt(input.val());
-                input.val(value + 1);
-                container.siblings('.selected-span').text('Selected: ' + (value + 1) +" "+ 'GB');
-                });
-                container.find('.decrement').click(function () {
-                let input = container.find('.quantity-input');
-                let value = parseInt(input.val());
-                if (value > 1) {
-                    input.val(value - 1);
-                    container.siblings('.selected-span').text('Selected: ' + (value - 1) +" " + 'GB');
-                }
-                });
-            });
-            // When the "Buy now" button is clicked
-            $('.buy-btn').click(function() {
-                
-                var plan = $(this).data('plan');
-                var card = $(this).closest('.cards');
-                var selectedGB = card.find('.quantity-input').val();
-                var price = card.find('.price').text();
-                
-                // Show the payment gateway modal
-                $('#payment-gateway').removeClass('hidden');
-                
-                // Update the content in the payment gateway according to the selected plan
-                switch(plan) {
-                    case 'starter':
-                        updatePaymentGateway('Starter User Plan', selectedGB + ' GB', price , "300");
-                        break;
-                    case 'enhanced':
-                        updatePaymentGateway('Enhanced User Plan', selectedGB + ' GB', price, "600");
-                        break;
-                    case 'premium':
-                        updatePaymentGateway('Premium User Plan', selectedGB + ' GB', price, "900");
-                        break;
-                }
-            });
-            // Card Details validation
-            $('#card-number').on('input', function() {
-
-                let cardValue = $(this).val().replace(/\D/g, '');
-                
-                if (cardValue.length > 16) {
-                cardValue = cardValue.substring(0, 16);
-                }
-            
-                $(this).val(cardValue);
-            });
-            
-            // Select the expiration date input field
-            $('#expiration-date').on('input', function() {
-                let expirationValue = $(this).val().replace(/\D/g, '');
-            
-                // Limit the input to 5 characters (MM/YY format)
-                if (expirationValue.length > 4) {
-                expirationValue = expirationValue.substring(0, 4);
-                }
-            
-                // Format the value as MM/YY
-                if (expirationValue.length > 2) {
-                expirationValue = expirationValue.substring(0, 2) + '/' + expirationValue.substring(2);
-                }
-            
-                $(this).val(expirationValue);
-            });
-            
-            
-            // Select the CVV input field
-            $('#cvv').on('input', function() {
-                let cvvValue = $(this).val().replace(/\D/g, '');
-            
-                // Limit the input to 3 digits (CVV format)
-                if (cvvValue.length > 3) {
-                cvvValue = cvvValue.substring(0, 3);
-                }
-            
-                $(this).val(cvvValue);
-            });
-            
-            // Restrict the input to only numbers
-            $('.otp-input').on('input', function(e) {
-                // Allow only numeric input and ensure only one character is entered
-                var value = $(this).val().replace(/\D/g, '');
-                $(this).val(value); 
-            
-                // Automatically move to the next input when a value is entered
-                if (value.length === 1) {
-                var nextInput = $(this).next('.otp-input');
-                if (nextInput.length) {
-                    nextInput.focus();
-                }
-                }
-                // Check if all OTP inputs are filled
-                var allFilled = $('.otp-input').filter(function () {
-                    return $(this).val().trim() === '';
-                }).length === 0;
-                if (allFilled) {
-                    $(".thank-you").removeClass("hidden");
-                    $("#payment-gateway").addClass("hidden");
-                } else {
-                    $(".thank-you").addClass("hidden");
-                }
-            });
-            
-            // Prevent backspace from removing the previous input value
-            $('.otp-input').on('keydown', function(e) {
-                if (e.key === 'Backspace' && $(this).val().length === 0) {
-                var prevInput = $(this).prev('.otp-input');
-                if (prevInput.length) {
-                    prevInput.focus();
-                }
-                }
-            });     
-            
-            // When the "Pay" button is clicked
-            $('#pay').click(function() {
-                // Check if the form fields are filled (basic validation)
-                const cardNumber = $('#card-number').val();
-                const expirationDate = $('#expiration-date').val();
-                const cvv = $('#cvv').val();
-                const name = $('input[placeholder="Name on payment method"]').val();
-            
-                if (cardNumber && expirationDate && cvv && name) {
-                // Hide card details section
-                $('.card-details').hide();
-            
-                // Show the hidden PIN input section
-                $('#Otp-section').removeClass('hidden');
-                $('#cancel-pay').removeClass('hidden');
-                $('#info').removeClass('hidden');
-                } else {
-                $('#error').text("Please fill out all payment details.")
-                }
-            });
-            
-                
-                function updatePaymentGateway(planName, storage, price,pay) {
-                    
-                    $('.order-summary .plan-name').text(planName);
-                    $('.order-summary .selected-gb').text(storage);
-                    $('.order-summary .selected-package').text(price);
-                    $('.total').text(price);
-                    $('#pay').text("Pay Rupees" + " " + pay);
-                }
-            
-                // Hide the payment gateway when the user cancels
-                $('#cancel-pay').click(function() {
-                    $('#payment-gateway').addClass('hidden');
-                });
-            
-            const Gateway = $('#payment-gateway');  // Corrected ID
-            
-            $(window).click(function(event) {
-                if (event.target == Gateway[0]) {  // Compare with DOM element using [0]
-                    $(Gateway).addClass('hidden');
-                }
-            });
-            ///////// Apps js //////////
-            const apps = [
-            { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 0.00' },
-            { img: '/images/social.png', title: 'Social Next', rating: '4.6', price: '₹ 250.00' },
-            { img: '/images/chat.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
-            { img: '/images/ERP-2.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
-            { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 250.00' },
-            { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 0.00' },
-            { img: '/images/social.png', title: 'Social Next', rating: '4.6', price: '₹ 250.00' },
-            { img: '/images/chat.png', title: 'Chat', rating: '4.6', price: '₹ 250.00' },
-            { img: '/images/ERP-2.png', title: 'ERP', rating: '4.6', price: '₹ 0.00' },
-            { img: '/images/email.png', title: 'Email', rating: '4.6', price: '₹ 250.00' }
-            ];
-            $.each(apps, function (index, app) {
-            const buttonText = app.price === '₹ 0.00' ? 'Free' : 'Buy Now';
-
-            const div = `
-                <button data-title="${app.title}" class="app-button highlight w-44 h-56 bg-c-lighten-gray border border-gray-3 rounded-lg flex flex-col items-center justify-center px-2 space-y-2">
-                <div class="w-16 h-16">
-                    <img src="${app.img}" alt="${app.title}">
-                </div>
-                <span class="text-lg font-medium">${app.title}</span>
-                <div><span>${app.rating} &#11088;</span> <span>${app.price}</span></div>
-                <div class="w-36 py-1 bg-c-black text-c-yellow text-lg rounded box-shadow-1 delete-btn" data-title="Install Email" data-desc="You're about to install Email. Do you want to continue?">${buttonText}</div>
-                </button>
-            `;
-            $('#dynamic-apps').append(div);
-            });
-
-            $(document).on('click', '.app-button', function() {
-            const appTitle = $(this).data('title');
-            handleAppClick(appTitle);
-            });
-
-
-            function handleAppClick(appTitle) {
-
-            // Hide the apps section
-            $('#apps-section').addClass("hidden");
-
-            // Show the buy section
-            $('.buy-section').removeClass("hidden");
-
-            // Optionally, you can update the buy section with details about the selected app
-            // $('.buy-section').html(`
-            //   <h2 class="text-xl">You selected: ${appTitle}</h2>
-            //   <p>Details about ${appTitle} and how to proceed with the purchase or free download...</p>
-            //   <button id="go-back-button">Go Back</button>
-            // `);
-
-            $('#go-back-button').on('click', function() {
-            goBackToApps();
-            });
-            }
-
-            // Function to go back to the apps section
-            function goBackToApps() {
-            // Show the apps section
-            $('#apps-section').show();
-
-            // Hide the buy section
-            $('.buy-section').hide();
-            }
-            ///////// Cloud storage js //////////
-            $(".edit-cloud-storage").click(function(){
-                $("#cloudStorageModal").removeClass("hidden");
-            });
-            $("#closeModalButton").click(function(){
-                $("#cloudStorageModal").addClass("hidden");
-            });
-            $(".dropdown button").click(function () {
-              $(this).next(".dropdown-menu").toggleClass("hidden");
-            });
-          
-            $("#dropdownBtn").click(function (e) {
-              e.stopPropagation();
-              $(".dropdown-menu").toggle();
-            });
-
-            $(".dropdownBtn").click(function () {
-              $(this).siblings(".dropdown-menu").toggle();
-            });
-
-            $(".dropdown-menu a").click(function () {
-              var dropdown = $(this).closest(".dropdown");
-              var selectedText = $(this).text().trim();
-              var selectedIcon = $(this).find("img").prop("outerHTML") || "";
-              var selectedValue = $(this).data("value");
-
-              dropdown.find(".selected-value").html(selectedIcon + " " + selectedText);
-              dropdown.find(".dropdown-menu").hide();
-
-              // Logic for cloud storage dropdown
-              if (selectedValue === "amazon") {
-                $(".s3-oss").removeClass("hidden");
-                $(".directory").addClass("hidden");
-                $(".s3").removeClass("hidden");
-                $(".default-btn").removeClass("hidden");
-                $(".drive").addClass("hidden");
-              } else if (selectedValue === "alibaba") {
-                $(".s3-oss").removeClass("hidden");
-                $(".directory").addClass("hidden");
-                $(".s3").addClass("hidden");
-                $(".default-btn").removeClass("hidden");
-                $(".drive").addClass("hidden");
-              } else if (selectedValue === "onedrive") {
-                $(".s3-oss").addClass("hidden");
-                $(".directory").removeClass("hidden");
-                $(".default-btn").addClass("hidden");
-                $(".drive").removeClass("hidden");
-              }
-            });
-
-            // Hide dropdown when clicking outside
-            $(document).click(function (e) {
-              if (!$(e.target).closest(".dropdown").length) {
-                $(".dropdown-menu").hide();
-              }
-            });
-            $(".delete-btn").on("click", function (event) {
-              event.stopPropagation();
-              let title = $(this).data("title");
-              let desc = $(this).data("desc");
-              if ($(this).text().trim() === "Uninstall") {
-                $(".delete-title").text("Uninstall Email");
-                $(".delete-desc").text("Are you sure you want to uninstall Email? This action cannot be undone.");
-              } else{
-                $(".delete-title").text(title);
-                $(".delete-desc").text(desc);
-              }
-              if ($(this).text().trim() === "Free") {
-                $(".ok-btn").off("click").on("click", () => {
-                    $(this).text("Uninstall");
-                    $("#Delete-modal").addClass("hidden");
-                });
-              }
-              if ($(this).text().trim() === "Buy Now") {
-                $("#Delete-modal").addClass("hidden");
-              }else{
-                $("#Delete-modal").removeClass("hidden");
-              }
-            });        
-            $(".cancel-btn").on("click", function () {
-              $("#Delete-modal").addClass("hidden");
-            });
-            // mobile tab js
-            window.tabView = function (id,title){
-              $(".main-content").hide();
-              $(id).show();
-              $(".tab-name").text(title);
-            }
-
-        });
-    </script>
+    <script src="script/market-place.js"></script>
   </body>
 </html>

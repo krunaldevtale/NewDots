@@ -138,6 +138,10 @@
   background-color: var(--color-slate-shadow);
 }
 
+.bg-light-pink {
+  background-color: var(--color-light-pink);
+}
+
 .box-shadow-1{
   box-shadow: var(--box-shadow);
 }
@@ -290,6 +294,10 @@
 
 .border-c-lightgray {
   border-color: var(--border-medium-gray);
+}
+
+.border-light-grayish {
+  border-color: var(--color-light-grayish);
 }
 
 .stroke-color {

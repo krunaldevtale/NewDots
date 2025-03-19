@@ -33,7 +33,7 @@
 .buy-btn{
     width: fit-content;
 }
- .cards:hover .buy-btn{
+ .cards:hover .purchase{
     color: var(--color-light-gray);
  }
 
@@ -54,11 +54,17 @@
 @media (max-width: 1024px) {
     .main-content{
         height: calc(100% - 0rem);
+    }
+    .nav-content{
+        height: calc(100% - 5rem)!important;
     }    
 }
 @media (min-width: 1024px) {
     .main-content{
         height: calc(100% - 3.5rem);
+    }
+    .nav-content{
+        height: calc(100% - 10rem)!important;
     }    
 }
 .buttons{
@@ -89,5 +95,22 @@
     .buttons {
         width: 80px;
         font-size: 12px;
+    }
+}
+.qty-btn{
+    color: var(--color-light-gray)!important;
+    font-size: 1rem!important;
+}
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+@media (max-width: 400px) {
+    .grid-col{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
