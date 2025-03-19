@@ -3,7 +3,7 @@ $(document).ready(function () {
     // Initial values
     $(".nav-content").addClass("hidden");
     $(".sub-tab-name, .sub-tab-arrow").addClass("md:hidden");
-    $(".edit-cloud-storage, .filter").addClass("hidden");
+    $(".add-cloud-storage, .filter").addClass("hidden");
     $(".all-apps-content").removeClass("hidden");
         
     // Navbar Selection Code
@@ -68,13 +68,13 @@ $(document).ready(function () {
         $(".tab-name").text(title);
         if(title=="Apps"){
           $(".filter").removeClass("hidden");
-          $(".edit-cloud-storage").addClass("hidden");
+          $(".add-cloud-storage").addClass("hidden");
           $(".tab-name").text("All Apps");
         } else if(title=="Storage"){
           $(".filter").addClass("hidden");
-          $(".edit-cloud-storage").removeClass("hidden");
+          $(".add-cloud-storage").removeClass("hidden");
         }  else if(title=="User Lisence"){
-          $(".filter, .edit-cloud-storage").addClass("hidden");
+          $(".filter, .add-cloud-storage").addClass("hidden");
         }
       }
 
