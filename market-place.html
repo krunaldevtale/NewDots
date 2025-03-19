@@ -312,7 +312,7 @@
                 </div>                    
             </div>
             <!-- apps Section -->
-            <div class="main-content apps-content w-full overflow-y-auto scroll">
+            <div class="main-content apps-content w-full">
                 <!-- Apps -->
                 <div id="apps-section" class="apps-section">
                   <div class="flex items-center justify-center flex-col gap-3 text-center px-6 sm:px-16 md:px-20 lg:px-24 py-6 pb-3">
@@ -698,14 +698,14 @@
                 </div>
                 <div class="md:col-span-8 flex items-center gap-2">
                   <div class="dropdown relative w-full">
-                    <button class="dropdownBtn w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left">
+                    <div class="dropdownBtn w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left cursor-pointer" onclick="event.stopPropagation();">
                       <div class="selected-value flex items-center gap-2">
                         Local
                       </div>
                       <div class="absolute inset-y-0 right-0 flex items-center border border-gray-3 w-12 rounded-r-xl pl-3 pt-1">
                         <i class="ri-arrow-drop-down-line ri-xl"></i>
                       </div>
-                    </button>
+                    </div>
                     <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10 hidden">
                       <div class="md:flex border-b border-gray-3 p-2 hidden">
                         <a class="p-2 flex flex-col items-center gap-2 cursor-pointer whitespace-nowrap" data-value="local">

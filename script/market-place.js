@@ -479,7 +479,7 @@ $(document).ready(function () {
     });
 
     $(".dropdown-menu a").click(function () {
-      var dropdown = $(this).closest(".dropdown");
+      var dropdown = $(this).closest("#cloudStorageModal").find(".dropdown");
       var selectedText = $(this).text().trim();
       var selectedIcon = $(this).find("img").prop("outerHTML") || "";
       var selectedValue = $(this).data("value");
