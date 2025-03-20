@@ -11,61 +11,10 @@
 
   <body class="h-screen w-full">
     <main class="flex w-full h-full flex cm">
-      <!-- Sidebar -->
-      <aside class="h-full relative">
-        <input type="checkbox" class="hidden" id="sidebar-toggle" />
-        <label
-          for="sidebar-toggle"
-          class="absolute lg:hidden top-6 -right-8 px-1"
-        >
-        <i class="ri-menu-line ri-lg"></i>
-        </label>
-        <div class="h-full sidebar">
-          <div class="sidebar-container">
-            <div class="p-6">
-              <a href="index.html">
-                <img class="w-20" src="/images/logo.png" alt="Dots Logo" />
-              </a>
-            </div>
-            <div class="sidebar-content">
-                <ul class="space-y-1">
-                  <li>
-                    <a id="share-menu"                           
-                    href="market-place.html"
-                    class="block py-1 px-8 md:py-3 rounded-r-lg w-full flex justify-between items-center subdrop" onclick="event.stopPropagation();toggleSubDropMenu();">
-                      <span>Market Place</span>
-                      <i class="ri-arrow-right-s-line text-c-yellow text-2xl subdrop-right-arrow rotate md:hidden"></i>
-                    </a>
-                    <ul class="drop-list text-sm space-y-1 lg:hidden" id="subdrop-menu">
-                      <li>
-                        <a id="user-license" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.license-content','User License')">
-                          <span>User License</span>
-                          <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="storage" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.storage-content','Storage')">
-                          <span>Storage</span>
-                          <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a id="app" href="#" class="block py-1 pl-12 pr-10 rounded-r-md w-full flex justify-between items-center" onclick="event.stopPropagation();tabView('.apps-content','Apps')">
-                          <span>Apps</span>
-                          <i class="ri-arrow-right-s-line text-c-yellow text-2xl"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-            </div>
-          </div>
-        </div>
-      </aside>
       <!-- Main content -->
       <div class="flex-grow h-100 main">
         <div class="flex w-full h-full flex-col content">
-          <div class="pl-14 lg:px-5 py-6">
+          <div class="pl-6 lg:px-5 py-6">
             <div class="flex items-center gap-4">
               <span class="text-lg text-c-black font-normal"
                 >Feature Management</span
@@ -100,7 +49,7 @@
             </div>
             <button class="edit-cloud-storage add-cloud-storage md:hidden"><i class="ri-add-line ri-lg"></i></button>
             <div class="relative flex items-center filter md:hidden">
-              <button class="dropdown-btn mt-1">
+              <button class="dropdown-btn">
                 <i class="ri-filter-line ri-lg"></i>
               </button>
               <div id="upload-dropdown" class="dropdown-option absolute right-0 mt-2 z-10 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden w-32 text-xs top-full">
@@ -136,7 +85,7 @@
           <div class="relative h-full overflow-hidden">
             <!-- Navigation -->
             <div
-              class="h-14 hidden lg:flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
+              class="h-14 flex items-center justify-center gap-4 sm:gap-6 border-b border-gray"
             >
               <label for="license" class="cursor-pointer radio-border">
                 <input
@@ -799,14 +748,14 @@
                   </div>
                   <div class="md:col-span-8 flex items-center gap-2">
                     <div class="dropdown relative w-full">
-                      <button class="dropdownBtn w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left">
+                      <div class="dropdownBtn w-full p-2 bg-c-lighten-gray border border-gray-3 rounded-xl outline-none pl-4 text-left cursor-pointer">
                         <div class="selected-value flex items-center gap-2">
                           International
                         </div>
                         <div class="absolute inset-y-0 right-0 flex items-center border border-gray-3 w-12 rounded-r-xl pl-3 pt-1">
                           <i class="ri-arrow-drop-down-line ri-xl"></i>
                         </div>
-                      </button>
+                      </div>
                       <div class="dropdown-menu absolute w-full bg-c-lighten-gray border border-gray-3 rounded-xl text-sm z-10" style="display:none;">
                         <a class="rounded-t-xl custom-bg-hover py-2 px-4 flex items-center gap-2 cursor-pointer" data-value="international">
                           International

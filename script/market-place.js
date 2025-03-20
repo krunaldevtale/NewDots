@@ -13,19 +13,35 @@ $(document).ready(function () {
         // Hide all content divs
         $(".main-content").addClass("hidden");
 
-        // Show the selected div
-        if (selectedValue === "license") {
+        if ($(window).width() <= 768) {
+          if(selectedValue === "apps"){
+            $(".filter, .apps-content").removeClass("hidden");
+            $(".add-cloud-storage").addClass("hidden");
+            $(".tab-name").text("All Apps");
+          } else if(selectedValue === "storage"){
+            $(".filter").addClass("hidden");
+            $(".add-cloud-storage, .storage-content").removeClass("hidden");
+            $(".tab-name").text("Storage");
+          }  else if(selectedValue === "license"){
+            $(".filter, .add-cloud-storage").addClass("hidden");
+            $(".license-content").removeClass("hidden");
+            $(".tab-name").text("User Licence");
+          }
+        }else{
+          // Show the selected div
+          if (selectedValue === "license") {
             $(".sub-tab-name, .sub-tab-arrow").addClass("md:hidden");
             $(".license-content").removeClass("hidden");
             $(".tab-name").text("User Licence");
-        } else if (selectedValue === "storage") {
-            $(".sub-tab-name, .sub-tab-arrow").addClass("md:hidden");
-            $(".storage-content").removeClass("hidden");
-            $(".tab-name").text("Storage"); 
-        } else if (selectedValue === "apps") {
-            $(".apps-content").removeClass("hidden");
-            $(".sub-tab-name, .sub-tab-arrow").removeClass("md:hidden");
-            $(".tab-name").text("Apps");
+          } else if (selectedValue === "storage") {
+              $(".sub-tab-name, .sub-tab-arrow").addClass("md:hidden");
+              $(".storage-content").removeClass("hidden");
+              $(".tab-name").text("Storage"); 
+          } else if (selectedValue === "apps") {
+              $(".apps-content").removeClass("hidden");
+              $(".sub-tab-name, .sub-tab-arrow").removeClass("md:hidden");
+              $(".tab-name").text("Apps");
+          }
         }
     });
 
@@ -66,16 +82,6 @@ $(document).ready(function () {
           }
         }   
         $(".tab-name").text(title);
-        if(title=="Apps"){
-          $(".filter").removeClass("hidden");
-          $(".add-cloud-storage").addClass("hidden");
-          $(".tab-name").text("All Apps");
-        } else if(title=="Storage"){
-          $(".filter").addClass("hidden");
-          $(".add-cloud-storage").removeClass("hidden");
-        }  else if(title=="User Lisence"){
-          $(".filter, .add-cloud-storage").addClass("hidden");
-        }
       }
 
     ///////// User License js //////////
@@ -483,6 +489,11 @@ $(document).ready(function () {
       var selectedText = $(this).text().trim();
       var selectedIcon = $(this).find("img").prop("outerHTML") || "";
       var selectedValue = $(this).data("value");
+      if(selectedValue=="international" || selectedValue=="century"){
+        dropdown = $(this).closest(".dropdown");
+      }else{
+        dropdown = $(this).closest("#cloudStorageModal").find(".dropdown").first();
+      }
 
       dropdown.find(".selected-value").html(selectedIcon + " " + selectedText);
       dropdown.find(".dropdown-menu").hide();
