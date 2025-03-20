@@ -53,7 +53,10 @@
 }
 @media (max-width: 1024px) {
     .main-content{
-        height: calc(100% - 0rem);
+        height: calc(100vh - 16rem);
+    }
+    .buy-section{
+        height: calc(100vh - 13rem);
     }
     .nav-content{
         height: calc(100vh - 17rem)!important;
@@ -61,7 +64,10 @@
 }
 @media (min-width: 1024px) {
     .main-content{
-        height: calc(100% - 3.5rem);
+        height: calc(100vh - 13.5rem);
+    }
+    .buy-section{
+        height: calc(100vh - 10.5rem);
     }
     .nav-content{
         height: calc(100vh - 20rem)!important;
