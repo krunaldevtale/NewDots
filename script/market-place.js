@@ -283,7 +283,12 @@ $(document).ready(function () {
         });
     
     const Gateway = $('#payment-gateway');  // Corrected ID
-    
+    $(".closePaymentModal").click(function(){
+      $("#payment-gateway").addClass("hidden");
+    });
+    $(".purchase-cancel-btn").click(function(){
+      $("#purchase-modal").addClass("hidden");
+    });
     $(window).click(function(event) {
         if (event.target == Gateway[0]) {  // Compare with DOM element using [0]
             $(Gateway).addClass('hidden');
