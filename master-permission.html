@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Permission</title>
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+  </head>
+
+  <body class="h-screen w-full">
+    <main class="flex w-full h-full flex cm">
+      <!-- Main content -->
+      <div class="flex-grow h-100 main">
+        <div class="flex w-full h-full flex-col content">
+          <div class="pl-6 lg:px-6 py-6">
+            <div class="flex items-center gap-4">
+                <i class="ri-settings-3-fill ri-xl"></i>
+                <span class="text-lg text-color-nav-black">Master Permission</span>
+            </div>
+          </div>
+          <!-- topTaskbar in desktop -->
+          <div class="pl-6 md:pl-6 py-4 pr-4 md:pr-6 w-full flex flex-row justify-between items-center taskbar">
+            <div class="w-full sm:w-4/12 xl:w-6/12 text-sm md:text-base">
+                <div class="flex items-center">
+                    <span class="font-semibold text-c-black tab-name whitespace-nowrap tab-name">Master permission View</span>
+                </div>
+            </div>
+            <div class="taskicon w-full sm:w-8/12 xl:w-6/12 flex-row items-center justify-end gap-4 hidden md:flex">
+                <div id="search-bar" class="flex items-center rounded overflow-hidden bg-c-white h-9">
+                    <input
+                    type="search"
+                    class="pl-4  border-none text-c-black outline-none"
+                    placeholder="Search"
+                    />
+                    <div class="pr-4 flex items-center justify-center">
+                    <i class="ri-search-line"></i>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <!-- searchbar in mobile-->
+          <div
+            class="pl-4 pt-3 mt-3 pb-3 pr-4 w-full flex flex-row justify-between items-center bg-c-light-white-smoke md:hidden text-xs"
+            id="mobiletaskbar"
+          >
+            <div class="w-full flex flex-row items-center justify-end gap-2">
+              <div
+                id="mobilesearchbutton"
+                class="flex items-center rounded overflow-hidden flex-shrink-0 flex-grow bg-c-white h-8 w-1/12"
+              >
+                <input
+                  type="text"
+                  class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none w-3/12"
+                  placeholder="Search"
+                />
+                <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                  <i class="ri-search-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Main content -->
+          <div class="relative h-full overflow-hidden px-8">
+            <div class="flex items-center justify-center py-6 text-c-black h-16">
+                <p class="text-sm font-medium">Tap on client card to see more details</p>
+            </div>
+            <!-- List -->
+            <div class="max-w-full mx-auto space-y-2 overflow-y-auto pb-6 scroll" style="height: calc(100% - 6rem);">
+                <!-- Accordion Cards -->
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                  <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                      <span class="font-medium text-base">John Simon</span>
+                    </div>
+                    <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                  </div>
+            
+                  <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                    <!-- Permission Rows -->
+                    <div class="space-y-10">
+                      <!-- File Management -->
+                      <div class="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-14">
+                        <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox" checked>
+                                <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox" checked>
+                                <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox">
+                                <span>Delete Account</span>
+                            </label>
+                            </div>
+                            <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                                <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox" checked>
+                                <span>Edit profile</span>
+                                </label>
+                                <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox" checked>
+                                <span>View Reports</span>
+                                </label>
+                                <label class="flex items-center space-x-4">
+                                <input type="checkbox" class="c-checkbox">
+                                <span>Delete Account</span>
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+            
+                      <!-- User Management -->
+                      <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                        <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                        <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox">
+                            <span>Edit profile</span>
+                          </label>
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox" checked>
+                            <span>View Reports</span>
+                          </label>
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox" checked>
+                            <span>Delete Account</span>
+                          </label>
+                        </div>
+                      </div>
+            
+                      <!-- Role Management -->
+                      <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                        <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                        <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox">
+                            <span>Edit profile</span>
+                          </label>
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox" checked>
+                            <span>View Reports</span>
+                          </label>
+                          <label class="flex items-center space-x-4">
+                            <input type="checkbox" class="c-checkbox" checked>
+                            <span>Delete Account</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item border border-c-gray rounded-lg bg-white shadow">
+                    <div class="accordion-header flex items-center justify-between px-4 py-3 cursor-pointer">
+                      <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-c-slate-green text-white rounded-full flex items-center justify-center">J</div>
+                        <span class="font-medium text-base">John Simon</span>
+                      </div>
+                      <i class="ri-arrow-down-s-fill ri-xl accordion-icon transform transition-transform"></i>
+                    </div>
+              
+                    <div class="accordion-body px-4 sm:px-6 py-4 border-t hidden">
+                      <!-- Permission Rows -->
+                      <div class="space-y-10">
+                        <!-- File Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">File Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- User Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">User Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+              
+                        <!-- Role Management -->
+                        <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-14">
+                          <p class="font-semibold text-base w-full lg:w-48">Role Management:</p>
+                          <div class="flex flex-col px-3 sm:px-0 sm:flex-row flex-wrap gap-4 sm:gap-x-10 lg:gap-x-20">
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox">
+                              <span>Edit profile</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>View Reports</span>
+                            </label>
+                            <label class="flex items-center space-x-4">
+                              <input type="checkbox" class="c-checkbox" checked>
+                              <span>Delete Account</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                Total 1 page &nbsp; <span class="text-c-yellow">(2 records)</span>
+            </div>
+          </div>
+      </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script>
+         $(document).ready(function() {
+        $('.accordion-header').click(function() {
+            const body = $(this).next('.accordion-body');
+            const icon = $(this).find('.accordion-icon');
+
+            // Close others
+            $('.accordion-body').not(body).slideUp();
+            $('.accordion-icon').not(icon).removeClass('rotate-180');
+
+            // Toggle current
+            body.slideToggle();
+            icon.toggleClass('rotate-180');
+            });
+    });
+    </script>
+  </body>
+</html>

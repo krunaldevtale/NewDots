@@ -6,6 +6,10 @@
   background: var(--color-dark-yellow);
 }
 
+.bg-c-slate-green{
+  background: var(--color-slate-green);
+}
+
 .bg-yellow-gradient{
   background: var(--bg-yellow-gradient);
 }
