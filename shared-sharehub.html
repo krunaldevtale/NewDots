@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shared Hub</title>
+    <link rel="stylesheet" href="styles/custom.css" />
+    <link rel="stylesheet" href="styles/root.css" />
+    <link rel="stylesheet" href="styles/common.css" />
+  </head>
+  <body class="h-screen w-full">
+    <main class="flex w-full h-full cm">    
+      <!-- Sidebar -->
+      <aside class="h-full relative">
+        <input type="checkbox" class="hidden" id="sidebar-toggle" />
+        <label
+          for="sidebar-toggle"
+          class="absolute top-0.5 sm:top-1 -right-8 px-1 py-3 lg:py-4"
+        >
+          <i class="ri-menu-line ri-lg cursor-pointer"></i>
+        </label>
+        <div class="h-full">
+          <div class="sidebar-container">
+            <div class="p-6 flex items-center justify-center">
+              <a href="index.html">
+                <img class="w-36" src="/images/logo.png" alt="Cloudless Logo" />
+              </a>
+            </div>
+            <div class="sidebar-content mt-10">
+              <div class="overflow-hidden">
+                <!-- Sharing Hub -->
+                <div class="sharinghub-toggle text-c-black pl-6 pr-5 py-1 flex items-center justify-between rounded-r-xl cursor-pointer">
+                    <div class="flex items-center gap-2">
+                        <i class="ri-share-fill ri-xl text-c-black"></i>
+                        <span class="text-base font-medium">Sharing Hub</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line ri-2x transform transition-transform duration-300 sharinghub-arrow"></i>
+                </div>
+
+                <div class="sharinghub-tree hidden pl-4">
+                    <!-- Shared Files -->
+                    <div class="shared-toggle text-c-black pl-8 pr-5 py-1 flex items-center justify-between rounded-r-xl cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <img src="/images/shared-files.png" class="w-7" />
+                            <span class="text-base font-medium">Shared Files</span>
+                        </div>
+                        <i class="ri-arrow-right-s-line ri-2x transform transition-transform duration-300 shared-arrow"></i>
+                    </div>
+                    <!-- Tree -->
+                    <ul class="shared-tree px-3 py-2 space-y-1 hidden">
+                        <li class="tree-item pl-6">
+                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm text-gray-800 py-1">
+                                <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                <span class="flex items-center justify-center gap-1 font-medium">
+                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                    portfolio
+                                </span>
+                            </div>
+                            <ul class="pl-2 space-y-1 hidden">
+                                <li class="tree-item border-l border-gray-400 pl-4">
+                                    <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                        <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                        <span class="flex items-center justify-center gap-1 font-medium">
+                                            <img src="/images/folders.png" alt="folders" class="w-7">
+                                            tutorials
+                                        </span>
+                                    </div>
+
+                                    <ul class="pl-2 space-y-1 hidden">
+                                        <li class="tree-item border-l border-gray-400 pl-4">
+                                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                                <i class="ri-arrow-right-s-line transform font-semibold "></i>
+                                                <span class="flex items-center justify-center gap-1 font-medium">
+                                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                                    calculator
+                                                </span>
+                                            </div>
+                                            <ul class="pl-6 space-y-1 hidden">
+                                                <li class="py-1">
+                                                    <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                        <img src="/images/word.svg" alt="word" class="w-4">
+                                                        Word File
+                                                    </div>
+                                                </li>
+                                                <li class="py-1">
+                                                    <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                        <img src="/images/word.svg" alt="word" class="w-4">
+                                                        Word File
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="tree-item border-l border-gray-400 pl-4">
+                                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                                <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                                <span class="flex items-center justify-center gap-1 font-medium">
+                                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                                html
+                                                </span>
+                                            </div>
+                                            <ul class="pl-2 space-y-1 hidden">
+                                                <li class="tree-item border-l border-gray-400 pl-4">
+                                                    <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                                        <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                                        <span class="flex items-center justify-center gap-1 font-medium">
+                                                            <img src="/images/folders.png" alt="folders" class="w-7">
+                                                            portfolio
+                                                        </span>
+                                                    </div>
+
+                                                    <ul class="pl-6 space-y-1 hidden">
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                        <li class="py-1">
+                                                            <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                                <img src="/images/word.svg" alt="word" class="w-4">
+                                                                Word File
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tree-item border-l border-gray-400 pl-4">
+                                    <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                        <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                        <span class="flex items-center justify-center gap-1 font-medium">
+                                            <img src="/images/folders.png" alt="folders" class="w-7">
+                                            Client
+                                        </span>
+                                    </div>
+
+                                    <ul class="pl-2 space-y-1 hidden">
+                                        <li class="tree-item border-l border-gray-400 pl-4">
+                                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                                <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                                <span class="flex items-center justify-center gap-1 font-medium">
+                                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                                    Client One
+                                                </span>
+                                            </div>
+
+                                            <ul class="pl-6 space-y-1 hidden">
+                                                <li class="py-1">
+                                                    <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                        <img src="/images/word.svg" alt="word" class="w-4">
+                                                        Word File
+                                                    </div>
+                                                </li>
+                                                <li class="py-1">
+                                                    <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                                        <img src="/images/word.svg" alt="word" class="w-4">
+                                                        Word File
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Recieved Files -->
+                    <div class="received-toggle text-c-black pl-8 pr-5 py-1 flex items-center justify-between mt-2 rounded-r-xl cursor-pointer">
+                    <div class="flex items-center gap-2">
+                        <img src="/images/recieved-files.png" class="w-7" />
+                        <span class="text-base font-medium">Received Files</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line ri-2x transform transition-transform duration-300 received-arrow"></i>
+                    </div>
+
+                    <!-- Tree -->
+                    <ul class="received-tree px-3 py-2 space-y-1 hidden">
+                    <li class="tree-item pl-6">
+                        <div class="tree-label flex items-center gap-2 cursor-pointer text-sm text-gray-800 py-1">
+                            <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                            <span class="flex items-center justify-center gap-1 font-medium">
+                                <img src="/images/folders.png" alt="folders" class="w-7">
+                                portfolio
+                            </span>
+                        </div>
+                        <ul class="pl-2 space-y-1 hidden">
+                        <li class="tree-item border-l border-gray-400 pl-4">
+                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                <span class="flex items-center justify-center gap-1 font-medium">
+                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                    tutorials
+                                </span>
+                            </div>
+
+                            <ul class="pl-2 space-y-1 hidden">
+                            <li class="tree-item border-l border-gray-400 pl-4">
+                                <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                    <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                    <span class="flex items-center justify-center gap-1 font-medium">
+                                        <img src="/images/folders.png" alt="folders" class="w-7">
+                                        calculator
+                                    </span>
+                                </div>
+                                <ul class="pl-6 space-y-1 hidden">
+                                    <li class="py-1">
+                                        <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                            <img src="/images/word.svg" alt="word" class="w-4">
+                                            Word File
+                                        </div>
+                                    </li>
+                                    <li class="text-sm text-c-black py-1">
+                                        <div class="text-sm text-c-black flex items-center justify-center gap-2 cursor-pointer">
+                                            <img src="/images/word.svg" alt="word" class="w-4">
+                                            Word File
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="tree-item border-l border-gray-400 pl-4">
+                                <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                    <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                    <span class="flex items-center justify-center gap-1 font-medium">
+                                        <img src="/images/folders.png" alt="folders" class="w-7">
+                                    html
+                                    </span>
+                                </div>
+                                <ul class="pl-2 space-y-1 hidden">
+                                <li class="tree-item border-l border-gray-400 pl-4">
+                                    <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                        <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                        <span class="flex items-center justify-center gap-1 font-medium">
+                                            <img src="/images/folders.png" alt="folders" class="w-7">
+                                            portfolio
+                                        </span>
+                                    </div>
+
+                                    <ul class="pl-6 space-y-1 hidden">
+                                    <li class="text-sm text-c-black py-1">client</li>
+                                    <li class="text-sm text-c-black py-1">personal</li>
+                                    <li class="text-sm text-c-black py-1">corporate</li>
+                                    <li class="text-sm text-c-black py-1">enterprise</li>
+                                    <li class="text-sm text-c-black py-1">non-profit</li>
+                                    <li class="text-sm text-c-black py-1">freelance</li>
+                                    </ul>
+                                </li>
+                                </ul>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="tree-item border-l border-gray-400 pl-4">
+                            <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                <span class="flex items-center justify-center gap-1 font-medium">
+                                    <img src="/images/folders.png" alt="folders" class="w-7">
+                                    Client
+                                </span>
+                            </div>
+
+                            <ul class="pl-2 space-y-1 hidden">
+                            <li class="tree-item border-l border-gray-400 pl-4">
+                                <div class="tree-label flex items-center gap-2 cursor-pointer text-sm py-1">
+                                    <i class="ri-arrow-right-s-line transform font-semibold"></i>
+                                    <span class="flex items-center justify-center gap-1 font-medium">
+                                        <img src="/images/folders.png" alt="folders" class="w-7">
+                                        Client One
+                                    </span>
+                                </div>
+
+                                <ul class="pl-6 space-y-1 hidden">
+                                <li class="text-sm text-c-black py-1">calculator</li>
+                                <li class="text-sm text-c-black py-1">to-do-app</li>
+                                </ul>
+                            </li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>    
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Side -->
+      <div class="right-container flex-grow border h-100 main">
+            <div class="flex w-full h-full flex-col content">
+                <div class="px-9 pr-6 py-3 lg:py-4 flex justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="ri-share-fill ri-xl text-c-black"></i>
+                        <span class="text-base sm:text-lg text-c-black font-normal">Sharing Hub</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="relative"> 
+                            <i class="ri-question-line text-sm sm:text-lg cursor-pointer has-tooltip"></i>
+                            <div class="absolute py-1 px-1.5 text-start text-xs tooltip -bottom-5 right-2 z-10 bg-white border rounded-md border-c-yellow font-normal">
+                                Help
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <!-- topTaskbar in desktops -->
+                <div class="py-4 w-full hidden md:flex flex-row items-center justify-between gap-2 taskbar">
+                    <div class="flex bg-c-white rounded-md w-16 h-8 justify-evenly ml-6 items-center">
+                        <a href="#" class="leftArrowClick">
+                            <button>
+                                <i class="ri-arrow-left-line ri-lg"></i>
+                            </button>
+                        </a>
+
+                        <a href="#" class=" rightArrowClick">
+                            <button>
+                                <i class="ri-arrow-right-line ri-lg"></i>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="flex items-center rounded-md overflow-hidden flex-shrink-0  bg-c-white h-8 ml-7 mr-6 w-11/12 md:w-2/12">
+                        <input type="text" class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none w-2/12" placeholder="Search" id="searchFiles" />
+                        <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                            <i class="ri-search-line"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- topTaskbar in mobile -->
+                <div class="md:hidden flex w-full relative taskbar context-menulist" id="taskbar">
+                    <div class="flex items-center gap-6 overflow-hidden flex-shrink-0 bg-transparent px-3 py-2 cursor-pointer flex-grow">
+                        <a href="#" class="leftArrowClick">
+                            <button>
+                                <i class="ri-arrow-left-s-line ri-xl pt-1"></i>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="py-4 w-full flex flex-col items-center gap-2 taskbar" id="search">
+                        <div class="flex items-center rounded-md overflow-hidden flex-shrink-0 flex-grow bg-c-white h-8 ml-7 mr-6 w-11/12 md:w-2/12">
+                            <input type="text" class="pl-4 pt-2.5 pb-2.5 flex-shrink flex-grow border-none outline-none font-size-16 w-2/12" placeholder="Search" />
+                            <div class="pt-3 pb-3 pr-4 flex items-center justify-center">
+                                <i class="ri-search-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-c-light-gray1 flex justify-between items-center flex text-c-black actionbar ">
+                    <div class="flex ml-6 gap-x-5 lg:gap-x-4 xl:gap-x-6 my-4 context-menulist">                      
+                        <div class="relative flex items-center upload">
+                            <a href="#" class="uploadFiles">
+                                <button class="flex gap-x-2 text-c-light-black">
+                                    <i class="ri-upload-2-line ri-lg mt-1"></i>
+                                    <span>Upload</span>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-center">
+                          <button>
+                            <img src="/images/sharehub-icon.svg" alt="Icon">
+                          </button>
+                        </div>
+                        <div class="relative flex items-center clickmenu sort">
+                            <button class="flex dropdown-btn text-c-light-black">
+                                <i class="ri-arrow-up-down-line ri-lg mt-1"></i>
+                                <span class="ml-1 text-base">Sort</span>
+                                <i class="ri-arrow-drop-down-line ri-lg mt-1"></i>
+                            </button>
+                            <div id="sort-dropdown" class="dropdown-option absolute top-full mt-2 z-50 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden md:w-40 lg:w-44 xl:w-68">
+                              <div class="hover-bg-c-yellow rounded-t-lg">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Name</span>
+                                  <i class="ri-check-line pr-3 ri-lg"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Type</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Creation</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Modification</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Ascending</span>
+                                  <i class="ri-check-line pr-3 ri-lg"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow rounded-b-lg ">
+                                <a href="#" class="flex items-center justify-between block p-2 pl-4 dropdown-item">
+                                  <span>Descending</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center resize">
+                            <button class="flex dropdown-btn text-c-light-black">
+                                <i class="ri-arrow-up-down-line ri-lg mt-1"></i>
+                                <span class="ml-1 text-base">Resize</span>
+                                <i class="ri-arrow-drop-down-line ri-lg mt-1"></i>
+                            </button>
+                           <div id="resize-dropdown" class="dropdown-option absolute top-full mt-2 z-50 bg-c-white border border-c-medium-gray rounded-lg shadow-md hidden clickmenu md:w-40 lg:w-44 xl:w-68">
+                              <div class="hover-bg-c-yellow rounded-t-lg">
+                                <a href="#" class="flex items-center block p-2 pl-4 dropdown-item">
+                                  <i class="ri-gallery-view-2 text-sm mt-1 w-1/4"></i>
+                                  <span>Tiny Icon</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow">
+                                <a href="#" class="flex items-center block p-2 pl-4 dropdown-item">
+                                  <i class="ri-gallery-view-2 text-sm mt-1 w-1/4"></i>
+                                  <span>Small Icon</span>
+                                  <i class="ri-check-line pr-3 ri-lg"></i>
+                                </a>
+                              </div>
+                              <div class="hover-bg-c-yellow rounded-b-lg">
+                                <a href="#" class="flex items-center block p-2 pl-4 dropdown-item">
+                                  <i class="ri-gallery-view-2 text-sm mt-1 w-1/4"></i>
+                                  <span>Medium Icon</span>
+                                  <i class="ri-check-line pr-3 ri-lg hidden"></i>
+                                </a>
+                              </div>
+                            </div>
+                        </div>
+                        <div id="downloadBtn" class="text-c-light-black hidden">
+                            <i class="ri-download-line ri-1x"></i>
+                        </div>
+                        <div class="fullscreen hidden">
+                          <button class="text-c-light-black">
+                               <i class="ri-fullscreen-exit-line ri-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gridContainer" class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 px-4 py-6 gridview">
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="./images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="app cursor-pointer relative small-wraper">
+                        <a href="#" class="flex flex-col items-center justify-center gap-2">
+                            <div class="fixed w-full app-tools absolute flex item-center gap-8 px-2 invisible top-1 left-0">
+                                <input type="checkbox" class="appcheckbox">
+                                <div class="ml-auto -mt-1">
+                                    <i class="ri-arrow-drop-down-fill ri-xl text-black"></i>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center small pt-2">
+                                <img class="w-14 icondisplay" loading="lazy" src="/images/excel.png" alt="Excel">
+                            </div>
+                            <div class="flex flex-col items-center small" style="width:8rem !important">
+                                <div class="input-wrapper">
+                                    <input type="text" class="text-center text-black appinputtext" disabled="" value="Aibuzz Test docx...Imp">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Preview -->
+                <div class="px-1 sm:px-5 hidden">
+                    <div class="flex"> 
+                        <div class="w-full rounded p-5 relative">
+                            <h3 class="text-lg text-c-black font-medium mb-2">File Preview</h3>
+                            <div class="filedetailpreview">
+                                <div id="filePreview" class="border rounded p-4 overflow-auto relative">
+                                    <iframe src="http://localhost/dotsdesktop/editfile/MTM4" class="w-full h-full frame iframeshared" allow="camera; microphone; autoplay; fullscreen" allowfullscreen="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"></iframe>
+                                </div>
+                            </div>
+
+                            <!-- Chat icon -->
+                            <div id="chatIcon" class="text-2xl"><i class="ri-message-2-line ri-lg"></i></div>
+
+                            <div id="commentPopup">
+                                <header>
+                                    <h4>Comments</h4>
+                                    <span class="close-popup"><i class="ri-close-line text-2xl"></i></span>
+                                </header>
+
+                                <!-- Comments Container (scrollable) -->
+                                <div class="comments-container" id="commentsContainer">
+                                    
+                                </div>
+
+                                <!-- Input Container with Reply Preview and Comment Input -->
+                                <div class="input-container">
+                                    <div id="replyPreview" style="padding-left: 4px; border-left: 3px solid #FF9800; border-radius: 8px;" data-id="">
+                                        <div class="reply-content"></div>
+                                        <div class="reply-cancel"><i class="ri-close-line"></i></div>
+                                    </div>
+
+                                    <div class="flex gap-2 items-center">
+                                        <div id="commentInput" contenteditable="true" placeholder="Add a comment..." class="flex-1 border p-2 rounded"></div>
+                                        <button id="sendBtn" class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+                                    </div>
+
+                                    <ul id="suggestionList" class="absolute bg-white border rounded mt-1 w-full"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+
+      
+
+      <!-- Upload Popup -->
+      <div id="sharehubupload" class="fixed inset-0 flex z-50 items-center justify-center bg-black bg-opacity-75 hidden">
+        <div class="popup-content bg-white rounded-lg shadow-xl px-8 py-6 w-full max-w-2xl">
+          <!-- Header -->
+          <div class="flex justify-between items-center border-b pb-3 border-gray-300">
+            <h2 class="text-2xl font-semibold text-black">Local Upload</h2>
+            <button id="close-popup" class="text-2xl text-black hover:text-yellow-500 focus:outline-none">
+              <i class="ri-close-line"></i>
+            </button>
+          </div>
+          <div class="overflow-y-auto scroll" style="max-height: calc(100vh - 14rem)">
+              <!-- Upload Options -->
+              <div id="upload-options" class="hidden md:flex justify-center space-x-6 my-3">
+                <button id="select-file-upload" class="flex items-center space-x-2 px-4 py-2 border rounded-lg text-black hover:bg-yellow-500 hover:text-white focus:outline-none">
+                    <i class="ri-file-upload-line text-xl"></i>
+                    <span>File Upload</span>
+                </button>
+                <button id="select-folder-upload" class="flex items-center space-x-2 px-4 py-2 border rounded-lg text-black hover:bg-yellow-500 hover:text-white focus:outline-none">
+                    <i class="ri-folder-upload-line text-xl"></i>
+                    <span>Folder Upload</span>
+                </button>
+              </div>
+
+              <!-- Dropzone & File List -->
+              <div class="bg-white border-2 border-dashed border-yellow-500 rounded-lg p-6 text-center max-h-56 overflow-y-auto scroll">
+                <p id="dropzone-text" class="mb-4 text-lg text-black">
+                    Drag and drop files here or click to upload
+                </p>
+                <div id="dropzone" class="cursor-pointer">
+                    <i class="ri-upload-cloud-2-line text-6xl text-yellow-500"></i>
+                </div>
+              <!-- The file input will be modified dynamically -->
+                <input type="file" id="file-input" class="hidden" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.txt,.rtf,.odt,.ods,.odp,.csv,.md,.tex,.mp3,.png,.mp4,.jpg,.jpeg,.svg,.webp">
+                <div id="file-list-container" class="mt-6 hidden">
+                    <table class="w-full">
+                      <thead class="border-b-2 border-black">
+                          <tr>
+                          <th class="py-2 px-4 text-left text-black">Name</th>
+                          <th class="py-2 px-4 text-left text-black">Size</th>
+                          <th class="py-2 px-4 text-left text-black">Progress</th>
+                          </tr>
+                      </thead>
+                      <tbody id="file-list" class="text-black"></tbody>
+                    </table>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <script>
+        $(document).ready(function () {
+
+            $('.sharinghub-toggle').on('click', function () {
+                $('.sharinghub-tree').slideToggle(300);
+                $(this).find('.sharinghub-arrow').toggleClass('-rotate-90');
+
+                // Auto close everything when hub closes
+                if ($('.sharinghub-tree').is(':hidden')) {
+                $('.shared-tree, .received-tree').slideUp(200);
+                $('.shared-arrow, .received-arrow').removeClass('-rotate-90');
+                }
+            });
+
+            // SHARED FILES TOGGLE (AUTO CLOSE RECEIVED)
+            $('.shared-toggle').on('click', function () { 
+                // Close received
+                $('.received-tree').slideUp(250);
+                $('.received-arrow').removeClass('-rotate-90');
+
+                // Toggle shared
+                $('.shared-tree').slideToggle(250);
+                $(this).find('.shared-arrow').toggleClass('-rotate-90');
+
+            });
+
+            // RECEIVED FILES TOGGLE (AUTO CLOSE SHARED)
+            $('.received-toggle').on('click', function () {
+
+                // Close shared
+                $('.shared-tree').slideUp(250);
+                $('.shared-arrow').removeClass('-rotate-90');
+
+                // Toggle received
+                $('.received-tree').slideToggle(250);
+                $(this).find('.received-arrow').toggleClass('-rotate-90');
+
+            });
+
+            // INNER TREE TOGGLE
+            $('.tree-label').on('click', function (e) {
+                e.stopPropagation();
+
+                const parent = $(this).closest('.tree-item');
+                const icon = $(this).find('i').first();
+                const submenu = parent.children('ul');
+
+                submenu.slideToggle(200);
+                icon.toggleClass('rotate-90');
+            });
+            
+            $(document).on('click', '.uploadFiles', function (e) {
+              e.preventDefault();
+              $('#sharehubupload').removeClass('hidden');
+            });
+            
+            $('#close-popup').on('click', function (e) {
+              e.preventDefault();
+              
+              // Hide the popup
+              $('#sharehubupload').addClass('hidden');
+            
+            });
+        });
+</script>
+</body>
+</html>
+

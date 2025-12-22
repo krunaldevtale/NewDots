@@ -1239,3 +1239,61 @@ background-color: #fdcf01;
   /* Light gray background */
   border-radius: 50%;
 }
+
+.small-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  border: 1px solid transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.small-wraper .small {
+  width: 3.3rem;
+  font-size: 0.9rem;
+}
+
+.sharehub-border{
+  border-color: #AFAFAF;
+}
+
+#filePreview {
+  height: calc(100vh - 300px);
+}
+
+#chatIcon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 10px;
+  z-index: 50;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  color: var(--color-dark-yellow);
+}
+
+#commentPopup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -350px;
+  width: 350px;
+  background: #fff;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.3);
+  z-index: 600;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
